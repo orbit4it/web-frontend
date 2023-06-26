@@ -11,6 +11,12 @@ module.exports = {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic':
 					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				home: "url('/assets/img/BgHome.png')",
+			},
+			colors: {
+				purple: '#EE2ED1',
+				purpleFooter: '#4B0B7C',
+				NavlinkGradient: '',
 			},
 		},
 	},
