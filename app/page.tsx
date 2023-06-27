@@ -87,16 +87,38 @@ export default function Home() {
 			{/* Greetings  END*/}
 
 			{/* APA ITU ORBIT */}
-			<div className=" bg-home2 bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen relative">
-				<CardLanding
-					width="w-[478px]"
-					height="h-56 "
-					judul="Apa itu ORBIT?"
-					desc="Orbit merupakan sebuah ekstrakurikuler yang fokus bergerak di bidang
+			<div className=" bg-home2 bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen relative p-5 md:p-0">
+				<div className=" pt-1  md:pt-10">
+					<m.div
+						initial={{ opacity: 0, translateY: 100 }}
+						whileInView={{ opacity: 1, translateY: -5 }}
+						className=""
+					>
+						<CardLanding
+							width="w-[478px]"
+							height="h-56 "
+							judul="Apa itu ORBIT?"
+							desc="Orbit merupakan sebuah ekstrakurikuler yang fokus bergerak di bidang
 						IT. Orbit merupakan sebuah wadah yang menampung siswa yang ingin
 						mengembangkan bakatnya, terutama dalam IT, siapapun bisa masuk orbit
 						tanpa melihat jurusannya."
-				/>
+							classname=" mt-5 md:mt-40 ml-0 md:ml-36"
+						/>
+					</m.div>
+				</div>
+				<m.div
+					initial={{ opacity: 0, translateY: 100 }}
+					whileInView={{ opacity: 1, translateY: -5 }}
+					className=" pt-10 relative md:absolute z-10 md:right-10"
+				>
+					<CardLanding
+						width="w-[478px]"
+						height="h-[286px] "
+						judul="Apa saja kegiatan yang dilakukan ORBIT?"
+						desc="Orbit bersifat sebagai sarana siswa untuk mengembangkan dan mengasah bakat mereka. Para siswa dapat memilih untuk bergabung beragam divisi orbit, dimana mereka akan belajar bersama mentor, mengulas materi bersama teman, dan mengerjakan latihan soal/projek yang telah diberikan."
+						classname=" mt-5 md:mt-9"
+					/>
+				</m.div>
 			</div>
 
 			<div className=" bg-home3 bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen relative">

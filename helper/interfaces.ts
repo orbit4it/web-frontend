@@ -11,4 +11,5 @@ export interface CardLandingProps {
 	height: string;
 	judul: string;
 	desc: string;
+	classname: string;
 }
