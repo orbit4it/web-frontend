@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { FreeMode } from 'swiper';
@@ -18,15 +18,29 @@ interface GaleryType {
   youtube: string | null;
 }
 
-interface Picture {
-  img: string;
-}
-
-interface Error {
-  err: boolean;
-  message: string;
-}
 export default function page() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, screenY: 20 },
+    show: { opacity: 1, screenY: 0 },
+  };
+
+  const [optionHovered, setOptionHovered] = useState<number>(0);
+
+  const [yearOptions, setYearOptions] = useState<Array<number>>([
+    2023, 2022, 2021, 2020,
+  ]);
+  const [showYearOptions, setShowYearOptions] = useState<boolean>(false);
+  const [selectedYear, setSelectedYear] = useState<number>();
   const [activeId, setActiveId] = useState<number>(1);
   const [galery, setGalery] = useState<Array<GaleryType>>([
     {
@@ -64,6 +78,11 @@ export default function page() {
     },
   ]);
 
+  const lastYear = yearOptions[0];
+  useEffect(() => {
+    setSelectedYear(lastYear);
+  }, []);
+
   const mapGalery = galery.map((item) => (
     <motion.div
       layout="size"
@@ -72,7 +91,7 @@ export default function page() {
     >
       <motion.div
         layout="position"
-        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card cursor-pointer"
+        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-cinem before:rounded-full cursor-pointer"
         key={item.index}
         onClick={() => setActiveId(item.index)}
       >
@@ -139,19 +158,65 @@ export default function page() {
       </AnimatePresence>
     </motion.div>
   ));
+
+  const mapYearOptions = yearOptions.map((year) => (
+    <>
+      <motion.li
+        variants={item}
+        layout="position"
+        onMouseEnter={() => setOptionHovered(year)}
+        onMouseLeave={() => setOptionHovered(0)}
+        onClick={() => {
+          setSelectedYear(year);
+          setShowYearOptions(false);
+        }}
+        value={year}
+        key={year}
+      >
+        <motion.p
+          style={{ color: year == selectedYear ? '#EE2ED1' : 'white' }}
+          className=" text-base text-white cursor-pointer"
+        >
+          {year}
+        </motion.p>
+        <motion.div
+          layout="size"
+          style={{ width: optionHovered == year ? '100%' : '0' }}
+          className="w-0 h-[.5px] bg-tertiary"
+        />
+      </motion.li>
+    </>
+  ));
   return (
     <>
       <header className="w-max flex items-center gap-2">
-        <div className="w-24 h-24 rounded-full glassmorphism"></div>
-        <div className="">
-          <h1 className="text-6xl font-bold text-white opacity-50 uppercase">
-            Cinematography
-          </h1>
-          <div className="flex gap-1 text-base text-white opacity-50">
-            <p>#Seni</p>
-            <p>#Fotografi</p>
-            <p>#VideoGrafi</p>
+        <div className="w-24 h-24 rounded-full glassmorphism-cinem"></div>
+        <div>
+          <div className="h-max overflow-hidden">
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 0.5, y: 0 }}
+              className="text-6xl font-bold text-white opacity-50 uppercase"
+            >
+              Cinematography
+            </motion.h1>
           </div>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="flex gap-1 text-base text-white opacity-50"
+          >
+            <motion.p variants={item} layout="position">
+              #Seni
+            </motion.p>
+            <motion.p variants={item} layout="position">
+              #Fotografi
+            </motion.p>
+            <motion.p variants={item} layout="position">
+              #VideoGrafi
+            </motion.p>
+          </motion.div>
         </div>
       </header>
 
@@ -174,11 +239,38 @@ export default function page() {
       </section>
 
       <section className="w-full h-[90vh] rounded-2xl mt-28 p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
-        <div className="rounded-full py-1 px-6 flex gap-2 items-center glassmorphism-card">
-          <h3 className="text-base font-bold text-white">2023</h3>
-          <FaAngleDown color="white" className="w-5 cursor-pointer" />
+        <motion.div
+          layout="size"
+          style={{ borderRadius: '12px' }}
+          className={`absolute top-0 left-0 mt-10 ml-10 z-20 rounded-full py-1 px-6 flex flex-col gap-2 items-center glassmorphism-card-cinem ${
+            showYearOptions ? 'before:rounded-[12px]' : 'before:rounded-full'
+          }`}
+        >
+          <motion.div layout="position" className="flex gap-2 items-center">
+            <h3 className="text-base font-bold text-white">{selectedYear}</h3>
+            <FaAngleDown
+              onClick={() => setShowYearOptions(!showYearOptions)}
+              color="white"
+              className="w-5 cursor-pointer"
+            />
+          </motion.div>
+          {showYearOptions && (
+            <AnimatePresence>
+              <motion.ul
+                layout
+                variants={container}
+                initial="hidden"
+                animate="show"
+                transition={{ delay: 0.5 }}
+              >
+                {mapYearOptions}
+              </motion.ul>
+            </AnimatePresence>
+          )}
+        </motion.div>
+        <div className="w-full mt-16 flex flex-col gap-6 items-start">
+          <LayoutGroup>{mapGalery}</LayoutGroup>
         </div>
-        <LayoutGroup>{mapGalery}</LayoutGroup>
       </section>
     </>
   );

@@ -3,18 +3,16 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 
 export default function Home() {
-	return (
-		<div className=" bg-primary bg-opacity-70">
-			<Navbar />
-			<div className=" bg-home  h-screen" id="beranda">
-				{/* <Image
+  return (
+    <div className=" bg-primary bg-opacity-70">
+      <div className=" bg-home  h-screen" id="beranda">
+        {/* <Image
 					src={'/assets/img/BgHome.png'}
 					width={1000}
 					height={1000}
 					alt="ORBIT"
 				/> */}
-			</div>
-			<Footer />
-		</div>
-	);
+      </div>
+    </div>
+  );
 }
