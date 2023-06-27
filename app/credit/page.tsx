@@ -6,7 +6,6 @@ import AwanBawah from "./assets/awan_bawah.png";
 import Orbit from "./assets/orbit.png";
 import Github from "./assets/github.png";
 import Instagram from "./assets/instagram.png";
-
 const page = () => {
   const ketua = [
     { nama: "Hasnat Ferdiananda", github: "@hasnat5_", ig: "@hasnat5_" },
