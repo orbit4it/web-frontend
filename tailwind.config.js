@@ -14,6 +14,9 @@ module.exports = {
 				home: "url('/assets/img/BgHome.png')",
 			},
 			colors: {
+				primary: '#0A013D',
+				secondary: '#EE2ED1',
+				tertiary: '#EF2ED2',
 				purple: '#EE2ED1',
 				purpleFooter: '#4B0B7C',
 				NavlinkGradient: '',
