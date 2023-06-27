@@ -7,6 +7,7 @@ import { motion as m } from 'framer-motion';
 import Awan from '@/components/Awan';
 import styles from '../helper/page.module.css';
 import CardLanding from '@/components/CardLanding';
+import VisiMisiCard from '@/components/VisiMisiCard';
 
 export default function Home() {
 	return (
@@ -32,7 +33,7 @@ export default function Home() {
 							>
 								<path
 									fillRule="evenodd"
-									clip-rule="evenodd"
+									clipRule="evenodd"
 									d="M225.25 0.833984H240.75V74.6961H225.25V0.833984ZM39.25 0.833984C60.6917 0.833984 78 17.3791 78 37.765C78 58.151 60.6917 74.6961 39.25 74.6961C17.86 74.6961 0.5 58.151 0.5 37.765C0.5 17.3791 17.86 0.833984 39.25 0.833984ZM39.25 15.6064C52.115 15.6064 62.5 25.5532 62.5 37.765C62.5 50.0261 52.115 59.9237 39.25 59.9237C26.4367 59.9237 16 50.0261 16 37.765C16 25.5532 26.4367 15.6064 39.25 15.6064ZM85.75 0.833984H124.5C137.365 0.833984 147.75 10.7807 147.75 22.9926C147.75 32.0038 142.17 39.7347 134.058 43.1816L147.75 74.6961H131.01L118.145 45.1512H101.25V74.6961H85.75V45.1512V30.3788H101.25H124.5C128.788 30.3788 132.25 27.0796 132.25 22.9926C132.25 18.9056 128.788 15.6064 124.5 15.6064C111.583 15.6064 98.6667 15.6064 85.75 15.6064V0.833984ZM155.5 0.833984H194.25C207.115 0.833984 217.5 10.7807 217.5 22.9926C217.5 28.6554 215.278 33.875 211.61 37.765C215.278 41.7043 217.5 46.8747 217.5 52.5374C217.5 64.7985 207.115 74.6961 194.25 74.6961H171H155.5V59.9237V45.1512V30.3788H171H194.25C198.538 30.3788 202 27.0796 202 22.9926C202 18.9056 198.538 15.6064 194.25 15.6064C181.333 15.6064 168.417 15.6064 155.5 15.6064V0.833984ZM194.25 59.9237C198.538 59.9237 202 56.6245 202 52.5374C202 48.4504 198.538 45.1512 194.25 45.1512H171V59.9237H194.25ZM271.75 0.833984H287.25H295C303.577 0.833984 310.5 7.43233 310.5 15.6064H287.25V74.6961H271.75V15.6064H248.5V0.833984H271.75ZM302.75 59.9237C298.513 59.9237 295 63.2228 295 67.3099C295 71.3969 298.513 74.6961 302.75 74.6961C307.038 74.6961 310.5 71.3969 310.5 67.3099C310.5 63.2228 307.038 59.9237 302.75 59.9237Z"
 									fill="white"
 								/>
@@ -50,7 +51,7 @@ export default function Home() {
 							>
 								<path
 									fillRule="evenodd"
-									clip-rule="evenodd"
+									clipRule="evenodd"
 									d="M225.25 0.833984H240.75V74.6961H225.25V0.833984ZM39.25 0.833984C60.6917 0.833984 78 17.3791 78 37.765C78 58.151 60.6917 74.6961 39.25 74.6961C17.86 74.6961 0.5 58.151 0.5 37.765C0.5 17.3791 17.86 0.833984 39.25 0.833984ZM39.25 15.6064C52.115 15.6064 62.5 25.5532 62.5 37.765C62.5 50.0261 52.115 59.9237 39.25 59.9237C26.4367 59.9237 16 50.0261 16 37.765C16 25.5532 26.4367 15.6064 39.25 15.6064ZM85.75 0.833984H124.5C137.365 0.833984 147.75 10.7807 147.75 22.9926C147.75 32.0038 142.17 39.7347 134.058 43.1816L147.75 74.6961H131.01L118.145 45.1512H101.25V74.6961H85.75V45.1512V30.3788H101.25H124.5C128.788 30.3788 132.25 27.0796 132.25 22.9926C132.25 18.9056 128.788 15.6064 124.5 15.6064C111.583 15.6064 98.6667 15.6064 85.75 15.6064V0.833984ZM155.5 0.833984H194.25C207.115 0.833984 217.5 10.7807 217.5 22.9926C217.5 28.6554 215.278 33.875 211.61 37.765C215.278 41.7043 217.5 46.8747 217.5 52.5374C217.5 64.7985 207.115 74.6961 194.25 74.6961H171H155.5V59.9237V45.1512V30.3788H171H194.25C198.538 30.3788 202 27.0796 202 22.9926C202 18.9056 198.538 15.6064 194.25 15.6064C181.333 15.6064 168.417 15.6064 155.5 15.6064V0.833984ZM194.25 59.9237C198.538 59.9237 202 56.6245 202 52.5374C202 48.4504 198.538 45.1512 194.25 45.1512H171V59.9237H194.25ZM271.75 0.833984H287.25H295C303.577 0.833984 310.5 7.43233 310.5 15.6064H287.25V74.6961H271.75V15.6064H248.5V0.833984H271.75ZM302.75 59.9237C298.513 59.9237 295 63.2228 295 67.3099C295 71.3969 298.513 74.6961 302.75 74.6961C307.038 74.6961 310.5 71.3969 310.5 67.3099C310.5 63.2228 307.038 59.9237 302.75 59.9237Z"
 									fill="white"
 								/>
@@ -88,8 +89,6 @@ export default function Home() {
 						className="  w-auto md:w-[618px]"
 					>
 						<CardLanding
-							width=""
-							height="h-56 "
 							judul="Apa itu ORBIT?"
 							desc="Orbit merupakan sebuah ekstrakurikuler yang fokus bergerak di bidang
 							IT. Orbit merupakan sebuah wadah yang menampung 	siswa yang ingin
@@ -107,8 +106,6 @@ export default function Home() {
 					className=" pt-5 relative md:absolute z-10 md:right-10  w-auto md:w-[492px]"
 				>
 					<CardLanding
-						width=""
-						height="h-[286px] "
 						judul="Apa saja kegiatan yang dilakukan ORBIT?"
 						desc="Orbit bersifat sebagai sarana siswa untuk mengembangkan dan mengasah bakat mereka. Para siswa dapat memilih untuk bergabung beragam divisi orbit, dimana mereka akan belajar bersama mentor, mengulas materi bersama teman, dan mengerjakan latihan soal/projek yang telah diberikan."
 						classname=" mt-2 md:mt-9"
@@ -122,26 +119,75 @@ export default function Home() {
 				<m.div
 					initial={{ opacity: 0, translateY: 5 }}
 					whileInView={{ opacity: 1, translateY: -20 }}
-					className=" absolute bottom-0"
+					className=" absolute -bottom-[120px]"
 				>
 					<Awan classname=" bottom-0 " />
 				</m.div>
 
-				<m.div
-					initial={{ opacity: 0, translateY: 100 }}
-					whileInView={{ opacity: 1, translateY: -5 }}
-					className=" absolute bottom-0 "
-				>
-					<Awan classname=" -bottom-20" />
+				<m.div className=" absolute bottom-0">
+					<Awan classname=" -bottom-44" />
 				</m.div>
 			</div>
 			{/* APA ITU ORBIT  END*/}
 
 			{/* ABOUT  */}
 			<div
-				className=" bg-about h-screen w-full bg-[length:150%_100%] md:bg-[length:100%_100%]"
+				className=" bg-about h-screen w-full bg-[length:150%_100%] md:bg-[length:100%_100%] relative z-10"
 				id="tentang"
 			></div>
+			<div className=" bg-about2 h-screen w-full bg-[length:150%_100%] md:bg-[length:100%_100%] relative z-10 ">
+				<div className=" flex items-center justify-center gap-5">
+					<m.div
+						initial={{ opacity: 0, translateX: -80 }}
+						whileInView={{ opacity: 1, translateX: 2 }}
+					>
+						<Image
+							src={'/assets/logo/LogoPrimaryV2.png'}
+							width={372}
+							height={372}
+							alt="ORBIT"
+						/>
+					</m.div>
+					<m.div
+						initial={{ opacity: 0, translateX: 100 }}
+						whileInView={{ opacity: 1, translateX: 2 }}
+					>
+						<CardLanding
+							judul="Tentang Kami"
+							desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
+							classname=" w-auto md:w-[694px] h-auto md:h-[300px]"
+							judulClassname=" pt-8"
+							descClassname=""
+						/>
+					</m.div>
+				</div>
+				<div className=" flex items-center justify-center p-5 md:p-0 gap-5">
+					<VisiMisiCard
+						img="/assets/logo/roket.png"
+						imgWidth={75}
+						imgHeight={72}
+						alt="roket"
+						judul="VISI"
+						desc="Mencetak anggota ORBIT sesuai degan bidangnya unggul dan meningkatkan potensi anggota ORBIT sesuai dengan bidang divisinya."
+					/>
+					<VisiMisiCard
+						img="/assets/logo/misison.png"
+						imgWidth={76}
+						imgHeight={72}
+						alt="mission"
+						judul="MISI"
+						desc="Meningkatkan komunikasi baik antara anggota aktif dengan alumni Menciptakan lingkungan yang nyaman, efektif, dan efisien"
+					/>
+					<VisiMisiCard
+						img="/assets/logo/values.png"
+						imgWidth={76}
+						imgHeight={72}
+						alt="value"
+						judul="VALUE"
+						desc="ORBIT dapat mengembangkan kemampuan siswa dalam mencapai tujuan bersama yang lebih efektif dan efisien."
+					/>
+				</div>
+			</div>
 			{/* ABOUT END */}
 
 			<Footer />
