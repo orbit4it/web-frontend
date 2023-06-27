@@ -1,0 +1,49 @@
+"use client";
+import { RiArrowDownSLine } from 'react-icons/ri';
+import { RiArrowRightSLine } from 'react-icons/ri';
+import { useState } from 'react';
+import Image from 'next/image';
+import Foto from '../app/WebDevelopment/assets/FotoUtama.png'
+import { AiFillYoutube } from 'react-icons/ai';
+
+const VideoActivity = ({ title }) => {
+    const [isOpen, setIsOpen]= useState<boolean>(false);
+
+    const handleButton = () => {
+        if (isOpen == true) {
+            setIsOpen(false);
+        } else {
+            setIsOpen(true);
+        }
+    };
+  return (
+    <div>
+        <button 
+        onClick={handleButton}
+        className="flex items-center font-bold bg-whiteTransparent py-3 px-4 rounded-[40px] w-full"
+        >
+            {isOpen ? (
+                <RiArrowDownSLine size={30} />
+            ) : (
+                <RiArrowRightSLine size={30} />
+            )}
+            {title}
+        </button>
+        {isOpen ? (
+            <>
+            <div className="my-3 space-x-3 flex overflow-auto">
+                <Image src={Foto} alt="Foto" />
+                <Image src={Foto} alt="Foto" />
+                <Image src={Foto} alt="Foto" />
+            </div>
+            <div className="my-3 flex items-center space-x-2">
+                <AiFillYoutube size={25}/>
+                <p className="font-bold">Check it out!</p>
+            </div>
+            </>
+        ) : null}
+    </div>
+  )
+}
+
+export default VideoActivity
