@@ -85,10 +85,10 @@ export default function Home() {
 					<m.div
 						initial={{ opacity: 0, translateY: 100 }}
 						whileInView={{ opacity: 1, translateY: -5 }}
-						className=""
+						className="  w-auto md:w-[618px]"
 					>
 						<CardLanding
-							width="w-[478px]"
+							width=""
 							height="h-56 "
 							judul="Apa itu ORBIT?"
 							desc="Orbit merupakan sebuah ekstrakurikuler yang fokus bergerak di bidang
@@ -104,10 +104,10 @@ export default function Home() {
 				<m.div
 					initial={{ opacity: 0, translateY: 100 }}
 					whileInView={{ opacity: 1, translateY: -5 }}
-					className=" pt-5 relative md:absolute z-10 md:right-10"
+					className=" pt-5 relative md:absolute z-10 md:right-10  w-auto md:w-[492px]"
 				>
 					<CardLanding
-						width="w-[478px]"
+						width=""
 						height="h-[286px] "
 						judul="Apa saja kegiatan yang dilakukan ORBIT?"
 						desc="Orbit bersifat sebagai sarana siswa untuk mengembangkan dan mengasah bakat mereka. Para siswa dapat memilih untuk bergabung beragam divisi orbit, dimana mereka akan belajar bersama mentor, mengulas materi bersama teman, dan mengerjakan latihan soal/projek yang telah diberikan."
@@ -124,18 +124,25 @@ export default function Home() {
 					whileInView={{ opacity: 1, translateY: -20 }}
 					className=" absolute bottom-0"
 				>
-					<Awan classname=" bottom-0" />
+					<Awan classname=" bottom-0 " />
 				</m.div>
 
 				<m.div
 					initial={{ opacity: 0, translateY: 100 }}
 					whileInView={{ opacity: 1, translateY: -5 }}
-					className=" absolute bottom-0"
+					className=" absolute bottom-0 "
 				>
 					<Awan classname=" -bottom-20" />
 				</m.div>
 			</div>
 			{/* APA ITU ORBIT  END*/}
+
+			{/* ABOUT  */}
+			<div
+				className=" bg-about h-screen w-full bg-[length:150%_100%] md:bg-[length:100%_100%]"
+				id="tentang"
+			></div>
+			{/* ABOUT END */}
 
 			<Footer />
 		</div>

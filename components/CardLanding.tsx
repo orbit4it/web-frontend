@@ -4,8 +4,6 @@ import { CardLandingProps } from '@/helper/interfaces';
 import { twMerge } from 'tailwind-merge';
 
 const CardLanding: React.FC<CardLandingProps> = ({
-	width,
-	height,
 	judul,
 	desc,
 	classname,
@@ -15,7 +13,7 @@ const CardLanding: React.FC<CardLandingProps> = ({
 	return (
 		<div
 			className={twMerge(
-				`${styles.cardLanding} w-auto md:${width} h-auto md:${height} rounded-[36px] border-[1px] text-white p-5`,
+				`${styles.cardLanding} rounded-[36px] border-[1px] text-white p-5`,
 				classname
 			)}
 		>
