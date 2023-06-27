@@ -190,7 +190,7 @@ export default function page() {
   return (
     <>
       <header className="w-max flex items-center gap-2">
-        <div className="w-24 h-24 rounded-full glassmorphism-cinem"></div>
+        <div className="w-24 h-24 rounded-full glassmorphism-cinem before:rounded-full"></div>
         <div>
           <div className="h-max overflow-hidden">
             <motion.h1
