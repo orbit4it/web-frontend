@@ -1,8 +1,10 @@
+import { AwanProps } from '@/helper/interfaces';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
-const Awan = () => {
+const Awan: React.FC<AwanProps> = ({ classname }) => {
 	return (
-		<div className=" absolute z-10 bottom-0">
+		<div className={twMerge(`absolute z-10`, classname)}>
 			<svg
 				width="1440"
 				height="455"

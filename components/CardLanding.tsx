@@ -9,6 +9,8 @@ const CardLanding: React.FC<CardLandingProps> = ({
 	judul,
 	desc,
 	classname,
+	judulClassname,
+	descClassname,
 }) => {
 	return (
 		<div
@@ -17,8 +19,13 @@ const CardLanding: React.FC<CardLandingProps> = ({
 				classname
 			)}
 		>
-			<h1 className=" text-3xl font-bold">{judul}</h1>
-			<p className=" opacity-60 text-[16px] font-normal text-justify pt-4">
+			<h1 className={twMerge(`text-3xl font-bold`, judulClassname)}>{judul}</h1>
+			<p
+				className={twMerge(
+					`opacity-60 text-[16px] font-normal text-justify pt-4`,
+					descClassname
+				)}
+			>
 				{desc}
 			</p>
 		</div>

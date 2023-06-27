@@ -12,4 +12,10 @@ export interface CardLandingProps {
 	judul: string;
 	desc: string;
 	classname: string;
+	judulClassname: string;
+	descClassname: string;
+}
+
+export interface AwanProps {
+	classname?: string;
 }
