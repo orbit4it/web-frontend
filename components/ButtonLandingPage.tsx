@@ -1,14 +1,21 @@
 import { ButtonLandingProps } from '@/helper/interfaces';
 import Link from 'next/link';
 import React from 'react';
+import { motion as m } from 'framer-motion';
 
 const ButtonLandingPage: React.FC<ButtonLandingProps> = ({
 	link,
 	title,
 	textSize,
+	animate,
+	viewportOnce,
 }) => {
 	return (
-		<div>
+		<m.div
+			initial={animate ? { opacity: 0, translateY: 100 } : {}}
+			whileInView={animate ? { opacity: 1, translateY: -5 } : {}}
+			viewport={animate ? { once: viewportOnce } : {}}
+		>
 			<Link href={link}>
 				<button
 					className={` border-purple border-2 py-1 px-4 rounded-full hover:bg-purple font-semibold ${textSize}`}
@@ -16,7 +23,7 @@ const ButtonLandingPage: React.FC<ButtonLandingProps> = ({
 					{title}
 				</button>
 			</Link>
-		</div>
+		</m.div>
 	);
 };
 
