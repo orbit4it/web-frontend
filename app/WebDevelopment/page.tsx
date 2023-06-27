@@ -9,7 +9,7 @@ import VideoActivity from "@/components/VideoActivity";
 export default function page() {
   return (
     <div className="bg-[#12024E]">
-    <div className="h-screen flex flex-col text-serat bg-home bg-cover bg-no-repeat">
+    <div className="h-screen flex flex-col text-serat bg-home bg-cover bg-no-repeat lg:bg-cover">
       <Navbar />
       <div className="flex-none h-[30%]"></div>
       {/*Section*/}

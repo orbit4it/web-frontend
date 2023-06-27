@@ -11,8 +11,11 @@ module.exports = {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic':
 					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				home: "url('/assets/img/BgHome.png')",
-				divisi: "url('/assets/img/BgHome.png')"
+
+				home: "url('/assets/img/BgHome-1.png')",
+				home2: "url('/assets/img/BgHome-2.png')",
+				home3: "url('/assets/img/BgHome-3.png')",
+				
 			},
 			colors: {
 				purple: '#EE2ED1',
