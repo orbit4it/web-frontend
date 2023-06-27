@@ -80,7 +80,7 @@ export default function Navbar() {
 	];
 
 	return (
-		<div className=" flex items-center justify-between fixed top-0 w-screen px-5 md:px-36 pt-4 bg-transparent scroll-smooth">
+		<div className=" flex items-center justify-between fixed top-0 z-50 w-screen px-5 md:px-36 pt-4 bg-transparent scroll-smooth">
 			<Image
 				src="/assets/logo/LogoPrimary.png"
 				width={68}

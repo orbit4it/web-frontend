@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Home() {
 	return (
-		<div className=" bg-[#12024E] bg-opacity-70">
+		<div className=" bg-primary bg-opacity-70">
 			<Navbar />
 			<div className=" bg-home  h-screen" id="beranda">
 				{/* <Image
