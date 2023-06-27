@@ -21,7 +21,7 @@ const VideoActivity = ({ title }) => {
     <div>
       <button
         onClick={handleButton}
-        className="flex items-center font-bold bg-whiteTransparent py-3 px-4 rounded-[40px] w-full"
+        className="border border-[#EE2ED1] border-opacity-40 flex items-center font-bold bg-whiteTransparent py-3 px-4 rounded-[40px] w-full"
       >
         {isOpen ? (
           <RiArrowDownSLine size={30} />
