@@ -19,7 +19,7 @@ module.exports = {
         purple: "#EE2ED1",
         purpleFooter: "#4B0B7C",
         NavlinkGradient: "",
-        bgDivisi: "#0A013D",
+        darkPurp: "#0A013D",
         bgGameDev: "rgba(221, 33, 123, 0.3)",
         whiteTransparent: "rgba(255, 255, 255, 0.3)",
       },
