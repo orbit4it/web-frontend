@@ -80,7 +80,7 @@ export default function Navbar() {
 	];
 
 	return (
-		<div className=" flex items-center justify-between fixed top-0 w-screen px-5 md:px-36 pt-4 bg-transparent scroll-smooth">
+		<div className=" flex items-center justify-between fixed top-0 w-screen px-5 md:px-36 pt-4 bg-transparent scroll-smooth z-20">
 			<Image
 				src="/assets/logo/LogoPrimary.png"
 				width={68}
@@ -98,7 +98,7 @@ export default function Navbar() {
 						</Link>
 					</li>
 				))}
-				<ButtonLandingPage link="/" title="Masuk" />
+				<ButtonLandingPage link="/" title="Masuk" textSize="text-[13px]" />
 			</ul>
 			<div
 				className={`block md:hidden text-2xl text-white ${
