@@ -43,7 +43,6 @@ export default function page() {
             </div>
             <div className="bg-bgGameDev w-auto my-14 py-5 px-8 rounded-[40px] shadow-md">
               <select
-                value="2023"
                 defaultValue="2023"
                 className="py-2 px-3 bg-whiteTransparent rounded-[40px] border border-gray-300"
               >

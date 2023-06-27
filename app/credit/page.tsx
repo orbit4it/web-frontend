@@ -96,9 +96,9 @@ const page = () => {
             <br /> & Penanggung Jawab
           </h1>
           <ul>
-            {ketua.map((orang) => (
+            {ketua.map((orang, index) => (
               <>
-                <li>
+                <li key={index}>
                   <h1 className="text-lg mb-3">{orang.nama}</h1>
                   <div className="flex items-center justify-center mb-1 space-x-2">
                     <Image
@@ -124,9 +124,9 @@ const page = () => {
             Managerial
           </h1>
           <ul>
-            {managerial.map((orang) => (
+            {managerial.map((orang, index) => (
               <>
-                <li className="mb-3">
+                <li key={index} className="mb-3">
                   <h1 className="text-lg mb-3">{orang.nama}</h1>
                   <div className="flex items-center justify-center mb-1 space-x-2">
                     <Image
@@ -154,9 +154,9 @@ const page = () => {
                 Content
               </h1>
               <ul>
-                {content.map((orang) => (
+                {content.map((orang, index) => (
                   <>
-                    <li className="mb-3">
+                    <li key={index} className="mb-3">
                       <h1 className="text-lg mb-3">{orang.nama}</h1>
                       <div className="flex items-center justify-center space-x-2">
                         <Image
@@ -176,9 +176,9 @@ const page = () => {
                 UI/UX
               </h1>
               <ul>
-                {uiux.map((orang) => (
+                {uiux.map((orang, index) => (
                   <>
-                    <li>
+                    <li key={index}>
                       <h1 className="text-lg mb-3">{orang.nama}</h1>
                       {orang.github?.length > 0 ? (
                         <>
@@ -212,9 +212,9 @@ const page = () => {
                 Front End
               </h1>
               <ul>
-                {fe.map((orang) => (
+                {fe.map((orang, index) => (
                   <>
-                    <li className="mb-3">
+                    <li key={index} className="mb-3">
                       <h1 className="text-lg mb-3">{orang.nama}</h1>
                       <div className="flex items-center justify-center mb-1 space-x-2">
                         <Image
@@ -242,9 +242,9 @@ const page = () => {
                 Back End
               </h1>
               <ul>
-                {be.map((orang) => (
+                {be.map((orang, index) => (
                   <>
-                    <li>
+                    <li key={index}>
                       <h1 className="text-lg mb-3">{orang.nama}</h1>
                       {orang.github?.length > 0 ? (
                         <>
