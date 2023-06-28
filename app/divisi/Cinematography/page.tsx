@@ -190,14 +190,14 @@ export default function page() {
   ));
   return (
     <>
-      <header className="w-max flex items-center gap-2">
-        <div className="w-24 h-24 rounded-full glassmorphism-cinem before:rounded-full"></div>
+      <header className="w-max lg:flex items-center mx-auto pt-0 lg:mx-0 lg:gap-2 lg:static">
+        <div className="w-24 h-24 rounded-full relative mx-auto -top-[40px] lg:static glassmorphism-cinem before:rounded-full"></div>
         <div>
           <div className="h-max overflow-hidden">
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
-              className="text-6xl font-bold text-white opacity-50 uppercase"
+              className="text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 lg:static"
             >
               Cinematography
             </motion.h1>
@@ -221,14 +221,14 @@ export default function page() {
         </div>
       </header>
 
-      <section className="w-full mt-14 flex gap-16">
-        <p className="w-1/2 text-base text-white leading-relaxed">
+      <section className="w-full mt-14 lg:flex gap-16 px-5">
+        <p className="lg:w-1/2 text-base text-center lg:text-left text-white leading-relaxed">
           Cinematography adalah divisi yang menggunakan teknik gabungan dari
           seni dan teknologi. Hal ini melibatkan penggunaan kamera, pencahayaan,
           komposisi visual, dan elemen-elemen lain untuk menciptakan estetika
           visual yang diinginkan.
         </p>
-        <div className="w-1/2 h-72 rounded-lg overflow-hidden">
+        <div className="lg:w-1/2 h-72 pt-4 lg:pt-0 rounded-lg overflow-hidden">
           <Image
             src={FotoDummy}
             alt="Kegiatan Cinematography"
@@ -239,7 +239,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[90vh] rounded-2xl mt-28 p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[80vh] lg:h-[90vh] rounded-2xl mt-28 p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}
@@ -270,7 +270,7 @@ export default function page() {
           )}
         </motion.div>
         <div className="w-full mt-16 flex flex-col gap-6 items-start">
-          <LayoutGroup>{mapGalery}</LayoutGroup>
+          <LayoutGroup>{mapGalery}</LayoutGroup> 
         </div>
       </section>
     </>
