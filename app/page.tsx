@@ -16,7 +16,7 @@ export default function Home() {
 
 			{/* Greetings  */}
 			<div
-				className=" bg-home bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen"
+				className=" bg-home bg-[length:100%_100%] md:bg-[length:100%_100%] h-screen"
 				id="beranda"
 			>
 				<div className="  h-screen text-white flex flex-col items-center justify-center">
@@ -81,7 +81,7 @@ export default function Home() {
 			{/* Greetings  END*/}
 
 			{/* APA ITU ORBIT */}
-			<div className=" bg-home2 bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen relative p-5 md:p-0">
+			<div className=" bg-home2 bg-[length:100%_100%] md:bg-[length:100%_100%] h-screen relative p-5 md:p-0">
 				<div className=" pt-1  md:pt-10">
 					<m.div
 						initial={{ opacity: 0, translateY: 100 }}
@@ -132,11 +132,11 @@ export default function Home() {
 
 			{/* ABOUT  */}
 			<div
-				className=" bg-about h-screen w-full bg-[length:150%_100%] md:bg-[length:100%_100%] relative z-10"
+				className=" bg-about h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] relative z-10"
 				id="tentang"
 			></div>
-			<div className=" bg-about2 h-screen w-full bg-[length:150%_100%] md:bg-[length:100%_100%] relative z-10 ">
-				<div className=" flex items-center justify-center gap-5">
+			<div className=" bg-about2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] block relative z-10">
+				<div className=" block md:flex items-center justify-center gap-5 p-5 md:p-0">
 					<m.div
 						initial={{ opacity: 0, translateX: -80 }}
 						whileInView={{ opacity: 1, translateX: 2 }}
@@ -151,17 +151,20 @@ export default function Home() {
 					<m.div
 						initial={{ opacity: 0, translateX: 100 }}
 						whileInView={{ opacity: 1, translateX: 2 }}
+						className=" mt-5 md:mt-0"
 					>
 						<CardLanding
 							judul="Tentang Kami"
 							desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
-							classname=" w-auto md:w-[694px] h-auto md:h-[300px]"
-							judulClassname=" pt-8"
-							descClassname=""
+							classname=" w-auto md:w-[694px] md:h-[300px]"
+							judulClassname=" pt-8 "
+							descClassname=" text-sm"
 						/>
 					</m.div>
 				</div>
-				<div className=" flex items-center justify-center p-5 md:p-0 gap-5">
+			</div>
+			<div className=" bg-about3 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] flex flex-col justify-center items-center relative">
+				<div className=" block md:flex items-center justify-center p-5 md:p-0 gap-5 relative z-10">
 					<VisiMisiCard
 						img="/assets/logo/roket.png"
 						imgWidth={75}
@@ -169,6 +172,7 @@ export default function Home() {
 						alt="roket"
 						judul="VISI"
 						desc="Mencetak anggota ORBIT sesuai degan bidangnya unggul dan meningkatkan potensi anggota ORBIT sesuai dengan bidang divisinya."
+						misi={false}
 					/>
 					<VisiMisiCard
 						img="/assets/logo/misison.png"
@@ -177,6 +181,7 @@ export default function Home() {
 						alt="mission"
 						judul="MISI"
 						desc="Meningkatkan komunikasi baik antara anggota aktif dengan alumni Menciptakan lingkungan yang nyaman, efektif, dan efisien"
+						misi={true}
 					/>
 					<VisiMisiCard
 						img="/assets/logo/values.png"
@@ -185,10 +190,23 @@ export default function Home() {
 						alt="value"
 						judul="VALUE"
 						desc="ORBIT dapat mengembangkan kemampuan siswa dalam mencapai tujuan bersama yang lebih efektif dan efisien."
+						misi={false}
+					/>
+				</div>
+				<div className=" absolute bottom-0 left-0">
+					<Image
+						src={'/assets/img/BgStruktur-1.png'}
+						width={1000}
+						height={300}
+						alt="img"
 					/>
 				</div>
 			</div>
 			{/* ABOUT END */}
+
+			{/* STRUKTUR  */}
+			{/* <div className=" bg-about2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] relative"></div> */}
+			{/* STRUKTUR END */}
 
 			<Footer />
 		</div>

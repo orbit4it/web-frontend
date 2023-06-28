@@ -27,4 +27,5 @@ export interface VisiMisiProps {
 	imgClassname?: string;
 	judul: string;
 	desc: string;
+	misi: boolean;
 }

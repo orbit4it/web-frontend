@@ -16,6 +16,9 @@ module.exports = {
 				home3: "url('/assets/img/BgHome-3.png')",
 				about: "url('/assets/img/BgAbout-1.png')",
 				about2: "url('/assets/img/BgAbout-2.png')",
+				about3: "url('/assets/img/BgAbout-3.png')",
+				struktur: "url('/assets/img/BgStruktur-1.png')",
+				struktur2: "url('/assets/img/BgStruktur-2.png')",
 			},
 			colors: {
 				purple: '#EE2ED1',
