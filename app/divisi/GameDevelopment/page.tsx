@@ -1,26 +1,24 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import React from "react";
-import Image from "next/image";
-import Logo from "./assets/Logo.png";
-import FotoUtama from "./assets/FotoUtama.png";
-import VideoActivity from "@/components/VideoActivity";
+// import Navbar from '@/components/Navbar';
+// import Footer from '@/components/Footer';
+import React from 'react';
+import Image from 'next/image';
+import FotoUtama from '@/public/assets/img/FotoDummy.png';
+import VideoActivity from '@/components/VideoActivity';
 
 export default function page() {
   return (
     <div className="bg-[#12024E]">
       <div className="bg-home h-screen bg-cover bg-no-repeat flex flex-col">
-        <Navbar />
         <div className="flex-none h-[30%]"></div>
         {/* ini bawah */}
         <div className="flex-grow bg-darkPurp rounded-t-[63px] px-6">
           <div className="xl:w-[1050px] mx-auto text-white">
             <div className="xl:flex text-center xl:text-left items-center xl:pt-[65px] xl:space-x-5">
-              <Image
+              {/* <Image
                 src={Logo}
                 alt="Logo"
                 className="relative -top-12 mx-auto xl:mx-0 xl:static shadow-md"
-              />
+              /> */}
               <div>
                 <h1 className="text-4xl font-bold opacity-30">
                   GAME DEVELOPMENT
@@ -59,7 +57,6 @@ export default function page() {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   );

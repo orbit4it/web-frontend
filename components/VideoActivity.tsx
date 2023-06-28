@@ -1,10 +1,10 @@
-"use client";
-import { RiArrowDownSLine } from "react-icons/ri";
-import { RiArrowRightSLine } from "react-icons/ri";
-import { AiFillYoutube } from "react-icons/ai";
-import { useState } from "react";
-import Image from "next/image";
-import Foto from "../app/GameDevelopment/assets/FotoUtama.png";
+'use client';
+import { RiArrowDownSLine } from 'react-icons/ri';
+import { RiArrowRightSLine } from 'react-icons/ri';
+import { AiFillYoutube } from 'react-icons/ai';
+import { useState } from 'react';
+import Image from 'next/image';
+import Foto from '@/public/assets/img/FotoDummy.png';
 
 const VideoActivity = ({ title }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

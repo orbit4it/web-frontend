@@ -1,80 +1,81 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Image from "next/image";
-import AwanAtas from "./assets/awan_atas.png";
-import AwanBawah from "./assets/awan_bawah.png";
-import Orbit from "./assets/orbit.png";
-import Github from "./assets/github.png";
-import Instagram from "./assets/instagram.png";
+import React from 'react';
+// import Navbar from '@/components/Navbar';
+// import Footer from '@/components/Footer';
+import Image from 'next/image';
+import AwanAtas from '@/public/assets/credit/awan_atas.png';
+import AwanBawah from '@/public/assets/credit/awan_bawah.png';
+import Orbit from '@/public/assets/credit/orbit.png';
+import Github from '@/public/assets/credit/github.png';
+import Instagram from '@/public/assets/credit/instagram.png';
+
 const page = () => {
   const ketua = [
-    { nama: "Hasnat Ferdiananda", github: "@hasnat5_", ig: "@hasnat5_" },
+    { nama: 'Hasnat Ferdiananda', github: '@hasnat5_', ig: '@hasnat5_' },
   ];
 
   const managerial = [
-    { nama: "Luqman Amirullah", github: "@luqmanamirullah", ig: "@hasnat5_" },
-    { nama: "Muhammad Naufal N.", github: "@Vastuolu", ig: "naufalll.docx" },
-    { nama: "Ghazi Adila Ghifari", github: "@reinaldia", ig: "@irafialdia" },
-    { nama: "Nadya Rahmawati", github: "@nsummet", ig: "@nsummet" },
-    { nama: "Rafi Rizqullah Ramadhan", github: "@rrraf1", ig: "@_urafi" },
+    { nama: 'Luqman Amirullah', github: '@luqmanamirullah', ig: '@hasnat5_' },
+    { nama: 'Muhammad Naufal N.', github: '@Vastuolu', ig: 'naufalll.docx' },
+    { nama: 'Ghazi Adila Ghifari', github: '@reinaldia', ig: '@irafialdia' },
+    { nama: 'Nadya Rahmawati', github: '@nsummet', ig: '@nsummet' },
+    { nama: 'Rafi Rizqullah Ramadhan', github: '@rrraf1', ig: '@_urafi' },
   ];
 
   const content = [
-    { nama: "Ade Riri Fadillah", ig: "@rifadilah_8" },
-    { nama: "Muhammad Fawaz Awwabin", ig: "@muhammfawaz" },
-    { nama: "Muhammad Zaki Athallah", ig: "@muhammad.zaki.a.p.p" },
-    { nama: "Muhammad Raihan", ig: "@ehannzz_" },
-    { nama: "Rafi Rizqullah Ramadhan", ig: "@sasthadriya" },
+    { nama: 'Ade Riri Fadillah', ig: '@rifadilah_8' },
+    { nama: 'Muhammad Fawaz Awwabin', ig: '@muhammfawaz' },
+    { nama: 'Muhammad Zaki Athallah', ig: '@muhammad.zaki.a.p.p' },
+    { nama: 'Muhammad Raihan', ig: '@ehannzz_' },
+    { nama: 'Rafi Rizqullah Ramadhan', ig: '@sasthadriya' },
   ];
 
   const uiux = [
-    { nama: "Nizar Nashiruddin", ig: "@nezarika", github: "" },
-    { nama: "Raihana Aisha Az-Zahra", ig: "@b4cterya", github: "raihanaioo" },
-    { nama: "Idnu Fuad Adnani", ig: "@idnufuad", github: "" },
+    { nama: 'Nizar Nashiruddin', ig: '@nezarika', github: '' },
+    { nama: 'Raihana Aisha Az-Zahra', ig: '@b4cterya', github: 'raihanaioo' },
+    { nama: 'Idnu Fuad Adnani', ig: '@idnufuad', github: '' },
     {
-      nama: "Anugrah Muhammad Arafah",
-      ig: "@anuga_arsha",
-      github: "Arsha8Anuga",
+      nama: 'Anugrah Muhammad Arafah',
+      ig: '@anuga_arsha',
+      github: 'Arsha8Anuga',
     },
     {
-      nama: "Azarel Lazuardi Aditya",
-      ig: "@zareladitya",
-      github: "",
+      nama: 'Azarel Lazuardi Aditya',
+      ig: '@zareladitya',
+      github: '',
     },
   ];
 
   const fe = [
-    { nama: "M Sutan Mico Febrian", ig: "@mico_feb", github: "@mico_feb" },
-    { nama: "Rievan Rival Nur Triana", ig: "@-", github: "@-" },
-    { nama: "Hasnat Ferdiananda", ig: "@hasnat5", github: "@hasnat5_" },
+    { nama: 'M Sutan Mico Febrian', ig: '@mico_feb', github: '@mico_feb' },
+    { nama: 'Rievan Rival Nur Triana', ig: '@-', github: '@-' },
+    { nama: 'Hasnat Ferdiananda', ig: '@hasnat5', github: '@hasnat5_' },
     {
-      nama: "Luqman Amirullah",
-      ig: "@luqmanamirullah",
-      github: "@luqmanamirullah",
+      nama: 'Luqman Amirullah',
+      ig: '@luqmanamirullah',
+      github: '@luqmanamirullah',
     },
-    { nama: "M. Arsal Nawfal Ali", ig: "@raldelrey", github: "@kanaee-cloud" },
-    { nama: "Herlangga Maulani", ig: "@herlanggamaul_", github: "@k0valskia" },
+    { nama: 'M. Arsal Nawfal Ali', ig: '@raldelrey', github: '@kanaee-cloud' },
+    { nama: 'Herlangga Maulani', ig: '@herlanggamaul_', github: '@k0valskia' },
   ];
 
   const be = [
-    { nama: "Diaz Adriansyah", ig: "@zaid.jsx", github: "@Diaz-Adrianz" },
+    { nama: 'Diaz Adriansyah', ig: '@zaid.jsx', github: '@Diaz-Adrianz' },
     {
-      nama: "Najwan Aribena Pratama",
-      ig: "@najwanaribena",
-      github: "@najwanaribena",
+      nama: 'Najwan Aribena Pratama',
+      ig: '@najwanaribena',
+      github: '@najwanaribena',
     },
-    { nama: "Muhammad Rafly Pratama", ig: "@rafutaa_", github: "@RFP11" },
-    { nama: "Kamelia Derika Putri", ig: "@kmlsdk_", github: "" },
+    { nama: 'Muhammad Rafly Pratama', ig: '@rafutaa_', github: '@RFP11' },
+    { nama: 'Kamelia Derika Putri', ig: '@kmlsdk_', github: '' },
     {
-      nama: "Melderika Laila Yasmin Fitria",
-      ig: "@jes_twtw",
-      github: "@lailysmn",
+      nama: 'Melderika Laila Yasmin Fitria',
+      ig: '@jes_twtw',
+      github: '@lailysmn',
     },
   ];
 
   return (
     <div>
-      <Navbar />
       <div className="bg-darkPurp">
         <Image src={AwanAtas} alt="Awan Orbit" />
         <div className="mx-auto text-center">
@@ -274,7 +275,6 @@ const page = () => {
           <Image src={AwanBawah} alt="Awan Orbit" />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
