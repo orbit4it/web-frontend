@@ -1,8 +1,8 @@
-import React from 'react';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { TfiEmail } from 'react-icons/tfi';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import { AiOutlineInstagram } from "react-icons/ai";
+import { TfiEmail } from "react-icons/tfi";
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
 	const divisons = [
@@ -62,36 +62,36 @@ const Footer = () => {
 				</p>
 			</div>
 
-			{/* UNTUK DEKSTOP  */}
-			<div className=" mt-4 md:mt-0 hidden md:block ">
-				{divisons.map((data, key) => {
-					return (
-						<p key={key} className=" text-xs font-bold text-white">
-							{data.name}
-						</p>
-					);
-				})}
-				<Link href={'/credit'}>
-					<h1 className=" text-white text-xl font-bold mt-2">Crew Developer</h1>
-				</Link>
-			</div>
-			{/* UNTUK DEKSTOP END */}
+      {/* UNTUK DEKSTOP  */}
+      <div className=" mt-4 md:mt-0 hidden md:block ">
+        {divisons.map((data, key) => {
+          return (
+            <p key={key} className=" text-xs font-bold text-white">
+              {data.name}
+            </p>
+          );
+        })}
+        <Link href={"/credit"}>
+          <h1 className=" text-white text-xl font-bold mt-2">Crew Developer</h1>
+        </Link>
+      </div>
+      {/* UNTUK DEKSTOP END */}
 
-			{/* UNTUK MOBILE  */}
-			<div className=" text-white mt-3 block md:hidden">
-				<p className=" text-xs font-bold text-center">
-					Web Development Game Development Cinematography Graphic Design IT
-					Support
-				</p>
-				<Link href={'/credit'}>
-					<h1 className=" text-white text-xl font-bold mt-2 text-center pt-2">
-						Crew Developer
-					</h1>
-				</Link>
-			</div>
-			{/* UNTUK MOBILE END */}
-		</div>
-	);
+      {/* UNTUK MOBILE  */}
+      <div className=" text-white mt-3 block md:hidden">
+        <p className=" text-xs font-bold text-center">
+          Web Development Game Development Cinematography Graphic Design IT
+          Support
+        </p>
+        <Link href={"/credit"}>
+          <h1 className=" text-white text-xl font-bold mt-2 text-center pt-2">
+            Crew Developer
+          </h1>
+        </Link>
+      </div>
+      {/* UNTUK MOBILE END */}
+    </div>
+  );
 };
 
 export default Footer;

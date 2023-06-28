@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -30,10 +30,14 @@ module.exports = {
         tertiary: '#EF2ED2',
         purple: '#EE2ED1',
         purpleFooter: '#4B0B7C',
-        NavlinkGradient: '',
+        darkPurp: "#0A013D",
+        bgGameDev: "rgba(221, 33, 123, 0.3)",
+        whiteTransparent: "rgba(255, 255, 255, 0.3)",
+      },
+      fontFamily: {
+        pStart: ['"Press Start 2P"', "cursive"],
       },
     },
   },
-
   plugins: [],
 };
