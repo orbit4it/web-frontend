@@ -208,13 +208,13 @@ export default function page() {
             className="flex gap-1 text-base text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
-              #Jaringan
+              #Developer
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Hardware
+              #Coding
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Teknologi
+              #Game
             </motion.p>
           </motion.div>
         </div>

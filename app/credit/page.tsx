@@ -148,7 +148,7 @@ const page = () => {
               </>
             ))}
           </ul>
-          <div className="flex justify-between px-2 lg:px-36">
+          <div className="lg:flex justify-between px-2 lg:px-36">
             <div>
               <h1 className="font-bold text-xl mt-10 mb-4 text-center">
                 Content
@@ -206,25 +206,29 @@ const page = () => {
               </ul>
             </div>
           </div>
-          <div className="flex justify-between px-2 lg:px-36">
-            <div>
+          <div className="lg:flex justify-between px-2 lg:px-36">
+            <div className="lg:w-[270px]">
               <h1 className="font-bold text-xl mt-10 mb-4 text-center">
                 Front End
               </h1>
               <ul>
                 {fe.map((orang, index) => (
                   <>
-                    <li key={index} className="mb-3">
+                    <li key={index}>
                       <h1 className="text-lg mb-3">{orang.nama}</h1>
-                      <div className="flex items-center justify-center mb-1 space-x-2">
-                        <Image
-                          src={Github}
-                          alt="Github"
-                          className="w-[20px] h-[20px]"
-                        />
-                        <p className="opacity-50">{orang.github}</p>
-                      </div>
-                      <div className="flex items-center justify-center space-x-2">
+                      {orang.github?.length > 0 ? (
+                        <>
+                          <div className="flex items-center justify-center mb-1 space-x-2">
+                            <Image
+                              src={Github}
+                              alt="Github"
+                              className="w-[20px] h-[20px]"
+                            />
+                            <p className="opacity-50">{orang.github}</p>
+                          </div>
+                        </>
+                      ) : null}
+                      <div className="flex items-center justify-center space-x-2 mb-3">
                         <Image
                           src={Instagram}
                           alt="Instagram"
