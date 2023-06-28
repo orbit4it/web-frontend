@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper {
+  @apply w-full h-[200px];
+}
+.swiper-slide {
+  @apply first:w-2/5 text-center text-lg flex justify-center items-center rounded-lg overflow-hidden;
+}
+.swiper-slide img {
+  @apply block w-full h-full object-cover;
+}
+
+.swiper-slide:not(:first-child){
+  @apply w-2/5
+}

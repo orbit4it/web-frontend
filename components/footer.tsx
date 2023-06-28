@@ -7,23 +7,23 @@ import Link from 'next/link';
 const Footer = () => {
 	const divisons = [
 		{
-			name: 'Web Development',
+			name: 'Web Development', link: '/divisi/WebDevelopment'
 		},
 		{
-			name: 'Game Development',
+			name: 'Game Development', link: '/divisi/GameDevelopment'
 		},
 		{
-			name: 'Cinematography',
+			name: 'Cinematography', link: '/divisi/Cinematography'
 		},
 		{
-			name: 'Graphic Design',
+			name: 'Graphic Design', link: '/divisi/GraphicDesign'
 		},
 		{
-			name: 'IT Support',
+			name: 'IT Support', link: '/divisi/ItSupport'
 		},
 	];
 	return (
-		<div className=" block md:flex items-center justify-between bg-purpleFooter bg-opacity-70 p-10 relative z-10">
+		<div className="w-full block md:flex items-center justify-between bg-purpleFooter bg-opacity-70 p-10">
 			<div className=" flex items-center justify-center md:justify-normal gap-6">
 				<div className=" flex items-center text-white gap-2">
 					<div className=" bg-purple  rounded-full p-1">

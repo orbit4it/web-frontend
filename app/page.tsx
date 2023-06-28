@@ -1,6 +1,6 @@
 'use client';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 import Image from 'next/image';
 import ButtonLandingPage from '@/components/ButtonLandingPage';
 import { motion as m } from 'framer-motion';
@@ -10,9 +10,9 @@ import CardLanding from '@/components/CardLanding';
 import VisiMisiCard from '@/components/VisiMisiCard';
 
 export default function Home() {
-	return (
-		<div className="relative bg-purpleFooter overflow-x-hidden">
-			<Navbar />
+  return (
+    <div className="relative bg-purpleFooter overflow-x-hidden">
+      <Navbar />
 
 			{/* Greetings  */}
 			<div
@@ -208,7 +208,7 @@ export default function Home() {
 			{/* <div className=" bg-about2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] relative"></div> */}
 			{/* STRUKTUR END */}
 
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }
