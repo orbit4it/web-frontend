@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import FotoUtama from '@/public/assets/img/FotoDummy.png';
-import VideoActivity from '@/components/VideoActivity';
+// import VideoActivity from '@/components/VideoActivity';
 
 export default function page() {
   return (
@@ -50,9 +50,9 @@ export default function page() {
                 <option value="option3">2020</option>
               </select>
               <div className="space-y-5 mt-6">
-                <VideoActivity title="Video Profile SMKN 4 Bandung" />
+                {/* <VideoActivity title="Video Profile SMKN 4 Bandung" />
                 <VideoActivity title="Video Profile ORBIT" />
-                <VideoActivity title="Foto SMKN 4 Bandung" />
+                <VideoActivity title="Foto SMKN 4 Bandung" /> */}
               </div>
             </div>
           </div>
