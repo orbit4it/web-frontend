@@ -7,8 +7,6 @@ export interface ButtonLandingProps {
 }
 
 export interface CardLandingProps {
-	width: string;
-	height: string;
 	judul: string;
 	desc: string;
 	classname: string;
@@ -18,4 +16,16 @@ export interface CardLandingProps {
 
 export interface AwanProps {
 	classname?: string;
+}
+
+export interface VisiMisiProps {
+	classname?: string;
+	img: string;
+	alt: string;
+	imgWidth: number;
+	imgHeight: number;
+	imgClassname?: string;
+	judul: string;
+	desc: string;
+	misi: boolean;
 }
