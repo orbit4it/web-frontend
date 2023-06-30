@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { FreeMode } from 'swiper';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
+import Logo from '@/public/assets/logo/ItSupp.png'
 import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import 'swiper/swiper-bundle.min.css';
@@ -131,7 +133,7 @@ export default function page() {
               className="mySwiper"
             >
               {item.pictures.map((picture) => (
-                <SwiperSlide className="w-2/5">
+                <SwiperSlide className="w-full lg:w-2/5">
                   <Image
                     src={picture}
                     alt="Kegiatan Cinematography"
@@ -189,23 +191,29 @@ export default function page() {
   ));
   return (
     <>
-      <header className="w-max flex items-center gap-2">
-        <div className="w-24 h-24 rounded-full glassmorphism-itsupport before:rounded-full"></div>
+      <header className="w-max lg:flex items-center mx-auto pt-0 lg:mx-0 lg:gap-2 lg:static">
+        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] lg:static glassmorphism-itsupport before:rounded-full">
+        <Image 
+            src={Logo}
+            alt='Logo'
+            className='flex relative items-center mx-auto'
+            />
+        </div>
         <div>
           <div className="h-max overflow-hidden">
             <motion.h1
-              initial={{ y: 10 }}
-              animate={{ y: 0 }}
-              className="text-6xl font-bold text-white opacity-50  uppercase"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 0.5, y: 0 }}
+              className="text-3xl lg:text-4xl text-center lg:text-left font-bold opacity-30 text-white relative top-0 bottom-0 lg:static"
             >
-              IT Support
+              IT SUPPORT
             </motion.h1>
           </div>
           <motion.div
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-base text-white opacity-50"
+            className="flex gap-1 text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Jaringan
@@ -216,19 +224,18 @@ export default function page() {
             <motion.p variants={item} layout="position">
               #Teknologi
             </motion.p>
+            <motion.p variants={item} layout="position">
+              #Komputer
+            </motion.p>
           </motion.div>
         </div>
       </header>
 
-      <section className="w-full mt-14 flex gap-16">
-        <p className="w-1/2 text-base text-white leading-relaxed">
-          IT support adalah divisi yang bertujuan untuk memastikan sistem pada
-          perangkat lunak dan perangkat keras. Hal ini meliputi berbagai aspek,
-          seperti instalasi, konfigurasi, pemeliharaan, pemecahan masalah, dan
-          dukungan teknis terkait perangkat keras, perangkat lunak, jaringan,
-          sistem operasi, aplikasi, dan layanan IT lainnya.
+      <section className="w-full mt-14 lg:flex gap-16 px-5">
+        <p className="lg:w-1/2 text-base text-center lg:text-left text-white leading-relaxed">
+        IT support adalah divisi yang bertujuan untuk memastikan sistem pada perangkat lunak dan perangkat keras. Hal ini meliputi berbagai aspek, seperti instalasi, konfigurasi, pemeliharaan, pemecahan masalah, dan dukungan teknis terkait perangkat keras, perangkat lunak, jaringan, sistem operasi, aplikasi, dan layanan IT lainnya.
         </p>
-        <div className="w-1/2 h-72 rounded-lg overflow-hidden">
+        <div className="lg:w-1/2 h-72 pt-4 lg:pt-0 rounded-lg overflow-hidden">
           <Image
             src={FotoDummy}
             alt="Kegiatan Cinematography"
@@ -239,11 +246,11 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[90vh] rounded-2xl mt-28 p-10 bg-[#FF31314D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[80vh] lg:h-[90vh] rounded-2xl mt-10 lg:mt-20 p-5 lg:p-10 bg-[#FF3131] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}
-          className={`absolute top-0 left-0 mt-10 ml-10 z-20 rounded-full py-1 px-6 flex flex-col gap-2 items-center glassmorphism-card-itsupport ${
+          className={`absolute top-0 left-0 mt-10 ml-10 z-20 rounded-full py-1 px-6 flex flex-col gap-2 items-center glassmorphism-card-cinem ${
             showYearOptions ? 'before:rounded-[12px]' : 'before:rounded-full'
           }`}
         >
@@ -270,7 +277,7 @@ export default function page() {
           )}
         </motion.div>
         <div className="w-full mt-16 flex flex-col gap-6 items-start">
-          <LayoutGroup>{mapGalery}</LayoutGroup>
+          <LayoutGroup>{mapGalery}</LayoutGroup> 
         </div>
       </section>
     </>

@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { FreeMode } from 'swiper';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
-import Logo from '@/public/assets/logo/GameDev.png'
+import Logo from '@/public/assets/logo/DesignGraphic.png'
 import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import 'swiper/swiper-bundle.min.css';
@@ -93,7 +93,7 @@ export default function page() {
     >
       <motion.div
         layout="position"
-        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-gamedev before:rounded-full cursor-pointer"
+        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-designgraphic before:rounded-full cursor-pointer"
         key={item.index}
         onClick={() => setActiveId(item.index)}
       >
@@ -192,8 +192,8 @@ export default function page() {
   return (
     <>
       <header className="w-max lg:flex items-center mx-auto pt-0 lg:mx-0 lg:gap-2 lg:static">
-        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] lg:static glassmorphism-gamedev before:rounded-full">
-        <Image 
+        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] lg:static glassmorphism-designgraphic before:rounded-full">
+          <Image 
             src={Logo}
             alt='Logo'
             className='flex relative items-center mx-auto'
@@ -206,7 +206,7 @@ export default function page() {
               animate={{ opacity: 0.5, y: 0 }}
               className="text-3xl lg:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 lg:static"
             >
-              GAME DEVELOPMENT
+              DESIGN GRAPHIC
             </motion.h1>
           </div>
           <motion.div
@@ -216,16 +216,16 @@ export default function page() {
             className="flex gap-1 text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
-              #Developer
+              #Design
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Coding
+              #Seni
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Game
+              #Visual
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Gaming
+              #Ilustrasi
             </motion.p>
           </motion.div>
         </div>
@@ -233,7 +233,7 @@ export default function page() {
 
       <section className="w-full mt-14 lg:flex gap-16 px-5">
         <p className="lg:w-1/2 text-base text-center lg:text-left text-white leading-relaxed">
-        Game Development adalah divisi yang dapat membuat dan pengembangan sebuah aplikasi. Hal ini melibatkan serangkaian tahap, termasuk desain konseptual, pengembangan perangkat lunak, pengujian, dan penyelesaian.
+        Desain Graphic adalah divisi yang berhubungan dengan seni. Divisi ini menciptakan visual yang dapat menyampaikan pesan menggunakan elemen-elemen grafis seperti gambar, teks, warna, dan bentuk. Ini melibatkan penggunaan kreativitas, keahlian desain, dan teknologi untuk menghasilkan desain yang menarik, fungsional, dan efektif.
         </p>
         <div className="lg:w-1/2 h-72 pt-4 lg:pt-0 rounded-lg overflow-hidden">
           <Image
@@ -246,7 +246,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[80vh] lg:h-[90vh] rounded-2xl mt-10 lg:mt-20 p-5 lg:p-10 bg-[#DD217B4D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[80vh] lg:h-[90vh] rounded-2xl mt-10 lg:mt-20 p-5 lg:p-10 bg-[#7421DD] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}
@@ -283,3 +283,4 @@ export default function page() {
     </>
   );
 }
+
