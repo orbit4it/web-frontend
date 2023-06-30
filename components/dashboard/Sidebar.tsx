@@ -20,9 +20,7 @@ export default function Sidebar() {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <motion.div
-        layout
-        transition={{ duration: 0.5, type: 'keyframes' }}
+      <div
         className={`w-4/5 md:w-1/5 h-screen ${
           isActive ? 'flex' : 'hidden'
         } fixed md:flex flex-col items-center bg-[#262B49] pl-3 pr-4 z-50`}
@@ -115,7 +113,7 @@ export default function Sidebar() {
             <p className="text-base font-semibold text-white">Log out</p>
           </button>
         </ul>
-      </motion.div>
+      </div>
       <div
         className={`absolute top-[75px] left-5 block md:hidden text-2xl text-white ${'block'}`}
         onClick={() => setIsActive(true)}
