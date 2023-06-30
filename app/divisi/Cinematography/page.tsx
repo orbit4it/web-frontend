@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { FreeMode } from 'swiper';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
-import Logo from '@/public/assets/logo/Cinema.png'
+import Logo from '@/public/assets/logo/Cinema.png';
 import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import 'swiper/swiper-bundle.min.css';
@@ -113,7 +113,9 @@ export default function page() {
             className="cursor-pointer z-10"
           />
         )}
-        <h1 className="text-lg font-bold text-white">{item.title}</h1>
+        <h1 className="text-base md:text-lg font-bold text-white">
+          {item.title}
+        </h1>
       </motion.div>
       <AnimatePresence>
         {activeId == item.index && (
@@ -123,7 +125,7 @@ export default function page() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.2, type: 'tween' }}
-            className="w-full h-[250px] pt-2"
+            className="w-full h-[200px] md:h-[250px] pt-2"
           >
             <Swiper
               slidesPerView={'auto'}
@@ -133,7 +135,7 @@ export default function page() {
               className="mySwiper"
             >
               {item.pictures.map((picture) => (
-                <SwiperSlide className="w-full lg:w-2/5">
+                <SwiperSlide className="w-full md:w-2/5">
                   <Image
                     src={picture}
                     alt="Kegiatan Cinematography"
@@ -191,20 +193,20 @@ export default function page() {
   ));
   return (
     <>
-      <header className="w-max lg:flex items-center mx-auto pt-0 lg:mx-0 lg:gap-2 lg:static">
-        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] lg:static glassmorphism-cinem before:rounded-full">
-        <Image 
+      <header className="w-max md:flex items-center mx-auto pt-0 md:mx-0 md:gap-2 md:static">
+        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] md:static glassmorphism-cinem before:rounded-full">
+          <Image
             src={Logo}
-            alt='Logo'
-            className='flex relative items-center mx-auto'
-            />
+            alt="Logo"
+            className="flex relative items-center mx-auto"
+          />
         </div>
         <div>
           <div className="h-max overflow-hidden">
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
-              className="text-3xl lg:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 lg:static"
+              className="text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
             >
               CINEMATOGRAPHY
             </motion.h1>
@@ -231,14 +233,14 @@ export default function page() {
         </div>
       </header>
 
-      <section className="w-full mt-14 lg:flex gap-16 px-5">
-        <p className="lg:w-1/2 text-base text-center lg:text-left text-white leading-relaxed">
+      <section className="w-full md:mt-14 mt-10 md:flex gap-16 px-5">
+        <p className="md:w-1/2 text-base text-center md:text-left text-white leading-relaxed">
           Cinematography adalah divisi yang menggunakan teknik gabungan dari
           seni dan teknologi. Hal ini melibatkan penggunaan kamera, pencahayaan,
           komposisi visual, dan elemen-elemen lain untuk menciptakan estetika
           visual yang diinginkan.
         </p>
-        <div className="lg:w-1/2 h-72 pt-4 lg:pt-0 rounded-lg overflow-hidden">
+        <div className="md:w-1/2 md:h-72 mt-8 md:mt-4 md:pt-0 rounded-lg overflow-hidden">
           <Image
             src={FotoDummy}
             alt="Kegiatan Cinematography"
@@ -249,11 +251,11 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[80vh] lg:h-[90vh] rounded-2xl mt-10 lg:mt-20 p-5 lg:p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}
-          className={`absolute top-0 left-0 mt-10 ml-10 z-20 rounded-full py-1 px-6 flex flex-col gap-2 items-center glassmorphism-card-cinem ${
+          className={`absolute top-0 left-0 mt-10 ml-6 md:ml-10 z-20 rounded-full py-1 px-6 flex flex-col gap-2 items-center glassmorphism-card-cinem ${
             showYearOptions ? 'before:rounded-[12px]' : 'before:rounded-full'
           }`}
         >
@@ -280,7 +282,7 @@ export default function page() {
           )}
         </motion.div>
         <div className="w-full mt-16 flex flex-col gap-6 items-start">
-          <LayoutGroup>{mapGalery}</LayoutGroup> 
+          <LayoutGroup>{mapGalery}</LayoutGroup>
         </div>
       </section>
     </>

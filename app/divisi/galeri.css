@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 .swiper {
-  @apply w-full h-[200px];
+  @apply w-full md:h-[200px];
 }
 .swiper-slide {
-  @apply first:w-full first:md:w-2/5 text-center text-lg flex justify-center items-center rounded-lg overflow-hidden;
+  @apply first:w-4/5 first:md:w-2/5 text-center text-lg flex justify-center items-center rounded-lg overflow-hidden;
 }
 .swiper-slide img {
   @apply block w-full h-full object-cover;
 }
 
-.swiper-slide:not(:first-child){
-  @apply w-full md:w-2/5
+.swiper-slide:not(:first-child) {
+  @apply w-4/5 md:w-2/5;
 }

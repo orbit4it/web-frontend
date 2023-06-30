@@ -24,6 +24,27 @@
   mask-composite: exclude;
 }
 
+.glassmorphism-card-cinem {
+  @apply backdrop-blur-[15px];
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.glassmorphism-card-cinem::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(238, 46, 209, 0.39) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
 .glassmorphism-itsupport {
   @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[15px] rounded-[100px];
   background: linear-gradient(
@@ -45,26 +66,6 @@
   mask-composite: exclude;
 }
 
-.glassmorphism-card-cinem {
-  @apply backdrop-blur-[15px];
-  background: linear-gradient(
-    144deg,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-}
-
-.glassmorphism-card-cinem::before {
-  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 1) 10%,
-    rgba(238, 46, 209, 0.39) 90%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
 .glassmorphism-card-itsupport {
   @apply backdrop-blur-[15px];
   background: linear-gradient(
@@ -175,7 +176,7 @@
   background: linear-gradient(
     128deg,
     rgba(255, 252, 252, 0.4) 0%,
-    #7421DD 85.36%
+    #7421dd 85.36%
   );
 }
 
