@@ -17,3 +17,12 @@
     rgba(255, 255, 255, 1) 60%
   );
 }
+
+.gradientLogin {
+  background: rgb(30, 30, 30);
+  background: linear-gradient(
+    120deg,
+    rgba(30, 30, 30, 1) 0%,
+    rgba(42, 5, 101, 1) 100%
+  );
+}

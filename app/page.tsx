@@ -1,6 +1,6 @@
 'use client';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Image from 'next/image';
 import ButtonLandingPage from '@/components/ButtonLandingPage';
 import { motion as m } from 'framer-motion';
@@ -163,8 +163,8 @@ export default function Home() {
           </m.div>
         </div>
       </div>
-      <div className=" bg-about3 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] flex flex-col items-center relative">
-        <div className=" block md:flex items-center justify-center p-5 md:p-0 gap-5 relative z-10 mt-0">
+      <div className=" bg-about3 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] flex flex-col justify-center items-center relative">
+        <div className=" block md:flex items-center justify-center p-5 md:p-0 gap-5 relative z-10">
           <VisiMisiCard
             img="/assets/logo/roket.png"
             imgWidth={75}
@@ -193,55 +193,19 @@ export default function Home() {
             misi={false}
           />
         </div>
-        <div className=" bg-struktur bg-no-repeat w-full h-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] absolute -bottom-16">
-          <m.h1
-            initial={{ opacity: 0, translateY: 100 }}
-            whileInView={{ opacity: 1, translateY: -5 }}
-            className=" text-white font-bold text-5xl text-center mt-96"
-          >
-            STRUKTUR <br /> ORGANISASI
-          </m.h1>
+        <div className=" absolute bottom-0 left-0">
+          <Image
+            src={'/assets/img/BgStruktur-1.png'}
+            width={1000}
+            height={300}
+            alt="img"
+          />
         </div>
       </div>
       {/* ABOUT END */}
 
       {/* STRUKTUR  */}
-      <div className=" bg-struktur2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%]">
-        <div className={` text-white flex items-center justify-center gap-5`}>
-          <div className=" relative w-[300px] h-[200px] ">
-            <Image
-              src={'/assets/img/anggota/hasnatHalf.png'}
-              alt="Hasnat -Ketua"
-              width={278}
-              height={271}
-              className=" absolute bottom-0 block mx-auto"
-            />
-            <Image
-              src={'/assets/img/anggota/hasnatFull.png'}
-              alt="Hasnat -Ketua"
-              width={278}
-              height={376}
-              className=" absolute -bottom-40 hover:bottom-0 hover:scale-[.75] duration-200"
-            />
-          </div>
-          <div className=" relative w-[300px] h-[200px]">
-            <Image
-              src={'/assets/img/anggota/luqmanHalf.png'}
-              alt="Hasnat -Ketua"
-              width={278}
-              height={271}
-              className=" absolute bottom-0 z-10"
-            />
-            <Image
-              src={'/assets/img/anggota/luqmanFull.png'}
-              alt="Hasnat -Ketua"
-              width={267}
-              height={376}
-              className=" absolute -bottom-40 hover:bottom-0 hover:scale-[.75] duration-200"
-            />
-          </div>
-        </div>
-      </div>
+      {/* <div className=" bg-about2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] relative"></div> */}
       {/* STRUKTUR END */}
 
       {/* <Footer /> */}
