@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { FreeMode } from 'swiper';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
-import Logo from '@/public/assets/logo/Cinema.png';
+import Logo from '@/public/assets/logo/GameDev.png';
 import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import 'swiper/swiper-bundle.min.css';
@@ -93,7 +93,7 @@ export default function page() {
     >
       <motion.div
         layout="position"
-        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-cinem before:rounded-full cursor-pointer"
+        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-gamedev before:rounded-full cursor-pointer"
         key={item.index}
         onClick={() => setActiveId(item.index)}
       >
@@ -194,7 +194,7 @@ export default function page() {
   return (
     <>
       <header className="w-max md:flex items-center mx-auto pt-0 md:mx-0 md:gap-2 md:static">
-        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] md:static glassmorphism-cinem before:rounded-full">
+        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] md:static glassmorphism-gamedev before:rounded-full">
           <Image
             src={Logo}
             alt="Logo"
@@ -208,26 +208,26 @@ export default function page() {
               animate={{ opacity: 0.5, y: 0 }}
               className="text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
             >
-              CINEMATOGRAPHY
+              GAME DEVELOPMENT
             </motion.h1>
           </div>
           <motion.div
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-base relative mx-auto text-white opacity-50"
+            className="flex gap-1 text-sm md:text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
-              #Seni
+              #Developer
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Fotografi
+              #Coding
             </motion.p>
             <motion.p variants={item} layout="position">
-              #VideoGrafi
+              #Game
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Cinematic
+              #Gaming
             </motion.p>
           </motion.div>
         </div>
@@ -235,10 +235,9 @@ export default function page() {
 
       <section className="w-full md:mt-14 mt-10 md:flex gap-16 px-5">
         <p className="md:w-1/2 text-base text-center md:text-left text-white leading-relaxed">
-          Cinematography adalah divisi yang menggunakan teknik gabungan dari
-          seni dan teknologi. Hal ini melibatkan penggunaan kamera, pencahayaan,
-          komposisi visual, dan elemen-elemen lain untuk menciptakan estetika
-          visual yang diinginkan.
+          Game Development adalah divisi yang dapat membuat dan pengembangan
+          sebuah aplikasi. Hal ini melibatkan serangkaian tahap, termasuk desain
+          konseptual, pengembangan perangkat lunak, pengujian, dan penyelesaian.
         </p>
         <div className="md:w-1/2 md:h-72 mt-8 md:mt-4 md:pt-0 rounded-lg overflow-hidden">
           <Image
@@ -251,7 +250,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#DD217B4D] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}

@@ -11,6 +11,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        homeFull: "url('/assets/img/BgHome.png')",
+        homeMobile: "url('/assets/img/BgHome-mobile.png')",
         home: "url('/assets/img/BgHome-1.png')",
         home2: "url('/assets/img/BgHome-2.png')",
         home3: "url('/assets/img/BgHome-3.png')",
@@ -35,12 +37,19 @@ module.exports = {
         NavlinkGradient: '',
         darkPurple: '#16021B',
         gray1: '#888181',
+        darkPurp: '#0A013D',
+        bgGameDev: 'rgba(221, 33, 123, 0.3)',
+        whiteTransparent: 'rgba(255, 255, 255, 0.3)',
+        warning: '#ffc107',
+        danger: '#dc3545',
+      },
+      fontFamily: {
+        pStart: ['"Press Start 2P"', 'cursive'],
       },
       borderRadius: {
         '5xl': '40px',
       }
     },
   },
-
   plugins: [],
 };

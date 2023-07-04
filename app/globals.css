@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,27 @@
   );
 }
 .glassmorphism-cinem::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(238, 46, 209, 0.39) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-card-cinem {
+  @apply backdrop-blur-[15px];
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.glassmorphism-card-cinem::before {
   @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
   background: linear-gradient(
     165deg,
@@ -43,26 +66,6 @@
   mask-composite: exclude;
 }
 
-.glassmorphism-card-cinem {
-  @apply backdrop-blur-[15px];
-  background: linear-gradient(
-    144deg,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-}
-
-.glassmorphism-card-cinem::before {
-  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 1) 10%,
-    rgba(238, 46, 209, 0.39) 90%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
 .glassmorphism-card-itsupport {
   @apply backdrop-blur-[15px];
   background: linear-gradient(
@@ -78,6 +81,132 @@
     165deg,
     rgba(255, 255, 255, 1) 10%,
     rgba(255, 49, 49, 1) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-gamedev {
+  @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[15px] rounded-[100px];
+  background: linear-gradient(
+    128deg,
+    rgba(255, 252, 252, 0.5) 0%,
+    #4c0b50 85.36%
+  );
+}
+
+.glassmorphism-gamedev::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(76, 11, 80, 1) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-card-gamedev {
+  @apply backdrop-blur-[15px];
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.glassmorphism-card-gamedev::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 7) 10%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-webdev {
+  @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[15px] rounded-[100px];
+  background: linear-gradient(
+    128deg,
+    rgba(255, 252, 252, 0.4) 0%,
+    #0e582c 85.36%
+  );
+}
+
+.glassmorphism-webdev::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 252, 252, 1) 10%,
+    rgba(17, 70, 76, 1) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-card-webdev {
+  @apply backdrop-blur-[15px];
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.glassmorphism-card-webdev::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 7) 10%,
+    rgba(17, 70, 76, 1) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-designgraphic {
+  @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[15px] rounded-[100px];
+  background: linear-gradient(
+    128deg,
+    rgba(255, 252, 252, 0.4) 0%,
+    #7421dd 85.36%
+  );
+}
+
+.glassmorphism-designgraphic::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(17, 70, 76, 1) 90%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glassmorphism-card-designgraphic {
+  @apply backdrop-blur-[15px];
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.glassmorphism-card-designgraphic::before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 7) 10%,
+    rgba(255, 255, 255, 0.15) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
