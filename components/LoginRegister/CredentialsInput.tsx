@@ -10,6 +10,7 @@ const CredentialsInput: React.FC<CredentialsInputProps> = ({
   inputClassname,
   labelText,
   labelClassname,
+  onchange,
 }) => {
   return (
     <div className={`${twMerge('relative', classname)}`}>
@@ -21,6 +22,7 @@ const CredentialsInput: React.FC<CredentialsInputProps> = ({
           'peer py-2 px-3 border-white placeholder-shown:border-[#75629A] border-[1px] rounded-lg placeholder-transparent bg-transparent outline-none w-[350px] relative z-0 placeholder-shown:z-10',
           inputClassname
         )}`}
+        onChange={(e) => onchange(e.target.value)}
       />
       <label
         className={` ${twMerge(

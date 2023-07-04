@@ -38,4 +38,5 @@ export interface CredentialsInputProps {
   inputClassname?: string;
   labelText: string;
   labelClassname?: string;
+  onchange: (value: string) => void;
 }

@@ -1,14 +1,24 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../helper/page.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import { motion as m } from 'framer-motion';
 
 export default function page() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const router = useRouter();
+  const handleEmail = (e: string) => {
+    setEmail(e);
+  };
+  const handlePass = (e: string) => {
+    setPassword(e);
+  };
+
   return (
     <div className=" flex items-center justify-between text-white relative">
       <div className={`${styles.gradientLogin} h-screen w-full`}>
@@ -29,6 +39,7 @@ export default function page() {
                 placeholder="Email"
                 required={true}
                 labelText="Email"
+                onchange={handleEmail}
               />
               <CredentialsInput
                 classname="mt-6"
@@ -36,9 +47,13 @@ export default function page() {
                 placeholder="Password"
                 required={true}
                 labelText="Kata sandi"
+                onchange={handlePass}
               />
               <div className=" mt-10">
-                <button className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200">
+                <button
+                  type="submit"
+                  className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
+                >
                   Masuk
                 </button>
               </div>
