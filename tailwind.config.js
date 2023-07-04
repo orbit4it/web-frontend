@@ -22,6 +22,8 @@ module.exports = {
         struktur: "url('/assets/img/BgStruktur-1.png')",
         struktur2: "url('/assets/img/BgStruktur-2.png')",
         division: "url('/assets/img/BgHome.png')",
+        'bulan-castle': "url('/assets/img/BulanCastle.png')",
+        'cave': "url('/assets/img/cave.png')",
       },
       colors: {
         purple: '#EE2ED1',
@@ -32,6 +34,9 @@ module.exports = {
         tertiary: '#EF2ED2',
         purple: '#EE2ED1',
         purpleFooter: '#4B0B7C',
+        NavlinkGradient: '',
+        darkPurple: '#16021B',
+        gray1: '#888181',
         darkPurp: '#0A013D',
         bgGameDev: 'rgba(221, 33, 123, 0.3)',
         whiteTransparent: 'rgba(255, 255, 255, 0.3)',
@@ -41,6 +46,9 @@ module.exports = {
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],
       },
+      borderRadius: {
+        '5xl': '40px',
+      }
     },
   },
   plugins: [],
