@@ -29,3 +29,14 @@ export interface VisiMisiProps {
 	desc: string;
 	misi: boolean;
 }
+
+export interface TestimoniProps {
+	image: string
+	name: string
+	honor: string
+	message: string
+}
+
+export interface SwiperStyles {
+	[key: string]: string;
+}
