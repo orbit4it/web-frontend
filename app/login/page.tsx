@@ -20,20 +20,21 @@ export default function page() {
   };
 
   return (
-    <div className=" flex items-center justify-between text-white relative">
+    <div className="flex flex-col-reverse md:flex-row items-center justify-normal md:justify-between text-white relative">
       <div className={`${styles.gradientLogin} h-screen w-full`}>
-        <div>
-          <div className=" w-full h-screen flex flex-col justify-center items-center">
-            <div className="flex items-center gap-5">
+        <div className="">
+          <div className=" w-full h-screen flex flex-col justify-normal md:justify-center items-center">
+            <div className="flex items-center gap-0 md:gap-5 mt-14 md:mt-0">
               <Image
                 src={'/assets/logo/LogoPrimary.png'}
-                width={99}
-                height={99}
+                width={100}
+                height={100}
                 alt="logo"
+                className=" absolute top-6 md:top-0 md:relative"
               />
-              <h1 className=" text-6xl font-bold">Masuk</h1>
+              <h1 className=" text-3xl md:text-6xl font-bold">Masuk</h1>
             </div>
-            <form action="" className=" mt-10">
+            <form action="" className=" mt-10 w-full md:w-auto px-10 md:px-0">
               <CredentialsInput
                 type="email"
                 placeholder="Email"
@@ -52,7 +53,7 @@ export default function page() {
               <div className=" mt-10">
                 <button
                   type="submit"
-                  className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
+                  className=" border-2 border-purple p-2 w-full md:w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
                 >
                   Masuk
                 </button>
@@ -67,11 +68,11 @@ export default function page() {
           </div>
         </div>
       </div>
-      <div className=" w-[634px] h-screen bg-primary hidden md:block">
-        <div className=" bg-homeFull bg-[length:100%_100%] h-screen w-full"></div>
+      <div className=" w-screen md:w-[634px] h-[150px] md:h-screen bg-primary">
+        <div className=" bg-homeMobile md:bg-homeFull bg-[length:100%_100%] md:bg-[length:200%_100%] bg-center h-[150px] md:h-screen w-full"></div>
       </div>
       <div
-        className=" flex gap-1  items-center text-white absolute bottom-5 left-5  cursor-pointer"
+        className=" flex gap-1 items-center text-white absolute bottom-5 left-5  cursor-pointer"
         onClick={(e) => {
           router.back();
         }}

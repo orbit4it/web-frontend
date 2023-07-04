@@ -12,6 +12,7 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         homeFull: "url('/assets/img/BgHome.png')",
+        homeMobile: "url('/assets/img/BgHome-mobile.png')",
         home: "url('/assets/img/BgHome-1.png')",
         home2: "url('/assets/img/BgHome-2.png')",
         home3: "url('/assets/img/BgHome-3.png')",

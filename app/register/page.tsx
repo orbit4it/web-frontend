@@ -69,21 +69,24 @@ export default function page() {
     },
   ];
 
+  console.log('border-' + motivasiColor);
+
   return (
-    <div className=" flex flex-row-reverse items-center justify-between text-white relative">
+    <div className="flex flex-col-reverse md:flex-row-reverse items-center justify-normal md:justify-between text-white relative">
       <div className={` h-screen w-full`}>
         <div>
           <div
-            className={`${styles.gradientLogin} w-full h-screen flex flex-col justify-center items-center relative`}
+            className={`${styles.gradientLogin} w-full h-screen flex flex-col justify-center items-center md:relative`}
           >
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-0 md:gap-5 mt-0 md:mt-0">
               <Image
                 src={'/assets/logo/LogoPrimary.png'}
-                width={99}
-                height={99}
+                width={100}
+                height={100}
                 alt="logo"
+                className=" absolute top-6 md:top-0 md:relative"
               />
-              <h1 className=" text-6xl font-bold">Daftar</h1>
+              <h1 className=" text-3xl md:text-6xl font-bold">Daftar</h1>
             </div>
             <form action="" className=" mt-10">
               {halfData.map((data, key) => {
@@ -204,8 +207,8 @@ export default function page() {
           </div>
         </div>
       </div>
-      <div className=" w-[634px] h-screen bg-primary hidden md:block">
-        <div className=" bg-homeFull bg-[length:100%_100%] h-screen w-full"></div>
+      <div className=" w-screen md:w-[634px] h-[150px] md:h-screen bg-primary">
+        <div className=" bg-homeMobile md:bg-homeFull bg-[length:100%_100%] md:bg-[length:200%_100%] bg-center h-[150px] md:h-screen w-full"></div>
       </div>
     </div>
   );
