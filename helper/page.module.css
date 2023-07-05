@@ -1,10 +1,16 @@
 .cardLanding {
-	background: rgb(64, 53, 111);
-	background: linear-gradient(
-		180deg,
-		rgba(64, 53, 111, 1) 0%,
-		rgba(59, 48, 107, 1) 79%
-	);
-	opacity: 90%;
-	border-color: rgba(238, 46, 209, 0.4);
+  background: rgb(64, 53, 111);
+  background: linear-gradient(
+    180deg,
+    rgba(64, 53, 111, 1) 0%,
+    rgba(59, 48, 107, 1) 79%
+  );
+  opacity: 90%;
+  border-color: rgba(238, 46, 209, 0.4);
+}
+
+.shadowBawah {
+  box-shadow: 0px 4px 5px 0px rgba(158, 158, 158, 0.49);
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(158, 158, 158, 0.49);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(158, 158, 158, 0.49);
 }

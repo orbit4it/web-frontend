@@ -33,6 +33,8 @@ module.exports = {
         darkPurp: '#0A013D',
         bgGameDev: 'rgba(221, 33, 123, 0.3)',
         whiteTransparent: 'rgba(255, 255, 255, 0.3)',
+        profileCard: '#262B49',
+        textDashboard: '#E3E3E3',
       },
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],
