@@ -40,3 +40,14 @@ export interface CredentialsInputProps {
   labelClassname?: string;
   onchange: (value: string) => void;
 }
+
+export interface TestimoniProps {
+	image: string
+	name: string
+	honor: string
+	message: string
+}
+
+export interface SwiperStyles {
+	[key: string]: string;
+}
