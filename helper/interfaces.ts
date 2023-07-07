@@ -42,12 +42,25 @@ export interface CredentialsInputProps {
 }
 
 export interface TestimoniProps {
-	image: string
-	name: string
-	honor: string
-	message: string
+  image: string;
+  name: string;
+  honor: string;
+  message: string;
 }
 
 export interface SwiperStyles {
-	[key: string]: string;
+  [key: string]: string;
+}
+
+export interface DivisionsProps {
+  id?: number;
+  name?: string;
+  waGroupLink?: string;
+}
+
+export interface KelasProps {
+  grade?: string;
+  id?: number;
+  name?: string;
+  vocational?: string;
 }

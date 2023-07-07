@@ -7,31 +7,114 @@ import Link from 'next/link';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
 import { motion as m } from 'framer-motion';
+import axios from 'axios';
+import { DivisionsProps, KelasProps } from '@/helper/interfaces';
+import Apicall from '@/helper/apicall';
+import { showToast } from '@/helper/toaster';
 
 export default function page() {
   const [nama, setNama] = useState('');
-  const [kelas, setKelas] = useState('');
+  const [divisi, setDivisi] = useState<number>(0);
+  const [listDivisions, setListDivisions] = useState<DivisionsProps[]>([]);
+  const [kelas, setKelas] = useState<number>(0);
+  const [listkelas, setListKelas] = useState<KelasProps[]>([]);
   const [nis, setNis] = useState('');
-  const [divisi, setDivisi] = useState('');
   const [motivasi, setMotivasi] = useState('');
   const [motivasiColor, setMotivasiColor] = useState('');
+  const [email, setEmail] = useState('');
   const [error, setError] = useState(false);
-
   const router = useRouter();
+
   const handleNama = (e: string) => {
     setNama(e);
-  };
-  const handleKelas = (e: string) => {
-    setKelas(e);
   };
   const handleNis = (e: string) => {
     setNis(e);
   };
+  const handleEmai = (e: string) => {
+    setEmail(e);
+  };
+
+  const fetching = async () => {
+    const divisions = await Apicall(`
+          query {
+            divisions {
+              id
+              name
+            }
+          }
+         `);
+
+    if (divisions) {
+      setListDivisions(divisions.data.divisions);
+    }
+
+    const kelas = await Apicall(`
+          query {
+            grades {
+              grade
+              id
+              name
+              vocational
+            }
+          }
+         `);
+
+    if (kelas) {
+      setListKelas(kelas.data.grades);
+    }
+  };
+
+  const postData = async () => {
+    if (divisi == 0) {
+      showToast('Silahkan Pilih divisi', 'warning');
+      return;
+    }
+
+    if (kelas == 0) {
+      showToast('Silahkan Pilih kelas', 'warning');
+      return;
+    }
+
+    const post = await Apicall(`
+    mutation {
+      createUserPending (
+        userPending:{
+          name: "${nama}", 
+          email: "${email}", 
+          motivation: "${motivasi}", 
+          nis: "${nis}", 
+          divisionId: ${divisi}, 
+          gradeId: ${kelas}
+      }
+  ) {
+    ... on Success {message}
+    ... on Error {error}
+  }
+}`);
+
+    console.log(post);
+
+    if (post.data) {
+      if (post.data.createUserPending) {
+        if (post.data.createUserPending.message) {
+          showToast(post.data.createUserPending.message, 'success');
+        } else if (post.data.createUserPending.error) {
+          showToast(post.data.createUserPending.error, 'danger');
+          router.push(`register/waiting?name=${nama}`);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetching();
+  }, []);
 
   const handleMotivasiColor = () => {
     if (motivasi.length >= 50 && motivasi.length <= 80) {
       setMotivasiColor('warning');
-    } else if (motivasi.length >= 80) {
+    } else if (motivasi.length > 80) {
       setMotivasiColor('danger');
     } else {
       setMotivasiColor('white');
@@ -53,23 +136,21 @@ export default function page() {
     },
     {
       type: 'text',
-      placeholder: 'Kelas',
-      required: true,
-      labelText: 'Kelas',
-      onchange: handleKelas,
-      optional: false,
-    },
-    {
-      type: 'text',
       placeholder: 'NIS',
       required: false,
       labelText: 'NIS',
       onchange: handleNis,
       optional: true,
     },
+    {
+      type: 'email',
+      placeholder: 'Email',
+      required: true,
+      labelText: 'Email',
+      onchange: handleEmai,
+      optional: false,
+    },
   ];
-
-  console.log('border-' + motivasiColor);
 
   return (
     <div className="flex flex-col-reverse md:flex-row-reverse items-center justify-normal md:justify-between text-white relative">
@@ -81,14 +162,21 @@ export default function page() {
             <div className="flex items-center gap-0 md:gap-5 mt-0 md:mt-0">
               <Image
                 src={'/assets/logo/LogoPrimary.png'}
-                width={100}
-                height={100}
+                width={80}
+                height={80}
                 alt="logo"
                 className=" absolute top-6 md:top-0 md:relative"
               />
-              <h1 className=" text-3xl md:text-6xl font-bold">Daftar</h1>
+              <h1 className=" text-2xl md:text-5xl font-bold">Daftar</h1>
             </div>
-            <form action="" className=" mt-10">
+            <form
+              action=""
+              className=" mt-10"
+              onSubmit={(e) => {
+                e.preventDefault();
+                postData();
+              }}
+            >
               {halfData.map((data, key) => {
                 return (
                   <div key={key} className=" mb-5 relative">
@@ -109,64 +197,99 @@ export default function page() {
                   </div>
                 );
               })}
+
+              <div className="relative">
+                <select
+                  name="kelas"
+                  id="kelas"
+                  title="Kelas"
+                  className={` ${
+                    kelas != 0
+                      ? ' border-white text-white'
+                      : 'border-[#75629A] text-[#75629A]'
+                  }
+          'peer py-2 px-3  border-[1px] rounded-2xl bg-transparent outline-none w-[350px]  
+        `}
+                  onChange={(e) => {
+                    setKelas(parseInt(e.target.value));
+                  }}
+                >
+                  <option value="0">
+                    {listkelas.length ? 'Pilih Kelas' : 'Loading...'}
+                  </option>
+                  {listkelas.map((data, key) => {
+                    return (
+                      <option
+                        value={data.id}
+                        key={key}
+                        className={`${
+                          listkelas.length
+                            ? 'bg-[#75629A] text-white'
+                            : 'bg-white'
+                        }`}
+                      >
+                        {data.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
               <div>
                 <select
                   name="divisi"
                   id="divisi"
                   title="Divisi"
-                  className={` ${divisi ? ' border-white text-white' : ''}
-          'peer py-2 px-3 border-[#75629A] border-[1px] rounded-lg bg-transparent outline-none w-[350px] text-[#75629A]
+                  className={` $${
+                    divisi != 0
+                      ? ' border-white text-white'
+                      : ' border-[#75629A] text-[#75629A]'
+                  }
+          'peer mt-4 py-2 px-3  border-[1px] rounded-2xl bg-transparent outline-none w-[350px]
         `}
                   onChange={(e) => {
-                    setDivisi(e.target.value);
+                    setDivisi(parseInt(e.target.value));
                   }}
                 >
-                  <option value="" className=" text-white bg-[#75629A]">
-                    Divisi yang diminati
+                  <option value="0">
+                    {listDivisions.length ? 'Pilih Divisi' : 'Loading...'}
                   </option>
-                  <option
-                    className=" text-white bg-[#75629A]"
-                    value="Web Development"
-                  >
-                    Web Development
-                  </option>
-                  <option
-                    className=" text-white bg-[#75629A]"
-                    value="Game Development"
-                  >
-                    Game Development
-                  </option>
-                  <option
-                    className=" text-white bg-[#75629A]"
-                    value="Cinematography"
-                  >
-                    Cinematography
-                  </option>
-                  <option
-                    className=" text-white bg-[#75629A]"
-                    value="Graphic Design"
-                  >
-                    Graphic Design
-                  </option>
-                  <option
-                    className=" text-white bg-[#75629A]"
-                    value="IT Support"
-                  >
-                    IT Support
-                  </option>
+
+                  {listDivisions.map((data, key) => {
+                    return (
+                      <option
+                        value={data.id}
+                        key={key}
+                        className={`${
+                          listDivisions.length
+                            ? 'bg-[#75629A] text-white'
+                            : 'bg-white'
+                        }`}
+                      >
+                        {data.name}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
               <div className=" relative">
                 <textarea
                   title="Motivasi"
                   placeholder="Motivasi"
+                  value={motivasi}
                   onChange={(e) => {
-                    setMotivasi(e.target.value);
+                    if (e.target.value.length <= 100) {
+                      setMotivasi(e.target.value);
+                    }
+                    handleMotivasiColor();
                   }}
-                  className={` border-${motivasiColor} resize-none w-[350px] h-[100px] bg-transparent border-[1px] rounded-lg mt-5 p-3 outline-none relative z-0 peer placeholder-shown:border-[#75629A] placeholder-transparent placeholder-shown:z-10`}
+                  className={` ${
+                    'border-' + motivasiColor
+                  } resize-none w-[350px] h-[80px] bg-transparent border-[1px] rounded-2xl mt-5 p-3 outline-none relative z-0 peer placeholder-shown:border-[#75629A] placeholder-transparent placeholder-shown:z-10`}
                 />
                 <label
-                  className={` text-${motivasiColor} absolute left-3 top-2 px-2 bg-[#221538]  peer-placeholder-shown:text-[#75629A] peer-placeholder-shown:top-8 peer-placeholder-shown:bg-transparent duration-200`}
+                  className={`  ${
+                    'text-' + motivasiColor
+                  } absolute left-3 top-2 px-2 bg-[#221538]  peer-placeholder-shown:text-[#75629A] peer-placeholder-shown:top-8 peer-placeholder-shown:bg-transparent duration-200`}
                 >
                   Motivasi <span className=" text-purple">*</span>
                 </label>
@@ -181,21 +304,21 @@ export default function page() {
                 </p>
               </div>
               <div className=" mt-8">
-                <Link
+                {/* <Link
                   href={{
                     pathname: '/register/waiting',
                     query: {
                       nama: nama,
                     },
                   }}
+                > */}
+                <button
+                  type="submit"
+                  className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
                 >
-                  <button
-                    type="submit"
-                    className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
-                  >
-                    Daftar
-                  </button>
-                </Link>
+                  Daftar
+                </button>
+                {/* </Link> */}
               </div>
               <h1 className=" text-sm text-center mt-5">
                 Sudah punya akun?{' '}

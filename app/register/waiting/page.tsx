@@ -4,9 +4,19 @@ import styles from '../../../helper/page.module.css';
 import { HiOutlineCheckCircle } from 'react-icons/hi';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import axios from 'axios';
 
 export default function page() {
   const searchParams = useSearchParams();
+
+  axios({
+    url: 'http://203.194.113.238:8000/graphql',
+    method: 'post',
+    data: {
+      query: ``,
+    },
+  });
+
   return (
     <div
       className={`${styles.gradientVerifyCard} h-screen w-screen flex justify-center items-center relative p-5 md:p-0`}

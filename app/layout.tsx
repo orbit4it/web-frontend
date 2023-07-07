@@ -5,6 +5,8 @@ import './globals.css';
 import { Montserrat, Inter } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Sidebar from '@/components/dashboard/Sidebar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -44,7 +46,21 @@ export default function RootLayout({
   if (isLogin) {
     return (
       <html lang="en">
-        <body className={`${inter.className} `}>{children}</body>
+        <body className={`${inter.className} `}>
+          <ToastContainer
+            position="top-left"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+          {children}
+        </body>
       </html>
     );
   }
