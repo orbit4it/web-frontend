@@ -9,8 +9,8 @@ import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
 import { motion as m } from 'framer-motion';
 
 export default function page() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [nama, setNama] = useState('');
+  const [kelas, setKelas] = useState('');
   const [nis, setNis] = useState('');
   const [divisi, setDivisi] = useState('');
   const [motivasi, setMotivasi] = useState('');
@@ -18,11 +18,11 @@ export default function page() {
   const [error, setError] = useState(false);
 
   const router = useRouter();
-  const handleEmail = (e: string) => {
-    setEmail(e);
+  const handleNama = (e: string) => {
+    setNama(e);
   };
-  const handlePass = (e: string) => {
-    setPassword(e);
+  const handleKelas = (e: string) => {
+    setKelas(e);
   };
   const handleNis = (e: string) => {
     setNis(e);
@@ -48,7 +48,7 @@ export default function page() {
       placeholder: 'Nama',
       required: true,
       labelText: 'Nama Lengkap',
-      onchange: handleEmail,
+      onchange: handleNama,
       optional: false,
     },
     {
@@ -56,7 +56,7 @@ export default function page() {
       placeholder: 'Kelas',
       required: true,
       labelText: 'Kelas',
-      onchange: handlePass,
+      onchange: handleKelas,
       optional: false,
     },
     {
@@ -181,12 +181,21 @@ export default function page() {
                 </p>
               </div>
               <div className=" mt-8">
-                <button
-                  type="submit"
-                  className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
+                <Link
+                  href={{
+                    pathname: '/register/waiting',
+                    query: {
+                      nama: nama,
+                    },
+                  }}
                 >
-                  Daftar
-                </button>
+                  <button
+                    type="submit"
+                    className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
+                  >
+                    Daftar
+                  </button>
+                </Link>
               </div>
               <h1 className=" text-sm text-center mt-5">
                 Sudah punya akun?{' '}
