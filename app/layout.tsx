@@ -24,6 +24,12 @@ export default function RootLayout({
   const isDashboard =
     pathname === '/dashboard' || pathname.startsWith('/dashboard/');
 
+  const isLogin =
+    pathname === '/login' ||
+    pathname.startsWith('/login/') ||
+    pathname === '/register' ||
+    pathname.startsWith('/register/');
+
   if (isDashboard) {
     return (
       <html lang="en">
@@ -31,6 +37,14 @@ export default function RootLayout({
           <Sidebar />
           {children}
         </body>
+      </html>
+    );
+  }
+
+  if (isLogin) {
+    return (
+      <html lang="en">
+        <body className={`${inter.className} `}>{children}</body>
       </html>
     );
   }

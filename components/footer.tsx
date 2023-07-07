@@ -3,6 +3,11 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { TfiEmail } from 'react-icons/tfi';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+// interface footerProps {
+//   Router: string;
+// }
 
 const Footer = () => {
   const divisons = [
@@ -27,8 +32,15 @@ const Footer = () => {
       link: '/divisi/ItSupport',
     },
   ];
+
+  const pathname = usePathname();
+
   return (
-    <div className="w-full block md:flex items-center justify-between bg-purpleFooter bg-opacity-70 p-10">
+    <div
+      className={`${
+        pathname == '/login' ? 'hidden' : ''
+      } w-full block md:flex items-center justify-between bg-purpleFooter bg-opacity-70 p-10`}
+    >
       <div className=" flex items-center justify-center md:justify-normal gap-6">
         <div className=" flex items-center text-white gap-2">
           <div className=" bg-purple  rounded-full p-1">

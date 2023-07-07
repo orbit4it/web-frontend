@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
+import 'swiper/css';
 
 export default function page() {
   const [currentItem, setCurrentItem] = useState(0);
@@ -48,7 +51,7 @@ export default function page() {
     setCurrentItem((currentItem + 1) % item.length);
   };
 
-  console.log(currentItem);
+  // console.log(currentItem);
 
   return (
     <>
@@ -63,7 +66,7 @@ export default function page() {
         </ul>
       </section>
       {/* Another Content */}
-      <section className="flex justify-between mt-6 gap-6 pb-10">
+      <section className="md:flex justify-between mt-6 gap-6 pb-10">
         <div className="w-full">
           <div className="bg-profileCard py-5 px-7 rounded-[15px] shadow-md">
             <div className="flex justify-between mb-3">
@@ -84,7 +87,7 @@ export default function page() {
           </div>
           <div className="mt-6 py-5 px-7 bg-profileCard rounded-[15px] shadow-md">
             <h1 className="font-bold">Materi Terbaru</h1>
-            <div className="rounded-[11px] relative bg-sky-500 mt-4 flex items-center justify-between">
+            <div className="rounded-[11px] relative bg-gradient-to-r from-cardMateri to-[#1F7FB6] mt-4 flex items-center justify-between">
               <div>
                 <div className="flex justify-between items-center p-5">
                   <div>
@@ -103,7 +106,7 @@ export default function page() {
                     </a>
                   </Link>
                 </div>
-                <hr className="h-[3px] bg-white" />
+                <hr className="h-[3px] bg-gradient-to-r from-white via-[#E084CC] to-[#E133BB]" />
                 <p className="pl-5 pr-16 pt-5 pb-10 text-sm">
                   {item[currentItem].description}
                 </p>
@@ -114,7 +117,7 @@ export default function page() {
                 </button>
               </div>
             </div>
-            <div className="mt-3 flex justify-center space-x-3 items-center">
+            <div className="mt-3 flex justify-center h-4 space-x-3 items-center">
               {item.map((item, index) => (
                 <>
                   <div
@@ -130,7 +133,7 @@ export default function page() {
             </div>
             <div className="mt-6">
               <h1 className="font-bold">Top Materi</h1>
-              <div className="rounded-[11px] relative bg-sky-500 mt-4 flex items-center justify-between">
+              <div className="rounded-[11px] relative bg-gradient-to-r from-cardMateri to-[#1F7FB6] mt-4 flex items-center justify-between">
                 <div>
                   <div className="flex justify-between items-center p-5">
                     <div>
@@ -149,7 +152,7 @@ export default function page() {
                       </a>
                     </Link>
                   </div>
-                  <hr className="h-[3px] bg-white" />
+                  <hr className="h-[3px] bg-gradient-to-r from-white via-[#E084CC] to-[#E133BB]" />
                   <p className="pl-5 pr-16 pt-5 pb-8 text-sm">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Officiis perspiciatis maiores iste minima saepe culpa
@@ -167,12 +170,17 @@ export default function page() {
         </div>
         <div className="w-full">
           <div className="space-y-3">
-            <div className="py-5 px-7 bg-profileCard rounded-[15px] shadow-md">
+            {/* kalender */}
+            <div className="py-5 px-7 mt-3 md:mt-0 bg-profileCard rounded-[15px] shadow-md h-[424px]">
               calendar
             </div>
-            <div className="py-5 px-7 bg-profileCard rounded-[15px] shadow-md">
+            {/* akhir kalender */}
+
+            {/* info lomba */}
+            <div className="py-5 px-7 bg-profileCard rounded-[15px] shadow-md h-[462px]">
               <h1 className="font-bold">Info Lomba</h1>
             </div>
+            {/* akhir info lomba */}
           </div>
         </div>
       </section>

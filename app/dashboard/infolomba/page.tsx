@@ -14,7 +14,7 @@ export default function page() {
       <section>
         <ul className="flex gap-4 items-center route">
           <li>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 text-sm">
               <h1 className="text-xs md:text-lg font-semibold md:font-bold">
                 Dashboard
               </h1>
@@ -28,7 +28,7 @@ export default function page() {
       </section>
       {/* Another Content */}
       <section className="pb-10">
-        <div className="bg-profileCard flex py-10 px-8 mt-6 rounded-[15px] shadow-md">
+        <div className="bg-profileCard flex flex-col md:flex-row py-10 px-8 mt-6 rounded-[15px] shadow-md">
           <div className="pr-5">
             <h1 className="text-xl font-bold">
               Front-end Essentials & Learning Path
@@ -82,7 +82,7 @@ export default function page() {
           <Image
             src={Poster}
             alt="Poster"
-            className="bg-cover w-[435px] h-[435px] border-[4px] rounded-md border-[#262B49]"
+            className="order-1 bg-cover w-[435px] h-[435px] border-[4px] rounded-md border-[#262B49]"
           />
         </div>
         <div></div>
