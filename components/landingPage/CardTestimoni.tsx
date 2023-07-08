@@ -12,8 +12,14 @@ import Image from 'next/image';
 
 const TestimoniData = [
     {
+        image: 'https://media.licdn.com/dms/image/D5603AQHIFs1CkC4q-A/profile-displayphoto-shrink_800_800/0/1666520712370?e=1694044800&v=beta&t=yttXhLViykx2zEfdz1GnLYFhStJg7xfyvv_QRULasAs',
+        message: '“ORBIT tuh punya aura magis tersendiri, makanya gak aneh kalau talenta terbaik Opat selalu lahir dari sini. Sukses tuh perpaduan preparation ketemu sama opportunity, pokoknya ga boleh pernah puas deh buat upgrade terus diri kamu di sisi akademik, projek, lomba, dan organisasi (ekskul), the sky is the limit.”',
+        name: 'RAFKA IMANDA PUTRA',
+        honor: 'Juara 1 TSDN 2022',
+    },
+    {
         image: 'https://media.licdn.com/dms/image/C5603AQEX_cE7L2myrA/profile-displayphoto-shrink_800_800/0/1584553974257?e=1692230400&v=beta&t=E9Vvx9skJvTX0C4kdOskFonVnDk45JJq7p2_KTnc7Nw',
-        message: '“Follows instructions well, but has a tendency to be too literal, and can be lost unless there are firm guidelines. Or sometimes may not take sufficient care to check the instructions before starting. Follows instructions well, but has a tendency to be too literal, and can be lost unless there are firm guidelines.”',
+        message: '“"Bergabung dalam ORBIT dapat memfasilitasi pengembangan keahlian IT dan kompetensi personal siswa. Ini merupakan organisasi yang ideal untuk menumbuhkan keterampilan kritis, memperluas jaringan profesional, dan mempersiapkan siswa menghadapi tantangan industri modern."”',
         name: 'MUHAMMAD AGY NURWICAKSONO',
         honor: 'Juara 1 Web Design Competition Universitas Widyatama 2018, founded Booster Indonesia',
     },
@@ -21,12 +27,6 @@ const TestimoniData = [
         image: 'https://media.licdn.com/dms/image/C5103AQFptugPULYTKA/profile-displayphoto-shrink_800_800/0/1586521922233?e=1694044800&v=beta&t=Jfnx1a6qLQaur8AURI4x1Z2tA3-kCQhD3oZHbcW5teo',
         message: '“Follows instructions well, but has a tendency to be too literal, and can be lost unless there are firm guidelines. Or sometimes may not take sufficient care to check the instructions before starting. Follows instructions well, but has a tendency to be too literal, and can be lost unless there are firm guidelines.”',
         name: 'ELANG FAJAR BUANA',
-        honor: 'Juara 1 TSDN 2022',
-    },
-    {
-        image: 'https://media.licdn.com/dms/image/D5603AQHIFs1CkC4q-A/profile-displayphoto-shrink_800_800/0/1666520712370?e=1694044800&v=beta&t=yttXhLViykx2zEfdz1GnLYFhStJg7xfyvv_QRULasAs',
-        message: '“ORBIT tuh punya aura magis tersendiri, makanya gak aneh kalau talenta terbaik Opat selalu lahir dari sini. Sukses tuh perpaduan preparation ketemu sama opportunity, pokoknya ga boleh pernah puas deh buat upgrade terus diri kamu di sisi akademik, projek, lomba, dan organisasi (ekskul), the sky is the limit.”',
-        name: 'RAFKA IMANDA PUTRA',
         honor: 'Juara 1 TSDN 2022',
     },
     {
