@@ -1,10 +1,12 @@
+import { StrukturProps } from '@/helper/interfaces'
 import Image from 'next/image'
 import React from 'react'
 
-const Person = () => {
+
+const Person: React.FC<StrukturProps> = (props) => {
     return (
         <div className='grid justify-center w-fit h-full'>
-            <div className='relative'>
+            <div className='relative grid items-end'>
                 <div
                     className='h-full w-full z-10 absolute'
                     style={{
@@ -13,17 +15,18 @@ const Person = () => {
                     }}>
                 </div>
                 <Image
-                    src={'/assets/img/strukturOrganisasi/Hasnat.png'}
-                    width={50}
-                    height={50}
+                    // src={'/assets/img/strukturOrganisasi/Hasnat.png'}
+                    src={props.image}
+                    width={500}
+                    height={500}
                     className='w-40 h-auto'
                     alt="elite"
                     priority
                 />
-                <h3 className='font-bold text-4xl text-white text-center w-fit absolute mx-auto left-0 right-0 -bottom-6 z-20'>Hasnat</h3>
+                <h3 className='font-bold text-4xl text-white text-center w-40 absolute mx-auto left-0 right-0 -bottom-6 z-20'>{props.name}</h3>
             </div>
 
-            <p className='text-xl text-white/20 text-center mt-6'>Ketua</p>
+            <p className='text-xl text-white/20 text-center mt-6 w-40'>{props.jabatan}</p>
         </div>
     )
 }
