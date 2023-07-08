@@ -1,11 +1,25 @@
 'use client';
 import Link from 'next/link';
+import Foto from '@/public/assets/img/Poster.png'
+import Image from 'next/image';
 import { useState } from 'react';
-import { AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRef ,useEffect } from 'react'
 import 'swiper/swiper.min.css';
 import 'swiper/css';
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
+
+
+interface InfoType {
+  title : string
+  pictures : Array<string>
+}
+
 
 export default function page() {
   const [currentItem, setCurrentItem] = useState(0);
@@ -46,6 +60,25 @@ export default function page() {
         'Pada materi kali ini, kita akan belajar basics dari HTML Development. Pelajari materi yang telah diberikan dan kerjakan latihan soal berikut!',
     },
   ];
+
+  
+
+  const [selected, setSelected] = useState(0)
+
+  const item2 = [
+    {
+      title : 'Front-End Essentials & Learning Path',
+      pictures : '/assets/img/Poster.png',
+    },
+    {
+      title : 'Back-End Essentials & Learning Path',
+      pictures : '/assets/img/Poster.png', 
+    }
+  ]
+
+  const nextItem2 = () => {
+    setSelected((selected + 1) % item2.length)
+  }
 
   const nextItem = () => {
     setCurrentItem((currentItem + 1) % item.length);
@@ -179,6 +212,39 @@ export default function page() {
             {/* info lomba */}
             <div className="py-5 px-7 bg-profileCard rounded-[15px] shadow-md h-[462px]">
               <h1 className="font-bold">Info Lomba</h1>
+              <div className='lg:flex'>
+              
+              <div className='swiper-container w-[364px] h-[360px] rounded-[12px] bg-[#2237B7] mx-auto relative top-4'>
+                  <div className="bg-black absolute mt-36 -right-5 opacity-70 rounded-full">
+                    <button className="p-3" onClick={nextItem2}>
+                        <AiOutlineRight size={17} opacity={100} />
+                    </button>
+                  </div>
+                  <div className="bg-black absolute mt-36 -left-5 opacity-70 rounded-full">
+                    <button className="p-3" onClick={nextItem2}>
+                        <AiOutlineLeft size={17} opacity={100} />
+                    </button>
+                  </div>
+                   <Image 
+                     src={item2[selected].pictures}
+                     alt='Poster Lomba'
+                     width={300}
+                     height={300}
+                     className='flex mx-auto'
+                   />
+                <div className='w-[364px] h-[61px] flex items-center rounded-t-none rounded-[12px] bg-[#0B013E]'>
+                  <h1 className='ml-7 flex mx-auto relative font-bold text-[16px]'>{item2[selected].title}</h1>
+                    <div className='flex mr-3'>
+                      <Link legacyBehavior href="#" className='items-center mr-3'>
+                        <a>
+                          <AiOutlineRight size={17} />
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </div>
             {/* akhir info lomba */}
           </div>
