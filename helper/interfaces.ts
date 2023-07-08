@@ -48,7 +48,16 @@ export interface TestimoniProps {
   message: string;
 }
 
+export interface DivisionProps {
+  image: string;
+  name: string;
+}
+
 export interface SwiperStyles {
+  [key: string]: string;
+}
+
+export interface GaleryStyles {
   [key: string]: string;
 }
 
@@ -63,4 +72,10 @@ export interface KelasProps {
   id?: number;
   name?: string;
   vocational?: string;
+}
+
+export interface StrukturProps {
+  image: string;
+  name: string;
+  jabatan: string;
 }
