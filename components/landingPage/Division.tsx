@@ -8,23 +8,23 @@ import 'swiper/css';
 
 const DivisionData = [
     {
-        image: '/assets/img/divisi/webDev.svg',
+        image: '/assets/img/divisi/webDev.png',
         name: 'Web Development',
     },
     {
-        image: '/assets/img/divisi/webDev.svg',
+        image: '/assets/img/divisi/DG.png',
         name: 'Design Graphic',
     },
     {
-        image: '/assets/img/divisi/webDev.svg',
+        image: '/assets/img/divisi/GameDev.png',
         name: 'Game Development',
     },
     {
-        image: '/assets/img/divisi/webDev.svg',
+        image: '/assets/img/divisi/Cinema.png',
         name: 'Cinematography',
     },
     {
-        image: '/assets/img/divisi/webDev.svg',
+        image: '/assets/img/divisi/ITSupp.png',
         name: 'It-support',
     },
 
