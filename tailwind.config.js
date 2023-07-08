@@ -23,7 +23,7 @@ module.exports = {
         struktur2: "url('/assets/img/BgStruktur-2.png')",
         division: "url('/assets/img/BgHome.png')",
         'bulan-castle': "url('/assets/img/BulanCastle.png')",
-        'cave': "url('/assets/img/cave.png')",
+        cave: "url('/assets/img/cave.png')",
       },
       colors: {
         purple: '#EE2ED1',
@@ -42,13 +42,15 @@ module.exports = {
         whiteTransparent: 'rgba(255, 255, 255, 0.3)',
         warning: '#ffc107',
         danger: '#dc3545',
+        cardDashboard: '#262B49',
+        darkBlue: '#1A1944',
       },
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],
       },
       borderRadius: {
         '5xl': '40px',
-      }
+      },
     },
   },
   plugins: [],

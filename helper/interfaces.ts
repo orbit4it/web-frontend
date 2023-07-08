@@ -64,3 +64,15 @@ export interface KelasProps {
   name?: string;
   vocational?: string;
 }
+
+export interface MateriCardProps {
+  classname?: string;
+  judul: string;
+  publisher: string;
+  waktu: string;
+  img: string;
+  desc: string;
+  textLink: string;
+  link: string;
+  alt: string;
+}

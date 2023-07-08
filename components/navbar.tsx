@@ -49,7 +49,7 @@ export default function Navbar() {
         <ButtonLandingPage
           animate={false}
           viewportOnce={false}
-          link="/"
+          link="/login"
           title="Masuk"
           textSize="text-[13px]"
         />
