@@ -42,7 +42,7 @@ const MateriCard: React.FC<MateriCardProps> = ({
         <p className=" py-3 md:py-5 text-xs md:text-[15px] font-medium text-[#DFDFDF]">
           {desc}
         </p>
-        <Link href={link}>
+        <Link href={link + `?leason=${judul}`}>
           <div className=" text-xs md:text-lg bg-darkBlue rounded-2xl py-2 px-3 w-full flex items-center justify-between border-white border-[1px] cursor-pointer">
             {textLink}
             <MdKeyboardArrowRight className=" text-lg" />

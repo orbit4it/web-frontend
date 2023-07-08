@@ -7,7 +7,7 @@ export default function page() {
       <section>
         <ul className="flex gap-4 items-center route">
           <li>
-            <h1 className="text-xs md:text-lg font-semibold md:font-bold">
+            <h1 className="text-xs md:text-2xl font-semibold md:font-bold">
               Materi
             </h1>
           </li>
@@ -44,7 +44,7 @@ export default function page() {
               publisher="Arief Muhammad"
               waktu="13.00"
               desc="Pada materi kali ini, kita akan belajar basics dari HTML Development. Pelajari materi yang telah diberikan dan kerjakan latihan soal berikut!"
-              link="/dashboard/materi"
+              link="/dashboard/materi/detail"
               textLink="Front-End Essentials & Learning Path"
               img="/assets/img/learnHTML.png"
               alt="Learn HTML"
@@ -55,7 +55,7 @@ export default function page() {
               publisher="Arief Muhammad"
               waktu="13.00"
               desc="Pada materi kali ini, kita akan belajar basics dari HTML Development. Pelajari materi yang telah diberikan dan kerjakan latihan soal berikut!"
-              link="/dashboard/materi"
+              link="/dashboard/materi/detail"
               textLink="Front-End Essentials & Learning Path"
               img="/assets/img/FeTraining.png"
               alt="FE Training"
