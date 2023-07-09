@@ -78,12 +78,56 @@ export default function page() {
           </div>
           <div className="px-6 rounded-[15px]">
             <h1 className="my-3">User Details</h1>
-            <table className="border w-full">
-              <tr>
-                <td className="border">Kelas</td>
-                <td>X</td>
-              </tr>
-            </table>
+            <div className="flex">
+              <div className="bg-[#071590] border rounded-tl-[15px] py-3 pl-4 pr-[33px]">
+                <h1>Kelas</h1>
+              </div>
+              <div className="bg-[#4B58CF] border w-full py-3 pl-4 rounded-tr-[15px]">
+                <p>X PPLG 1</p>
+              </div>
+            </div>
+            <div className="flex border">
+              <div className="bg-[#071590] border py-3 pl-4 pr-8">
+                <h1>Divisi</h1>
+              </div>
+              <div className="bg-[#4B58CF] border w-full py-3 pl-4">
+                <p>Web Development</p>
+              </div>
+            </div>
+            <div className="flex border">
+              <div className="bg-[#071590] border pt-3 pl-4 pr-[26px]">
+                <h1>
+                  Social
+                  <br /> Media
+                </h1>
+              </div>
+              <div className="bg-[#4B58CF] border w-full py-3 pl-4">
+                <p>X PPLG 1</p>
+                <p>X PPLG 1</p>
+                <p>X PPLG 1</p>
+              </div>
+            </div>
+            <div className="flex border rounded-bl-[15px]">
+              <div className="bg-[#071590] border py-3 pl-4 pr-[9px] rounded-bl-[15px]">
+                <h1>Motivasi</h1>
+              </div>
+              <div className="bg-[#4B58CF] border w-full py-3 pl-4 rounded-br-[15px]">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut
+                  exercitationem quo voluptates ad velit nulla?
+                </p>
+              </div>
+            </div>
+            {/* <div className="grid grid-cols-2">
+              <div className="border w-1/2">test</div>
+              <div className="border">test2</div>
+              <div className="border">test</div>
+              <div className="border">test3</div>
+              <div className="border">test</div>
+              <div className="border">test4</div>
+              <div className="border">test</div>
+              <div className="border">test5</div>
+            </div> */}
           </div>
         </div>
       </section>
