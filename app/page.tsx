@@ -17,59 +17,81 @@ import '../helper/page.module.css';
 
 const StrukturData = [
   {
-    image: '/assets/img/anggota/hasnatHalf.png',
+    image: '/assets/img/anggota/hasnatFull.png',
     name: 'Hasnat',
     jabatan: 'Ketua',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/luqmanHalf.png',
+    image: '/assets/img/anggota/luqmanFull.png',
     name: 'Luqman',
     jabatan: 'Wakil Ketua',
+    imgWidth: 'w-52',
+    imgHeight: 'w-60',
   },
   {
-    image: '/assets/img/anggota/najwanHalf.png',
+    image: '/assets/img/anggota/najwanFull.png',
     name: 'Najwan',
     jabatan: 'Ketua Divisi Umum',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/bintangHalf.png',
+    image: '/assets/img/anggota/bintangFull.png',
     name: 'Bintang',
     jabatan: 'Sekretaris',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/raihanaHalf.png',
+    image: '/assets/img/anggota/raihanaFull.png',
     name: 'Raihana',
     jabatan: 'Bendahara',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/adeRiriHalf.png',
+    image: '/assets/img/anggota/adeRiriFull.png',
     name: 'Riri',
     jabatan: 'HRD',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/rafliHalf.png',
+    image: '/assets/img/anggota/rafliFull.png',
     name: 'M. Rafly',
     jabatan: 'Public Relation',
+    imgWidth: 'w-48',
+    imgHeight: 'w-64',
   },
   {
-    image: '/assets/img/anggota/fawwazHalf.png',
+    image: '/assets/img/anggota/fawwazFull.png',
     name: 'Fawwaz',
     jabatan: 'Membership',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/diazHalf.png',
+    image: '/assets/img/anggota/diazFull.png',
     name: 'Diaz',
     jabatan: 'Education',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/naufalHalf.png',
+    image: '/assets/img/anggota/naufalFull.png',
     name: 'Naufal',
     jabatan: 'Event Organizer',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/nizarHal.png',
+    image: '/assets/img/anggota/nizarFull.png',
     name: 'Nizar',
     jabatan: 'Media Informasi',
+    imgWidth: 'w-48',
+    imgHeight: 'w-52',
   },
 ];
 
@@ -101,6 +123,7 @@ export default function Home() {
       handleActive('divisions');
     }
   }, [inViewHome, inViewAbout, inViewDivisions]);
+  console.log(inViewHome, inViewAbout, inViewDivisions);
 
   const cardDeftRef = useRef(null);
   const cardActvRef = useRef(null);
@@ -112,8 +135,9 @@ export default function Home() {
       <main className="relative bg-primary overflow-x-hidden">
         {/* Home */}
         <section
+          ref={refHome}
           className="relative max-w-[1800px] max-h-[1800px] 2xl:mx-auto w-full md:h-[270vh] h-[200vh] bg-home-mobile md:bg-home bg-primary bg-center bg-blend-screen bg-opacity-70 
-        bg-[length:100vw_200vh] md:bg-[length:110vw_270vh] flex flex-col"
+        bg-[length:100vw_200vh] md:bg-[length:110vw_270vh] over:bg-[length:1800px_1800px] flex flex-col"
           id="home"
         >
           {/* Greetings */}
@@ -272,56 +296,64 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ABOUT  */}
-        <div className=" bg-about h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] relative z-10"></div>
-        <div
+        {/* About */}
+        <section
           ref={refAbout}
-          className=" bg-about2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] block relative z-10"
+          className="relative max-w-[1800px] max-h-[4000px] 2xl:mx-auto w-full h-max bg-about-mobile md:bg-about bg-no-repeat bg-top bg-[length:120vw_180vh] md:bg-[length:100vw_270vh] over:bg-[length:1800px_1800px] flex flex-col z-10"
         >
-          <div
-            className=" block md:flex items-center justify-center gap-5 p-5 md:p-0"
-            id="about"
-          >
-            <m.div
-              initial={{ opacity: 0, translateX: -80 }}
-              whileInView={{ opacity: 1, translateX: 2 }}
+          {/* Desc */}
+          <div className="relative w-full h-screen mt-[40vh] md:mt-[60vh] over:mt-96 flex flex-col items-center justify-center ">
+            <div
+              className="relative flex flex-col md:flex-row items-center justify-center gap-5 p-5 md:p-0"
+              ref={refAbout}
+              id="about"
             >
-              <Image
-                src={'/assets/logo/LogoPrimaryV2.png'}
-                width={372}
-                height={372}
-                alt="ORBIT"
-              />
-            </m.div>
-            <m.div
-              initial={{ opacity: 0, translateX: 100 }}
-              whileInView={{ opacity: 1, translateX: 2 }}
-              className=" mt-5 md:mt-0"
-            >
-              <CardLanding
-                ref={cardActvRef}
-                judul="Tentang Kami"
-                desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
-                classname=" w-auto md:w-[694px] md:h-[300px]"
-                judulClassname=" pt-8 "
-                descClassname=" text-sm"
-              />
-            </m.div>
+              <m.div
+                initial={{ opacity: 0, translateX: -80 }}
+                whileInView={{ opacity: 1, translateX: 2 }}
+                className="absolute -top-5 md:static flex items-center justify-center z-10"
+              >
+                <Image
+                  src={'/assets/logo/LogoPrimaryV2.png'}
+                  width={372}
+                  height={372}
+                  alt="ORBIT"
+                  className="w-28 h-28"
+                />
+              </m.div>
+              <m.div
+                initial={{ opacity: 0, translateX: 100 }}
+                whileInView={{ opacity: 1, translateX: 2 }}
+                className=" mt-5 md:mt-0"
+              >
+                <CardLanding
+                  ref={cardActvRef}
+                  judul="Tentang Kami"
+                  desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
+                  classname=" w-auto md:w-[694px] md:h-[300px]"
+                  judulClassname=" pt-8 "
+                  descClassname=" text-sm"
+                />
+              </m.div>
+            </div>
           </div>
-        </div>
-        <div className=" bg-about3 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] flex flex-col justify-center items-center relative">
-          <div className=" block md:flex items-center justify-center p-5 md:p-0 gap-5 relative z-10">
+
+          {/* Vision Misions */}
+          <div
+            ref={refAbout}
+            className="relative w-full h-max mt-14 flex justify-center items-center  z-10"
+          >
             <VisiMisiCard
-              img="/assets/logo/roket.png"
+              img="/assets/logo/ic-rocket.png"
               imgWidth={75}
-              imgHeight={72}
+              imgHeight={90}
               alt="roket"
               judul="VISI"
               desc="Mencetak anggota ORBIT sesuai degan bidangnya unggul dan meningkatkan potensi anggota ORBIT sesuai dengan bidang divisinya."
               misi={false}
             />
             <VisiMisiCard
-              img="/assets/logo/misison.png"
+              img="/assets/logo/ic-target.png"
               imgWidth={76}
               imgHeight={72}
               alt="mission"
@@ -330,7 +362,7 @@ export default function Home() {
               misi={true}
             />
             <VisiMisiCard
-              img="/assets/logo/values.png"
+              img="/assets/logo/ic-gift.png"
               imgWidth={76}
               imgHeight={72}
               alt="value"
@@ -339,40 +371,49 @@ export default function Home() {
               misi={false}
             />
           </div>
-          <div className=" absolute bottom-0 left-0">
+
+          {/* Structur */}
+          <m.div
+            ref={refAbout}
+            layout="preserve-aspect"
+            className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-80 pb-20 mx-auto mt-2 transition-all duration-500"
+          >
             <Image
-              src={'/assets/img/BgStruktur-1.png'}
-              width={1000}
-              height={300}
-              alt="img"
+              src={'/assets/img/bg-flyship.png'}
+              alt="Flyship"
+              width={1443}
+              height={1698}
+              className="w-full h-[80%] max-h-[2000px] absolute top-0 left-0 opacity-80 z-0"
             />
-          </div>
-        </div>
-        {/* ABOUT END */}
+            <m.h2
+              layout="position"
+              className="text-center text-white font-bold text-2xl md:text-4xl z-10"
+            >
+              STRUKTUR
+              <br />
+              ORGANISASI
+            </m.h2>
 
-        {/* STRUKTUR  */}
-        <section className="grid px-4 md:px-40 py-40 justify-items-center max-w-screen-xl mx-auto">
-          <h2 className="text-center text-white font-bold text-2xl md:text-4xl">
-            STRUKTUR
-            <br />
-            ORGANISASI
-          </h2>
-
-          <div className="grid justify-items-center gap-6 grid-cols-2 md:grid-cols-3 w-full">
-            {StrukturData &&
-              StrukturData.map((data, id) => {
-                return (
-                  <Person
-                    image={data.image}
-                    name={data.name}
-                    jabatan={data.jabatan}
-                    key={id}
-                  />
-                );
-              })}
-          </div>
+            <m.div
+              layout="size"
+              className="grid justify-items-center gap-6 over:gap-20 grid-cols-2 md:grid-cols-3 w-full max-w-[1000px] mt-10 z-10 transition-all duration-500"
+            >
+              {StrukturData &&
+                StrukturData.map((data, id) => {
+                  return (
+                    <Person
+                      image={data.image}
+                      name={data.name}
+                      jabatan={data.jabatan}
+                      imgWidth={data.imgWidth}
+                      imgHeight={data.imgHeight}
+                      key={id}
+                    />
+                  );
+                })}
+            </m.div>
+          </m.div>
         </section>
-        {/* STRUKTUR END */}
 
         {/* DIVISI */}
         <section className="bg-gradient-to-b from-[#0B013E] from-60% to-[#EF2ED2]">

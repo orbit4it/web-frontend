@@ -79,4 +79,6 @@ export interface StrukturProps {
   image: string;
   name: string;
   jabatan: string;
+  imgWidth: string;
+  imgHeight: string;
 }
