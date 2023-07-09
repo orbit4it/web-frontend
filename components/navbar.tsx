@@ -51,7 +51,7 @@ export default function Navbar() {
           viewportOnce={false}
           link="/"
           title="Masuk"
-          textSize="text-[13px]"
+          textSize="text-sm"
         />
       </ul>
       <div

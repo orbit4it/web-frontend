@@ -9,6 +9,7 @@ export interface ButtonLandingProps {
 export interface CardLandingProps {
   judul: string;
   desc: string;
+  ref: React.RefObject<HTMLDivElement>;
   classname: string;
   judulClassname: string;
   descClassname: string;
