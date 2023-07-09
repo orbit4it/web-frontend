@@ -314,7 +314,7 @@ export default function page() {
                 > */}
                 <button
                   type="submit"
-                  className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
+                  className=" border-2 border-secondary p-2 w-[350px] bg-transparent text-secondary font-bold text-center rounded-full hover:bg-secondary hover:text-white duration-200"
                 >
                   Daftar
                 </button>

@@ -194,7 +194,7 @@ export default function Home() {
               Mari Belajar IT Bersama Kami Sekarang Juga!
             </m.h1>
             <ButtonLandingPage
-              link="/login"
+              link="/register"
               title="Mulai"
               textSize="text-sm"
               animate={true}
@@ -452,7 +452,7 @@ export default function Home() {
         </section>
 
         {/* YOUTUBE */}
-        <section className="bg-darkPurple px-4 md:px-32 pt-48 pb-5">
+        <section className="bg-dark-purple px-4 md:px-32 pt-48 pb-5">
           <div className="relative p-8 lg:px-24 grid gap-8 max-w-screen-xl mx-auto">
             {/* DECORATION */}
             <div
