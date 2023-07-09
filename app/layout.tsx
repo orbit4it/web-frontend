@@ -1,12 +1,11 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import Navbar from '@/components/Navbar';
-import './globals.css';
-import { Montserrat, Inter } from 'next/font/google';
-import Footer from '@/components/Footer';
 import Sidebar from '@/components/dashboard/Sidebar';
+import { Inter, Montserrat } from 'next/font/google';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './globals.css';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -67,11 +66,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${montserrat.className}`}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <body className={`${montserrat.className}`}>{children}</body>
     </html>
   );
 }
