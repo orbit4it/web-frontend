@@ -1,81 +1,75 @@
 'use client';
-import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-scroll';
 import ButtonLandingPage from './ButtonLandingPage';
-import { IoMdClose } from 'react-icons/io';
-import { RxHamburgerMenu } from 'react-icons/rx';
 
-export default function Navbar() {
-  const [active, setActive] = useState<boolean>(false);
-
+export default function Navbar({ active }: { active: string }) {
   const navLinks = [
     {
       name: 'beranda',
-      link: '/#beranda',
+      link: 'home',
       title: 'Beranda',
     },
     {
       name: 'tentang',
-      link: '/#tentang',
+      link: 'about',
       title: 'Tentang',
     },
     {
       name: 'divisi',
-      link: '/#divisi',
+      link: 'divisions',
       title: 'Divisi',
     },
   ];
 
   return (
-    <div className=" flex items-center justify-between fixed top-0 z-50 w-screen px-5 md:px-36 pt-4 bg-transparent scroll-smooth">
+    <div className="w-screen max-w-[1440px] hidden md:flex items-center justify-between fixed top-0 left-1/2 -translate-x-1/2 z-50  px-5 py-2 md:px-36 bg-transparent scroll-smooth select-none">
       <Image
         src="/assets/logo/LogoPrimary.png"
-        width={68}
-        height={68}
+        width={100}
+        height={100}
         alt="ORBIT"
+        className="w-12 md:w-16"
       />
-      <ul className=" hidden md:flex items-center gap-14 text-white text-[13px] ">
+      <ul className="w-2/5 h-12 relative flex items-center text-white text-sm">
+        <motion.div
+          layout="position"
+          style={{
+            left:
+              active == 'home'
+                ? '0%'
+                : active == 'about'
+                ? '25%'
+                : active == 'divisions'
+                ? '50%'
+                : '0%',
+          }}
+          className="absolute top-0 left-0 w-1/4 h-full rounded-md bg-gradient-to-b from-transparent to-white/30 bg-opacity-30 z-0"
+        />
         {navLinks.map((navLink, index) => (
-          <li
+          <Link
+            to={navLink.link}
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
             key={index}
-            // className=" py-3 px-5 rounded-md hover:font-bold bg-gradient-to-b from-transparent via-[#FFFFFF] via-[125%] to-[#D9D9D9] to-[0%]"
+            className="cursor-pointer z-10 w-1/4 flex items-center justify-center px-2"
           >
-            <Link href={navLink.link}>
-              <p>{navLink.title}</p>
-            </Link>
-          </li>
+            <p className="cursor-pointer ">{navLink.title}</p>
+          </Link>
         ))}
-        <ButtonLandingPage
-          animate={false}
-          viewportOnce={false}
-          link="/login"
-          title="Masuk"
-          textSize="text-[13px]"
-        />
+        <div className="w-1/4 px-2">
+          <ButtonLandingPage
+            animate={false}
+            viewportOnce={false}
+            link="/register"
+            title="Daftar"
+            textSize="text-xs"
+          />
+        </div>
       </ul>
-      <div
-        className={`block md:hidden text-2xl text-white ${
-          active ? 'hidden' : 'block'
-        }`}
-      >
-        <RxHamburgerMenu
-          onClick={(e) => {
-            setActive(!active);
-          }}
-        />
-      </div>
-      <div
-        className={`block md:hidden text-2xl text-white ${
-          active ? 'block' : 'hidden'
-        }`}
-      >
-        <IoMdClose
-          onClick={(e) => {
-            setActive(!active);
-          }}
-        />
-      </div>
     </div>
   );
 }

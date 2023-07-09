@@ -9,6 +9,7 @@ export interface ButtonLandingProps {
 export interface CardLandingProps {
   judul: string;
   desc: string;
+  ref: React.RefObject<HTMLDivElement>;
   classname: string;
   judulClassname: string;
   descClassname: string;
@@ -90,4 +91,15 @@ export interface StrukturProps {
   image: string;
   name: string;
   jabatan: string;
+  imgWidth: string;
+  imgHeight: string;
+}
+
+export interface CommentsProps {
+  classname?: string;
+  imgProfil?: string;
+  nama: string;
+  stars: number;
+  comment: string;
+  waktu: string;
 }
