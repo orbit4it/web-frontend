@@ -1,18 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
 import { Link } from 'react-scroll';
 import ButtonLandingPage from './ButtonLandingPage';
 
-export default function Navbar({
-  active,
-  setActive,
-}: {
-  active: string;
-  setActive: (name: string) => void;
-}) {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
+export default function Navbar({ active }: { active: string }) {
   const navLinks = [
     {
       name: 'beranda',
