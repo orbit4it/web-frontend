@@ -318,7 +318,7 @@ export default function Home() {
                   width={372}
                   height={372}
                   alt="ORBIT"
-                  className="w-28 h-28"
+                  className="w-28 h-28 md:w-96 md:h-96"
                 />
               </m.div>
               <m.div
