@@ -4,6 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-home {
+  background: url('/assets/img/bg-home.png'), #0a013d;
+  @apply bg-center bg-blend-screen bg-opacity-70 bg-[length:110vw_270vh];
+  //background-size: 98vw 270vh;
+}
+
+.glassmorphism {
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.glassmorphism:before {
+  @apply content-[""] absolute p-[0.7px] inset-0 -z-10;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(238, 46, 209, 0.29) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
 .glassmorphism-cinem {
   @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[15px] rounded-[100px];
   background: linear-gradient(

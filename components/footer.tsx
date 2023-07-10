@@ -39,11 +39,11 @@ const Footer = () => {
     <div
       className={`${
         pathname == '/login' ? 'hidden' : ''
-      } w-full block md:flex items-center justify-between bg-purpleFooter bg-opacity-70 p-10`}
+      } w-full block md:flex items-center bg-purple p-10`}
     >
-      <div className=" flex items-center justify-center md:justify-normal gap-6">
+      <div className=" w-1/3 flex items-center justify-center md:justify-normal gap-6">
         <div className=" flex items-center text-white gap-2">
-          <div className=" bg-purple  rounded-full p-1">
+          <div className=" bg-secondary  rounded-full p-1">
             <AiOutlineInstagram className=" text-lg" />
           </div>
           <Link href={'https://www.instagram.com/orbit4it/'} target="blank">
@@ -51,16 +51,19 @@ const Footer = () => {
           </Link>
         </div>
         <div className=" flex items-center text-white gap-2">
-          <div className=" bg-purple  rounded-full p-1">
+          <div className=" bg-secondary  rounded-full p-1">
             <TfiEmail className=" text-lg" />
           </div>
-          <Link href={'mailto:orbit4it@gmail.com'} target="blank">
+          <Link
+            href={'mailto:orbit4it@gmail.com?subject=Tanya-tanya'}
+            target="blank"
+          >
             <p className=" text-xs font-light">orbit4it@gmail.com</p>
           </Link>
         </div>
       </div>
-      <div className=" flex md:block flex-col items-center justify-center mt-3 md:mt-0">
-        <div className=" flex items-center">
+      <div className="w-1/3 flex md:block flex-col  mt-3 md:mt-0">
+        <div className="w-full flex items-center justify-center">
           <Image
             src={'/assets/logo/LogoPrimary.png'}
             width={68}
@@ -74,28 +77,33 @@ const Footer = () => {
             alt="SMKN 4 Bandung"
           />
         </div>
-        <p className=" text-xs font-bold text-white pt-2">
+        <p className=" w-full text-xs text-center font-bold text-white pt-2">
           SMK Negeri 4 Bandung
         </p>
       </div>
-
       {/* UNTUK DEKSTOP  */}
-      <div className=" mt-4 md:mt-0 hidden md:block ">
+      <div className="w-1/3 mt-4 md:mt-0 hidden md:flex flex-col justify-end items-end">
         {divisons.map((data, key) => {
           return (
-            <p key={key} className=" text-xs font-bold text-white">
+            <Link
+              href={data.link}
+              key={key}
+              className=" w-max text-xs font-medium text-white"
+            >
               {data.name}
-            </p>
+            </Link>
           );
         })}
         <Link href={'/credit'}>
-          <h1 className=" text-white text-xl font-bold mt-2">Crew Developer</h1>
+          <h1 className=" text-white text-lg font-semibold mt-2">
+            Crew Developer
+          </h1>
         </Link>
       </div>
       {/* UNTUK DEKSTOP END */}
 
-      {/* UNTUK MOBILE  */}
-      <div className=" text-white mt-3 block md:hidden">
+      {/* UNTUK MOBILE */}
+      {/* <div className=" text-white mt-3 block md:hidden">
         <p className=" text-xs font-bold text-center">
           Web Development Game Development Cinematography Graphic Design IT
           Support
@@ -105,7 +113,7 @@ const Footer = () => {
             Crew Developer
           </h1>
         </Link>
-      </div>
+      </div> */}
       {/* UNTUK MOBILE END */}
     </div>
   );

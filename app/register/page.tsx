@@ -1,16 +1,14 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import styles from '../../helper/page.module.css';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { IoChevronBackOutline } from 'react-icons/io5';
 import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
-import { motion as m } from 'framer-motion';
-import axios from 'axios';
-import { DivisionsProps, KelasProps } from '@/helper/interfaces';
 import Apicall from '@/helper/apicall';
+import { DivisionsProps, KelasProps } from '@/helper/interfaces';
 import { showToast } from '@/helper/toaster';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { IoChevronBackOutline } from 'react-icons/io5';
+import styles from '../../helper/page.module.css';
 
 export default function page() {
   const [nama, setNama] = useState('');
@@ -314,7 +312,7 @@ export default function page() {
                 > */}
                 <button
                   type="submit"
-                  className=" border-2 border-purple p-2 w-[350px] bg-transparent text-purple font-bold text-center rounded-full hover:bg-purple hover:text-white duration-200"
+                  className=" border-2 border-secondary p-2 w-[350px] bg-transparent text-secondary font-bold text-center rounded-full hover:bg-secondary hover:text-white duration-200"
                 >
                   Daftar
                 </button>
@@ -333,14 +331,14 @@ export default function page() {
                 router.back();
               }}
             >
-              <IoChevronBackOutline className=" mt-[2px]" />
+              <IoChevronBackOutline className="" />
               <h1 className=" text-sm">Kembali</h1>
             </div>
           </div>
         </div>
       </div>
       <div className=" w-screen md:w-[634px] h-[150px] md:h-screen bg-primary">
-        <div className=" bg-homeMobile md:bg-homeFull bg-[length:100%_100%] md:bg-[length:200%_100%] bg-center h-[150px] md:h-screen w-full"></div>
+        <div className=" bg-homeMobile md:bg-home bg-[length:100%_100%] md:bg-cover bg-primary bg-blend-hard-light bg-center h-[150px] md:h-screen w-full"></div>
       </div>
     </div>
   );
