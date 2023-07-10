@@ -42,6 +42,7 @@ export default function page() {
     2023, 2022, 2021, 2020,
   ]);
   const [showYearOptions, setShowYearOptions] = useState<boolean>(false);
+  console.log(showYearOptions);
   const [selectedYear, setSelectedYear] = useState<number>();
   const [activeId, setActiveId] = useState<number>(1);
   const [galery, setGalery] = useState<Array<GaleryType>>([
@@ -267,7 +268,8 @@ export default function page() {
               className="w-5 cursor-pointer"
             />
           </motion.div>
-          {showYearOptions && (
+
+          {showYearOptions == true && (
             <AnimatePresence>
               <motion.ul
                 layout

@@ -34,7 +34,7 @@ export default function RootLayout({
   if (isDashboard) {
     return (
       <html lang="en">
-        <body className={`${inter.className} bg-[#1C2039]`}>
+        <body className={`${inter.className} bg-d-primary`}>
           <Sidebar />
           {children}
         </body>

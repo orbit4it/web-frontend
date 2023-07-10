@@ -4,7 +4,7 @@ export default function page() {
   return (
     <>
       {/* Route Section */}
-      <section>
+      <section className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">
           <li>
             <h1 className="text-xs md:text-2xl font-semibold md:font-bold">
