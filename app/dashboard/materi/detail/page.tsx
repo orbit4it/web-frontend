@@ -73,9 +73,9 @@ export default function page() {
               <HiDownload className=" text-lg text-[#0F6742]" />
             </div>
             <Link
-              href={`/dashboard/materi/detail?leason=${searchParams.get(
+              href={`/dashboard/materi/latihan?leason=${searchParams.get(
                 'leason'
-              )}`}
+              )}&judul=Latihan Soal HTML Development Basics`}
             >
               <div className=" mt-4 w-full md:w-[600px] text-xs md:text-[16px] bg-darkBlue rounded-2xl py-2 px-3 flex items-center justify-between border-white border-[1px] cursor-pointer">
                 <p>Latihan Soal HTML Development Basics</p>
