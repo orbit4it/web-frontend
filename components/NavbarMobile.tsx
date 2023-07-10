@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -25,6 +26,9 @@ export default function NavbarMobile({ active }: { active: string }) {
       title: 'Divisi',
     },
   ];
+
+  const router = useRouter();
+
   return (
     <motion.nav
       style={{ backgroundColor: showMenu ? 'rgba(0,0,0,0.5)' : 'transparent' }}
@@ -73,6 +77,7 @@ export default function NavbarMobile({ active }: { active: string }) {
               <motion.div
                 layout="position"
                 style={{
+                  display: active == 'null' ? 'none' : 'block',
                   top:
                     active == 'home'
                       ? '0%'
@@ -93,7 +98,10 @@ export default function NavbarMobile({ active }: { active: string }) {
                   duration={500}
                   key={index}
                   className="cursor-pointer z-10 w-full h-1/4 flex items-center justify-start px-3"
-                  onClick={() => setShowMenu(false)}
+                  onClick={() => {
+                    setShowMenu(false);
+                    router.push(`/#${navLink.link}</ul>`);
+                  }}
                 >
                   <p className="cursor-pointer ">{navLink.title}</p>
                 </ToId>
