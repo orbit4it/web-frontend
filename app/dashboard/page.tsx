@@ -90,7 +90,7 @@ export default function page() {
         </ul>
       </section>
       {/* Another Content */}
-      <section className="mt-4 md:flex justify-between mt-6 gap-6 pb-10">
+      <section className="mt-4 md:flex justify-between gap-6 pb-10">
         <div className="w-full">
           <div className="bg-profileCard py-5 px-7 rounded-[15px] shadow-md">
             <div className="flex justify-between mb-3">

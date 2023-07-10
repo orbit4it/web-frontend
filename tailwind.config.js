@@ -36,6 +36,7 @@ module.exports = {
         'd-primary': '#1C2039',
         'd-secondary': '#262B49',
         'dark-blue': '#1A1944',
+        'dark-purple': '#16021B',
         profileCard: '#262B49',
         textDashboard: '#E3E3E3',
         warning: '#ffc107',
