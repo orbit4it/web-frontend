@@ -12,7 +12,13 @@ export default function page() {
         </ul>
       </section>
       {/* Another Content */}
-      <section></section>
+      <section>
+        <div className="w-[1000px] h-[1153px] bg-[#262B49] p-8 rounded-[15px]">
+          <div className="w-[192px] h-[192px] bg-[#D9D9D9] rounded-full">
+
+          </div>
+        </div>
+      </section>
     </>
   );
 }
