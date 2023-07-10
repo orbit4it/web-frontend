@@ -187,7 +187,7 @@ export default function page() {
         <motion.div
           layout="size"
           style={{ width: optionHovered == year ? '100%' : '0' }}
-          className="w-0 h-[.5px] bg-tertiary"
+          className="w-0 h-[.5px] bg-secondary"
         />
       </motion.li>
     </>

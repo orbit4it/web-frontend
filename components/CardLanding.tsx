@@ -4,30 +4,39 @@ import { CardLandingProps } from '@/helper/interfaces';
 import { twMerge } from 'tailwind-merge';
 
 const CardLanding: React.FC<CardLandingProps> = ({
-	judul,
-	desc,
-	classname,
-	judulClassname,
-	descClassname,
+  judul,
+  desc,
+  ref,
+  classname,
+  judulClassname,
+  descClassname,
 }) => {
-	return (
-		<div
-			className={twMerge(
-				`${styles.cardLanding} rounded-[36px] border-[1px] text-white p-5`,
-				classname
-			)}
-		>
-			<h1 className={twMerge(`text-3xl font-bold`, judulClassname)}>{judul}</h1>
-			<p
-				className={twMerge(
-					`opacity-60 text-[16px] font-normal text-justify pt-4`,
-					descClassname
-				)}
-			>
-				{desc}
-			</p>
-		</div>
-	);
+  return (
+    <div
+      ref={ref}
+      className={twMerge(
+        `glassmorphism bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 before:rounded-3xl rounded-3xl text-white px-5 py-3 md:p-5`,
+        classname
+      )}
+    >
+      <h1
+        className={twMerge(
+          `text-sm md:text-3xl tracking-wide font-semibold md:font-bold`,
+          judulClassname
+        )}
+      >
+        {judul}
+      </h1>
+      <p
+        className={twMerge(
+          `opacity-60 text-xs md:text-base font-normal text-start pt-2 md:pt-4`,
+          descClassname
+        )}
+      >
+        {desc}
+      </p>
+    </div>
+  );
 };
 
 export default CardLanding;

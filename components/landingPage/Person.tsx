@@ -1,31 +1,168 @@
-import Image from 'next/image'
-import React from 'react'
+import { StrukturProps } from '@/helper/interfaces';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-const Person = () => {
-    return (
-        <div className='grid justify-center w-fit h-full'>
-            <div className='relative'>
-                <div
-                    className='h-full w-full z-10 absolute'
-                    style={{
-                        borderRadius: '0px 0px 15px 15px',
-                        background: 'linear-gradient(180deg, rgba(35, 1, 61, 0.00) 67.99%, rgba(107, 29, 204, 0.50) 99.98%, rgba(116, 33, 221, 0.78) 99.99%, rgba(0, 0, 0, 0.30) 100%)'
-                    }}>
-                </div>
-                <Image
-                    src={'/assets/img/strukturOrganisasi/Hasnat.png'}
-                    width={50}
-                    height={50}
-                    className='w-40 h-auto'
-                    alt="elite"
-                    priority
+const Person: React.FC<StrukturProps> = (props) => {
+  const [onHover, setOnHover] = useState(false);
+  return (
+    <div
+      className="relative grid justify-center w-64 h-full cursor-pointer"
+      onMouseEnter={() => setOnHover(true)}
+      onMouseLeave={() => setOnHover(false)}
+    >
+      {onHover && (
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, x: -100, y: 100 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.2, type: 'tween' }}
+            className="absolute top-4 -right-36 w-48 h-20 px-2 py-1"
+          >
+            <h1 className="text-sm text-white">Hai! Saya {props.name}</h1>
+            <p className="text-xs text-white/60">
+              Senang berkenalan dengan anda
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -100, y: 100 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.2, type: 'tween' }}
+            className="absolute top-0 -right-40 w-60 z-10 "
+          >
+            <svg
+              width="auto"
+              height="auto"
+              viewBox="0 0 391 194"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#filter0_bd_19_929)">
+                <path
+                  d="M42.1811 25C42.1811 22.2386 44.4197 20 47.1811 20H362C364.761 20 367 22.2386 367 25V152.298C367 155.059 364.761 157.298 362 157.298H70.7963C70.4658 157.298 70.1361 157.331 69.812 157.396L30.9021 165.209C26.2763 166.137 23.0562 160.731 26.0764 157.106L41.0225 139.167C41.7711 138.268 42.1811 137.136 42.1811 135.966V25Z"
+                  fill="url(#paint0_linear_19_929)"
+                  shape-rendering="crispEdges"
                 />
-                <h3 className='font-bold text-4xl text-white text-center w-fit absolute mx-auto left-0 right-0 -bottom-6 z-20'>Hasnat</h3>
-            </div>
+                <path
+                  d="M43.1811 25C43.1811 22.7909 44.972 21 47.1811 21H362C364.209 21 366 22.7909 366 25V152.298C366 154.507 364.209 156.298 362 156.298H70.7963C70.3997 156.298 70.004 156.337 69.6151 156.415L30.7053 164.228C27.0046 164.971 24.4286 160.646 26.8447 157.746L41.7908 139.807C42.6891 138.728 43.1811 137.369 43.1811 135.966V25Z"
+                  stroke="url(#paint1_linear_19_929)"
+                  stroke-width="2"
+                  shape-rendering="crispEdges"
+                />
+              </g>
+              <defs>
+                <filter
+                  id="filter0_bd_19_929"
+                  x="-5.10059"
+                  y="-10"
+                  width="402.101"
+                  height="205.314"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="15" />
+                  <feComposite
+                    in2="SourceAlpha"
+                    operator="in"
+                    result="effect1_backgroundBlur_19_929"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="12" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="effect1_backgroundBlur_19_929"
+                    result="effect2_dropShadow_19_929"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect2_dropShadow_19_929"
+                    result="shape"
+                  />
+                </filter>
+                <linearGradient
+                  id="paint0_linear_19_929"
+                  x1="-6.54181"
+                  y1="-7.03053"
+                  x2="71.3398"
+                  y2="204.469"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="white" stop-opacity="0.4" />
+                  <stop offset="1" stop-color="white" stop-opacity="0.1" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_19_929"
+                  x1="53.3467"
+                  y1="22.8961"
+                  x2="98.0701"
+                  y2="195.971"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="white" />
+                  <stop offset="1" stop-color="#EE2ED1" stop-opacity="0.29" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </motion.div>
+        </AnimatePresence>
+      )}
+      <motion.div
+        layout="preserve-aspect"
+        className="relative flex items-center justify-center"
+      >
+        <div
+          className="h-full w-48 z-10 absolute"
+          style={{
+            borderRadius: '0px 0px 10px 10px',
+            background:
+              'linear-gradient(180deg, rgba(35, 1, 61, 0.00) 67.99%, rgba(107, 29, 204, 0.50) 99.98%, rgba(116, 33, 221, 0.78) 99.99%, rgba(0, 0, 0, 0.30) 100%)',
+          }}
+        ></div>
+        <motion.div
+          layout="preserve-aspect"
+          style={{
+            overflowY: onHover ? 'visible' : 'hidden',
+            scaleX: onHover ? 0.7 : 1,
+            scaleY: onHover ? 0.7 : 1,
+          }}
+          transition={{ duration: 1, type: 'tween' }}
+          className={twMerge(`w-48 h-52 ${props.imgHeight} relative`)}
+        >
+          <Image
+            src={props.image}
+            width={500}
+            height={500}
+            className={`w-full h-auto absolute bottom-0 ${
+              onHover ? 'translate-y-10 ' : 'translate-y-36'
+            } transition-all duration-300 ease-in-out`}
+            alt="elite"
+            priority
+          />
+        </motion.div>
+        <h3 className="font-bold text-3xl text-white text-center w-40 absolute mx-auto left-0 right-0 -bottom-4 z-20">
+          {props.name}
+        </h3>
+      </motion.div>
 
-            <p className='text-xl text-white/20 text-center mt-6'>Ketua</p>
-        </div>
-    )
-}
+      <p className="text-lg text-white/70 text-center mt-4 w-full z-20">
+        {props.jabatan}
+      </p>
+    </div>
+  );
+};
 
-export default Person
+export default Person;

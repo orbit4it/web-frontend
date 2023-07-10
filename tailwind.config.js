@@ -7,16 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        over: '1800px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         homeFull: "url('/assets/img/BgHome.png')",
         homeMobile: "url('/assets/img/BgHome-mobile.png')",
-        home: "url('/assets/img/BgHome-1.png')",
-        home2: "url('/assets/img/BgHome-2.png')",
-        home3: "url('/assets/img/BgHome-3.png')",
-        about: "url('/assets/img/BgAbout-1.png')",
+        home: "url('/assets/img/bg-home.png')",
+        'home-mobile': "url('/assets/img/bg-home-mobile.png')",
+        about: "url('/assets/img/bg-about.png')",
+        'about-mobile': "url('/assets/img/bg-about-mobile.png')",
+        flyship: "url('/assets/img/bg-flyship.png')",
         about2: "url('/assets/img/BgAbout-2.png')",
         about3: "url('/assets/img/BgAbout-3.png')",
         struktur: "url('/assets/img/BgStruktur-1.png')",
