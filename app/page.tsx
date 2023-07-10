@@ -286,7 +286,7 @@ export default function Home() {
 
             <m.div className=" absolute w-full h-full -bottom-40">
               <Image
-                src={'/assets/img/bg-cloud.png'}
+                src={'/assets/img/BgCloud.png'}
                 alt="Cloud"
                 width={1800}
                 height={445}
@@ -344,7 +344,7 @@ export default function Home() {
             className="relative w-full h-max mt-14 flex justify-center items-center  z-10"
           >
             <VisiMisiCard
-              img="/assets/logo/ic-rocket.png"
+              img="/assets/logo/Rocket.png"
               imgWidth={75}
               imgHeight={90}
               alt="roket"
@@ -353,7 +353,7 @@ export default function Home() {
               misi={false}
             />
             <VisiMisiCard
-              img="/assets/logo/ic-target.png"
+              img="/assets/logo/Target.png"
               imgWidth={76}
               imgHeight={72}
               alt="mission"
@@ -362,7 +362,7 @@ export default function Home() {
               misi={true}
             />
             <VisiMisiCard
-              img="/assets/logo/ic-gift.png"
+              img="/assets/logo/Gift.png"
               imgWidth={76}
               imgHeight={72}
               alt="value"
@@ -379,7 +379,7 @@ export default function Home() {
             className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-80 pb-20 mx-auto mt-2 transition-all duration-500"
           >
             <Image
-              src={'/assets/img/bg-flyship.png'}
+              src={'/assets/img/BgFlyShip.png'}
               alt="Flyship"
               width={1443}
               height={1698}
@@ -418,7 +418,7 @@ export default function Home() {
         {/* DIVISI */}
         <section className="bg-gradient-to-b from-[#0B013E] from-60% to-[#EF2ED2]">
           <Image
-            src={'/assets/img/sword.png'}
+            src={'/assets/img/BgSword.png'}
             width={500}
             height={500}
             className="h-auto w-full"
@@ -437,7 +437,7 @@ export default function Home() {
           </div>
 
           <Image
-            src={'/assets/img/portal.png'}
+            src={'/assets/img/BgPortal.png'}
             width={500}
             height={500}
             className="h-auto w-full"
