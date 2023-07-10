@@ -6,29 +6,15 @@ import Link from 'next/link';
 import { HiDownload } from 'react-icons/hi';
 import { RiStarSLine } from 'react-icons/ri';
 import Comments from '@/components/dashboard/Comments';
+import RatingStars from '@/components/dashboard/RatingStars';
 
 export default function page() {
   const searchParams = useSearchParams();
-  const [uncheckedStar, setUncheckedStar] = useState<number>(0);
-  const [checkedStar, setCheckedStars] = useState<number>(0);
+  const [rating, setRating] = useState(0);
 
-  const stars = [
-    {
-      id: 1,
-    },
-    {
-      id: 2,
-    },
-    {
-      id: 3,
-    },
-    {
-      id: 4,
-    },
-    {
-      id: 5,
-    },
-  ];
+  const handleRatingChange = (newRating: number) => {
+    setRating(newRating);
+  };
 
   return (
     <>
@@ -120,19 +106,11 @@ export default function page() {
                   <p className=" text-xs md:text-[15px] text-center ">
                     Rate pendapatmu mengenai materi kali ini!
                   </p>
-                  <div className=" flex gap-2 justify-center items-center my-2">
-                    {stars.map((data, key) => {
-                      return (
-                        <div className=" cursor-pointer">
-                          <RiStarSLine
-                            className=" text-4xl"
-                            onClick={(e) => {
-                              setCheckedStars(data.id);
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
+                  <div>
+                    <RatingStars
+                      rating={rating}
+                      onChangeRating={handleRatingChange}
+                    />
                   </div>
                   <p className=" text-xs md:text-[15px] text-center">
                     Tulis komentarmu mengenai materi kali ini!

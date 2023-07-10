@@ -103,3 +103,8 @@ export interface CommentsProps {
   comment: string;
   waktu: string;
 }
+
+export interface RatingStarsProps {
+  rating: number;
+  onChangeRating: (rating: number) => void;
+}
