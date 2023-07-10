@@ -14,7 +14,11 @@ const page = () => {
   ];
 
   const managerial = [
-    { nama: 'Luqman Amirullah', github: '@luqmanamirullah', ig: '@hasnat5_' },
+    {
+      nama: 'Luqman Amirullah',
+      github: '@luqmanamirullah',
+      ig: '@luqmannamirullah',
+    },
     { nama: 'Muhammad Naufal N.', github: '@Vastuolu', ig: 'naufalll.docx' },
     { nama: 'Ghazi Adila Ghifari', github: '@reinaldia', ig: '@irafialdia' },
     { nama: 'Nadya Rahmawati', github: '@nsummet', ig: '@nsummet' },
@@ -76,7 +80,7 @@ const page = () => {
 
   return (
     <div>
-      <div className="bg-darkPurp">
+      <div className="bg-primary">
         <Image src={AwanAtas} alt="Awan Orbit" />
         <div className="mx-auto text-center">
           <Image

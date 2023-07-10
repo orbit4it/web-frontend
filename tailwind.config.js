@@ -37,8 +37,13 @@ module.exports = {
         'd-secondary': '#262B49',
         'dark-blue': '#1A1944',
         'dark-purple': '#16021B',
+        profileCard: '#262B49',
+        textDashboard: '#E3E3E3',
         warning: '#ffc107',
         danger: '#dc3545',
+        cardDashboard: '#262B49',
+        darkBlue: '#1A1944',
+        cardMateri: 'rgba(109, 221, 214, 0.72)',
       },
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],
