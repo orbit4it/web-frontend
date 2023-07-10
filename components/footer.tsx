@@ -8,30 +8,30 @@ const Footer = () => {
   const divisons = [
     {
       name: 'Web Development',
-      link: '/divisi/WebDevelopment',
+      link: '/divisi/web-development',
     },
     {
       name: 'Game Development',
-      link: '/divisi/GameDevelopment',
+      link: '/divisi/game-development',
     },
     {
       name: 'Cinematography',
-      link: '/divisi/Cinematography',
+      link: '/divisi/cinematography',
     },
     {
       name: 'Graphic Design',
-      link: '/divisi/GraphicDesign',
+      link: '/divisi/design-graphic',
     },
     {
       name: 'IT Support',
-      link: '/divisi/ItSupport',
+      link: '/divisi/it-support',
     },
   ];
   return (
-    <div className="w-full block md:flex items-center justify-between bg-purpleFooter bg-opacity-70 p-10">
+    <div className="w-full block md:flex items-center justify-between bg-purple p-10">
       <div className=" flex items-center justify-center md:justify-normal gap-6">
         <div className=" flex items-center text-white gap-2">
-          <div className=" bg-purple  rounded-full p-1">
+          <div className=" bg-secondary  rounded-full p-1">
             <AiOutlineInstagram className=" text-lg" />
           </div>
           <Link href={'https://www.instagram.com/orbit4it/'} target="blank">
@@ -39,7 +39,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className=" flex items-center text-white gap-2">
-          <div className=" bg-purple  rounded-full p-1">
+          <div className=" bg-secondary  rounded-full p-1">
             <TfiEmail className=" text-lg" />
           </div>
           <Link href={'mailto:orbit4it@gmail.com'} target="blank">
@@ -68,12 +68,16 @@ const Footer = () => {
       </div>
 
       {/* UNTUK DEKSTOP  */}
-      <div className=" mt-4 md:mt-0 hidden md:block ">
-        {divisons.map((data, key) => {
+      <div className="w-1/6 mt-4 md:mt-0 hidden md:flex md:flex-col gap-1 ">
+        {divisons.map((data) => {
           return (
-            <p key={key} className=" text-xs font-bold text-white">
+            <Link
+              key={data.link}
+              href={data.link}
+              className="w-full text-xs font-bold text-white"
+            >
               {data.name}
-            </p>
+            </Link>
           );
         })}
         <Link href={'/credit'}>

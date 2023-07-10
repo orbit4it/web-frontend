@@ -20,10 +20,11 @@ export default function Sidebar() {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <div
+      <motion.div
+        layout="position"
         className={`w-4/5 md:w-1/5 h-screen ${
-          isActive ? 'flex' : 'hidden'
-        } fixed md:flex flex-col items-center bg-[#262B49] pl-3 pr-4 z-50`}
+          isActive ? 'translate-x-0' : ' -translate-x-[999px]'
+        } fixed top-0 left-0 md:translate-x-0 flex flex-col items-center bg-d-secondary pl-3 pr-4 z-50 transition-all duration-150`}
       >
         <div
           className={`absolute top-4 right-4 block md:hidden text-2xl text-white `}
@@ -48,26 +49,26 @@ export default function Sidebar() {
             />
           </svg>
         </hgroup>
-        <ul className="list-none w-full h-4/6 relative flex flex-col mt-12 ">
+        <ul className="list-none max-w-xl w-full h-4/6 max-h-[500px] relative flex flex-col mt-12 ">
           <motion.div
             layout="position"
             style={{
               top:
                 pathname == '/dashboard'
                   ? '0%'
-                  : pathname == '/dashboard/absensi'
+                  : pathname.startsWith('/dashboard/absensi')
                   ? '16.6666%'
-                  : pathname == '/dashboard/materi'
+                  : pathname.startsWith('/dashboard/materi')
                   ? '33.332%'
-                  : pathname == '/dashboard/keuangan'
+                  : pathname.startsWith('/dashboard/keuangan')
                   ? '49.998%'
-                  : pathname == '/dashboard/leaderboard'
+                  : pathname.startsWith('/dashboard/leaderboard')
                   ? '66.664%'
                   : '83.33%',
             }}
             className="w-full h-1/6 py-2 absolute top-[0%] -z-10 "
           >
-            <div className="w-full h-full rounded-lg bg-[#EE2ED1]"></div>
+            <div className="w-full h-full rounded-lg bg-secondary"></div>
           </motion.div>
           <li className="h-1/6 flex items-center  gap-5 pl-7 py-0  text-base font-semibold text-white">
             <BsGrid size={20} color="white" />
@@ -113,9 +114,9 @@ export default function Sidebar() {
             <p className="text-base font-semibold text-white">Log out</p>
           </button>
         </ul>
-      </div>
+      </motion.div>
       <div
-        className={`absolute top-[75px] left-5 block md:hidden text-2xl text-white ${'block'}`}
+        className={`absolute top-[60px] left-5 block md:hidden text-2xl text-white ${'block'}`}
         onClick={() => setIsActive(true)}
       >
         <RxHamburgerMenu />
