@@ -1,10 +1,52 @@
 .cardLanding {
-	background: rgb(64, 53, 111);
-	background: linear-gradient(
-		180deg,
-		rgba(64, 53, 111, 1) 0%,
-		rgba(59, 48, 107, 1) 79%
-	);
-	opacity: 90%;
-	border-color: rgba(238, 46, 209, 0.4);
+  background: rgb(64, 53, 111);
+  background: linear-gradient(
+    180deg,
+    rgba(64, 53, 111, 1) 0%,
+    rgba(59, 48, 107, 1) 79%
+  );
+  opacity: 90%;
+  border-color: rgba(238, 46, 209, 0.4);
+}
+
+.shadowBawah {
+  box-shadow: 0px 4px 5px 0px rgba(158, 158, 158, 0.49);
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(158, 158, 158, 0.49);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(158, 158, 158, 0.49);
+}
+
+.gradientStruktur {
+  background: rgb(238, 46, 209);
+  background: linear-gradient(
+    180deg,
+    rgba(238, 46, 209, 1) 40%,
+    rgba(255, 255, 255, 1) 60%
+  );
+}
+
+.gradientLogin {
+  background: rgb(30, 30, 30);
+  background: linear-gradient(
+    120deg,
+    rgba(30, 30, 30, 1) 0%,
+    rgba(42, 5, 101, 1) 100%
+  );
+}
+
+.gradientVerify {
+  background: rgb(30, 30, 30);
+  background: linear-gradient(
+    120deg,
+    rgba(30, 30, 30, 1) 0%,
+    rgba(95, 39, 184, 1) 100%
+  );
+}
+
+.gradientVerifyCard {
+  background: rgb(87, 21, 144);
+  background: linear-gradient(
+    86deg,
+    rgba(87, 21, 144, 1) 0%,
+    rgba(92, 19, 145, 1) 97%
+  );
 }

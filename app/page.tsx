@@ -1,17 +1,17 @@
 'use client';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import Image from 'next/image';
-import ButtonLandingPage from '@/components/ButtonLandingPage';
-import { motion as m } from 'framer-motion';
 import Awan from '@/components/Awan';
-import styles from '../helper/page.module.css';
+import ButtonLandingPage from '@/components/ButtonLandingPage';
 import CardLanding from '@/components/CardLanding';
+import Navbar from '@/components/Navbar';
 import VisiMisiCard from '@/components/VisiMisiCard';
+import CardTestimoni from '@/components/landingPage/CardTestimoni';
+import Person from '@/components/landingPage/Person';
+import { motion as m } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="relative bg-primary overflow-x-hidden">
+    <main className="relative bg-primary overflow-x-hidden">
       <Navbar />
 
       {/* Greetings  */}
@@ -205,10 +205,183 @@ export default function Home() {
       {/* ABOUT END */}
 
       {/* STRUKTUR  */}
-      {/* <div className=" bg-about2 h-screen w-full bg-[length:150%_100%] bg-center md:bg-[length:100%_100%] relative"></div> */}
+      <section className="grid px-4 md:px-40 py-40 justify-items-center max-w-screen-xl mx-auto">
+        <h2 className="text-center text-white font-bold text-2xl md:text-4xl">
+          STRUKTUR
+          <br />
+          ORGANISASI
+        </h2>
+
+        <div className="grid justify-items-center gap-6 grid-cols-2 md:grid-cols-3 w-full">
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+          <Person />
+        </div>
+      </section>
       {/* STRUKTUR END */}
 
+      {/* DIVISI */}
+      <section className="bg-gradient-to-b from-[#0B013E] from-60% to-[#EF2ED2]">
+        <Image
+          src={'/assets/img/sword.png'}
+          width={500}
+          height={500}
+          className="h-auto w-full"
+          alt="ORBIT Moon Castle"
+          priority
+        />
+
+        <section className="bg-red-500 h-40">
+          <h2 className="text-center text-white font-bold text-2xl md:text-4xl">
+            DIVISI KAMI
+          </h2>
+        </section>
+
+        <Image
+          src={'/assets/img/portal.png'}
+          width={500}
+          height={500}
+          className="h-auto w-full"
+          alt="ORBIT Moon Castle"
+          priority
+        />
+      </section>
+
+      {/* GALERY */}
+      <section className="bg-cave bg-center bg-cover w-full relative">
+        DECORATION
+        <Image
+          src={'/assets/img/cloud.svg'}
+          width={500}
+          height={500}
+          className="w-full h-auto absolute top-0 right-0 rotate-180"
+          alt="cloud"
+          priority
+        />
+        <Image
+          src={'/assets/img/cloud.svg'}
+          width={500}
+          height={500}
+          className="w-full h-auto absolute top-0 right-0 rotate-180 -scale-x-100"
+          alt="cloud"
+          priority
+        />
+        <Image
+          src={'/assets/img/cloud.svg'}
+          width={500}
+          height={500}
+          className="w-full h-auto absolute -bottom-2.5 right-0"
+          alt="cloud"
+          priority
+        />
+        <Image
+          src={'/assets/img/cloud.svg'}
+          width={500}
+          height={500}
+          className="w-full h-auto absolute -bottom-2.5 right-0 -scale-x-100"
+          alt="cloud"
+          priority
+        />
+        <div className="grid gap-24 justify-items-center px-4 md:px-40 py-72 max-w-screen-xl">
+          <h2 className="text-center text-white font-bold text-2xl md:text-4xl z-10">
+            GALERI
+          </h2>
+
+          <Image
+            src={'/assets/img/galeri.png'}
+            width={500}
+            height={500}
+            className="h-full w-full max-w-screen-sm z-10"
+            alt="ORBIT Moon Castle"
+            priority
+          />
+        </div>
+      </section>
+
+      {/* YOUTUBE */}
+      <section className="bg-darkPurple px-4 md:px-32 pt-48 pb-5">
+        <div className="relative p-8 lg:px-24 grid gap-8">
+          {/* DECORATION */}
+          <div
+            className="absolute top-0 left-0 rounded-5xl w-full h-80 lg:h-96"
+            style={{
+              background:
+                'linear-gradient(144deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%)',
+              backdropFilter: 'blur(15px)',
+            }}
+          ></div>
+          <div className="grid gap-2 z-10">
+            <h2 className="text-center text-white font-bold text-3xl md:text-5xl">
+              Eksplor Dunia IT Bersama Kami!
+            </h2>
+            <p className="text-white/60 text-center">
+              ORBIT adalah organisasi terbesar ke-dua setelah OSIS di SMK Negeri
+              <br />4 Bandung
+            </p>
+          </div>
+
+          <div className="grid justify-items-center z-10">
+            <iframe
+              className="rounded-3xl w-full h-40 md:h-96"
+              width="100%"
+              height="auto"
+              src="https://www.youtube.com/embed/dDxe7CBgbAs"
+              title="YouTube video player"
+              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen={true}
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      {/* FEEDBACK */}
+      <section className="bg-primary grid justify-center items-center mx-auto relative">
+        {/* DECORATION */}
+        <Image
+          src={'/assets/img/cloud.svg'}
+          width={500}
+          height={500}
+          className="w-full h-auto absolute -top-1 right-0 rotate-180"
+          alt="cloud"
+          priority
+        />
+        <Image
+          src={'/assets/img/cloud.svg'}
+          width={500}
+          height={500}
+          className="w-full h-auto absolute -top-1 right-0 rotate-180 -scale-x-100"
+          alt="cloud"
+          priority
+        />
+
+        <div className="max-w-screen-xl grid gap-24 pt-48 px-4 lg:px-32">
+          <h2 className="text-center text-white font-bold text-2xl md:text-4xl z-10">
+            FEEDBACK
+          </h2>
+
+          <CardTestimoni />
+        </div>
+      </section>
+
+      {/* BULAN CASTLE */}
+      <Image
+        src={'/assets/img/BulanCastle.png'}
+        width={500}
+        height={500}
+        className="h-auto w-full"
+        alt="ORBIT Moon Castle"
+        priority
+      />
+
       {/* <Footer /> */}
-    </div>
+    </main>
   );
 }

@@ -1,8 +1,12 @@
-import React from 'react';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { TfiEmail } from 'react-icons/tfi';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { TfiEmail } from 'react-icons/tfi';
+
+// interface footerProps {
+//   Router: string;
+// }
 
 const Footer = () => {
   const divisons = [
@@ -27,6 +31,9 @@ const Footer = () => {
       link: '/divisi/it-support',
     },
   ];
+
+  const pathname = usePathname();
+
   return (
     <div className="w-full block md:flex items-center justify-between bg-purple p-10">
       <div className=" flex items-center justify-center md:justify-normal gap-6">
