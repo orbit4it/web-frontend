@@ -11,12 +11,12 @@ import VisiMisiCard from '@/components/VisiMisiCard';
 
 export default function Home() {
   return (
-    <div className="relative bg-purpleFooter overflow-x-hidden">
+    <div className="relative bg-primary overflow-x-hidden">
       <Navbar />
 
       {/* Greetings  */}
       <div
-        className=" bg-home bg-[length:100%_100%] md:bg-[length:100%_100%] h-screen"
+        className=" bg-home opacity-70 [length:100%_100%] md:bg-[length:100%_100%] h-screen"
         id="beranda"
       >
         <div className="  h-screen text-white flex flex-col items-center justify-center">
@@ -81,7 +81,7 @@ export default function Home() {
       {/* Greetings  END*/}
 
       {/* APA ITU ORBIT */}
-      <div className=" bg-home2 bg-[length:100%_100%] md:bg-[length:100%_100%] h-screen relative p-5 md:p-0">
+      <div className=" bg-home2 z-10 opacity-70 [length:100%_100%] md:bg-[length:100%_100%] h-screen relative p-5 md:p-0">
         <div className=" pt-1  md:pt-10">
           <m.div
             initial={{ opacity: 0, translateY: 100 }}
@@ -115,7 +115,7 @@ export default function Home() {
         </m.div>
       </div>
 
-      <div className=" bg-home3 bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen relative">
+      <div className=" bg-home3 z-0 bg-primary opacity-70 bg-[length:150%_100%] md:bg-[length:100%_100%] h-screen relative">
         <m.div
           initial={{ opacity: 0, translateY: 5 }}
           whileInView={{ opacity: 1, translateY: -20 }}
