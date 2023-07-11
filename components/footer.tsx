@@ -1,9 +1,8 @@
-import React from 'react';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { TfiEmail } from 'react-icons/tfi';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { TfiEmail } from 'react-icons/tfi';
 
 // interface footerProps {
 //   Router: string;
@@ -13,23 +12,23 @@ const Footer = () => {
   const divisons = [
     {
       name: 'Web Development',
-      link: '/divisi/WebDevelopment',
+      link: '/divisi/web-development',
     },
     {
       name: 'Game Development',
-      link: '/divisi/GameDevelopment',
+      link: '/divisi/game-development',
     },
     {
       name: 'Cinematography',
-      link: '/divisi/Cinematography',
+      link: '/divisi/cinematography',
     },
     {
       name: 'Graphic Design',
-      link: '/divisi/GraphicDesign',
+      link: '/divisi/graphic-design',
     },
     {
       name: 'IT Support',
-      link: '/divisi/ItSupport',
+      link: '/divisi/it-support',
     },
   ];
 
@@ -71,7 +70,7 @@ const Footer = () => {
             alt="ORBIT"
           />
           <Image
-            src={'/assets/img/smkn4.png'}
+            src={'/assets/logo/LogoSmkn4.png'}
             width={76}
             height={78}
             alt="SMKN 4 Bandung"
