@@ -238,3 +238,20 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
+
+/* Cover Flow Swiper */
+.mySwiper {
+  @apply w-[100%] h-[100%] relative overflow-visible;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.mySwiper-slider {
+  @apply h-auto opacity-30 mx-auto;
+  width: 50vw !important;
+}
+
+.swiper-slide-active {
+  @apply opacity-100 absolute -top-10 left-0;
+  transition: all 0.3s ease-in-out;
+}
