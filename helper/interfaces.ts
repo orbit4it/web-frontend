@@ -78,6 +78,7 @@ export interface KelasProps {
 export interface StrukturProps {
   image: string;
   name: string;
+  fullName: string;
   jabatan: string;
   imgWidth: string;
   imgHeight: string;
