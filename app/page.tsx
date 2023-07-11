@@ -4,21 +4,23 @@ import CardLanding from '@/components/CardLanding';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
-import VisiMisiCard from '@/components/VisiMisiCard';
 import CardTestimoni from '@/components/landingPage/CardTestimoni';
 import Division from '@/components/landingPage/Division';
 import Galery from '@/components/landingPage/Galery';
 import Person from '@/components/landingPage/Person';
+import VisiMisiCard from '@/components/landingPage/VisiMisiCard';
+import VisiMisiMobile from '@/components/landingPage/VisiMisiMobile';
+import '@/helper/page.module.css';
 import { motion as m } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import '../helper/page.module.css';
 
 const StrukturData = [
   {
     image: '/assets/img/anggota/hasnatFull.png',
     name: 'Hasnat',
+    fullName: 'Hasnat',
     jabatan: 'Ketua',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -26,13 +28,15 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/luqmanFull.png',
     name: 'Luqman',
+    fullName: 'Luqman Amirullah',
     jabatan: 'Wakil Ketua',
-    imgWidth: 'w-52',
+    imgWidth: 'w-56',
     imgHeight: 'w-60',
   },
   {
     image: '/assets/img/anggota/najwanFull.png',
     name: 'Najwan',
+    fullName: 'Najwan Aribena P.',
     jabatan: 'Ketua Divisi Umum',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -40,6 +44,7 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/bintangFull.png',
     name: 'Bintang',
+    fullName: 'Bintang Kurniawan',
     jabatan: 'Sekretaris',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -47,6 +52,7 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/raihanaFull.png',
     name: 'Raihana',
+    fullName: 'Raihana Aisha Az-Zahra',
     jabatan: 'Bendahara',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -54,6 +60,7 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/adeRiriFull.png',
     name: 'Riri',
+    fullName: 'Ade Riri Fadhilah',
     jabatan: 'HRD',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -61,13 +68,15 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/rafliFull.png',
     name: 'M. Rafly',
+    fullName: 'M. Rafly Pratama',
     jabatan: 'Public Relation',
-    imgWidth: 'w-48',
+    imgWidth: 'w-64',
     imgHeight: 'w-64',
   },
   {
     image: '/assets/img/anggota/fawwazFull.png',
     name: 'Fawwaz',
+    fullName: 'M. Fawwaz Awabin',
     jabatan: 'Membership',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -75,6 +84,7 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/diazFull.png',
     name: 'Diaz',
+    fullName: 'Diaz Adriansyah',
     jabatan: 'Education',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -82,6 +92,7 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/naufalFull.png',
     name: 'Naufal',
+    fullName: 'M. Naufal Nabilansyah',
     jabatan: 'Event Organizer',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -89,6 +100,7 @@ const StrukturData = [
   {
     image: '/assets/img/anggota/nizarFull.png',
     name: 'Nizar',
+    fullName: 'Nizar Nashrudin',
     jabatan: 'Media Informasi',
     imgWidth: 'w-48',
     imgHeight: 'w-52',
@@ -299,10 +311,10 @@ export default function Home() {
         {/* About */}
         <section
           ref={refAbout}
-          className="relative max-w-[1800px] max-h-[4000px] 2xl:mx-auto w-full h-max bg-about-mobile md:bg-about bg-no-repeat bg-top bg-[length:120vw_180vh] md:bg-[length:100vw_270vh] over:bg-[length:1800px_1800px] flex flex-col z-10"
+          className="relative max-w-[1800px] max-h-[4000px] 2xl:mx-auto w-full h-max bg-about-mobile md:bg-about bg-no-repeat bg-top bg-[length:170vw_150vh] md:bg-[length:100vw_270vh] over:bg-[length:1800px_1800px] flex flex-col z-10"
         >
           {/* Desc */}
-          <div className="relative w-full h-screen mt-[40vh] md:mt-[60vh] over:mt-96 flex flex-col items-center justify-center ">
+          <div className="relative w-full h-screen mt-[30vh] md:mt-[60vh] over:mt-96 flex flex-col items-center justify-center">
             <div
               className="relative flex flex-col md:flex-row items-center justify-center gap-5 p-5 md:p-0"
               ref={refAbout}
@@ -343,47 +355,52 @@ export default function Home() {
             ref={refAbout}
             className="relative w-full h-max mt-14 flex justify-center items-center  z-10"
           >
-            <VisiMisiCard
-              img="/assets/logo/Rocket.png"
-              imgWidth={75}
-              imgHeight={90}
-              alt="roket"
-              judul="VISI"
-              desc="Mencetak anggota ORBIT sesuai degan bidangnya unggul dan meningkatkan potensi anggota ORBIT sesuai dengan bidang divisinya."
-              misi={false}
-            />
-            <VisiMisiCard
-              img="/assets/logo/Target.png"
-              imgWidth={76}
-              imgHeight={72}
-              alt="mission"
-              judul="MISI"
-              desc="Meningkatkan komunikasi baik antara anggota aktif dengan alumni Menciptakan lingkungan yang nyaman, efektif, dan efisien"
-              misi={true}
-            />
-            <VisiMisiCard
-              img="/assets/logo/Gift.png"
-              imgWidth={76}
-              imgHeight={72}
-              alt="value"
-              judul="VALUE"
-              desc="ORBIT dapat mengembangkan kemampuan siswa dalam mencapai tujuan bersama yang lebih efektif dan efisien."
-              misi={false}
-            />
+            <div className="w-full h-max hidden md:flex justify-center items-center">
+              <VisiMisiCard
+                img="/assets/logo/Rocket.png"
+                imgWidth={75}
+                imgHeight={90}
+                alt="roket"
+                judul="VISI"
+                desc="Mencetak anggota ORBIT sesuai degan bidangnya unggul dan meningkatkan potensi anggota ORBIT sesuai dengan bidang divisinya."
+                misi={false}
+              />
+              <VisiMisiCard
+                img="/assets/logo/Target.png"
+                imgWidth={76}
+                imgHeight={72}
+                alt="mission"
+                judul="MISI"
+                desc="Meningkatkan komunikasi baik antara anggota aktif dengan alumni Menciptakan lingkungan yang nyaman, efektif, dan efisien"
+                misi={true}
+              />
+              <VisiMisiCard
+                img="/assets/logo/Gift.png"
+                imgWidth={76}
+                imgHeight={72}
+                alt="value"
+                judul="VALUE"
+                desc="ORBIT dapat mengembangkan kemampuan siswa dalam mencapai tujuan bersama yang lebih efektif dan efisien."
+                misi={false}
+              />
+            </div>
+            <div className="w-full h-max md:hidden">
+              <VisiMisiMobile />
+            </div>
           </div>
 
           {/* Structur */}
           <m.div
             ref={refAbout}
             layout="preserve-aspect"
-            className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-80 pb-20 mx-auto mt-2 transition-all duration-500"
+            className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-60 md:pt-80 pb-20 mx-auto mt-2 transition-all duration-500"
           >
             <Image
               src={'/assets/img/BgFlyShip.png'}
               alt="Flyship"
               width={1443}
               height={1698}
-              className="w-full h-[80%] max-h-[2000px] absolute top-0 left-0 opacity-80 z-0"
+              className="w-[120vw] md:w-full h-[80%] max-h-[2000px] absolute top-0 left-0 opacity-80 z-0"
             />
             <m.h2
               layout="position"
@@ -396,7 +413,7 @@ export default function Home() {
 
             <m.div
               layout="size"
-              className="grid justify-items-center gap-6 over:gap-20 grid-cols-2 md:grid-cols-3 w-full max-w-[1000px] mt-10 z-10 transition-all duration-500"
+              className="w-full max-w-[1000px] flex flex-wrap justify-center items-center mt-10 z-10 transition-all duration-500"
             >
               {StrukturData &&
                 StrukturData.map((data, id) => {
@@ -404,6 +421,7 @@ export default function Home() {
                     <Person
                       image={data.image}
                       name={data.name}
+                      fullName={data.fullName}
                       jabatan={data.jabatan}
                       imgWidth={data.imgWidth}
                       imgHeight={data.imgHeight}
@@ -426,7 +444,7 @@ export default function Home() {
             priority
           />
 
-          <div className="h-fit">
+          <div ref={refDivisions} id="divisions" className="h-fit">
             <h2 className="text-center text-white font-bold text-2xl md:text-4xl mb-24">
               DIVISI KAMI
             </h2>
@@ -450,7 +468,7 @@ export default function Home() {
         <section className="bg-cave bg-center bg-cover w-full relative">
           {/* DECORATION */}
           <Image
-            src={'/assets/img/cloud.svg'}
+            src={'/assets/img/Cloud.svg'}
             width={500}
             height={500}
             className="w-full h-auto absolute top-0 right-0 rotate-180"
@@ -458,7 +476,7 @@ export default function Home() {
             priority
           />
           <Image
-            src={'/assets/img/cloud.svg'}
+            src={'/assets/img/Cloud.svg'}
             width={500}
             height={500}
             className="w-full h-auto absolute top-0 right-0 rotate-180 -scale-x-100"

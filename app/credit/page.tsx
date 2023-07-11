@@ -1,12 +1,11 @@
-import React from 'react';
 // import Navbar from '@/components/Navbar';
 // import Footer from '@/components/Footer';
-import Image from 'next/image';
 import AwanAtas from '@/public/assets/credit/awan_atas.png';
 import AwanBawah from '@/public/assets/credit/awan_bawah.png';
-import Orbit from '@/public/assets/credit/orbit.png';
 import Github from '@/public/assets/credit/github.png';
 import Instagram from '@/public/assets/credit/instagram.png';
+import Orbit from '@/public/assets/credit/orbit.png';
+import Image from 'next/image';
 
 const page = () => {
   const ketua = [
@@ -47,7 +46,11 @@ const page = () => {
 
   const fe = [
     { nama: 'M Sutan Mico Febrian', ig: '@mico_feb', github: '@mico_feb' },
-    { nama: 'Rievan Rival Nur Triana', ig: '@-', github: '@-' },
+    {
+      nama: 'Rievan Rival Nur Triana',
+      ig: '@reyvan_sr_my',
+      github: '@ReyvanMacros',
+    },
     { nama: 'Hasnat Ferdiananda', ig: '@hasnat5', github: '@hasnat5_' },
     {
       nama: 'Luqman Amirullah',
