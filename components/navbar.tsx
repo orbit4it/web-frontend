@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Link } from 'react-scroll';
 import ButtonLandingPage from './ButtonLandingPage';
 
@@ -23,6 +24,8 @@ export default function Navbar({ active }: { active: string }) {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <div className="w-screen max-w-[1440px] hidden md:flex items-center justify-between fixed top-0 left-1/2 -translate-x-1/2 z-50  px-5 py-2 md:px-36 bg-transparent scroll-smooth select-none">
       <Image
@@ -36,6 +39,7 @@ export default function Navbar({ active }: { active: string }) {
         <motion.div
           layout="position"
           style={{
+            display: active == 'null' ? 'none' : 'block',
             left:
               active == 'home'
                 ? '0%'
@@ -49,6 +53,7 @@ export default function Navbar({ active }: { active: string }) {
         />
         {navLinks.map((navLink, index) => (
           <Link
+            onClick={() => router.push(`/#${navLink.link}`)}
             to={navLink.link}
             spy={true}
             smooth={true}
@@ -57,7 +62,7 @@ export default function Navbar({ active }: { active: string }) {
             key={index}
             className="cursor-pointer z-10 w-1/4 flex items-center justify-center px-2"
           >
-            <p className="cursor-pointer ">{navLink.title}</p>
+            <p className="cursor-pointer">{navLink.title}</p>
           </Link>
         ))}
         <div className="w-1/4 px-2">
