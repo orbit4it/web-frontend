@@ -75,6 +75,18 @@ export interface KelasProps {
   vocational?: string;
 }
 
+export interface MateriCardProps {
+  classname?: string;
+  judul: string;
+  publisher: string;
+  waktu: string;
+  img: string;
+  desc: string;
+  textLink: string;
+  link: string;
+  alt: string;
+}
+
 export interface StrukturProps {
   image: string;
   name: string;
@@ -82,4 +94,18 @@ export interface StrukturProps {
   jabatan: string;
   imgWidth: string;
   imgHeight: string;
+}
+
+export interface CommentsProps {
+  classname?: string;
+  imgProfil?: string;
+  nama: string;
+  stars: number;
+  comment: string;
+  waktu: string;
+}
+
+export interface RatingStarsProps {
+  rating: number;
+  onChangeRating: (rating: number) => void;
 }

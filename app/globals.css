@@ -255,3 +255,73 @@
   @apply opacity-100 absolute -top-10 left-0;
   transition: all 0.3s ease-in-out;
 }
+.radio {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  padding-left: 30px;
+  positon: relative;
+  top: -2px;
+}
+
+.radio + .radio {
+  margin-left: 10px;
+}
+
+.radio input[type='radio'] {
+  display: none;
+}
+
+.radio span {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 1px solid #0b013e;
+  display: block;
+}
+
+.radio span:after {
+  content: '';
+  height: 9px;
+  width: 9px;
+  background: #54ffc1;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border: 2px solid #54ffc1;
+  border-radius: 50%;
+  transition: 300ms ease-in-out 0s;
+}
+
+.radio div {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 1px solid #0b013e;
+  display: block;
+}
+
+.radio div:after {
+  content: '';
+  height: 9px;
+  width: 9px;
+  background: #ff3131;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border: 2px solid #ff3131;
+  border-radius: 50%;
+  transition: 300ms ease-in-out 0s;
+}
+
+.radio input[type='radio']:checked ~ span:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio input[type='radio']:checked ~ div:after {
+  transform: translate(-50%, -50%) scale(1);
+}

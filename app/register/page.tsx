@@ -11,16 +11,16 @@ import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
 
 export default function page() {
-  const [nama, setNama] = useState('');
+  const [nama, setNama] = useState<string>('');
   const [divisi, setDivisi] = useState<number>(0);
   const [listDivisions, setListDivisions] = useState<DivisionsProps[]>([]);
   const [kelas, setKelas] = useState<number>(0);
   const [listkelas, setListKelas] = useState<KelasProps[]>([]);
-  const [nis, setNis] = useState('');
-  const [motivasi, setMotivasi] = useState('');
-  const [motivasiColor, setMotivasiColor] = useState('');
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState(false);
+  const [nis, setNis] = useState<string>('');
+  const [motivasi, setMotivasi] = useState<string>('');
+  const [motivasiColor, setMotivasiColor] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
   const router = useRouter();
 
   const handleNama = (e: string) => {
@@ -97,9 +97,9 @@ export default function page() {
       if (post.data.createUserPending) {
         if (post.data.createUserPending.message) {
           showToast(post.data.createUserPending.message, 'success');
+          router.push(`register/waiting?nama=${nama}`);
         } else if (post.data.createUserPending.error) {
           showToast(post.data.createUserPending.error, 'danger');
-          router.push(`register/waiting?name=${nama}`);
         }
       }
     }
