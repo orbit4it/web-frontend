@@ -135,8 +135,6 @@ export default function Home() {
       handleActive('divisions');
     }
   }, [inViewHome, inViewAbout, inViewDivisions]);
-  console.log(inViewHome, inViewAbout, inViewDivisions);
-
   const cardDeftRef = useRef(null);
   const cardActvRef = useRef(null);
 
