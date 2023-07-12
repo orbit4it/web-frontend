@@ -70,8 +70,8 @@ const StrukturData = [
     name: 'M. Rafly',
     fullName: 'M. Rafly Pratama',
     jabatan: 'Public Relation',
-    imgWidth: 'w-64',
-    imgHeight: 'w-64',
+    imgWidth: 'w-48',
+    imgHeight: 'w-60',
   },
   {
     image: '/assets/img/anggota/fawwazFull.png',

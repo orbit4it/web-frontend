@@ -143,14 +143,16 @@ const Person: React.FC<StrukturProps> = (props) => {
           }}
           transition={{ duration: 1, type: 'tween' }}
           className={twMerge(
-            `w-28 md:${props.imgWidth} h-40 md:h-64 md:${props.imgHeight} relative`
+            `w-28 md:w-48 h-40 md:h-64 md:${props.imgHeight} relative`
           )}
         >
           <Image
             src={props.image}
             width={500}
             height={500}
-            className={`w-28 h-40 md:w-full md:h-auto absolute bottom-0 left-1/2 -translate-x-1/2 ${
+            className={`w-28 h-40 md:w-52 md:h-80  md:${
+              props.imgHeight
+            } absolute bottom-0 left-1/2 -translate-x-1/2 ${
               onHover ? 'translate-y-10 ' : 'translate-y-16 md:translate-y-36'
             } transition-all duration-300 ease-in-out`}
             alt="elite"

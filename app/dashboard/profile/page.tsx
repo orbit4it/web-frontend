@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { BsTelephone } from 'react-icons/bs';
-import { BiMap } from 'react-icons/bi';
-import Image from 'next/image';
 import Map from '@/public/assets/img/map.png';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BiMap } from 'react-icons/bi';
+import { BsTelephone } from 'react-icons/bs';
 
 export default function page() {
   return (
@@ -18,13 +18,8 @@ export default function page() {
         </ul>
       </section>
       {/* Another Content */}
-      <section>
-<<<<<<< HEAD
-        <div className="w-[1000px] h-[1153px] bg-[#262B49] p-8 rounded-[15px]">
-          <div className="w-[192px] h-[192px] bg-[#D9D9D9] rounded-full">
-
-=======
-        <div className="bg-[#262B49] mt-4 p-5 rounded-[15px]">
+      <section className="mt-4 ">
+        <div className="bg-[#262B49] p-5 rounded-[15px]">
           <div className="flex">
             <div className="flex">
               <div>
@@ -133,7 +128,6 @@ export default function page() {
               <div className="border">test</div>
               <div className="border">test5</div>
             </div> */}
->>>>>>> 6e62a412a96bf8fd03ef3b30050a55adcc80a6d4
           </div>
         </div>
       </section>
