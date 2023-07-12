@@ -519,17 +519,10 @@ export default function Home() {
         </section>
 
         {/* YOUTUBE */}
-        <section className="bg-dark-purple px-4 lg:px-32 pt-48 pb-5">
+        <section className="max-w-[1800px] max-h-[1500px] mx-auto bg-dark-purple px-4 lg:px-32 py-48 ">
           <div className="relative p-8 lg:px-24 grid gap-8 max-w-screen-xl mx-auto">
             {/* DECORATION */}
-            <div
-              className="absolute top-0 left-0 rounded-5xl w-full h-80 lg:h-96"
-              style={{
-                background:
-                  'linear-gradient(144deg, rgba(255, 255, 255, 55) 0%, rgba(255, 255, 255, 0.15) 100%)',
-                backdropFilter: 'blur(15px)',
-              }}
-            ></div>
+            <div className="absolute top-0 left-0 rounded-xl w-full h-80 lg:h-96 glassmorphism bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 before:rounded-xl"></div>
             <div className="grid gap-2 z-10">
               <h2 className="text-center text-white font-bold text-3xl lg:text-5xl">
                 Eksplor Dunia IT Bersama Kami!
@@ -559,18 +552,18 @@ export default function Home() {
         <section className="bg-primary grid justify-center items-center mx-auto relative">
           {/* DECORATION */}
           <Image
-            src={'/assets/img/cloud.svg'}
+            src={'/assets/img/BgSoil.png'}
             width={500}
             height={500}
-            className="w-full h-auto absolute -top-1 right-0 rotate-180"
+            className="w-1/2 h-auto absolute -top-1 left-0"
             alt="cloud"
             priority
           />
           <Image
-            src={'/assets/img/cloud.svg'}
+            src={'/assets/img/BgSoil.png'}
             width={500}
             height={500}
-            className="w-full h-auto absolute -top-1 right-0 rotate-180 -scale-x-100"
+            className="w-1/2 h-auto absolute -top-1 right-0 -scale-x-100"
             alt="cloud"
             priority
           />
