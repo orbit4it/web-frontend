@@ -1,17 +1,16 @@
 'use client';
 
-import Image from 'next/image';
-import React, { useState, useEffect, useRef } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import { FreeMode } from 'swiper';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
 import Logo from '@/public/assets/logo/Cinema.png';
-import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-import 'swiper/swiper-bundle.min.css';
+import { useEffect, useState } from 'react';
+import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
+import { FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.min.css';
 
 interface GaleryType {
   index: number;

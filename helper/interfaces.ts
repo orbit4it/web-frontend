@@ -52,6 +52,7 @@ export interface TestimoniProps {
 export interface DivisionProps {
   image: string;
   name: string;
+  link: string;
 }
 
 export interface SwiperStyles {

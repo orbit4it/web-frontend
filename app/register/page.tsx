@@ -328,7 +328,7 @@ export default function page() {
             <div
               className=" flex gap-1  items-center text-white absolute bottom-5 left-5  cursor-pointer"
               onClick={(e) => {
-                router.back();
+                router.push('/');
               }}
             >
               <IoChevronBackOutline className="" />

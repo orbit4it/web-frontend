@@ -351,7 +351,7 @@ export default function Home() {
           {/* Vision Misions */}
           <div
             ref={refAbout}
-            className="relative w-full h-max mt-14 flex justify-center items-center  z-10"
+            className="relative w-full h-max mt-14 2xl:mt-5 flex justify-center items-center  z-10"
           >
             <div className="w-full h-max hidden md:flex justify-center items-center">
               <VisiMisiCard
@@ -391,7 +391,7 @@ export default function Home() {
           <m.div
             ref={refAbout}
             layout="preserve-aspect"
-            className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-60 md:pt-80 pb-20 mx-auto mt-2 transition-all duration-500"
+            className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-60 md:pt-96 pb-20 mx-auto mt-2 transition-all duration-500"
           >
             <Image
               src={'/assets/img/BgFlyShip.png'}
@@ -432,22 +432,26 @@ export default function Home() {
         </section>
 
         {/* DIVISI */}
-        <section className="bg-gradient-to-b from-[#0B013E] from-60% to-[#EF2ED2]">
+        <section className="max-w-[1800px] max-h-[2400px] 2xl:mx-auto bg-gradient-to-b from-[#0B013E] from-50% to-[#ef2ed29e]">
           <Image
             src={'/assets/img/BgSword.png'}
             width={500}
             height={500}
-            className="h-auto w-full"
+            className="h-auto md:w-full 2xl:w-1/2 mx-auto"
             alt="ORBIT Moon Castle"
             priority
           />
 
-          <div ref={refDivisions} id="divisions" className="h-fit">
+          <div
+            ref={refDivisions}
+            id="divisions"
+            className="h-screen 2xl:h-max py-2 border-2"
+          >
             <h2 className="text-center text-white font-bold text-2xl md:text-4xl mb-24">
               DIVISI KAMI
             </h2>
 
-            <div className="grid">
+            <div className="w-full h-max py-10 overflow-hidden">
               <Division />
             </div>
           </div>
@@ -456,45 +460,46 @@ export default function Home() {
             src={'/assets/img/BgPortal.png'}
             width={500}
             height={500}
-            className="h-auto w-full"
-            alt="ORBIT Moon Castle"
+            className="h-auto w-full border-2"
+            alt="ORBIT Port"
             priority
           />
         </section>
+        <div className="max-w-[1800px] max-h-[100px] w-screen h-[10vh] mx-auto bg-gradient-to-b from-[#060027] from-[20%] to-dark-purple to-[80%]"></div>
 
         {/* GALERY */}
-        <section className="bg-cave bg-center bg-cover w-full relative">
+        <section className="bg-cave max-w-[1800px] mx-auto bg-center bg-cover w-full relative">
           {/* DECORATION */}
           <Image
-            src={'/assets/img/Cloud.svg'}
+            src={'/assets/img/BgSoil.png'}
             width={500}
             height={500}
-            className="w-full h-auto absolute top-0 right-0 rotate-180"
+            className="w-1/2 h-auto absolute top-0 left-0 "
             alt="cloud"
             priority
           />
           <Image
-            src={'/assets/img/Cloud.svg'}
+            src={'/assets/img/BgSoil.png'}
             width={500}
             height={500}
-            className="w-full h-auto absolute top-0 right-0 rotate-180 -scale-x-100"
+            className="w-1/2 h-auto absolute top-0 right-0 -scale-x-100 "
             alt="cloud"
             priority
           />
 
           <Image
-            src={'/assets/img/cloud.svg'}
+            src={'/assets/img/BgSoil.png'}
             width={500}
             height={500}
-            className="w-full h-auto absolute -bottom-2.5 right-0"
+            className="w-1/2 h-auto  absolute left-0 -bottom-2.5 rotate-180 -scale-x-100"
             alt="cloud"
             priority
           />
           <Image
-            src={'/assets/img/cloud.svg'}
+            src={'/assets/img/BgSoil.png'}
             width={500}
             height={500}
-            className="w-full h-auto absolute -bottom-2.5 right-0 -scale-x-100"
+            className="w-1/2 h-auto  absolute -bottom-2.5 right-0  rotate-180"
             alt="cloud"
             priority
           />

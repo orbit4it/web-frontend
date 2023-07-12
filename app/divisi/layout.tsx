@@ -2,7 +2,7 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
-import './galeri.css';
+import '@/helper/swipers/galeri.css';
 
 export default function RootLayout({
   children,
