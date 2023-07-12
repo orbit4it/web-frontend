@@ -8,7 +8,7 @@ import 'swiper/swiper.min.css';
 const VisiMisiMobile = () => {
   return (
     <Swiper
-      className="mySwiper"
+      className="visimisi-swiper"
       effect={'coverflow'}
       initialSlide={1}
       centeredSlides={true}
@@ -23,7 +23,7 @@ const VisiMisiMobile = () => {
       }}
       modules={[Pagination, EffectCoverflow]}
     >
-      <SwiperSlide className="mySwiper-slider">
+      <SwiperSlide>
         <div className="w-full h-full flex flex-col items-center justify-center">
           <Image
             src={'/assets/logo/Rocket.png'}

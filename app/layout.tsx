@@ -1,6 +1,7 @@
 'use client';
 import Sidebar from '@/components/dashboard/Sidebar';
 import { Inter, Montserrat } from 'next/font/google';
+import Head from 'next/head';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -10,11 +11,6 @@ import './globals.css';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 const inter = Inter({ subsets: ['latin'] });
-
-export const metadata = {
-  title: 'ORBIT',
-  description: 'Organization of Basic Information Technology',
-};
 
 export default function RootLayout({
   children,
@@ -34,6 +30,9 @@ export default function RootLayout({
   if (isDashboard) {
     return (
       <html lang="en">
+        <Head>
+          <title>Orbit SMKN 4 Bandung | Auth</title>
+        </Head>
         <body className={`${inter.className} bg-d-primary`}>
           <Sidebar />
           {children}
@@ -45,6 +44,9 @@ export default function RootLayout({
   if (isLogin) {
     return (
       <html lang="en">
+        <Head>
+          <title>Orbit SMKN 4 Bandung | Auth</title>
+        </Head>
         <body className={`${inter.className} `}>
           <ToastContainer
             position="top-left"

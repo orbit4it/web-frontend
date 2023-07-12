@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
 import '@/helper/swipers/galeri.css';
+import Head from '../head';
 
 export default function RootLayout({
   children,
@@ -11,6 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <>
+      <Head title="Divisi Kami" />
       <Navbar active={'null'} />
       <NavbarMobile active={'null'} />
       <main className="w-full bg-primary h-[1780px] md:h-[1970px] ">

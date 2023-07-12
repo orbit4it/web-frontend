@@ -59,7 +59,7 @@ export const ElementDivision: React.FC<DivisionProps> = (props) => {
           priority
         />
       </div>
-      <h3 className="text-center font-bold text-white text-xl md:text-2xl w-40 md:w-56 break-words mb-12 mt-10 ">
+      <h3 className="text-center font-bold text-white text-xl md:text-2xl w-40 md:w-52 mb-12 mt-10 ">
         {props.name}
       </h3>
       <ButtonLandingPage
@@ -118,7 +118,7 @@ const Division = () => {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         }}
-        className="mySwiper"
+        className="division-swiper"
       >
         {DivisionData &&
           DivisionData.map((data, id) => {

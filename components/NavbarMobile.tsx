@@ -71,7 +71,7 @@ export default function NavbarMobile({ active }: { active: string }) {
             layout="size"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: '30vh' }}
-            className="w-full h-[30vh] px-5 py-2"
+            className="w-full h-[30vh] px-5"
           >
             <ul className="w-full h-full relative flex flex-col justify-between items-center text-white text-sm">
               <motion.div
@@ -106,7 +106,7 @@ export default function NavbarMobile({ active }: { active: string }) {
                   <p className="cursor-pointer ">{navLink.title}</p>
                 </ToId>
               ))}
-              <div className="w-full px-3 flex justify-start items-center">
+              <div className="w-full h-1/4 px-3 flex justify-start items-center">
                 <Link
                   href="/register"
                   className="text-sm text-start text-secondary"

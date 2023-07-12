@@ -1,11 +1,14 @@
-// import Navbar from '@/components/Navbar';
-// import Footer from '@/components/Footer';
+'use client';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import NavbarMobile from '@/components/NavbarMobile';
 import AwanAtas from '@/public/assets/credit/awan_atas.png';
 import AwanBawah from '@/public/assets/credit/awan_bawah.png';
 import Github from '@/public/assets/credit/github.png';
 import Instagram from '@/public/assets/credit/instagram.png';
 import Orbit from '@/public/assets/credit/orbit.png';
 import Image from 'next/image';
+import Head from '../head';
 
 const page = () => {
   const ketua = [
@@ -83,6 +86,10 @@ const page = () => {
 
   return (
     <div>
+      <Head title="Tim Pengembang" />
+      <Navbar active={'null'} />
+      <NavbarMobile active={'null'} />
+
       <div className="bg-primary">
         <Image src={AwanAtas} alt="Awan Orbit" />
         <div className="mx-auto text-center">
@@ -286,6 +293,7 @@ const page = () => {
           <Image src={AwanBawah} alt="Awan Orbit" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

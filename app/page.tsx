@@ -15,6 +15,7 @@ import { motion as m } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Head from './head';
 
 const StrukturData = [
   {
@@ -140,6 +141,7 @@ export default function Home() {
 
   return (
     <>
+      <Head title="SMKN 4 Bandung" />
       <Navbar active={active} />
       <NavbarMobile active={active} />
       <main className="relative bg-primary overflow-x-hidden">
@@ -451,7 +453,7 @@ export default function Home() {
               DIVISI KAMI
             </h2>
 
-            <div className="w-full h-max py-10 overflow-hidden">
+            <div className="w-full h-max py-10">
               <Division />
             </div>
           </div>
@@ -549,7 +551,7 @@ export default function Home() {
         </section>
 
         {/* FEEDBACK */}
-        <section className="bg-primary grid justify-center items-center mx-auto relative">
+        <section className="max-w-[1800px] max-h-[1500px] bg-primary flex flex-col justify-center items-center mx-auto relative">
           {/* DECORATION */}
           <Image
             src={'/assets/img/BgSoil.png'}
@@ -568,12 +570,14 @@ export default function Home() {
             priority
           />
 
-          <div className="max-w-screen-xl grid gap-24 pt-48 px-4 lg:px-32">
+          <div className="w-5/6 h-screen max-h-[1000px] flex flex-col justify-center items-center mt-56">
             <h2 className="text-center text-white font-bold text-2xl lg:text-4xl z-10">
               FEEDBACK
             </h2>
 
-            <CardTestimoni />
+            <div className=" w-full h-max lg:h-96 mt-10 rounded-5xl  glassmorphism bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 before:rounded-5xl">
+              <CardTestimoni />
+            </div>
           </div>
         </section>
 
@@ -582,7 +586,7 @@ export default function Home() {
           src={'/assets/img/BulanCastle.png'}
           width={500}
           height={500}
-          className="h-auto w-full"
+          className="h-auto w-full max-w-[1800px] max-h-[1800px] mx-auto"
           alt="ORBIT Moon Castle"
           priority
         />
