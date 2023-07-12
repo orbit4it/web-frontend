@@ -1,119 +1,92 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // Import Swiper React components
+import {
+  FreeMode,
+  Navigation,
+  Scrollbar,
+  Swiper as SwiperType,
+  Thumbs,
+} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 import 'swiper/css/thumbs';
+// custom css
+import '@/helper/swipers/thumbs.css';
 
-// Import the type definition for Swiper
-import { Swiper as SwiperType } from 'swiper';
-
-// Import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper';
-import { GaleryStyles } from '@/helper/interfaces';
+const images = [
+  '/assets/img/galeri/galeri2.png',
+  '/assets/img/galeri/galeri3.png',
+  '/assets/img/galeri/galeri1.png',
+  '/assets/img/galeri/galeri4.png',
+  '/assets/img/galeri/galeri5.png',
+  '/assets/img/galeri/galeri6.png',
+  '/assets/img/galeri/galeri7.png',
+  '/assets/img/galeri/galeri9.png',
+  '/assets/img/galeri/galeri10.png',
+];
 
 const Galery = () => {
-    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null); // Use SwiperType as the type
+  const [activeThumb, setActiveThumb] = useState<SwiperType | null>(null);
 
-    const galeryStyles: GaleryStyles = {
-        '--swiper-navigation-color': '#fff',
-        '--swiper-pagination-color': '#fff',
-    };
+  return (
+    <>
+      {/* Shown picture */}
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={10}
+        thumbs={{ swiper: activeThumb }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="shown-image"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              alt="random picture"
+              src={image}
+              width={500}
+              height={500}
+              className="w-full h-full object-fill object-top"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-    return (
-        <>
-            {/* Your Swiper component */}
-            <Swiper
-                style={galeryStyles}
-                spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2 w-full max-w-screen-sm"
-            >
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri1.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri2.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri3.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri4.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri5.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri6.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri7.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri8.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri9.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri10.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri11.png" />
-                </SwiperSlide>
-            </Swiper>
-
-            {/* Another Swiper component */}
-            <Swiper
-                onSwiper={setThumbsSwiper}
-                spaceBetween={10}
-                slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper w-full max-w-screen-sm"
-            >
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri1.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri2.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri3.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri4.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri5.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri6.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri7.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri8.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri9.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri10.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/img/galeri/galeri11.png" />
-                </SwiperSlide>
-            </Swiper>
-        </>
-    );
+      {/* Thumbs Picture */}
+      <Swiper
+        scrollbar={{ el: '.scrollbar' }}
+        onSwiper={setActiveThumb}
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+        }}
+        spaceBetween={10}
+        modules={[Navigation, Thumbs, Scrollbar]}
+        className="thumbs-image cursor-pointer"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div className="w-full h-full absolute top-0 left-0 bg-black/50"></div>
+            <Image
+              alt="random picture"
+              src={image}
+              width={500}
+              height={500}
+              className="w-full h-full object-fill object-top"
+            />
+          </SwiperSlide>
+        ))}
+        <div className="scrollbar"></div>
+      </Swiper>
+    </>
+  );
 };
 
 export default Galery;

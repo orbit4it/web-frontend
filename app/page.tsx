@@ -146,8 +146,8 @@ export default function Home() {
         {/* Home */}
         <section
           ref={refHome}
-          className="relative max-w-[1800px] max-h-[1800px] 2xl:mx-auto w-full md:h-[270vh] h-[200vh] bg-home-mobile md:bg-home bg-primary bg-center bg-blend-screen bg-opacity-70 
-        bg-[length:100vw_200vh] md:bg-[length:110vw_270vh] over:bg-[length:1800px_1800px] flex flex-col"
+          className="relative max-w-[1800px] max-h-[1800px] 2xl:mx-auto w-full lg:h-[270vh] h-[200vh] bg-home-mobile lg:bg-home bg-primary bg-center bg-blend-screen bg-opacity-70 
+        bg-[length:100vw_200vh] lg:bg-[length:110vw_270vh] over:bg-[length:1800px_1800px] flex flex-col"
           id="home"
         >
           {/* Greetings */}
@@ -163,7 +163,7 @@ export default function Home() {
                 ease: [0.075, 0.82, 0.165, 1],
               }}
               viewport={{ once: true }}
-              className=" mt-0 md:mt-24"
+              className=" mt-0 lg:mt-24"
             >
               {/* UNTUK SELAIN MOBILE  */}
               <svg
@@ -172,7 +172,7 @@ export default function Home() {
                 viewBox="0 0 311 75"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className=" hidden md:block"
+                className=" hidden lg:block"
               >
                 <path
                   fillRule="evenodd"
@@ -190,7 +190,7 @@ export default function Home() {
                 viewBox="0 0 300 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className=" block md:hidden"
+                className=" block lg:hidden"
               >
                 <path
                   fillRule="evenodd"
@@ -210,7 +210,7 @@ export default function Home() {
                 delay: 0.2,
               }}
               viewport={{ once: true }}
-              className=" text-xs md:text-lg text-white/70 md:mt-8 font-light tracking-wide text-center"
+              className=" text-xs lg:text-lg text-white/70 lg:mt-8 font-light tracking-wide text-center"
             >
               Organization of Basic Information Technology
             </m.h1>
@@ -223,7 +223,7 @@ export default function Home() {
                 delay: 0.3,
               }}
               viewport={{ once: true }}
-              className=" text-sm font-medium md:font-normal md:text-2xl text-center text-white mb-8 md:mt-8"
+              className=" text-sm font-medium lg:font-normal lg:text-2xl text-center text-white mb-8 lg:mt-8"
             >
               Mari Belajar IT Bersama Kami Sekarang Juga!
             </m.h1>
@@ -245,8 +245,8 @@ export default function Home() {
               whileInView={{ opacity: 1, translateX: -5, translateY: -5 }}
               transition={{ duration: 0.5, type: 'spring' }}
               viewport={{ once: true, amount: 0.5, root: cardDeftRef }}
-              className="w-4/5 md:w-[500px] mr-auto md:ml-10 
-            mt-5 md:mt-10"
+              className="w-4/5 lg:w-[500px] mr-auto lg:ml-10 
+            mt-5 lg:mt-10"
             >
               <CardLanding
                 ref={cardDeftRef}
@@ -265,14 +265,14 @@ export default function Home() {
               whileInView={{ opacity: 1, translateX: 0, translateY: 0 }}
               transition={{ duration: 0.8, type: 'spring' }}
               viewport={{ once: true, amount: 0.5, root: cardActvRef }}
-              className="w-4/5 md:w-[500px] mt-20 md:mt-20  
-            ml-auto mr-1 md:mr-10"
+              className="w-4/5 lg:w-[500px] mt-20 lg:mt-20  
+            ml-auto mr-1 lg:mr-10"
             >
               <CardLanding
                 ref={cardActvRef}
                 judul="Apa saja kegiatan yang dilakukan ORBIT?"
                 desc="Orbit bersifat sebagai sarana siswa untuk mengembangkan dan mengasah bakat mereka. Para siswa dapat memilih untuk bergabung beragam divisi orbit, dimana mereka akan belajar bersama mentor, mengulas materi bersama teman, dan mengerjakan latihan soal/projek yang telah diberikan."
-                classname=" mt-2 md:mt-9"
+                classname=" mt-2 lg:mt-9"
                 judulClassname=" text-right pt-2"
                 descClassname=""
               />
@@ -309,38 +309,38 @@ export default function Home() {
         {/* About */}
         <section
           ref={refAbout}
-          className="relative max-w-[1800px] max-h-[4000px] 2xl:mx-auto w-full h-max bg-about-mobile md:bg-about bg-no-repeat bg-top bg-[length:170vw_150vh] md:bg-[length:100vw_270vh] over:bg-[length:1800px_1800px] flex flex-col z-10"
+          className="relative max-w-[1800px] max-h-[4000px] 2xl:mx-auto w-full h-max bg-about-mobile lg:bg-about bg-no-repeat bg-top bg-[length:170vw_150vh] lg:bg-[length:100vw_270vh] over:bg-[length:1800px_1800px] flex flex-col z-10"
         >
           {/* Desc */}
-          <div className="relative w-full h-screen mt-[30vh] md:mt-[60vh] over:mt-96 flex flex-col items-center justify-center">
+          <div className="relative w-full h-screen mt-[30vh] lg:mt-[60vh] over:mt-96 flex flex-col items-center justify-center">
             <div
-              className="relative flex flex-col md:flex-row items-center justify-center gap-5 p-5 md:p-0"
+              className="relative flex flex-col lg:flex-row items-center justify-center gap-5 p-5 lg:p-0"
               ref={refAbout}
               id="about"
             >
               <m.div
                 initial={{ opacity: 0, translateX: -80 }}
                 whileInView={{ opacity: 1, translateX: 2 }}
-                className="absolute -top-5 md:static flex items-center justify-center z-10"
+                className="absolute -top-5 lg:static flex items-center justify-center z-10"
               >
                 <Image
                   src={'/assets/logo/LogoPrimaryV2.png'}
                   width={372}
                   height={372}
                   alt="ORBIT"
-                  className="w-28 h-28 md:w-96 md:h-96"
+                  className="w-28 h-28 lg:w-96 lg:h-96"
                 />
               </m.div>
               <m.div
                 initial={{ opacity: 0, translateX: 100 }}
                 whileInView={{ opacity: 1, translateX: 2 }}
-                className=" mt-5 md:mt-0"
+                className=" mt-5 lg:mt-0"
               >
                 <CardLanding
                   ref={cardActvRef}
                   judul="Tentang Kami"
                   desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
-                  classname=" w-auto md:w-[694px] md:h-[300px]"
+                  classname=" w-auto lg:w-[694px] lg:h-[300px]"
                   judulClassname=" pt-8 "
                   descClassname=" text-sm"
                 />
@@ -353,7 +353,7 @@ export default function Home() {
             ref={refAbout}
             className="relative w-full h-max mt-14 2xl:mt-5 flex justify-center items-center  z-10"
           >
-            <div className="w-full h-max hidden md:flex justify-center items-center">
+            <div className="w-full h-max hidden lg:flex justify-center items-center">
               <VisiMisiCard
                 img="/assets/logo/Rocket.png"
                 imgWidth={75}
@@ -382,7 +382,7 @@ export default function Home() {
                 misi={false}
               />
             </div>
-            <div className="w-full h-max md:hidden">
+            <div className="w-full h-max lg:hidden">
               <VisiMisiMobile />
             </div>
           </div>
@@ -391,18 +391,18 @@ export default function Home() {
           <m.div
             ref={refAbout}
             layout="preserve-aspect"
-            className="relative w-full md:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 md:px-40 pt-60 md:pt-96 pb-20 mx-auto mt-2 transition-all duration-500"
+            className="relative w-full lg:h-fit max-h-[2000px] flex flex-col justify-center items-center px-4 lg:px-40 pt-60 lg:pt-96 pb-20 mx-auto mt-2 transition-all duration-500"
           >
             <Image
               src={'/assets/img/BgFlyShip.png'}
               alt="Flyship"
               width={1443}
               height={1698}
-              className="w-[120vw] md:w-full h-[80%] max-h-[2000px] absolute top-0 left-0 opacity-80 z-0"
+              className="w-[120vw] lg:w-full h-[80%] max-h-[2000px] absolute top-0 left-0 opacity-80 z-0"
             />
             <m.h2
               layout="position"
-              className="text-center text-white font-bold text-2xl md:text-4xl z-10"
+              className="text-center text-white font-bold text-2xl lg:text-4xl z-10"
             >
               STRUKTUR
               <br />
@@ -437,7 +437,7 @@ export default function Home() {
             src={'/assets/img/BgSword.png'}
             width={500}
             height={500}
-            className="h-auto md:w-full 2xl:w-1/2 mx-auto"
+            className="h-auto lg:w-full 2xl:w-1/2 mx-auto"
             alt="ORBIT Moon Castle"
             priority
           />
@@ -445,9 +445,9 @@ export default function Home() {
           <div
             ref={refDivisions}
             id="divisions"
-            className="h-screen 2xl:h-max py-2 border-2"
+            className="h-screen 2xl:h-max py-2"
           >
-            <h2 className="text-center text-white font-bold text-2xl md:text-4xl mb-24">
+            <h2 className="text-center text-white font-bold text-2xl lg:text-4xl mb-24">
               DIVISI KAMI
             </h2>
 
@@ -460,7 +460,7 @@ export default function Home() {
             src={'/assets/img/BgPortal.png'}
             width={500}
             height={500}
-            className="h-auto w-full border-2"
+            className="lg:h-auto w-full h-64 "
             alt="ORBIT Port"
             priority
           />
@@ -468,8 +468,8 @@ export default function Home() {
         <div className="max-w-[1800px] max-h-[100px] w-screen h-[10vh] mx-auto bg-gradient-to-b from-[#060027] from-[20%] to-dark-purple to-[80%]"></div>
 
         {/* GALERY */}
-        <section className="bg-cave max-w-[1800px] mx-auto bg-center bg-cover w-full relative">
-          {/* DECORATION */}
+        <section className="relative max-w-[1800px] w-full h-screen  lg:h-[150vh] max-h-[1500px] mx-auto bg-center bg-cave bg-cover flex flex-col justify-center items-center">
+          {/* Soil */}
           <Image
             src={'/assets/img/BgSoil.png'}
             width={500}
@@ -504,17 +504,22 @@ export default function Home() {
             priority
           />
 
-          <div className="grid gap-2 justify-items-center px-4 md:px-40 py-72 max-w-screen-xl mx-auto">
-            <h2 className="text-center text-white font-bold text-2xl md:text-4xl z-10 mb-24">
+          <div
+            className="flex flex-col gap-4 justify-start 
+          px-2 lg:px-4 py-2 max-w-[800px] w-4/5 max-h-[600px] h-[90vh] mx-auto"
+          >
+            <h2 className="text-center text-white font-bold text-2xl lg:text-4xl z-10 mb-4">
               GALERI
             </h2>
 
-            <Galery />
+            <div className="w-full h-max lg:h-5/6 max-h-[1000px] glassmorphism bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 before:rounded-3xl rounded-3xl py-8 px-6 select-none">
+              <Galery />
+            </div>
           </div>
         </section>
 
         {/* YOUTUBE */}
-        <section className="bg-dark-purple px-4 md:px-32 pt-48 pb-5">
+        <section className="bg-dark-purple px-4 lg:px-32 pt-48 pb-5">
           <div className="relative p-8 lg:px-24 grid gap-8 max-w-screen-xl mx-auto">
             {/* DECORATION */}
             <div
@@ -526,7 +531,7 @@ export default function Home() {
               }}
             ></div>
             <div className="grid gap-2 z-10">
-              <h2 className="text-center text-white font-bold text-3xl md:text-5xl">
+              <h2 className="text-center text-white font-bold text-3xl lg:text-5xl">
                 Eksplor Dunia IT Bersama Kami!
               </h2>
               <p className="text-white/60 text-center">
@@ -538,7 +543,7 @@ export default function Home() {
 
             <div className="grid justify-items-center z-10">
               <iframe
-                className="rounded-3xl w-full h-40 md:h-96"
+                className="rounded-3xl w-full h-40 lg:h-96"
                 width="100%"
                 height="auto"
                 src="https://www.youtube.com/embed/dDxe7CBgbAs"
@@ -571,7 +576,7 @@ export default function Home() {
           />
 
           <div className="max-w-screen-xl grid gap-24 pt-48 px-4 lg:px-32">
-            <h2 className="text-center text-white font-bold text-2xl md:text-4xl z-10">
+            <h2 className="text-center text-white font-bold text-2xl lg:text-4xl z-10">
               FEEDBACK
             </h2>
 
