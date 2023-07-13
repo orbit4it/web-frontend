@@ -106,7 +106,7 @@ export default function page() {
     fetching();
   }, []);
 
-  useEffect(() => {
+  const handleMotivasiColor = () => {
     if (motivasi.length >= 50 && motivasi.length <= 80) {
       setMotivasiColor('warning');
     } else if (motivasi.length > 80) {
@@ -114,6 +114,10 @@ export default function page() {
     } else {
       setMotivasiColor('white');
     }
+  };
+
+  useEffect(() => {
+    handleMotivasiColor();
   }, [motivasi]);
 
   const halfData = [
