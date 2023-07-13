@@ -12,10 +12,12 @@ import VisiMisiCard from '@/components/landingPage/VisiMisiCard';
 import VisiMisiMobile from '@/components/landingPage/VisiMisiMobile';
 import '@/helper/page.module.css';
 import { motion as m } from 'framer-motion';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import Head from './head';
+
+export const metadata: Metadata = {};
 
 const StrukturData = [
   {
@@ -110,7 +112,6 @@ const StrukturData = [
 
 export default function Home() {
   const [active, setActive] = useState<string>('home');
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   // handle navbar active
   const handleActive = (name: string) => {
@@ -141,7 +142,6 @@ export default function Home() {
 
   return (
     <>
-      <Head title="SMKN 4 Bandung" />
       <Navbar active={active} />
       <NavbarMobile active={active} />
       <main className="relative bg-primary overflow-x-hidden">
@@ -251,7 +251,7 @@ export default function Home() {
             mt-5 lg:mt-10"
             >
               <CardLanding
-                ref={cardDeftRef}
+                cardRef={cardDeftRef}
                 judul="Apa itu ORBIT?"
                 desc="Orbit merupakan sebuah ekstrakurikuler yang fokus bergerak di bidang
 							IT. Orbit merupakan sebuah wadah yang menampung 	siswa yang ingin
@@ -271,7 +271,7 @@ export default function Home() {
             ml-auto mr-1 lg:mr-10"
             >
               <CardLanding
-                ref={cardActvRef}
+                cardRef={cardActvRef}
                 judul="Apa saja kegiatan yang dilakukan ORBIT?"
                 desc="Orbit bersifat sebagai sarana siswa untuk mengembangkan dan mengasah bakat mereka. Para siswa dapat memilih untuk bergabung beragam divisi orbit, dimana mereka akan belajar bersama mentor, mengulas materi bersama teman, dan mengerjakan latihan soal/projek yang telah diberikan."
                 classname=" mt-2 lg:mt-9"
@@ -339,7 +339,7 @@ export default function Home() {
                 className=" mt-5 lg:mt-0"
               >
                 <CardLanding
-                  ref={cardActvRef}
+                  cardRef={cardActvRef}
                   judul="Tentang Kami"
                   desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
                   classname=" w-auto lg:w-[694px] lg:h-[300px]"

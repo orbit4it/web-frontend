@@ -1,12 +1,20 @@
 'use client';
 import Sidebar from '@/components/dashboard/Sidebar';
+import { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
-import Head from 'next/head';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
+
+export const metadata: Metadata = {
+  title: {
+    default: 'ORBIT SMK Negeri 4 Bandung',
+    template: '%s | ORBIT 4 IT ',
+  },
+  description: 'Organization Of Basic Information Technology',
+};
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -30,9 +38,18 @@ export default function RootLayout({
   if (isDashboard) {
     return (
       <html lang="en">
-        <Head>
-          <title>Orbit SMKN 4 Bandung | Auth</title>
-        </Head>
+        <head>
+          <title>Eskul | ORBIT 4 IT</title>
+          <meta
+            name="description"
+            content="Organization Of Basic Information Technology"
+          />
+          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </head>
         <body className={`${inter.className} bg-d-primary`}>
           <Sidebar />
           {children}
@@ -44,9 +61,18 @@ export default function RootLayout({
   if (isLogin) {
     return (
       <html lang="en">
-        <Head>
-          <title>Orbit SMKN 4 Bandung | Auth</title>
-        </Head>
+        <head>
+          <title>ORBIT 4 IT | Auth</title>
+          <meta
+            name="description"
+            content="Organization Of Basic Information Technology"
+          />
+          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </head>
         <body className={`${inter.className} `}>
           <ToastContainer
             position="top-left"
@@ -68,6 +94,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>ORBIT SMK Negeri 4 Bandung</title>
+        <meta
+          name="description"
+          content="Organization Of Basic Information Technology"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={`${montserrat.className}`}>{children}</body>
     </html>
   );

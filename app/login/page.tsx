@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
-import Head from '../head';
 
 export default function page() {
   const [email, setEmail] = useState('');
@@ -21,7 +20,6 @@ export default function page() {
 
   return (
     <>
-      <Head title="Masuk" />
       <div className="flex flex-col-reverse md:flex-row items-center justify-normal md:justify-between text-white relative">
         <div className={`${styles.gradientLogin} h-screen w-full`}>
           <div className="">

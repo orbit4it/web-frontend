@@ -16,15 +16,6 @@ export default function page() {
   const [isValid, setIsValid] = useState<boolean>();
   const [isSuccess, setIsSuccess] = useState<boolean>();
 
-  const checkInput = () => {
-    if (isPresent == null || token == undefined || rating == null) {
-      setIsValid(false);
-      return null;
-    } else {
-      Send();
-    }
-  };
-
   const Send = () => {
     const Message = {
       Hadir: isPresent,
@@ -33,6 +24,15 @@ export default function page() {
     };
     setIsValid(true);
     setIsSuccess(true);
+  };
+
+  const checkInput = () => {
+    if (isPresent == null || token == undefined || rating == null) {
+      setIsValid(false);
+      return null;
+    } else {
+      Send();
+    }
   };
 
   const SendNotPresent = () => {

@@ -3,13 +3,13 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 // import { Swiper, SwiperSlide } from 'swiper/react';
+import Option from '@/components/Option';
+import GaleryProject from '@/components/divisionPage/GaleryProject';
+import { container, item } from '@/helper/animate';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
 import Logo from '@/public/assets/logo/GameDev.png';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import Link from 'next/link';
-import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
-import { FreeMode } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { FaAngleDown } from 'react-icons/fa';
 import 'swiper/swiper-bundle.css';
 import 'swiper/swiper-bundle.min.css';
 
@@ -21,21 +21,6 @@ interface GaleryType {
 }
 
 export default function page() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, screenY: 20 },
-    show: { opacity: 1, screenY: 0 },
-  };
-
   const [optionHovered, setOptionHovered] = useState<number>(0);
 
   const [yearOptions, setYearOptions] = useState<Array<number>>([
@@ -83,113 +68,30 @@ export default function page() {
   const lastYear = yearOptions[0];
   useEffect(() => {
     setSelectedYear(lastYear);
-  }, []);
+  }, [lastYear]);
 
-  const mapGalery = galery.map((item) => (
-    <motion.div
-      layout="size"
-      transition={{ layout: { duration: 0.1, type: 'just' } }}
-      className="w-full"
-    >
-      <motion.div
-        layout="position"
-        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-gamedev before:rounded-full cursor-pointer"
-        key={item.index}
-        onClick={() => setActiveId(item.index)}
-      >
-        {activeId == item.index && (
-          <FaAngleDown
-            onClick={() => setActiveId(item.index)}
-            color="white"
-            size={30}
-            className="cursor-pointer"
-          />
-        )}
-        {activeId !== item.index && (
-          <FaAngleRight
-            onClick={() => setActiveId(item.index)}
-            color="white"
-            size={30}
-            className="cursor-pointer z-10"
-          />
-        )}
-        <h1 className="text-base md:text-lg font-bold text-white">
-          {item.title}
-        </h1>
-      </motion.div>
-      <AnimatePresence>
-        {activeId == item.index && (
-          <motion.div
-            layout="position"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ duration: 0.2, type: 'tween' }}
-            className="w-full h-[200px] md:h-[250px] pt-2"
-          >
-            <Swiper
-              slidesPerView={'auto'}
-              spaceBetween={30}
-              freeMode={true}
-              modules={[FreeMode]}
-              className="mySwiper"
-            >
-              {item.pictures.map((picture) => (
-                <SwiperSlide className="w-full md:w-2/5">
-                  <Image
-                    src={FotoDummy}
-                    alt="Kegiatan Cinematography"
-                    width={100}
-                    height={100}
-                    className="w-full h-full"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            {item.youtube !== null && (
-              <Link
-                href={item.youtube}
-                className="w-max mt-4 flex gap-2 items-center"
-              >
-                <FaYoutube color="white" size={20} />
-                <p className="text-sm font-bold text-white">
-                  Lihat di Youtube!
-                </p>
-              </Link>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+  const mapGalery = galery.map((project) => (
+    <GaleryProject
+      key={project.index}
+      index={project.index}
+      title={project.title}
+      pictures={project.pictures}
+      handleActiveId={setActiveId}
+      activeId={activeId}
+      youtube={project.youtube}
+    />
   ));
 
   const mapYearOptions = yearOptions.map((year) => (
-    <>
-      <motion.li
-        variants={item}
-        layout="position"
-        onMouseEnter={() => setOptionHovered(year)}
-        onMouseLeave={() => setOptionHovered(0)}
-        onClick={() => {
-          setSelectedYear(year);
-          setShowYearOptions(false);
-        }}
-        value={year}
-        key={year}
-      >
-        <motion.p
-          style={{ color: year == selectedYear ? '#EE2ED1' : 'white' }}
-          className=" text-base text-white cursor-pointer"
-        >
-          {year}
-        </motion.p>
-        <motion.div
-          layout="size"
-          style={{ width: optionHovered == year ? '100%' : '0' }}
-          className="w-0 h-[.5px] bg-secondary"
-        />
-      </motion.li>
-    </>
+    <Option
+      key={year}
+      value={year}
+      handleHovered={setOptionHovered}
+      handleSelected={setSelectedYear}
+      handleShowed={setShowYearOptions}
+      selectedValue={selectedYear}
+      optionHovered={optionHovered}
+    />
   ));
   return (
     <>

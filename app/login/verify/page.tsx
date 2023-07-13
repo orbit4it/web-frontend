@@ -1,5 +1,4 @@
 'use client';
-import Head from '@/app/head';
 import { useState } from 'react';
 import styles from '../../../helper/page.module.css';
 
@@ -7,8 +6,6 @@ export default function page() {
   const [password, setPassword] = useState('');
   return (
     <>
-      <Head title="Hore... Kamu Diterima" />
-
       <div
         className={`${styles.gradientVerifyCard} h-screen w-screen flex justify-center items-center relative p-5 md:p-0`}
       >

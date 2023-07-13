@@ -1,5 +1,4 @@
 'use client';
-import Head from '@/app/head';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { HiOutlineCheckCircle } from 'react-icons/hi';
@@ -8,8 +7,6 @@ export default function page() {
   const searchParams = useSearchParams();
   return (
     <>
-      <Head title="Terimakasih Telah Mendaftar" />
-
       <div
         className={`bg-gradient-to-br from-[#661193] from-[0%] via-[#2F1F89FC] via-[67%] to-[#22185B] to-[100%] h-screen w-screen flex justify-center items-center relative p-5 md:p-0`}
       >

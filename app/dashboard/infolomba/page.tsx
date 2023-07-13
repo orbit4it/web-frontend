@@ -1,11 +1,8 @@
+import Poster from '@/public/assets/img/Poster.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiOutlineRight } from 'react-icons/ai';
-import { AiOutlineClockCircle } from 'react-icons/ai';
-import { BsCurrencyDollar } from 'react-icons/bs';
-import { BsTelephone } from 'react-icons/bs';
-import { BsInstagram } from 'react-icons/bs';
-import Poster from '@/public/assets/img/Poster.png';
+import { AiOutlineClockCircle, AiOutlineRight } from 'react-icons/ai';
+import { BsCurrencyDollar, BsInstagram, BsTelephone } from 'react-icons/bs';
 
 export default function page() {
   return (
@@ -33,7 +30,7 @@ export default function page() {
             <h1 className="text-xl font-bold">
               Front-end Essentials & Learning Path
             </h1>
-            <p className="text-sm opacity-80 mt-2">Posted by ORBIT'23</p>
+            <p className="text-sm opacity-80 mt-2">Posted by ORBIT&apos;23</p>
             <div className="flex space-x-3 mt-4">
               <div className="bg-[#D4D9F4] rounded-[10px] text-center text-[#21117E] px-10 py-5 font-bold">
                 <AiOutlineClockCircle

@@ -9,7 +9,7 @@ export interface ButtonLandingProps {
 export interface CardLandingProps {
   judul: string;
   desc: string;
-  ref: React.RefObject<HTMLDivElement>;
+  cardRef: React.RefObject<HTMLDivElement>;
   classname: string;
   judulClassname: string;
   descClassname: string;
@@ -42,6 +42,23 @@ export interface CredentialsInputProps {
   onchange: (value: string) => void;
 }
 
+export interface GaleryProjectProps {
+  index: number;
+  title: string;
+  pictures: string[];
+  youtube: string | null;
+  activeId: number;
+  handleActiveId: (id: number) => void;
+}
+
+export interface OptionProps {
+  value: any;
+  selectedValue: any;
+  optionHovered: any;
+  handleHovered: (value: any) => void;
+  handleSelected: (value: any) => void;
+  handleShowed: (value: boolean) => void;
+}
 export interface TestimoniProps {
   image: string;
   name: string;

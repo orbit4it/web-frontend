@@ -1,19 +1,18 @@
-import React from 'react';
-import styles from '../helper/page.module.css';
 import { CardLandingProps } from '@/helper/interfaces';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 const CardLanding: React.FC<CardLandingProps> = ({
   judul,
   desc,
-  ref,
+  cardRef,
   classname,
   judulClassname,
   descClassname,
 }) => {
   return (
     <div
-      ref={ref}
+      ref={cardRef}
       className={twMerge(
         `glassmorphism bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 before:rounded-3xl rounded-3xl text-white px-5 py-3 md:p-5`,
         classname

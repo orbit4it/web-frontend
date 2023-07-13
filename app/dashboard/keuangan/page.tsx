@@ -1,19 +1,20 @@
 'use client';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import { container, item } from '@/helper/animate';
 import {
+  CategoryScale,
   Chart as ChartJS,
   LineElement,
-  CategoryScale,
   LinearScale,
   PointElement,
   Tooltip,
 } from 'chart.js';
-import { FaAngleDown } from 'react-icons/fa';
-import { AnimatePresence, motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Line } from 'react-chartjs-2';
+import { FaAngleDown } from 'react-icons/fa';
 
 interface GraphData {
   labels: Array<string>;
@@ -55,22 +56,6 @@ ChartJS.register(
 );
 
 export default function page() {
-  // animate
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, screenY: 20 },
-    show: { opacity: 1, screenY: 0 },
-  };
-
   // state
   const [selectedView, setSelectedView] = useState<string>('All');
   const [selectedTime, setSelectedTime] = useState<string>('Minggu');
@@ -97,11 +82,11 @@ export default function page() {
     ],
   });
   const [graphData, setGraphData] = useState<GraphData>({
-    labels: transcData.income.map((item) => item.time),
+    labels: transcData.income.map((graph) => graph.time),
     datasets: [
       {
         label: 'Income',
-        data: transcData.income.map((item) => item.count),
+        data: transcData.income.map((graph) => graph.count),
         fill: false,
         borderColor: 'rgba(120, 117, 242, 1)',
         pointBorderColor: 'rgba(120, 117, 242, 1)',
@@ -110,7 +95,7 @@ export default function page() {
       },
       {
         label: 'Outcome',
-        data: transcData.outcome.map((item) => item.count),
+        data: transcData.outcome.map((graph) => graph.count),
         fill: false,
         borderColor: 'rgba(226, 144, 144, 1)',
         pointBorderColor: 'rgba(226, 144, 144, 1)',
@@ -214,11 +199,11 @@ export default function page() {
     switch (selectedView) {
       case 'All':
         setGraphData({
-          labels: transcData.income.map((item) => item.time),
+          labels: transcData.income.map((graph) => graph.time),
           datasets: [
             {
               label: 'Income',
-              data: transcData.income.map((item) => item.count),
+              data: transcData.income.map((graph) => graph.count),
               fill: false,
               borderColor: 'rgba(120, 117, 242, 1)',
               pointBorderColor: 'rgba(120, 117, 242, 1)',
@@ -227,7 +212,7 @@ export default function page() {
             },
             {
               label: 'Outcome',
-              data: transcData.outcome.map((item) => item.count),
+              data: transcData.outcome.map((graph) => graph.count),
               fill: false,
               borderColor: 'rgba(226, 144, 144, 1)',
               pointBorderColor: 'rgba(226, 144, 144, 1)',
@@ -239,11 +224,11 @@ export default function page() {
         break;
       case 'Income':
         setGraphData({
-          labels: transcData.income.map((item) => item.time),
+          labels: transcData.income.map((graph) => graph.time),
           datasets: [
             {
               label: 'Income',
-              data: transcData.income.map((item) => item.count),
+              data: transcData.income.map((graph) => graph.count),
               fill: false,
               borderColor: 'rgba(120, 117, 242, 1)',
               pointBorderColor: 'rgba(120, 117, 242, 1)',
@@ -255,11 +240,11 @@ export default function page() {
         break;
       case 'Outcome':
         setGraphData({
-          labels: transcData.outcome.map((item) => item.time),
+          labels: transcData.outcome.map((graph) => graph.time),
           datasets: [
             {
               label: 'Outcome',
-              data: transcData.outcome.map((item) => item.count),
+              data: transcData.outcome.map((graph) => graph.count),
               fill: false,
               borderColor: 'rgba(226, 144, 144, 1)',
               pointBorderColor: 'rgba(226, 144, 144, 1)',
@@ -271,11 +256,11 @@ export default function page() {
         break;
       default:
         setGraphData({
-          labels: transcData.income.map((item) => item.time),
+          labels: transcData.income.map((graph) => graph.time),
           datasets: [
             {
               label: 'Income',
-              data: transcData.income.map((item) => item.count),
+              data: transcData.income.map((graph) => graph.count),
               fill: false,
               borderColor: 'rgba(120, 117, 242, 1)',
               pointBorderColor: 'rgba(120, 117, 242, 1)',
@@ -284,7 +269,7 @@ export default function page() {
             },
             {
               label: 'Outcome',
-              data: transcData.outcome.map((item) => item.count),
+              data: transcData.outcome.map((graph) => graph.count),
               fill: false,
               borderColor: 'rgba(226, 144, 144, 1)',
               pointBorderColor: 'rgba(226, 144, 144, 1)',
