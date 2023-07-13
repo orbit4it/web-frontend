@@ -288,7 +288,7 @@ export default function Home() {
               className="absolute w-full h-full -bottom-24"
             >
               <Image
-                src={'/assets/img/bg-cloud.png'}
+                src={'/assets/img/BgCloud.png'}
                 alt="Cloud"
                 width={1800}
                 height={445}
@@ -434,7 +434,7 @@ export default function Home() {
         </section>
 
         {/* DIVISI */}
-        <section className="max-w-[1800px] max-h-[2400px] 2xl:mx-auto bg-gradient-to-b from-[#0B013E] from-50% to-[#ef2ed29e]">
+        <section className="max-w-[1800px] max-h-max 2xl:mx-auto bg-gradient-to-b from-[#0B013E] from-50% to-[#ef2ed29e]">
           <Image
             src={'/assets/img/BgSword.png'}
             width={500}
@@ -453,7 +453,7 @@ export default function Home() {
               DIVISI KAMI
             </h2>
 
-            <div className="w-full h-max py-10">
+            <div className="w-full h-max py-10 ">
               <Division />
             </div>
           </div>
@@ -467,7 +467,7 @@ export default function Home() {
             priority
           />
         </section>
-        <div className="max-w-[1800px] max-h-[100px] w-screen h-[10vh] mx-auto bg-gradient-to-b from-[#060027] from-[20%] to-dark-purple to-[80%]"></div>
+        <div className="max-w-[1800px] max-h-[100px] w-screen h-[10vh] mx-auto bg-gradient-to-b from-[#060027] from-[20%] to-dark-purple to-[80%]  z-10 -mt-1"></div>
 
         {/* GALERY */}
         <section className="relative max-w-[1800px] w-full h-screen  lg:h-[150vh] max-h-[1500px] mx-auto bg-center bg-cave bg-cover flex flex-col justify-center items-center">

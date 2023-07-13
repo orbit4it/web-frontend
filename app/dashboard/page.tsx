@@ -75,8 +75,6 @@ export default function page() {
     setCurrentItem((currentItem + 1) % item.length);
   };
 
-  // console.log(currentItem);
-
   return (
     <>
       {/* Route Section */}

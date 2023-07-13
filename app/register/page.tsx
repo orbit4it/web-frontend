@@ -34,6 +34,8 @@ export default function page() {
     setEmail(e);
   };
 
+  console.log(process.env.NEXT_PUBLIC_BASE_URL);
+
   const fetching = async () => {
     const divisions = await Apicall(`
           query {
@@ -91,8 +93,6 @@ export default function page() {
     ... on Error {error}
   }
 }`);
-
-    console.log(post);
 
     if (post.data) {
       if (post.data.createUserPending) {
