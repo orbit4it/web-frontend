@@ -3,7 +3,7 @@ import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
 import Head from '../head';

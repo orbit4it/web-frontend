@@ -3,7 +3,7 @@ import { showToast } from './toaster';
 
 const Apicall = async (query: string) => {
   try {
-    const response = await axios.post('http://203.194.113.238:8000/graphql', {
+    const response = await axios.post('https://orbit.najwan.cloud/graphql', {
       query: `
           ${query}
         `,

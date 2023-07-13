@@ -1,6 +1,6 @@
 'use client';
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 export default function page() {

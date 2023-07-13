@@ -13,7 +13,7 @@ import VisiMisiMobile from '@/components/landingPage/VisiMisiMobile';
 import '@/helper/page.module.css';
 import { motion as m } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Head from './head';
 
