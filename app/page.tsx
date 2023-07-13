@@ -1,8 +1,8 @@
 'use client';
 import ButtonLandingPage from '@/components/ButtonLandingPage';
 import CardLanding from '@/components/CardLanding';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+import Footer from '@/components/NavFoot/Footer';
+import Navbar from '@/components/NavFoot/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
 import CardTestimoni from '@/components/landingPage/CardTestimoni';
 import Division from '@/components/landingPage/Division';
