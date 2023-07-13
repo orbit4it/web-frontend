@@ -3,15 +3,17 @@ import { showToast } from './toaster';
 
 const Apicall = async (query: string) => {
   try {
-    const response = await axios.post('http://203.194.113.238:8000/graphql', {
-      query: `
+    const response = await axios.post(
+      process.env.NEXT_PUBLIC_BASE_URL + '/graphql',
+      {
+        query: `
           ${query}
         `,
-    });
+      }
+    );
 
     return response.data;
   } catch (error) {
-    console.log(error);
     showToast('Terjadi Kesalahan', 'danger');
     return false;
   }

@@ -2,7 +2,7 @@
 // const nextConfig = {}
 const nextConfig = {
   images: {
-    domains: ['localhost', 'media.licdn.com'],
+    domains: ['media.licdn.com', 'api.orbit.smkn4bdg.sch.id'],
   },
 };
 
