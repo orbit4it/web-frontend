@@ -17,6 +17,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Head from './head';
 
+const test = '';
 const StrukturData = [
   {
     image: '/assets/img/anggota/hasnatFull.png',
