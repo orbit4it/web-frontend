@@ -246,7 +246,7 @@ export default function Home() {
               initial={{ opacity: 0, translateX: -100, translateY: 70 }}
               whileInView={{ opacity: 1, translateX: -5, translateY: -5 }}
               transition={{ duration: 0.5, type: 'spring' }}
-              viewport={{ once: true, amount: 0.5, root: cardDeftRef }}
+              viewport={{ once: true, amount: 0.5 }}
               className="w-4/5 lg:w-[500px] mr-auto lg:ml-10 
             mt-5 lg:mt-10"
             >
@@ -266,7 +266,7 @@ export default function Home() {
               initial={{ opacity: 0, translateX: 100, translateY: 150 }}
               whileInView={{ opacity: 1, translateX: 0, translateY: 0 }}
               transition={{ duration: 0.8, type: 'spring' }}
-              viewport={{ once: true, amount: 0.5, root: cardActvRef }}
+              viewport={{ once: true, amount: 0.5 }}
               className="w-4/5 lg:w-[500px] mt-20 lg:mt-20  
             ml-auto mr-1 lg:mr-10"
             >
