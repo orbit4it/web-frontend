@@ -47,6 +47,7 @@ export default function page() {
     if (divisions) {
       setListDivisions(divisions.data.divisions);
     }
+    console.log(listDivisions);
 
     const kelas = await Apicall(`
           query {

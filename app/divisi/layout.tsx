@@ -1,6 +1,6 @@
 'use client';
 import Footer from '@/components/NavFoot/Footer';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/NavFoot/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
 import '@/helper/swipers/galeri.css';
 import Head from '../head';
