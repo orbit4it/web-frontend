@@ -41,40 +41,39 @@ export default function page() {
     2023, 2022, 2021, 2020,
   ]);
   const [showYearOptions, setShowYearOptions] = useState<boolean>(false);
-  console.log(showYearOptions);
   const [selectedYear, setSelectedYear] = useState<number>();
   const [activeId, setActiveId] = useState<number>(1);
   const [galery, setGalery] = useState<Array<GaleryType>>([
     {
       index: 1,
-      title: 'Video Profile SMKN 4 Bandung',
+      title: 'Under Construction',
       pictures: [
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
       ],
       youtube: 'https://youtu.be/dDxe7CBgbAs',
     },
     {
       index: 2,
-      title: 'Video Profile ORBIT',
+      title: 'Under Construction',
       pictures: [
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
       ],
       youtube: 'https://youtu.be/dDxe7CBgbAs',
     },
     {
       index: 3,
-      title: 'Foto SMKN 4 Bandung',
+      title: 'Under Construction',
       pictures: [
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
       ],
       youtube: 'https://youtu.be/dDxe7CBgbAs',
     },
@@ -137,7 +136,7 @@ export default function page() {
               {item.pictures.map((picture) => (
                 <SwiperSlide className="w-full md:w-2/5">
                   <Image
-                    src={picture}
+                    src={FotoDummy}
                     alt="Kegiatan Cinematography"
                     width={100}
                     height={100}

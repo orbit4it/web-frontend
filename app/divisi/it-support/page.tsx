@@ -1,17 +1,16 @@
 'use client';
 
-import Image from 'next/image';
-import React, { useState, useEffect, useRef } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import { FreeMode } from 'swiper';
-import FotoDummy from '@/public/assets/img/FotoDummy.png';
+import FotoDummy from '@/public/assets/img//FotoDummy.png';
 import Logo from '@/public/assets/logo/ItSupp.png';
-import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-import 'swiper/swiper-bundle.min.css';
+import { useEffect, useState } from 'react';
+import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
+import { FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.min.css';
 
 interface GaleryType {
   index: number;
@@ -47,34 +46,34 @@ export default function page() {
   const [galery, setGalery] = useState<Array<GaleryType>>([
     {
       index: 1,
-      title: 'Video Profile SMKN 4 Bandung',
+      title: 'Under Construction',
       pictures: [
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
       ],
       youtube: 'https://youtu.be/dDxe7CBgbAs',
     },
     {
       index: 2,
-      title: 'Video Profile ORBIT',
+      title: 'Under Construction',
       pictures: [
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
       ],
       youtube: 'https://youtu.be/dDxe7CBgbAs',
     },
     {
       index: 3,
-      title: 'Foto SMKN 4 Bandung',
+      title: 'Under Construction',
       pictures: [
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
-        '/assets/img/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
+        '/FotoDummy.png',
       ],
       youtube: 'https://youtu.be/dDxe7CBgbAs',
     },
@@ -137,8 +136,8 @@ export default function page() {
               {item.pictures.map((picture) => (
                 <SwiperSlide className="w-full md:w-2/5">
                   <Image
-                    src={picture}
-                    alt="Kegiatan Cinematography"
+                    src={FotoDummy}
+                    alt="Kegiatan"
                     width={100}
                     height={100}
                     className="w-full h-full"
