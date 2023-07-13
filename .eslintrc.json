@@ -1,17 +1,15 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "airbnb",
-    "airbnb-typescript",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "airbnb-typescript", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "plugins": ["react-hooks", "@typescript-eslint"],
   "rules": {
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-one-expression-per-lin" : "off",
+    "react/jsx-one-expression-per-lin": "off",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }
