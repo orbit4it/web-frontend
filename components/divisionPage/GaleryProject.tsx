@@ -1,4 +1,5 @@
 import { GaleryProjectProps } from '@/helper/interfaces';
+import '@/helper/swipers/galeri.css';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
@@ -62,7 +63,7 @@ const GaleryProject: React.FC<GaleryProjectProps> = ({
               spaceBetween={30}
               freeMode={true}
               modules={[FreeMode]}
-              className="mySwiper"
+              className="galery-project"
             >
               {pictures.map((picture) => (
                 <SwiperSlide className="w-full md:w-2/5" key={picture}>

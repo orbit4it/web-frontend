@@ -583,7 +583,7 @@ export default function Home() {
           src={'/assets/img/BulanCastle.png'}
           width={500}
           height={500}
-          className="h-auto w-full max-w-[1800px] max-h-[1800px] mx-auto"
+          className="h-auto w-full max-w-[1800px] max-h-[1800px] mx-auto select-none"
           alt="ORBIT Moon Castle"
           priority
         />
