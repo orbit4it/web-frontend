@@ -12,12 +12,9 @@ import VisiMisiCard from '@/components/landingPage/VisiMisiCard';
 import VisiMisiMobile from '@/components/landingPage/VisiMisiMobile';
 import '@/helper/page.module.css';
 import { motion as m } from 'framer-motion';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-
-export const metadata: Metadata = {};
 
 const StrukturData = [
   {

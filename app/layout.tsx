@@ -1,6 +1,5 @@
 'use client';
 import Sidebar from '@/components/dashboard/Sidebar';
-import { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -8,13 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: {
-    default: 'ORBIT SMK Negeri 4 Bandung',
-    template: '%s | ORBIT 4 IT ',
-  },
-  description: 'Organization Of Basic Information Technology',
-};
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 

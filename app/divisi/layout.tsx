@@ -3,11 +3,6 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
 import '@/helper/swipers/galeri.css';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Divisi Kami',
-};
 
 export default function RootLayout({
   children,
