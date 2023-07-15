@@ -1,25 +1,15 @@
 'use client';
+<<<<<<< HEAD
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa';
 import React, { useState } from 'react';
+=======
+import { container, item } from '@/helper/animate';
+>>>>>>> 6d0e734ecc28b4801e3c45d20aba7dbfa963da3b
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
+import { FaAngleDown, FaAngleRight } from 'react-icons/fa';
 export default function page() {
-  // animate
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, screenY: 20 },
-    show: { opacity: 1, screenY: 0 },
-  };
-
   // state
   const [selectedView, setSelectedView] = useState<string>('All');
 
@@ -127,8 +117,11 @@ export default function page() {
       </motion.li>
     </>
   ));
-  const mapTransc = transactions.map((transc) => (
-    <div className="w-full flex gap-0.5 md:gap-1 2xl:gap-3 items-center justify-between">
+  const mapTransc = transactions.map((transc, index) => (
+    <div
+      className="w-full flex gap-0.5 md:gap-1 2xl:gap-3 items-center justify-between"
+      key={index}
+    >
       <div className="w-[10%] md:w-12 md:h-12 2xl:w-14 2xl:h-14 flex items-center  justify-center">
         {transc.type == 'Pemasukan' && (
           <svg
@@ -182,8 +175,8 @@ export default function page() {
         </div>
         <div className="flex items-center gap-1 text-[0.5rem] md:text-xs text-[#DFDFDF]">
           <div className="md:flex md:gap-0.5">
-            {transc.transactioner.map((person) => (
-              <p>{person},</p>
+            {transc.transactioner.map((person, key) => (
+              <p key={key}>{person},</p>
             ))}
           </div>
           <div className="w-1 h-1 2xl:w-2 2xl:h-2 rounded-full bg-yellow-400" />

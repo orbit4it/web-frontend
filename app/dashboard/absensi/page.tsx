@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
 import Rating from '@/components/dashboard/Rating';
+import { useState } from 'react';
 
 interface StarRateType {
   label: string;
@@ -16,6 +16,16 @@ export default function page() {
   const [isValid, setIsValid] = useState<boolean>();
   const [isSuccess, setIsSuccess] = useState<boolean>();
 
+  const Send = () => {
+    const Message = {
+      Hadir: isPresent,
+      NoToken: token,
+      Rate: rating,
+    };
+    setIsValid(true);
+    setIsSuccess(true);
+  };
+
   const checkInput = () => {
     if (isPresent == null || token == undefined || rating == null) {
       setIsValid(false);
@@ -25,23 +35,11 @@ export default function page() {
     }
   };
 
-  const Send = () => {
-    const Message = {
-      Hadir: isPresent,
-      NoToken: token,
-      Rate: rating,
-    };
-    console.log(Message);
-    setIsValid(true);
-    setIsSuccess(true);
-  };
-
   const SendNotPresent = () => {
     const Message2 = {
       TidakHadir: !isPresent,
       Alasan: notPresent,
     };
-    //console.log(Message2)
     setIsValid(true);
     setIsSuccess(true);
   };

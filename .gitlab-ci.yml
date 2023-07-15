@@ -1,0 +1,7 @@
+deploy:
+  stage: deploy
+  tags:
+    - eschool
+  script:
+    - cd /home/ict/www/orbit-project/web-frontend
+    - git pull origin main

@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
-import Head from '../head';
 import Apicall from '@/helper/apicall';
 import { showToast } from '@/helper/toaster';
 import axios from 'axios';
@@ -68,7 +67,6 @@ export default function page() {
 
   return (
     <>
-      <Head title="Masuk" />
       <div className="flex flex-col-reverse md:flex-row items-center justify-normal md:justify-between text-white relative">
         <div className={`${styles.gradientLogin} h-screen w-full`}>
           <div className="">

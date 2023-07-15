@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-import { BsSearch, BsBell } from 'react-icons/bs';
+import { BsBell, BsSearch } from 'react-icons/bs';
 
 interface UserType {
   name: string;
@@ -19,8 +19,7 @@ export default function RootLayout({
     name: 'Azarel Lazuardi Aditya',
     class: 'XI PPLG 2',
     division: 'Web Development',
-    photo:
-      'http://localhost:3000/_next/image?url=%2Fassets%2Fimg%2FAvatarDummy.png&w=256&q=75',
+    photo: '/assets/img/FotoDummy.png',
   });
   return (
     <>

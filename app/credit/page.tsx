@@ -8,7 +8,6 @@ import Github from '@/public/assets/credit/github.png';
 import Instagram from '@/public/assets/credit/instagram.png';
 import Orbit from '@/public/assets/credit/orbit.png';
 import Image from 'next/image';
-import Head from '../head';
 
 const page = () => {
   const ketua = [
@@ -91,7 +90,6 @@ const page = () => {
 
   return (
     <div>
-      <Head title="Tim Pengembang" />
       <Navbar active={'null'} />
       <NavbarMobile active={'null'} />
 

@@ -97,7 +97,7 @@ const CardTestimoni = () => {
     >
       {TestimoniData.map((data, key) => {
         return (
-          <SwiperSlide className="w-full">
+          <SwiperSlide className="w-full" key={key}>
             <ElementTestimoni
               image={data.image}
               name={data.name}

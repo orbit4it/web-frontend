@@ -15,7 +15,6 @@ import { motion as m } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import Head from './head';
 
 const StrukturData = [
   {
@@ -110,7 +109,6 @@ const StrukturData = [
 
 export default function Home() {
   const [active, setActive] = useState<string>('home');
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   // handle navbar active
   const handleActive = (name: string) => {
@@ -141,7 +139,6 @@ export default function Home() {
 
   return (
     <>
-      <Head title="SMKN 4 Bandung" />
       <Navbar active={active} />
       <NavbarMobile active={active} />
       <main className="relative bg-primary overflow-x-hidden">
@@ -246,12 +243,12 @@ export default function Home() {
               initial={{ opacity: 0, translateX: -100, translateY: 70 }}
               whileInView={{ opacity: 1, translateX: -5, translateY: -5 }}
               transition={{ duration: 0.5, type: 'spring' }}
-              viewport={{ once: true, amount: 0.5, root: cardDeftRef }}
+              viewport={{ once: true, amount: 0.5 }}
               className="w-4/5 lg:w-[500px] mr-auto lg:ml-10 
             mt-5 lg:mt-10"
             >
               <CardLanding
-                ref={cardDeftRef}
+                cardRef={cardDeftRef}
                 judul="Apa itu ORBIT?"
                 desc="Orbit merupakan sebuah ekstrakurikuler yang fokus bergerak di bidang
 							IT. Orbit merupakan sebuah wadah yang menampung 	siswa yang ingin
@@ -266,12 +263,12 @@ export default function Home() {
               initial={{ opacity: 0, translateX: 100, translateY: 150 }}
               whileInView={{ opacity: 1, translateX: 0, translateY: 0 }}
               transition={{ duration: 0.8, type: 'spring' }}
-              viewport={{ once: true, amount: 0.5, root: cardActvRef }}
+              viewport={{ once: true, amount: 0.5 }}
               className="w-4/5 lg:w-[500px] mt-20 lg:mt-20  
             ml-auto mr-1 lg:mr-10"
             >
               <CardLanding
-                ref={cardActvRef}
+                cardRef={cardActvRef}
                 judul="Apa saja kegiatan yang dilakukan ORBIT?"
                 desc="Orbit bersifat sebagai sarana siswa untuk mengembangkan dan mengasah bakat mereka. Para siswa dapat memilih untuk bergabung beragam divisi orbit, dimana mereka akan belajar bersama mentor, mengulas materi bersama teman, dan mengerjakan latihan soal/projek yang telah diberikan."
                 classname=" mt-2 lg:mt-9"
@@ -288,7 +285,7 @@ export default function Home() {
               className="absolute w-full h-full -bottom-24"
             >
               <Image
-                src={'/assets/img/bg-cloud.png'}
+                src={'/assets/img/BgCloud.png'}
                 alt="Cloud"
                 width={1800}
                 height={445}
@@ -339,7 +336,7 @@ export default function Home() {
                 className=" mt-5 lg:mt-0"
               >
                 <CardLanding
-                  ref={cardActvRef}
+                  cardRef={cardActvRef}
                   judul="Tentang Kami"
                   desc="Organization of Basic Information Technology (ORBIT) merupakan ekstrakurikuler yang fokus bergerak di bidang IT. Orbit merupakan sebuah wadah untuk menampung bakat siswa terutama di bidang IT. Terdapat beberapa divisi yang ada di dalam ORBIT, seperti Web Development, Game Development, Cinematography, Graphic Desain, dan IT Support. Kelima divisi tersebut disesuaikan dengan jurusan IT yang ada di SMK Negeri 4 Bandung."
                   classname=" w-auto lg:w-[694px] lg:h-[300px]"
@@ -434,7 +431,7 @@ export default function Home() {
         </section>
 
         {/* DIVISI */}
-        <section className="max-w-[1800px] max-h-[2400px] 2xl:mx-auto bg-gradient-to-b from-[#0B013E] from-50% to-[#ef2ed29e]">
+        <section className="max-w-[1800px] max-h-max 2xl:mx-auto bg-gradient-to-b from-[#0B013E] from-50% to-[#ef2ed29e]">
           <Image
             src={'/assets/img/BgSword.png'}
             width={500}
@@ -453,7 +450,7 @@ export default function Home() {
               DIVISI KAMI
             </h2>
 
-            <div className="w-full h-max py-10">
+            <div className="w-full h-max py-10 ">
               <Division />
             </div>
           </div>
@@ -467,7 +464,7 @@ export default function Home() {
             priority
           />
         </section>
-        <div className="max-w-[1800px] max-h-[100px] w-screen h-[10vh] mx-auto bg-gradient-to-b from-[#060027] from-[20%] to-dark-purple to-[80%]"></div>
+        <div className="max-w-[1800px] max-h-[100px] w-screen h-[10vh] mx-auto bg-gradient-to-b from-[#060027] from-[20%] to-dark-purple to-[80%]  z-10 -mt-1"></div>
 
         {/* GALERY */}
         <section className="relative max-w-[1800px] w-full h-screen  lg:h-[150vh] max-h-[1500px] mx-auto bg-center bg-cave bg-cover flex flex-col justify-center items-center">
@@ -586,7 +583,7 @@ export default function Home() {
           src={'/assets/img/BulanCastle.png'}
           width={500}
           height={500}
-          className="h-auto w-full max-w-[1800px] max-h-[1800px] mx-auto"
+          className="h-auto w-full max-w-[1800px] max-h-[1800px] mx-auto select-none"
           alt="ORBIT Moon Castle"
           priority
         />

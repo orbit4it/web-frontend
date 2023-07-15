@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
-import Head from '../head';
 
 export default function page() {
   const [nama, setNama] = useState<string>('');
@@ -21,7 +20,6 @@ export default function page() {
   const [motivasi, setMotivasi] = useState<string>('');
   const [motivasiColor, setMotivasiColor] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [error, setError] = useState<boolean>(false);
   const router = useRouter();
 
   const handleNama = (e: string) => {
@@ -49,7 +47,7 @@ export default function page() {
     }
     console.log(listDivisions);
 
-    const kelas = await Apicall(`
+    const grades = await Apicall(`
           query {
             grades {
               grade
@@ -60,8 +58,8 @@ export default function page() {
           }
          `);
 
-    if (kelas) {
-      setListKelas(kelas.data.grades);
+    if (grades) {
+      setListKelas(grades.data.grades);
     }
   };
 
@@ -92,8 +90,6 @@ export default function page() {
     ... on Error {error}
   }
 }`);
-
-    console.log(post);
 
     if (post.data) {
       if (post.data.createUserPending) {
@@ -154,8 +150,6 @@ export default function page() {
 
   return (
     <>
-      <Head title="Daftar Dulu Yuk ;)" />
-
       <div className="flex flex-col-reverse md:flex-row-reverse items-center justify-normal md:justify-between text-white relative">
         <div className={` h-screen w-full`}>
           <div>

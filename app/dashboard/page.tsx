@@ -75,8 +75,6 @@ export default function page() {
     setCurrentItem((currentItem + 1) % item.length);
   };
 
-  // console.log(currentItem);
-
   return (
     <>
       {/* Route Section */}
@@ -142,7 +140,7 @@ export default function page() {
               </div>
             </div>
             <div className="mt-3 flex justify-center h-4 space-x-3 items-center">
-              {item.map((item, index) => (
+              {item.map((i, index) => (
                 <>
                   <div
                     key={index}

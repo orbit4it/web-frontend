@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import { useState } from 'react';
-// Import Swiper React components
 import {
   FreeMode,
   Navigation,
@@ -9,7 +9,6 @@ import {
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
