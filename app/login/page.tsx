@@ -40,11 +40,26 @@ export default function page() {
 
     if (login) {
       if (login.data.userAuth.accessToken) {
-        router.push('/login/verify');
         axios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${login.data.userAuth.accessToken}`;
         showToast('Login Berhasil', 'success');
+
+        const checkRole = await Apicall(`
+        {
+           me {
+            role
+          }
+        }
+        `);
+
+        if (checkRole.data.me.role == 'admin') {
+          router.push('/dashboard/admin');
+        } else {
+          router.push('/dashboard');
+        }
+
+        console.log(checkRole);
       } else if (login.data.userAuth.error.error) {
         showToast(login.data.userAuth.error.error, 'danger');
       }
