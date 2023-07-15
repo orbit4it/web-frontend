@@ -9,6 +9,23 @@ const Apicall = async (query: string) => {
         `,
     });
 
+    const setCookie = await axios.post('https://orbit.najwan.cloud/graphql', {
+      query: `
+        {
+            refreshToken {
+                ... on Token {
+                  accessToken
+            }
+                ... on Error {
+                  error
+             }
+        }
+        }
+      `,
+    });
+
+    console.log(setCookie);
+
     return response.data;
   } catch (error) {
     console.log(error);

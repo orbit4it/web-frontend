@@ -19,7 +19,7 @@ import Head from './head';
 
 const StrukturData = [
   {
-    image: '/assets/img/anggota/hasnatFull.png',
+    image: '/assets/img/anggota/HasnatFull.png',
     name: 'Hasnat',
     fullName: 'Hasnat',
     jabatan: 'Ketua',
@@ -51,7 +51,7 @@ const StrukturData = [
     imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/raihanaFull.png',
+    image: '/assets/img/anggota/RaihanaFull.png',
     name: 'Raihana',
     fullName: 'Raihana Aisha Az-Zahra',
     jabatan: 'Bendahara',
