@@ -107,7 +107,7 @@ export default function page() {
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
-              className="text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
+              className="text-3xl text-center md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
             >
               DESIGN GRAPHIC
             </motion.h1>
@@ -116,7 +116,7 @@ export default function page() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-sm md:text-base relative mx-auto text-white opacity-50"
+            className="flex gap-1 text-sm justify-center md:justify-start md:text-base  text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Design
@@ -142,7 +142,7 @@ export default function page() {
           melibatkan penggunaan kreativitas, keahlian desain, dan teknologi
           untuk menghasilkan desain yang menarik, fungsional, dan efektif.
         </p>
-        <div className="md:w-1/2 md:h-72 mt-8 md:mt-4 md:pt-0 rounded-lg overflow-hidden">
+        <div className="md:w-1/2 md:h-72 mt-7 md:mt-4 md:pt-0 relative md:top-0 rounded-lg overflow-hidden">
           <Image
             src={FotoDummy}
             alt="Kegiatan Cinematography"

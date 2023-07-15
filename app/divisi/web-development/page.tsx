@@ -116,7 +116,7 @@ export default function page() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-sm md:text-base relative mx-auto text-white opacity-50"
+            className="flex gap-1 justify-center md:justify-start text-sm md:text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Developer

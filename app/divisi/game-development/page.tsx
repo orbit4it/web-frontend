@@ -117,7 +117,7 @@ export default function page() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-sm md:text-base relative mx-auto text-white opacity-50"
+            className="flex gap-1 justify-center md:justify-start text-sm md:text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Developer
@@ -152,7 +152,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#DD217B4D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[60vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#DD217B4D] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}

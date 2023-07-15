@@ -107,7 +107,7 @@ export default function page() {
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
-              className="text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
+              className="text-3xl text-center md:text-left md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
             >
               IT SUPPORT
             </motion.h1>
@@ -116,7 +116,7 @@ export default function page() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-sm md:text-base relative mx-auto text-white opacity-50"
+            className="flex gap-1 justify-center text-sm md:text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Jaringan
@@ -126,9 +126,6 @@ export default function page() {
             </motion.p>
             <motion.p variants={item} layout="position">
               #Teknologi
-            </motion.p>
-            <motion.p variants={item} layout="position">
-              #Komputer
             </motion.p>
           </motion.div>
         </div>
