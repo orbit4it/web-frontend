@@ -25,7 +25,8 @@ export default function page() {
   // console.log(password);
 
   const fetch = async () => {
-    const login = await Apicall(` 
+    const login = await Apicall(
+      ` 
     {
         userAuth(email: "${email}",
          password: "${password}"
@@ -33,17 +34,15 @@ export default function page() {
         ... on Token {accessToken}
         ... on Error {error}
       }   
-    }`);
+    }`,
+      false
+    );
 
     console.log(login);
 
     if (login) {
       if (login.data.userAuth.accessToken) {
-        axios.defaults.headers.common[
-          'Authorization'
-        ] = `Bearer ${login.data.userAuth.accessToken}`;
         showToast('Login Berhasil', 'success');
-
         const checkRole = await Apicall(`
         {
            me {
