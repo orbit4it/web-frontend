@@ -1,12 +1,12 @@
 'use client';
-import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import CredentialsInput from '@/components/loginRegister/CredentialsInput';
 import Apicall from '@/helper/apicall';
 import { DivisionsProps, KelasProps } from '@/helper/interfaces';
 import { showToast } from '@/helper/toaster';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
 

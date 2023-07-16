@@ -1,14 +1,14 @@
 'use client';
-import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-import { IoChevronBackOutline } from 'react-icons/io5';
-import styles from '../../helper/page.module.css';
+import CredentialsInput from '@/components/loginRegister/CredentialsInput';
 import Apicall from '@/helper/apicall';
 import { showToast } from '@/helper/toaster';
 import axios from 'axios';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { IoChevronBackOutline } from 'react-icons/io5';
+import styles from '../../helper/page.module.css';
 
 export default function page() {
   const [email, setEmail] = useState('');
@@ -39,9 +39,7 @@ export default function page() {
 
     if (login) {
       if (login.data.userAuth.accessToken) {
-        axios.defaults.headers.common[
-          'Authorization'
-        ] = `Bearer ${login.data.userAuth.accessToken}`;
+        axios.defaults.headers.common.Authorization = `Bearer ${login.data.userAuth.accessToken}`;
         showToast('Login Berhasil', 'success');
 
         const checkRole = await Apicall(`

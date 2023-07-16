@@ -1,7 +1,7 @@
 'use client';
-import Footer from '@/components/NavFoot/Footer';
-import Navbar from '@/components/NavFoot/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
+import Footer from '@/components/navFoot/Footer';
+import Navbar from '@/components/navFoot/Navbar';
 import AwanAtas from '@/public/assets/credit/awan_atas.png';
 import AwanBawah from '@/public/assets/credit/awan_bawah.png';
 import Github from '@/public/assets/credit/github.png';

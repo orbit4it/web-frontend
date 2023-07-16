@@ -1,6 +1,5 @@
 'use client';
-import Head from '@/app/head';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from '../../../helper/page.module.css';
 
 export default function page() {
