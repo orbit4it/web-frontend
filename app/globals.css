@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-home {
-  background: url('/assets/img/bg-home.png'), #0a013d;
-  @apply bg-center bg-blend-screen bg-opacity-70 bg-[length:110vw_270vh];
-  //background-size: 98vw 270vh;
-}
-
 .glassmorphism {
   background: linear-gradient(
     144deg,
