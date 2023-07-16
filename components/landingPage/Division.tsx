@@ -134,8 +134,8 @@ const Division = () => {
           })}
         <div className="swiper-button-next">
           <svg
-            width="auto"
-            height="auto"
+            width="100%"
+            height="100%"
             viewBox="0 0 70 82"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -173,8 +173,8 @@ const Division = () => {
         </div>
         <div className="swiper-button-prev">
           <svg
-            width="auto"
-            height="auto"
+            width="70"
+            height="82"
             viewBox="0 0 70 82"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
