@@ -150,7 +150,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#FF31314D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[38rem] lg:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#FF31314D] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}
