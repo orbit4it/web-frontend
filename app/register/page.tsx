@@ -79,7 +79,8 @@ export default function page() {
       return;
     }
 
-    const post = await Apicall(`
+    const post = await Apicall(
+      `
     mutation {
       createUserPending (
         userPending:{
@@ -94,7 +95,9 @@ export default function page() {
     ... on Success {message}
     ... on Error {error}
   }
-}`);
+}`,
+      false
+    );
 
     if (post.data) {
       if (post.data.createUserPending) {

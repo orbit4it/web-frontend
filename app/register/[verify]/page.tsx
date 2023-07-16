@@ -1,9 +1,39 @@
 'use client';
 import { useState } from 'react';
 import styles from '../../../helper/page.module.css';
+import Apicall from '@/helper/apicall';
+import { showToast } from '@/helper/toaster';
+import { useRouter } from 'next/navigation';
 
-export default function page() {
+export default function page({ params }: { params: { verify: string } }) {
   const [password, setPassword] = useState('');
+  const router = useRouter();
+  const createUser = async () => {
+    const res = await Apicall(
+      `
+    mutation {
+     createUser(password: "${password}", 
+     registrationToken: "${params.verify}"
+     ) {
+        ... on Success {
+        message
+      }
+        ... on Error {
+        error
+      }
+    }
+  }`,
+      false
+    );
+
+    console.log(res);
+
+    if (res) {
+      router.push('/login');
+      showToast('Berhasil ngabs', 'success');
+    }
+  };
+
   return (
     <>
       <div
@@ -21,6 +51,10 @@ export default function page() {
             Please create your password to join our web community
           </p>
           <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              createUser();
+            }}
             action=""
             className=" flex flex-col items-center justify-center gap-5 mt-10 "
           >
@@ -45,6 +79,7 @@ export default function page() {
             </div>
             <div className=" mt-8 md:mt-14 w-full px-5">
               <button
+                type="submit"
                 title="button"
                 className=" block mx-auto border-[1px] border-white rounded-3xl w-full md:w-[300px] p-2 text-center text-white text-sm md:text-lg font-bold mb-16"
               >
