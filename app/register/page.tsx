@@ -33,20 +33,24 @@ export default function page() {
   };
 
   const fetching = async () => {
-    const divisions = await Apicall(`
+    const divisions = await Apicall(
+      `
           query {
             divisions {
               id
               name
             }
           }
-         `);
+         `,
+      false
+    );
 
     if (divisions) {
       setListDivisions(divisions.data.divisions);
     }
 
-    const grades = await Apicall(`
+    const grades = await Apicall(
+      `
           query {
             grades {
               grade
@@ -55,7 +59,9 @@ export default function page() {
               vocational
             }
           }
-         `);
+         `,
+      false
+    );
 
     if (grades) {
       setListKelas(grades.data.grades);

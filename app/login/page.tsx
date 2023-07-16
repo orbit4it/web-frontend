@@ -21,9 +21,6 @@ export default function page() {
     setPassword(e);
   };
 
-  // console.log(email);
-  // console.log(password);
-
   const fetch = async () => {
     const login = await Apicall(
       ` 
@@ -50,6 +47,8 @@ export default function page() {
           }
         }
         `);
+
+        console.log(checkRole);
 
         if (checkRole.data.me.role == 'admin') {
           router.push('/dashboard/admin');

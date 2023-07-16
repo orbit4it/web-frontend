@@ -48,8 +48,10 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
   try {
     let token = '';
     if (refreshToken) {
-      const setCookie = await axios.post('https://orbit.najwan.cloud/graphql', {
-        query: `
+      const setCookie = await axios.post(
+        process.env.NEXT_PUBLIC_BASE_URL + '/graphql',
+        {
+          query: `
         {
             refreshToken {
                 ... on Token {
@@ -61,7 +63,8 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
         }
         }
       `,
-      });
+        }
+      );
 
       if (setCookie.data.data.refreshToken.accessToken) {
         token = setCookie.data.data.refreshToken.accessToken;

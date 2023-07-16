@@ -6,8 +6,9 @@ import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
+import axios from 'axios';
 
-
+axios.defaults.withCredentials = true;
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 const inter = Inter({ subsets: ['latin'] });

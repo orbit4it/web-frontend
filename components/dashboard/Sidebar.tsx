@@ -13,11 +13,36 @@ import {
 import { IoMedalOutline } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import axios from 'axios';
+import Apicall from '@/helper/apicall';
 
 export default function Sidebar() {
+  const router = useRouter();
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
+
+  const Logout = async () => {
+    const res = await Apicall(`
+    {
+      userLogout {
+        ... on Success {
+          message
+      }
+         ... on Error {
+          error
+       }
+      }
+    }
+    `);
+
+    console.log(res);
+
+    if (res) {
+      router.push('/login');
+    }
+  };
+
   return (
     <>
       <motion.div
@@ -109,7 +134,12 @@ export default function Sidebar() {
               Leaderboard
             </Link>
           </li>
-          <button className="w-full h-1/6  flex gap-5 items-center pl-7 py-0 ">
+          <button
+            className="w-full h-1/6  flex gap-5 items-center pl-7 py-0 "
+            onClick={(e) => {
+              Logout();
+            }}
+          >
             <BsBoxArrowInLeft size={20} color="white" />
             <p className="text-base font-semibold text-white">Log out</p>
           </button>
