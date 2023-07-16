@@ -68,7 +68,7 @@ export default function page() {
       {/* Another Content */}
       <section>
         <div className="lg:flex">
-          <div className="lg:w-[471px] h-[504px] bg-[#262B49] p-8 lg:mr-5 rounded-[15px]">
+          <div className="lg:w-[471px] h-[504px] bg-d-secondary p-8 lg:mr-5 rounded-[15px]">
             <h1>Keterangan</h1>
             {isValid != undefined && !isValid && (
               <div className="text-[#FF3131]">
