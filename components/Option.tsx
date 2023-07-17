@@ -17,7 +17,7 @@ const Option: React.FC<OptionProps> = ({
       variants={item}
       layout="position"
       onMouseEnter={() => handleHovered(value)}
-      onMouseLeave={() => handleHovered(0)}
+      onMouseLeave={() => handleHovered(null)}
       onClick={() => {
         handleSelected(value);
         handleShowed(false);
