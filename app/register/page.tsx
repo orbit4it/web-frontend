@@ -34,13 +34,13 @@ export default function page() {
 
   const fetching = async () => {
     const divisions = await Apicall(`
-          query {
-            divisions {
-              id
-              name
-            }
-          }
-         `);
+      query {
+        divisions {
+          id
+          name
+        }
+      }
+    `);
 
     if (divisions) {
       setListDivisions(divisions.data.divisions);
