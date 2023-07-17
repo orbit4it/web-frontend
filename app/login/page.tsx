@@ -1,5 +1,8 @@
 'use client';
-import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import CredentialsInput from '@/components/loginRegister/CredentialsInput';
+import Apicall from '@/helper/apicall';
+import { showToast } from '@/helper/toaster';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -18,6 +21,48 @@ export default function page() {
     setPassword(e);
   };
 
+  // console.log(email);
+  // console.log(password);
+
+  const fetch = async () => {
+    const login = await Apicall(` 
+    {
+        userAuth(email: "${email}",
+         password: "${password}"
+         ) {
+        ... on Token {accessToken}
+        ... on Error {error}
+      }   
+    }`);
+
+    console.log(login);
+
+    if (login) {
+      if (login.data.userAuth.accessToken) {
+        axios.defaults.headers.common.Authorization = `Bearer ${login.data.userAuth.accessToken}`;
+        showToast('Login Berhasil', 'success');
+
+        const checkRole = await Apicall(`
+        {
+           me {
+            role
+          }
+        }
+        `);
+
+        if (checkRole.data.me.role == 'admin') {
+          router.push('/dashboard/admin');
+        } else {
+          router.push('/dashboard');
+        }
+
+        console.log(checkRole);
+      } else if (login.data.userAuth.error.error) {
+        showToast(login.data.userAuth.error.error, 'danger');
+      }
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col-reverse md:flex-row items-center justify-normal md:justify-between text-white relative">
@@ -34,7 +79,14 @@ export default function page() {
                 />
                 <h1 className=" text-3xl md:text-6xl font-bold">Masuk</h1>
               </div>
-              <form action="" className=" mt-10 w-full md:w-auto px-10 md:px-0">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  fetch();
+                }}
+                action=""
+                className=" mt-10 w-full md:w-auto px-10 md:px-0"
+              >
                 <CredentialsInput
                   type="email"
                   placeholder="Email"

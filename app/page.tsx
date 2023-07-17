@@ -1,8 +1,6 @@
 'use client';
 import ButtonLandingPage from '@/components/ButtonLandingPage';
 import CardLanding from '@/components/CardLanding';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
 import CardTestimoni from '@/components/landingPage/CardTestimoni';
 import Division from '@/components/landingPage/Division';
@@ -10,6 +8,8 @@ import Galery from '@/components/landingPage/Galery';
 import Person from '@/components/landingPage/Person';
 import VisiMisiCard from '@/components/landingPage/VisiMisiCard';
 import VisiMisiMobile from '@/components/landingPage/VisiMisiMobile';
+import Footer from '@/components/navFoot/Footer';
+import Navbar from '@/components/navFoot/Navbar';
 import '@/helper/page.module.css';
 import { motion as m } from 'framer-motion';
 import Image from 'next/image';
@@ -18,7 +18,7 @@ import { useInView } from 'react-intersection-observer';
 
 const StrukturData = [
   {
-    image: '/assets/img/anggota/hasnatFull.png',
+    image: '/assets/img/anggota/HasnatFull.png',
     name: 'Hasnat',
     fullName: 'Hasnat',
     jabatan: 'Ketua',
@@ -50,7 +50,7 @@ const StrukturData = [
     imgHeight: 'w-52',
   },
   {
-    image: '/assets/img/anggota/raihanaFull.png',
+    image: '/assets/img/anggota/RaihanaFull.png',
     name: 'Raihana',
     fullName: 'Raihana Aisha Az-Zahra',
     jabatan: 'Bendahara',

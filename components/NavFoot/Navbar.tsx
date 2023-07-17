@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Link } from 'react-scroll';
-import ButtonLandingPage from './ButtonLandingPage';
+import ButtonLandingPage from '../ButtonLandingPage';
 
 export default function Navbar({ active }: { active: string }) {
   const navLinks = [

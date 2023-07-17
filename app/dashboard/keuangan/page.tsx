@@ -756,8 +756,8 @@ export default function page() {
             <div className="w-full h-full rounded-lg px-2 py-2 md:px-4 md:py-4 flex flex-col md:flex-row justify-center md:justify-start md:items-center 2xl:items-start 2xl:flex-col 2xl:justify-center md:gap-4 gap-2 border-b border-[#9E9E9E80] bg-gradient-to-t from-[#8961DE] to-[#5922CE]">
               <div className="2xl:w-20 2xl:h-20 md:w-16 md:h-16 w-10 h-10">
                 <svg
-                  width="auto"
-                  height="auto"
+                  width="100%"
+                  height="100%"
                   viewBox="0 0 86 86"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -787,8 +787,8 @@ export default function page() {
             <div className="w-full h-full rounded-xl md:rounded-lg  px-2 py-2 md:px-4 md:py-4 flex flex-col  md:flex-row justify-center md:justify-start md:items-center 2xl:items-start 2xl:flex-col 2xl:justify-center md:gap-4 gap-2 border-b border-[#9E9E9E80] bg-[#9e9e9e34] md:bg-d-secondary">
               <div className="2xl:w-[70px] 2xl:h-[70px] md:w-16 md:h-16 w-10 h-10 rounded-full bg-dark-blue p-1">
                 <svg
-                  width="auto"
-                  height="auto"
+                  width="100%"
+                  height="100%"
                   viewBox="0 0 63 63"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -818,8 +818,8 @@ export default function page() {
             <div className="w-full h-full rounded-xl md:rounded-lg  px-2 py-2 md:px-4 md:py-4 flex flex-col  md:flex-row justify-center md:justify-start md:items-center 2xl:items-start 2xl:flex-col 2xl:justify-center md:gap-4 gap-2 border-b border-[#9E9E9E80] bg-[#9e9e9e34] md:bg-d-secondary">
               <div className="2xl:w-[70px] 2xl:h-[70px] md:w-16 md:h-16 w-10 h-10 rounded-full bg-dark-blue p-1">
                 <svg
-                  width="auto"
-                  height="auto"
+                  width="100%"
+                  height="100%"
                   viewBox="0 0 82 82"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,7 @@
-import Sidebar from '@/components/dashboard/Sidebar';
+import Sidebar from '@/components/dashboard/SidebarAdmin';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { BsBell, BsSearch } from 'react-icons/bs';
+import { BsBell } from 'react-icons/bs';
 
 interface UserType {
   name: string;
@@ -11,7 +11,7 @@ interface UserType {
 }
 
 export const metadata: Metadata = {
-  title: 'Eskul',
+  title: 'Admin Gacor',
 };
 
 export default function layout({ children }: { children: React.ReactNode }) {
@@ -27,13 +27,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <section className="md:pl-[20%] bg-d-primary">
         <header className="fixed top-0 right-0 w-full h-16 md:h-14 px-5 py-2 md:px-10 md:py-4 flex items-center gap-5 ">
           <ul className="relative w-full flex gap-10 justify-end">
-            <li className="w-5 h-5 relative">
-              <BsSearch
-                size={18}
-                color="white"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              />
-            </li>
             <li className="w-5 h-5 relative ">
               <div className="w-1 h-1 rounded-full bg-[#FA5555] absolute top-0 right-0"></div>
               <BsBell

@@ -1,7 +1,7 @@
 'use client';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
+import Footer from '@/components/navFoot/Footer';
+import Navbar from '@/components/navFoot/Navbar';
 import AwanAtas from '@/public/assets/credit/awan_atas.png';
 import AwanBawah from '@/public/assets/credit/awan_bawah.png';
 import Github from '@/public/assets/credit/github.png';
@@ -31,7 +31,7 @@ const page = () => {
     { nama: 'Muhammad Fawaz Awwabin', ig: '@muhammfawaz' },
     { nama: 'Muhammad Zaki Athallah', ig: '@muhammad.zaki.a.p.p' },
     { nama: 'Muhammad Raihan', ig: '@ehannzz_' },
-    { nama: 'Rafi Rizqullah Ramadhan', ig: '@sasthadriya' },
+    { nama: 'Sasthadriya Satya Sastrasenjaya', ig: '@sasthadriya' },
   ];
 
   const uiux = [
@@ -47,6 +47,11 @@ const page = () => {
       nama: 'Azarel Lazuardi Aditya',
       ig: '@zareladitya',
       github: '',
+    },
+    {
+      nama: 'Ghazi Adila Ghifari',
+      ig: '@irafialdia',
+      github: 'reinaldia',
     },
   ];
 
@@ -77,7 +82,7 @@ const page = () => {
     { nama: 'Muhammad Rafly Pratama', ig: '@rafutaa_', github: '@RFP11' },
     { nama: 'Kamelia Derika Putri', ig: '@kmlsdk_', github: '' },
     {
-      nama: 'Melderika Laila Yasmin Fitria',
+      nama: 'Laila Yasmin Fitria',
       ig: '@jes_twtw',
       github: '@lailysmn',
     },

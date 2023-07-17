@@ -1,5 +1,5 @@
 'use client';
-import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import CredentialsInput from '@/components/loginRegister/CredentialsInput';
 import Apicall from '@/helper/apicall';
 import { DivisionsProps, KelasProps } from '@/helper/interfaces';
 import { showToast } from '@/helper/toaster';
@@ -45,6 +45,7 @@ export default function page() {
     if (divisions) {
       setListDivisions(divisions.data.divisions);
     }
+    console.log(listDivisions);
 
     const grades = await Apicall(`
           query {
