@@ -60,6 +60,28 @@ export interface OptionProps {
   handleShowed: (value: boolean) => void;
   textSize: string | null;
 }
+
+export interface ExpandDropdownProps {
+  options: any;
+  showOptions: boolean;
+  selectedOption: string;
+  handleShowOptions: (isShow: boolean) => void;
+  mapOptions: any;
+  colorShowed?: string;
+  colorNotShowed: string;
+  className?: string;
+  position: Positions;
+}
+
+export enum Positions {
+  topleft = 'top-left',
+  topright = 'top-right',
+  bottomleft = 'bottom-left',
+  bottomright = 'bottom-right',
+  centertop = 'center-top',
+  centerbottom = 'center-bottom',
+}
+
 export interface TestimoniProps {
   image: string;
   name: string;
@@ -85,6 +107,21 @@ export interface DivisionsProps {
   id?: number;
   name?: string;
   waGroupLink?: string;
+}
+
+export interface CalendarProps {
+  filterBy: string;
+  schedules?: ScheduleProps[];
+}
+
+export interface ScheduleProps {
+  id: number;
+  type: string;
+  title: string;
+  start: string;
+  end: string;
+  location: string;
+  subject?: string;
 }
 
 export interface KelasProps {
