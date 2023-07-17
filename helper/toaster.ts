@@ -11,3 +11,18 @@ export const showToast = (message: string, type: string) => {
     toast.info(message);
   }
 };
+
+export const updateToast = (
+  id: any,
+  render: string,
+  type: any,
+  isLoading: boolean,
+  autoClose: number
+) => {
+  toast.update(id, {
+    render,
+    type,
+    isLoading,
+    autoClose,
+  });
+};
