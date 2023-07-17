@@ -1,12 +1,13 @@
 'use client';
 import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import Apicall from '@/helper/apicall';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
-import Apicall from '@/helper/apicall';
 import { showToast, updateToast } from '@/helper/toaster';
 import { toast } from 'react-toastify';
 

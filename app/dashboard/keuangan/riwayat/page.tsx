@@ -120,8 +120,8 @@ export default function page() {
       <div className="w-[10%] md:w-12 md:h-12 2xl:w-14 2xl:h-14 flex items-center  justify-center">
         {transc.type == 'Pemasukan' && (
           <svg
-            width="40px"
-            height="40px"
+            width="100%"
+            height="100%"
             viewBox="0 0 70 70"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -141,8 +141,8 @@ export default function page() {
 
         {transc.type == 'Pengeluaran' && (
           <svg
-            width="40px"
-            height="40px"
+            width="100%"
+            height="100%"
             viewBox="0 0 70 70"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

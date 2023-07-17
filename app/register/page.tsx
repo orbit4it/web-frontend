@@ -48,6 +48,7 @@ export default function page() {
     if (divisions) {
       setListDivisions(divisions.data.divisions);
     }
+    console.log(listDivisions);
 
     const grades = await Apicall(
       `

@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AiFillStar, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -134,7 +134,7 @@ export default function page() {
                 </p>
               </div>
               <div className="bg-black absolute mt-8 -right-5 opacity-70 rounded-full">
-                <button className="p-3" onClick={nextItem}>
+                <button title="btn" className="p-3" onClick={nextItem}>
                   <AiOutlineRight size={17} opacity={100} />
                 </button>
               </div>
@@ -204,12 +204,12 @@ export default function page() {
               <div className="lg:flex">
                 <div className="swiper-container w-[364px] h-[360px] rounded-[12px] bg-[#2237B7] mx-auto relative top-4">
                   <div className="bg-black absolute mt-36 -right-5 opacity-70 rounded-full">
-                    <button className="p-3" onClick={nextItem2}>
+                    <button title="btn" className="p-3" onClick={nextItem2}>
                       <AiOutlineRight size={17} opacity={100} />
                     </button>
                   </div>
                   <div className="bg-black absolute mt-36 -left-5 opacity-70 rounded-full">
-                    <button className="p-3" onClick={nextItem2}>
+                    <button title="btn" className="p-3" onClick={nextItem2}>
                       <AiOutlineLeft size={17} opacity={100} />
                     </button>
                   </div>

@@ -6,7 +6,7 @@ export default function page() {
         <ul className="flex gap-4 items-center route">
           <li>
             <h1 className="text-xs md:text-lg font-semibold md:font-bold">
-              Profile Admin
+              Menejemen Proyek
             </h1>
           </li>
         </ul>

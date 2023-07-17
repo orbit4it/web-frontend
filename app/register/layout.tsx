@@ -5,9 +5,8 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export const metadata: Metadata = {
-  title: 'Login',
+  title: 'Daftar Dulu Cuy',
 };
-
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
