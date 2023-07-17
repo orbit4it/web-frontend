@@ -2,6 +2,7 @@ import { item } from '@/helper/animate';
 import { OptionProps } from '@/helper/interfaces';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 const Option: React.FC<OptionProps> = ({
   value,
   handleHovered,
@@ -9,6 +10,7 @@ const Option: React.FC<OptionProps> = ({
   handleShowed,
   selectedValue,
   optionHovered,
+  textSize = 'text-base',
 }) => {
   return (
     <motion.li
@@ -25,7 +27,7 @@ const Option: React.FC<OptionProps> = ({
     >
       <motion.p
         style={{ color: value == selectedValue ? '#EE2ED1' : 'white' }}
-        className=" text-base text-white cursor-pointer"
+        className={twMerge(textSize, 'text-white cursor-pointer')}
       >
         {value}
       </motion.p>

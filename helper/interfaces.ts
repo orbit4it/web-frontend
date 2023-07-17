@@ -58,6 +58,7 @@ export interface OptionProps {
   handleHovered: (value: any) => void;
   handleSelected: (value: any) => void;
   handleShowed: (value: boolean) => void;
+  textSize: string | null;
 }
 export interface TestimoniProps {
   image: string;
