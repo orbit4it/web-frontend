@@ -108,7 +108,11 @@ export default function Sidebar() {
                   ? '33.3333333333%'
                   : pathname.startsWith('/admin/dashboard/leaderboard')
                   ? '44.4444444444%'
-                  : pathname.startsWith('/admin/dashboard/user')
+                  : pathname.startsWith('/admin/dashboard/user/anggota')
+                  ? '55.5555555555%'
+                  : pathname.startsWith('/admin/dashboard/user/calon')
+                  ? '55.5555555555%'
+                  : pathname.startsWith('/admin/dashboard/user/tambah')
                   ? '55.5555555555%'
                   : pathname.startsWith('/admin/dashboard/lomba')
                   ? '66.6666666666%'
@@ -166,7 +170,7 @@ export default function Sidebar() {
             <BsPeople size={20} color="white" />
             <Link
               onClick={() => setIsActive(false)}
-              href={'/admin/dashboard/user'}
+              href={'/admin/dashboard/user/anggota'}
             >
               User
             </Link>
