@@ -1,5 +1,5 @@
 'use client';
-import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
 import axios from 'axios';
 import Image from 'next/image';
