@@ -144,7 +144,33 @@ export default function page() {
                     1212121212
                   </td>
                   <td align="center" className=" text-xs p-5">
-                    Rusdi Keomokata XII
+                    Imoet sasimo
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-2
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Web Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    4
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Fuad Sparta Leonidas
                   </td>
                   <td align="center" className=" text-xs p-5">
                     X-NGAWI-1
@@ -164,13 +190,39 @@ export default function page() {
                 </tr>
                 <tr className="odd:bg-[#3B405B]">
                   <td align="center" className=" text-xs p-5">
-                    3
+                    5
                   </td>
                   <td align="center" className=" text-xs p-5">
                     1212121212
                   </td>
                   <td align="center" className=" text-xs p-5">
-                    Rusdi Keomokata XII
+                    Dimas ukin
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-3
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Cinematography
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    6
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Brandon curington
                   </td>
                   <td align="center" className=" text-xs p-5">
                     X-NGAWI-1
@@ -190,65 +242,13 @@ export default function page() {
                 </tr>
                 <tr className="odd:bg-[#3B405B]">
                   <td align="center" className=" text-xs p-5">
-                    3
+                    7
                   </td>
                   <td align="center" className=" text-xs p-5">
                     1212121212
                   </td>
                   <td align="center" className=" text-xs p-5">
-                    Rusdi Keomokata XII
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    3
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi Keomokata XII
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    3
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi Keomokata XII
+                    rusdi komaladi
                   </td>
                   <td align="center" className=" text-xs p-5">
                     X-NGAWI-1

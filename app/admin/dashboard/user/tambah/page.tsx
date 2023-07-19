@@ -1,13 +1,9 @@
-'use client';
 import { IoIosArrowForward } from 'react-icons/io';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import UserPageLink from '@/components/admin/UserPageLink';
 import { BiSearch } from 'react-icons/bi';
+import { HiOutlineTrash } from 'react-icons/hi';
+import UserPageLink from '@/components/admin/UserPageLink';
 
 export default function page() {
-  const pathname = usePathname();
-
   return (
     <>
       {/* Route Section */}
@@ -57,6 +53,222 @@ export default function page() {
               Reset
             </button>
           </form>
+          <div className=" mt-5">
+            <table className=" w-full h-full ">
+              <thead>
+                <tr>
+                  <td align="center" className=" pb-3 text-sm">
+                    No.
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    NIS
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Nama
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Kelas
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Divisi
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Email
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Kehadiran
+                  </td>
+                  <td align="center" className=" pb-3 text-sm opacity-0">
+                    asasoksa
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Ambafish
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Game Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Amba@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    2
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi Keomokata XII
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Game Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    3
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Imoet sasimo
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-2
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Web Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    4
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Fuad Sparta Leonidas
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Game Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    5
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Dimas ukin
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-3
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Cinematography
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    6
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Brandon curington
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Game Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    7
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    rusdi komaladi
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-NGAWI-1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Game Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Rusdi@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    /\
+                  </td>
+                  <td align="center">
+                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </>

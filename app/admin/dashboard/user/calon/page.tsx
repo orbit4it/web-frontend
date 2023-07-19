@@ -1,8 +1,17 @@
+'use client';
+import { useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BiSearch } from 'react-icons/bi';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { FaSquareCheck } from 'react-icons/fa6';
 import UserPageLink from '@/components/admin/UserPageLink';
 
 export default function page() {
+  const [terima, setTerima] = useState<boolean>(false);
+  const [tolak, setTolak] = useState<boolean>(false);
+  const [terimaDisable, setTerimaDisable] = useState<boolean>(false);
+  const [tolakDisable, setTolakDisable] = useState<boolean>(false);
+
   return (
     <>
       {/* Route Section */}
@@ -52,6 +61,108 @@ export default function page() {
               Reset
             </button>
           </form>
+          <div className=" mt-5">
+            <table className=" w-full h-full ">
+              <thead>
+                <tr>
+                  <td align="center" className=" pb-3 text-sm">
+                    No.
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    No Pendaftaran
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Nama
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Email
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    NIS
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Kelas
+                  </td>
+                  <td align="center" className=" pb-3 text-sm">
+                    Divisi
+                  </td>
+                  <td align="center" className=" pb-3 text-sm ">
+                    Terima
+                  </td>
+                  <td align="center" className=" pb-3 text-sm ">
+                    Tolak
+                  </td>
+                  <td align="center" className=" pb-3 text-sm ">
+                    Detail
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="odd:bg-[#3B405B]">
+                  <td align="center" className=" text-xs p-5">
+                    1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    1212121212
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Ambafish
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    jawir@gmail.com
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    37732736236
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    X-RPL-1
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    Game Development
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    <div
+                      className={` ${
+                        terima ? 'hidden' : 'block'
+                      } w-5 h-5 bg-transparent border-2 border-white rounded-md cursor-pointer`}
+                      onClick={(e) => {
+                        setTerima(!terima);
+                      }}
+                    ></div>
+                    <FaSquareCheck
+                      className={` ${
+                        terima ? ' block' : ' hidden'
+                      } text-white text-[21px]`}
+                      onClick={(e) => {
+                        setTerima(!terima);
+                      }}
+                    />
+                  </td>
+                  <td align="center" className=" text-xs p-5">
+                    <div
+                      className={` ${
+                        tolak ? 'hidden' : 'block'
+                      } w-5 h-5 bg-transparent border-2 border-white rounded-md cursor-pointer`}
+                      onClick={(e) => {
+                        setTolak(!tolak);
+                      }}
+                    ></div>
+                    <FaSquareCheck
+                      className={` ${
+                        tolak ? ' block' : ' hidden'
+                      } text-white text-[21px]`}
+                      onClick={(e) => {
+                        setTolak(!tolak);
+                      }}
+                    />
+                  </td>
+                  <td align="center">
+                    <AiOutlineInfoCircle className=" cursor-pointer text-white text-lg" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </>

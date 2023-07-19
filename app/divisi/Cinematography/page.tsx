@@ -87,6 +87,7 @@ export default function page() {
 
   const mapYearOptions = yearOptions.map((year) => (
     <Option
+      textSize={'text-sm'}
       key={year}
       value={year}
       handleHovered={setOptionHovered}
