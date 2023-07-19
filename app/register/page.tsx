@@ -51,7 +51,7 @@ export default function page() {
       setListDivisions(divisions.data.divisions);
       updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
     }
-    console.log(listDivisions);
+    // console.log(listDivisions);
 
     const grades = await Apicall(
       `

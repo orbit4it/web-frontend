@@ -193,7 +193,7 @@ export default function Sidebar() {
     }
     `);
 
-    console.log(res);
+    // console.log(res);
 
     if (res) {
       router.push('/login');

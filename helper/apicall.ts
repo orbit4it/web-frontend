@@ -70,7 +70,7 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
         token = setCookie.data.data.refreshToken.accessToken;
       } else {
         showToast('Terjadi Kesalahan', 'danger');
-        console.log(setCookie);
+        // console.log(setCookie);
         return false;
       }
     }
