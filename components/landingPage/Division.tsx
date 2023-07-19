@@ -37,7 +37,7 @@ const DivisionData = [
   {
     image: '/assets/img/divisi/Cinema.png',
     name: 'Cinematography',
-    link: 'cinematography',
+    link: 'Cinematography',
   },
   {
     image: '/assets/img/divisi/ITSupp.png',
