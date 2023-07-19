@@ -1,6 +1,6 @@
 'use client';
 import NavbarMobile from '@/components/NavbarMobile';
-import Footer from '@/components/navFoot/Footer';
+import Footer from '@/components/NaviFooter/Footer';
 import Navbar from '@/components/navFoot/Navbar';
 
 export default function RootLayout({
