@@ -1,6 +1,6 @@
 'use client';
 import { today } from '@/helper/date';
-import { CalendarProps, ScheduleProps } from '@/helper/interfaces';
+import { Schedule } from '@/helper/interfaces';
 import {
   add,
   eachDayOfInterval,
@@ -20,8 +20,11 @@ import React, { useEffect, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 
+interface CalendarProps {
+  filterBy: string;
+  schedules?: Schedule[];
+}
 const Calendar: React.FC<CalendarProps> = ({ filterBy, schedules }) => {
-  console.log(filterBy);
   const [hoveredScheduleId, setHoveredScheduleId] = useState<number | null>(
     null
   );
@@ -30,9 +33,7 @@ const Calendar: React.FC<CalendarProps> = ({ filterBy, schedules }) => {
     format(today, 'MMM-yyyy')
   );
 
-  const [filteredSchedules, setFilteredSchedules] = useState<
-    ScheduleProps[] | undefined
-  >(schedules);
+  const [filteredSchedules, setFilteredSchedules] = useState<Schedule[]>();
 
   useEffect(() => {
     if (schedules) {
@@ -46,8 +47,6 @@ const Calendar: React.FC<CalendarProps> = ({ filterBy, schedules }) => {
       }
     }
   }, [filterBy, schedules]);
-
-  console.log(filteredSchedules);
 
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
   const colStartClasses = [
@@ -152,7 +151,10 @@ const Calendar: React.FC<CalendarProps> = ({ filterBy, schedules }) => {
                             isEqual(
                               parseISO(format(day, 'yyyy-MM-dd')),
                               parseISO(
-                                format(parseISO(schedule.start), 'yyyy-MM-dd')
+                                format(
+                                  parseISO(schedule.start.toString()),
+                                  'yyyy-MM-dd'
+                                )
                               )
                             )
                           ) {
@@ -216,16 +218,18 @@ const Calendar: React.FC<CalendarProps> = ({ filterBy, schedules }) => {
                                     </h1>
                                     <div className="w-full flex justify-start gap-1 text-[0.4rem] text-end italic z-50  ">
                                       <span>Di {schedule.location}</span>
-                                      <time dateTime={schedule.start}>
+                                      <time
+                                        dateTime={schedule.start.toString()}
+                                      >
                                         {format(
-                                          parseISO(schedule.start),
+                                          parseISO(schedule.start.toString()),
                                           'h:mm a'
                                         )}
                                       </time>
                                       <span>-</span>
-                                      <time dateTime={schedule.end}>
+                                      <time dateTime={schedule.end.toString()}>
                                         {format(
-                                          parseISO(schedule.end),
+                                          parseISO(schedule.end.toString()),
                                           'h:mm a'
                                         )}
                                       </time>

@@ -1,10 +1,22 @@
 'use client';
 import { container } from '@/helper/animate';
-import { ExpandDropdownProps, Positions } from '@/helper/interfaces';
+import { Positions } from '@/helper/interfaces';
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 import { FaAngleDown } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
+
+interface ExpandDropdownProps {
+  options: any;
+  showOptions: boolean;
+  selectedOption: string;
+  handleShowOptions: (isShow: boolean) => void;
+  mapOptions: any;
+  colorShowed?: string;
+  colorNotShowed: string;
+  className?: string;
+  position: Positions;
+}
 
 const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
   options,

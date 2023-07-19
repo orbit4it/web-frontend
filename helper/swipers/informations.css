@@ -1,0 +1,42 @@
+.informations {
+  @apply w-full h-full;
+}
+
+.informations .swiper-slide {
+  width: 80% !important;
+  height: 90% !important;
+  opacity: 0.5;
+}
+
+.informations .swiper-slide-active {
+  opacity: 1;
+}
+
+.informations .swiper-pagination {
+  position: absolute !important;
+  bottom: 0 !important;
+}
+.informations .swiper-pagination-bullet {
+  @apply w-2 h-2 bg-gray-300 rounded-full mt-5 transition-all duration-300;
+}
+
+.informations .swiper-pagination-bullet-active {
+  @apply bg-secondary w-2.5 h-2.5;
+}
+
+.informations .swiper-button-next {
+  @apply w-10 h-10 rounded-full bg-black/70;
+}
+.informations .swiper-button-prev {
+  @apply w-10 h-10 rounded-full bg-black/70;
+}
+.informations .swiper-button-disabled {
+  opacity: 0 !important;
+}
+
+.informations .swiper-button-next:after {
+  display: none;
+}
+.informations .swiper-button-prev:after {
+  display: none;
+}
