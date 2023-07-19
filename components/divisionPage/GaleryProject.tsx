@@ -1,4 +1,3 @@
-import { GaleryProjectProps } from '@/helper/interfaces';
 import '@/helper/swipers/galeri.css';
 import FotoDummy from '@/public/assets/img/FotoDummy.png';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -8,6 +7,15 @@ import React from 'react';
 import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+interface GaleryProjectProps {
+  index: number;
+  title: string;
+  pictures: string[];
+  youtube: string | null;
+  activeId: number;
+  handleActiveId: (id: number) => void;
+}
 
 const GaleryProject: React.FC<GaleryProjectProps> = ({
   index,

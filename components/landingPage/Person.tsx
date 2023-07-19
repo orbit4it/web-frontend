@@ -1,8 +1,16 @@
-import { StrukturProps } from '@/helper/interfaces';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+
+interface StrukturProps {
+  image: string;
+  name: string;
+  fullName: string;
+  jabatan: string;
+  imgWidth: string;
+  imgHeight: string;
+}
 
 const Person: React.FC<StrukturProps> = (props) => {
   const [onHover, setOnHover] = useState(false);

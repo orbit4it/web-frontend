@@ -1,8 +1,18 @@
 import { item } from '@/helper/animate';
-import { OptionProps } from '@/helper/interfaces';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+
+interface OptionProps {
+  value: any;
+  selectedValue: any;
+  optionHovered: any;
+  handleHovered: (value: any) => void;
+  handleSelected: (value: any) => void;
+  handleShowed: (value: boolean) => void;
+  textSize: string | null;
+}
+
 const Option: React.FC<OptionProps> = ({
   value,
   handleHovered,
