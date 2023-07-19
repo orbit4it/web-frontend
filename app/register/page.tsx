@@ -1,7 +1,7 @@
 'use client';
 import CredentialsInput from '@/components/loginRegister/CredentialsInput';
 import Apicall from '@/helper/apicall';
-import { DivisionsProps, KelasProps } from '@/helper/interfaces';
+import { Division } from '@/helper/interfaces';
 import { showToast } from '@/helper/toaster';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,10 +10,17 @@ import { useEffect, useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
 
+interface KelasProps {
+  grade?: string;
+  id?: number;
+  name?: string;
+  vocational?: string;
+}
+
 export default function page() {
   const [nama, setNama] = useState<string>('');
   const [divisi, setDivisi] = useState<number>(0);
-  const [listDivisions, setListDivisions] = useState<DivisionsProps[]>([]);
+  const [listDivisions, setListDivisions] = useState<Division[]>([]);
   const [kelas, setKelas] = useState<number>(0);
   const [listkelas, setListKelas] = useState<KelasProps[]>([]);
   const [nis, setNis] = useState<string>('');
