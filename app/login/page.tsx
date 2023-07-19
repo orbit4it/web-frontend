@@ -1,14 +1,15 @@
 'use client';
 import CredentialsInput from '@/components/LoginRegister/CredentialsInput';
+import Apicall from '@/helper/apicall';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import styles from '../../helper/page.module.css';
-import Apicall from '@/helper/apicall';
-import { showToast } from '@/helper/toaster';
-import axios from 'axios';
+import { showToast, updateToast } from '@/helper/toaster';
+import { toast } from 'react-toastify';
 
 export default function page() {
   const [email, setEmail] = useState('');
@@ -22,6 +23,7 @@ export default function page() {
   };
 
   const fetch = async () => {
+    const id = toast.loading('Please wait...');
     const login = await Apicall(
       ` 
     {
@@ -38,9 +40,7 @@ export default function page() {
     console.log(login);
 
     if (login) {
-      if (login.data.userAuth.accessToken) {
-        showToast('Login Berhasil', 'success');
-        const checkRole = await Apicall(`
+      const checkRole = await Apicall(`
         {
            me {
             role
@@ -48,17 +48,29 @@ export default function page() {
         }
         `);
 
-        console.log(checkRole);
-
-        if (checkRole.data.me.role == 'admin') {
-          router.push('/dashboard/admin');
+      const checkUser = () => {
+        if (
+          checkRole.data.me.role == 'admin' ||
+          checkRole.data.me.role == 'superadmin'
+        ) {
+          router.push('/admin/dashboard');
         } else {
           router.push('/dashboard');
         }
+      };
 
+      console.log(checkRole);
+      if (login.errors) {
+        updateToast(id, login.errors[0].message, 'error', false, 5000);
+        checkUser();
+      } else if (login.data.userAuth.accessToken) {
+        updateToast(id, 'Login Berhasil', 'success', false, 5000);
+        checkUser();
         console.log(checkRole);
-      } else if (login.data.userAuth.error.error) {
-        showToast(login.data.userAuth.error.error, 'danger');
+      } else if (login.data.userAuth.error) {
+        updateToast(id, login.data.userAuth.error, 'error', false, 5000);
+      } else {
+        updateToast(id, login.errors[0].message, 'error', false, 5000);
       }
     }
   };

@@ -7,8 +7,11 @@ import FotoDummy from '@/public/assets/img/FotoDummy.png';
 import Logo from '@/public/assets/logo/Cinema.png';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { FaAngleDown } from 'react-icons/fa';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
+import { FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/swiper-bundle.min.css';
 
@@ -84,6 +87,7 @@ export default function page() {
 
   const mapYearOptions = yearOptions.map((year) => (
     <Option
+      textSize={'text-sm'}
       key={year}
       value={year}
       handleHovered={setOptionHovered}

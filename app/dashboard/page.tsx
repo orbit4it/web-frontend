@@ -1,7 +1,12 @@
 'use client';
+import ExpandDropdown from '@/components/ExpandDropdown';
+import Option from '@/components/Option';
+import Calendar from '@/components/dashboard/Calendar';
+import Apicall from '@/helper/apicall';
+import { DivisionsProps, Positions } from '@/helper/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -15,7 +20,28 @@ interface InfoType {
 }
 
 export default function page() {
+  const [divisions, setDivisions] = useState<DivisionsProps[]>([]);
   const [currentItem, setCurrentItem] = useState(0);
+  const [showDivisionsOption, setShowDivisionsOption] = useState(false);
+  const [selectedDivision, setSelectedDivision] =
+    useState<string>('Web Development');
+  const [hoveredDivision, setHoveredDivision] = useState(null);
+
+  const getData = async () => {
+    const query = await Apicall(`
+            query {
+              divisions {
+                id
+                name
+              }
+            }
+           `);
+
+    const divisionDatas = query.data.divisions;
+    const options = [...divisionDatas, { id: 0, name: 'All' }];
+    setDivisions(options);
+  };
+
   const item = [
     {
       title: 'HTML Development Basics',
@@ -66,6 +92,79 @@ export default function page() {
       pictures: '/assets/img/Poster.png',
     },
   ];
+
+  const schedules = [
+    {
+      id: 1,
+      type: 'Web Development',
+      title: 'Kegiatan Rutin',
+      start: '2023-07-27T15:30',
+      end: '2023-07-27T17:00',
+      location: 'Kelas C.2.2',
+      subject: 'HTML Development Basics',
+    },
+    {
+      id: 2,
+      type: 'Game Development',
+      title: 'Kegiatan Rutin',
+      start: '2023-07-27T15:30',
+      end: '2023-07-27T17:00',
+      location: 'Kelas C.2.2',
+      subject: 'C# Unity Basics',
+    },
+    {
+      id: 3,
+      type: 'Cinematography',
+      title: 'Kegiatan Rutin',
+      start: '2023-07-27T15:30',
+      end: '2023-07-27T17:00',
+      location: 'Kelas C.2.2',
+      subject: 'Adobe Premiere Pro Basics',
+    },
+    {
+      id: 4,
+      type: 'Design Graphic',
+      title: 'Kegiatan Rutin',
+      start: '2023-07-27T15:30',
+      end: '2023-07-27T17:00',
+      location: 'Kelas C.2.2',
+      subject: 'Adobe Photoshop Basics',
+    },
+    {
+      id: 5,
+      type: 'IT Support',
+      title: 'Kegiatan Rutin',
+      start: '2023-07-27T15:30',
+      end: '2023-07-27T17:00',
+      location: 'Kelas C.2.2',
+      subject: 'Hardware Komputer',
+    },
+    {
+      id: 6,
+      type: 'Global',
+      title: 'SMK to Industry',
+      start: '2023-07-29T09:00',
+      end: '2023-07-29T12:00',
+      location: 'Technopark',
+    },
+  ];
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const mapDivisionOptions = divisions.map((division) => (
+    <Option
+      key={division.id}
+      value={division.name}
+      selectedValue={selectedDivision}
+      handleSelected={setSelectedDivision}
+      handleShowed={setShowDivisionsOption}
+      handleHovered={setHoveredDivision}
+      optionHovered={hoveredDivision}
+      textSize="text-xs"
+    />
+  ));
 
   const nextItem2 = () => {
     setSelected((selected + 1) % item2.length);
@@ -134,7 +233,7 @@ export default function page() {
                 </p>
               </div>
               <div className="bg-black absolute mt-8 -right-5 opacity-70 rounded-full">
-                <button className="p-3" onClick={nextItem}>
+                <button title="btn" className="p-3" onClick={nextItem}>
                   <AiOutlineRight size={17} opacity={100} />
                 </button>
               </div>
@@ -193,23 +292,48 @@ export default function page() {
         <div className="w-full">
           <div className="space-y-3">
             {/* kalender */}
-            <div className="py-5 px-7 mt-3 md:mt-0 bg-profileCard rounded-[15px] shadow-md h-[424px]">
-              calendar
+            <div className="relative py-5 px-7 mt-3 md:mt-0 bg-profileCard rounded-[15px] shadow-md h-[424px]">
+              <header className="relative w-full flex justify-between items-center">
+                <h1 className="text-lg text-white font-semibold">Jadwal</h1>
+                <ExpandDropdown
+                  options={divisions}
+                  handleShowOptions={setShowDivisionsOption}
+                  showOptions={showDivisionsOption}
+                  selectedOption={selectedDivision}
+                  colorNotShowed="bg-transparent"
+                  colorShowed="bg-d-primary"
+                  position={Positions.topright}
+                  mapOptions={mapDivisionOptions}
+                  className={`${
+                    selectedDivision === 'Game Development'
+                      ? 'border-game-dev'
+                      : selectedDivision == 'Web Development'
+                      ? 'border-web-dev'
+                      : selectedDivision == 'Cinematography'
+                      ? 'border-cinematography'
+                      : selectedDivision == 'Design Graphic'
+                      ? 'border-design-graphic'
+                      : selectedDivision == 'IT Support'
+                      ? 'border-it-support'
+                      : 'border-secondary'
+                  }`}
+                />
+              </header>
+              <Calendar schedules={schedules} filterBy={selectedDivision} />
             </div>
             {/* akhir kalender */}
-
             {/* info lomba */}
             <div className="py-5 px-7 bg-profileCard rounded-[15px] shadow-md h-[462px]">
               <h1 className="font-bold">Info Lomba</h1>
               <div className="lg:flex">
                 <div className="swiper-container w-[364px] h-[360px] rounded-[12px] bg-[#2237B7] mx-auto relative top-4">
                   <div className="bg-black absolute mt-36 -right-5 opacity-70 rounded-full">
-                    <button className="p-3" onClick={nextItem2}>
+                    <button title="btn" className="p-3" onClick={nextItem2}>
                       <AiOutlineRight size={17} opacity={100} />
                     </button>
                   </div>
                   <div className="bg-black absolute mt-36 -left-5 opacity-70 rounded-full">
-                    <button className="p-3" onClick={nextItem2}>
+                    <button title="btn" className="p-3" onClick={nextItem2}>
                       <AiOutlineLeft size={17} opacity={100} />
                     </button>
                   </div>
