@@ -30,7 +30,7 @@ export default async function layout({
     <>
       <Sidebar />
       <section className="md:pl-[20%] bg-d-primary">
-        <header className="fixed top-0 right-0 w-full h-16 md:h-14 px-5 py-2 md:px-10 md:py-4 flex items-center gap-5 z-50">
+        <header className="fixed top-0 right-0 w-full h-16 md:h-14 px-5 py-2 md:px-10 md:py-4 flex items-center gap-5 z-40">
           <ul className="relative w-full flex gap-10 justify-end">
             <li className="w-5 h-5 relative">
               <BsSearch
