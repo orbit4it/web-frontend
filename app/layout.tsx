@@ -101,7 +101,6 @@
 //   );
 // }
 
-'use client';
 import { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import React from 'react';
