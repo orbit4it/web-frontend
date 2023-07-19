@@ -5,12 +5,57 @@ import { BiSearch } from 'react-icons/bi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaSquareCheck } from 'react-icons/fa6';
 import UserPageLink from '@/components/admin/UserPageLink';
+import { data } from 'autoprefixer';
 
 export default function page() {
-  const [terima, setTerima] = useState<boolean>(false);
-  const [tolak, setTolak] = useState<boolean>(false);
-  const [terimaDisable, setTerimaDisable] = useState<boolean>(false);
-  const [tolakDisable, setTolakDisable] = useState<boolean>(false);
+  const [rows, setRows] = useState([
+    {
+      id: 1,
+      noPen: 2121212,
+      nama: 'Dimas Ukin',
+      email: 'Dimas@gmail.com',
+      nis: 2121212,
+      kelas: 'XI PPLG 2',
+      divisi: 'IT Support',
+      terima: false,
+      tolak: false,
+    },
+    {
+      id: 2,
+      noPen: 2121212,
+      nama: 'Dimas Ukin',
+      email: 'Dimas@gmail.com',
+      nis: 2121212,
+      kelas: 'XI PPLG 2',
+      divisi: 'IT Support',
+      terima: false,
+      tolak: false,
+    },
+    // Add more rows here if needed
+  ]);
+
+  const handleCheckboxChange = (id: number, type: any) => {
+    const updatedRows = rows.map((row) => {
+      if (row.id === id) {
+        if (type === 'terima') {
+          return {
+            ...row,
+            terima: !row.terima,
+            tolak: false,
+          };
+        } else if (type === 'tolak') {
+          return {
+            ...row,
+            terima: false,
+            tolak: !row.tolak,
+          };
+        }
+      }
+      return row;
+    });
+
+    setRows(updatedRows);
+  };
 
   return (
     <>
@@ -34,7 +79,7 @@ export default function page() {
       {/* Another Content */}
       <section className="mt-4 md:flex-col justify-between items-center gap-6 pb-10 w-full h-full">
         <UserPageLink />
-        <div className=" bg-cardDashboard rounded-lg p-3 mt-5 text-sm">
+        <div className=" bg-cardDashboard rounded-lg p-3 mt-5 text-sm ">
           <form className=" flex items-center gap-3">
             <h1>Search</h1>
             <div className=" relative text-white">
@@ -62,104 +107,74 @@ export default function page() {
             </button>
           </form>
           <div className=" mt-5">
-            <table className=" w-full h-full ">
+            <table className=" w-full h-full overflow-auto">
               <thead>
                 <tr>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     No.
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     No Pendaftaran
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     Nama
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     Email
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     NIS
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     Kelas
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     Divisi
                   </td>
-                  <td align="center" className=" pb-3 text-sm ">
+                  <td align="center" className=" pb-3  text-sm ">
                     Terima
                   </td>
-                  <td align="center" className=" pb-3 text-sm ">
+                  <td align="center" className=" pb-3  text-sm ">
                     Tolak
                   </td>
-                  <td align="center" className=" pb-3 text-sm ">
+                  <td align="center" className=" pb-3  text-sm ">
                     Detail
                   </td>
                 </tr>
               </thead>
               <tbody>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Ambafish
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    jawir@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    37732736236
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-RPL-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    <div
-                      className={` ${
-                        terima ? 'hidden' : 'block'
-                      } w-5 h-5 bg-transparent border-2 border-white rounded-md cursor-pointer`}
-                      onClick={(e) => {
-                        setTerima(!terima);
-                      }}
-                    ></div>
-                    <FaSquareCheck
-                      className={` ${
-                        terima ? ' block' : ' hidden'
-                      } text-white text-[21px]`}
-                      onClick={(e) => {
-                        setTerima(!terima);
-                      }}
-                    />
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    <div
-                      className={` ${
-                        tolak ? 'hidden' : 'block'
-                      } w-5 h-5 bg-transparent border-2 border-white rounded-md cursor-pointer`}
-                      onClick={(e) => {
-                        setTolak(!tolak);
-                      }}
-                    ></div>
-                    <FaSquareCheck
-                      className={` ${
-                        tolak ? ' block' : ' hidden'
-                      } text-white text-[21px]`}
-                      onClick={(e) => {
-                        setTolak(!tolak);
-                      }}
-                    />
-                  </td>
-                  <td align="center">
-                    <AiOutlineInfoCircle className=" cursor-pointer text-white text-lg" />
-                  </td>
-                </tr>
+                {rows.map((row) => (
+                  <tr key={row.id} className="odd:bg-[#3B405B]">
+                    <td align="center">{row.id}</td>
+                    <td align="center">{row.noPen}</td>
+                    <td align="center">{row.nama}</td>
+                    <td align="center">{row.email}</td>
+                    <td align="center">{row.nis}</td>
+                    <td align="center">{row.kelas}</td>
+                    <td align="center">{row.divisi}</td>
+                    <td align="center" className=" text-xs p-5">
+                      <input
+                        type="checkbox"
+                        className="w-[22px] h-[22px] bg-transparent rounded-md"
+                        onChange={() => handleCheckboxChange(row.id, 'terima')}
+                        checked={row.terima}
+                        disabled={row.tolak}
+                      />
+                    </td>
+                    <td align="center" className=" text-xs p-5">
+                      <input
+                        type="checkbox"
+                        className="w-[22px] h-[22px] bg-transparent rounded-md"
+                        onChange={() => handleCheckboxChange(row.id, 'tolak')}
+                        checked={row.tolak}
+                        disabled={row.terima}
+                      />
+                    </td>
+                    <td align="center">
+                      <AiOutlineInfoCircle className=" cursor-pointer text-white text-lg" />
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

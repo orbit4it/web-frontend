@@ -46,7 +46,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
             </li>
           </ul>
         </header>
-        <main className="max-w-[1440px] 2xl:mx-auto min-h-screen bg-d-primary pt-16 pb-16 pl-5 md:pl-14 pr-5 md:pr-10 text-white ">
+        <main className="max-w-[1440px] 2xl:mx-auto min-h-screen bg-d-primary pt-16 pb-16 pl-5 md:pl-14 pr-5 md:pr-10 text-white">
           {children}
         </main>
       </section>
