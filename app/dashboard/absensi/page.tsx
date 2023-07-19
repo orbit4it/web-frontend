@@ -1,5 +1,5 @@
 'use client';
-import Rating from '@/components/dashboard/Rating';
+import Rating from '@/components/attendecePage/Rating';
 import { useState } from 'react';
 
 interface StarRateType {
