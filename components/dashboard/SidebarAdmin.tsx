@@ -2,7 +2,7 @@
 import Apicall from '@/helper/apicall';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   BsBarChart,
@@ -18,8 +18,6 @@ import {
 import { IoMdClose } from 'react-icons/io';
 import { IoMedalOutline } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
 
 export default function Sidebar() {
   const router = useRouter();
@@ -39,8 +37,6 @@ export default function Sidebar() {
       }
     }
     `);
-
-    // console.log(res);
 
     if (res) {
       router.push('/login');

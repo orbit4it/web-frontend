@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
-import styles from '../../../helper/page.module.css';
 import Apicall from '@/helper/apicall';
 import { showToast } from '@/helper/toaster';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import styles from '../../../helper/page.module.css';
 
 export default function page({ params }: { params: { verify: string } }) {
   const [password, setPassword] = useState('');
@@ -25,8 +25,6 @@ export default function page({ params }: { params: { verify: string } }) {
   }`,
       false
     );
-
-    console.log(res);
 
     if (res) {
       router.push('/login');

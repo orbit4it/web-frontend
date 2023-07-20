@@ -39,8 +39,6 @@ export default function page() {
       false
     );
 
-    // console.log(login);
-
     if (login) {
       const checkRole = await Apicall(`
         {
@@ -61,14 +59,12 @@ export default function page() {
         }
       };
 
-      // console.log(checkRole);
       if (login.errors) {
         updateToast(id, login.errors[0].message, 'error', false, 5000);
         checkUser();
       } else if (login.data.userAuth.accessToken) {
         updateToast(id, 'Login Berhasil', 'success', false, 5000);
         checkUser();
-        console.log(checkRole);
       } else if (login.data.userAuth.error) {
         updateToast(id, login.data.userAuth.error, 'error', false, 5000);
       } else {

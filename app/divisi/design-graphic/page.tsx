@@ -21,7 +21,6 @@ interface GaleryType {
 
 export default function page() {
   const [optionHovered, setOptionHovered] = useState<number>(0);
-  console.log(optionHovered);
 
   const [yearOptions, setYearOptions] = useState<Array<number>>([
     2023, 2022, 2021, 2020,
