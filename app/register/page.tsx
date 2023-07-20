@@ -362,7 +362,7 @@ export default function page() {
                   router.push('/');
                 }}
               >
-                <IoChevronBackOutline className="" />
+                <IoChevronBackOutline size={20} color="white" />
                 <h1 className=" text-sm">Kembali</h1>
               </div>
             </div>
