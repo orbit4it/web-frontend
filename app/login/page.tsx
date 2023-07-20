@@ -11,6 +11,8 @@ import styles from '../../helper/page.module.css';
 import { showToast, updateToast } from '@/helper/toaster';
 import { toast } from 'react-toastify';
 
+axios.defaults.withCredentials = true;
+
 export default function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
