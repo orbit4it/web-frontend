@@ -21,6 +21,7 @@ interface GaleryType {
 
 export default function page() {
   const [optionHovered, setOptionHovered] = useState<number>(0);
+  console.log(optionHovered);
 
   const [yearOptions, setYearOptions] = useState<Array<number>>([
     2023, 2022, 2021, 2020,
@@ -108,7 +109,7 @@ export default function page() {
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
-              className="text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
+              className="mx-auto text-center text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
             >
               DESIGN GRAPHIC
             </motion.h1>
@@ -117,7 +118,7 @@ export default function page() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-sm md:text-base relative mx-auto text-white opacity-50"
+            className="flex text-center gap-1 text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Design
@@ -129,7 +130,7 @@ export default function page() {
               #Visual
             </motion.p>
             <motion.p variants={item} layout="position">
-              #Ilustrasi
+              #Cinematic
             </motion.p>
           </motion.div>
         </div>
@@ -137,11 +138,7 @@ export default function page() {
 
       <section className="w-full md:mt-14 mt-10 md:flex gap-16 px-5">
         <p className="md:w-1/2 text-base text-center md:text-left text-white leading-relaxed">
-          Desain Graphic adalah divisi yang berhubungan dengan seni. Divisi ini
-          menciptakan visual yang dapat menyampaikan pesan menggunakan
-          elemen-elemen grafis seperti gambar, teks, warna, dan bentuk. Ini
-          melibatkan penggunaan kreativitas, keahlian desain, dan teknologi
-          untuk menghasilkan desain yang menarik, fungsional, dan efektif.
+        Desain Graphic adalah divisi yang berhubungan dengan seni. Divisi ini menciptakan visual yang dapat menyampaikan pesan menggunakan elemen-elemen grafis seperti gambar, teks, warna, dan bentuk. Ini melibatkan penggunaan kreativitas, keahlian desain, dan teknologi untuk menghasilkan desain yang menarik, fungsional, dan efektif
         </p>
         <div className="md:w-1/2 md:h-72 mt-8 md:mt-4 md:pt-0 rounded-lg overflow-hidden">
           <Image
@@ -154,7 +151,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#7421DD] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[37rem] lg:h-[90vh]  rounded-2xl mt-10 mb-10 md:mt-20 p-5 md:p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}
@@ -170,7 +167,8 @@ export default function page() {
               className="w-5 cursor-pointer"
             />
           </motion.div>
-          {showYearOptions && (
+
+          {showYearOptions == true && (
             <AnimatePresence>
               <motion.ul
                 layout

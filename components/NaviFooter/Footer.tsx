@@ -20,7 +20,7 @@ const Footer = () => {
     },
     {
       name: 'Cinematography',
-      link: '/divisi/cinematography',
+      link: '/divisi/Cinematography',
     },
     {
       name: 'Graphic Design',

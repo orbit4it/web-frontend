@@ -34,7 +34,7 @@ const GaleryProject: React.FC<GaleryProjectProps> = ({
     >
       <motion.div
         layout="position"
-        className="w-full rounded-full py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-designgraphic before:rounded-full cursor-pointer"
+        className="w-full rounded-full mt-4 lg:mt-0 py-2 px-8 flex gap-8 items-center self-stretch glassmorphism-card-designgraphic before:rounded-full cursor-pointer"
         key={index}
         onClick={() => handleActiveId(index)}
       >

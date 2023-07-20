@@ -1,13 +1,14 @@
 'use client';
-import CredentialsInput from '@/components/loginRegister/CredentialsInput';
+import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
 import { Division } from '@/helper/interfaces';
-import { showToast } from '@/helper/toaster';
+import { updateToast } from '@/helper/toaster';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
+import { toast } from 'react-toastify';
 import styles from '../../helper/page.module.css';
 
 interface KelasProps {
@@ -40,21 +41,27 @@ export default function page() {
   };
 
   const fetching = async () => {
-    const divisions = await Apicall(`
-      query {
-        divisions {
-          id
-          name
-        }
-      }
-    `);
+    const id = toast.loading('Sedang Mengambil Data...');
+    const divisions = await Apicall(
+      `
+          query {
+            divisions {
+              id
+              name
+            }
+          }
+         `,
+      false
+    );
 
     if (divisions) {
       setListDivisions(divisions.data.divisions);
+      updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
     }
-    console.log(listDivisions);
+    // console.log(listDivisions);
 
-    const grades = await Apicall(`
+    const grades = await Apicall(
+      `
           query {
             grades {
               grade
@@ -63,48 +70,66 @@ export default function page() {
               vocational
             }
           }
-         `);
+         `,
+      false
+    );
 
     if (grades) {
       setListKelas(grades.data.grades);
+      updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
     }
   };
 
   const postData = async () => {
+    const id = toast.loading('Loading...');
     if (divisi == 0) {
-      showToast('Silahkan Pilih divisi', 'warning');
+      updateToast(id, 'Silahkan Pilih divisi', 'warning', false, 3000);
       return;
     }
 
     if (kelas == 0) {
-      showToast('Silahkan Pilih kelas', 'warning');
+      updateToast(id, 'Silahkan Pilih kelas', 'warning', false, 3000);
       return;
     }
 
-    const post = await Apicall(`
-    mutation {
-      createUserPending (
-        userPending:{
-          name: "${nama}", 
-          email: "${email}", 
-          motivation: "${motivasi}", 
-          nis: "${nis}", 
-          divisionId: ${divisi}, 
-          gradeId: ${kelas}
-      }
-  ) {
-    ... on Success {message}
-    ... on Error {error}
-  }
-}`);
+    const post = await Apicall(
+      `mutation {
+        createUserPending (
+          userPending:{
+            name: "${nama}", 
+            email: "${email}", 
+            motivation: "${motivasi}", 
+            nis: "${nis}", 
+            divisionId: ${divisi}, 
+            gradeId: ${kelas}
+        }
+    )   {
+      ... on Success {message}
+      ... on Error {error}
+    }
+  }`,
+      false
+    );
 
     if (post.data) {
       if (post.data.createUserPending) {
         if (post.data.createUserPending.message) {
-          showToast(post.data.createUserPending.message, 'success');
+          updateToast(
+            id,
+            post.data.createUserPending.message,
+            'success',
+            false,
+            5000
+          );
           router.push(`register/waiting?nama=${nama}`);
         } else if (post.data.createUserPending.error) {
-          showToast(post.data.createUserPending.error, 'danger');
+          updateToast(
+            id,
+            post.data.createUserPending.error,
+            'error',
+            false,
+            5000
+          );
         }
       }
     }

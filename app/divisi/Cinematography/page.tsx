@@ -87,6 +87,7 @@ export default function page() {
 
   const mapYearOptions = yearOptions.map((year) => (
     <Option
+      textSize={'text-sm'}
       key={year}
       value={year}
       handleHovered={setOptionHovered}
@@ -111,7 +112,7 @@ export default function page() {
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
-              className="text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
+              className="mx-auto text-center text-3xl md:text-4xl font-bold opacity-30 text-white relative top-0 bottom-0 md:static"
             >
               CINEMATOGRAPHY
             </motion.h1>
@@ -120,7 +121,7 @@ export default function page() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex gap-1 text-base relative mx-auto text-white opacity-50"
+            className="flex text-center gap-1 text-base relative mx-auto text-white opacity-50"
           >
             <motion.p variants={item} layout="position">
               #Seni
@@ -156,7 +157,7 @@ export default function page() {
         </div>
       </section>
 
-      <section className="w-full h-[70vh] md:h-[90vh] rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
+      <section className="w-full h-[40rem] lg:h-[90vh]  rounded-2xl mt-10 md:mt-20 p-5 md:p-10 bg-[#5221DD4D] flex flex-col gap-6 items-start overflow-hidden  relative">
         <motion.div
           layout="size"
           style={{ borderRadius: '12px' }}

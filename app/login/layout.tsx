@@ -1,5 +1,8 @@
 import { Metadata } from 'next';
 import { ToastContainer } from 'react-toastify';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 export const metadata: Metadata = {
   title: 'Login',

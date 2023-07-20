@@ -51,3 +51,7 @@
   );
 }
 
+.hiddenInnerButton::-webkit-inner-spin-button,
+.custom-number-input::-webkit-outer-spin-button {
+  display: none;
+}
