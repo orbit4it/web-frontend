@@ -10,6 +10,8 @@ import { IoChevronBackOutline } from 'react-icons/io5';
 import { toast } from 'react-toastify';
 import styles from '../../helper/page.module.css';
 
+axios.defaults.withCredentials = true;
+
 export default function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
