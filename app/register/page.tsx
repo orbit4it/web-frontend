@@ -150,7 +150,7 @@ export default function page() {
 
   useEffect(() => {
     handleMotivasiColor();
-  }, [motivasi]);
+  }, []);
 
   const halfData = [
     {
