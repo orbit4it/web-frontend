@@ -3,7 +3,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 WORKDIR /app
 
-COPY package*.json /app
+COPY package*.json /app/
 RUN npm add sharp
 RUN npm ci
 
