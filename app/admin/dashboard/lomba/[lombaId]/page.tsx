@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Fragment, useState } from 'react';
 import { AiOutlineClockCircle, AiOutlineRight } from 'react-icons/ai';
 import { BsCurrencyDollar, BsInstagram, BsTelephone, BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
-import EditLomba from '@/components/dashboard/EditLomba'
+import EditLomba from '@/components/dashboard/TambahLomba'
 
 export default function page() {
   const [showEdit, setShowEdit] = useState(false)

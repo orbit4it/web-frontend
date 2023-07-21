@@ -7,9 +7,9 @@ import { Fragment, useState } from 'react';
 import { AiOutlineClockCircle, AiOutlineRight } from 'react-icons/ai';
 //import { BsCurrencyDollar, BsInstagram, BsTelephone, BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
 import { IoIosAdd } from 'react-icons/io'
-import EditLomba from '@/components/dashboard/EditLomba'
+import TambahLomba from '@/components/dashboard/TambahLomba'
 import dummyHTML from '@/public/assets/img/learnHTML.png'
-import Poster from '@/public/assets/img/Poster.png'
+//import Poster from '@/public/assets/img/Poster.png'
 import { BsFillTrashFill } from 'react-icons/bs'
 
 export default function page() {
@@ -112,7 +112,7 @@ export default function page() {
           
         </div>
       </section>
-      {showEdit && <EditLomba closeEdit={setShowEdit}/>}
+      {showEdit && <TambahLomba closeEdit={setShowEdit}/>}
       </Fragment>
       
       

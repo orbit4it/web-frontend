@@ -6,7 +6,7 @@ import { BsTelephone } from 'react-icons/bs'
 import Link from 'next/link'
 
 
-const EditLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) => {
+const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) => {
 
   const [lombaTitle, setLombaTitle] = useState<string>()
   const [lombaDate, setLombaDate] = useState<string>()
@@ -169,4 +169,4 @@ const EditLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) => 
   )
 }
 
-export default EditLomba
+export default TambahLomba
