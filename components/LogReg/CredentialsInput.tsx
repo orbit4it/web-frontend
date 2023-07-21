@@ -12,6 +12,8 @@ interface CredentialsInputProps {
   onchange: (value: string) => void;
 }
 
+console.log('test');
+
 const CredentialsInput: React.FC<CredentialsInputProps> = ({
   classname,
   type,
