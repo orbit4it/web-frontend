@@ -1,0 +1,32 @@
+.recent-subjects {
+  @apply pb-5 md:pb-10 px-7;
+}
+
+.recent-subjects .swiper-pagination {
+  position: absolute !important;
+  bottom: 0 !important;
+}
+.recent-subjects .swiper-pagination-bullet {
+  @apply w-2 h-2 bg-gray-300 rounded-full mt-5 transition-all duration-300;
+}
+
+.recent-subjects .swiper-pagination-bullet-active {
+  @apply bg-secondary w-2.5 h-2.5;
+}
+
+.recent-subjects .swiper-button-next {
+  @apply w-10 h-10 rounded-full bg-black/70;
+}
+.recent-subjects .swiper-button-prev {
+  @apply w-10 h-10 rounded-full bg-black/70;
+}
+.recent-subjects .swiper-button-disabled {
+  opacity: 0 !important;
+}
+
+.recent-subjects .swiper-button-next:after {
+  display: none;
+}
+.recent-subjects .swiper-button-prev:after {
+  display: none;
+}

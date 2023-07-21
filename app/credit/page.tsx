@@ -1,7 +1,7 @@
 'use client';
 import NavbarMobile from '@/components/NavbarMobile';
-import Footer from '@/components/navFoot/Footer';
-import Navbar from '@/components/navFoot/Navbar';
+import Footer from '@/components/NaviFooter/Footer';
+import Navbar from '@/components/NaviFooter/Navbar';
 import AwanAtas from '@/public/assets/credit/awan_atas.png';
 import AwanBawah from '@/public/assets/credit/awan_bawah.png';
 import Github from '@/public/assets/credit/github.png';
@@ -35,34 +35,28 @@ const page = () => {
   ];
 
   const uiux = [
-    { nama: 'Nizar Nashiruddin', ig: '@nezarika', github: '' },
-    { nama: 'Raihana Aisha Az-Zahra', ig: '@b4cterya', github: 'raihanaioo' },
-    { nama: 'Idnu Fuad Adnani', ig: '@idnufuad', github: '' },
     {
-      nama: 'Anugrah Muhammad Arafah',
-      ig: '@anuga_arsha',
-      github: 'Arsha8Anuga',
+      nama: 'Ghazi Adila Ghifari',
+      ig: '@irafialdia',
+      github: 'reinaldia',
     },
     {
       nama: 'Azarel Lazuardi Aditya',
       ig: '@zareladitya',
       github: '',
     },
+    { nama: 'Idnu Fuad Adnani', ig: '@idnufuad', github: '' },
     {
-      nama: 'Ghazi Adila Ghifari',
-      ig: '@irafialdia',
-      github: 'reinaldia',
+      nama: 'Anugrah Muhammad Arafah',
+      ig: '@anuga_arsha',
+      github: 'Arsha8Anuga',
     },
+    { nama: 'Nizar Nashiruddin', ig: '@nezarika', github: '' },
+    { nama: 'Raihana Aisha Az-Zahra', ig: '@b4cterya', github: 'raihanaioo' },
   ];
 
   const fe = [
     { nama: 'M Sutan Mico Febrian', ig: '@mico_feb', github: '@mico_feb' },
-    {
-      nama: 'Rievan Rival Nur Triana',
-      ig: '@reyvan_sr_my',
-      github: '@ReyvanMacros',
-    },
-    { nama: 'Hasnat Ferdiananda', ig: '@hasnat5', github: '@hasnat5_' },
     {
       nama: 'Luqman Amirullah',
       ig: '@luqmanamirullah',
@@ -70,6 +64,12 @@ const page = () => {
     },
     { nama: 'M. Arsal Nawfal Ali', ig: '@raldelrey', github: '@kanaee-cloud' },
     { nama: 'Herlangga Maulani', ig: '@herlanggamaul_', github: '@k0valskia' },
+    {
+      nama: 'Rievan Rival Nur Triana',
+      ig: '@reyvan_sr_my',
+      github: '@ReyvanMacros',
+    },
+    { nama: 'Hasnat Ferdiananda', ig: '@hasnat5', github: '@hasnat5_' },
   ];
 
   const be = [

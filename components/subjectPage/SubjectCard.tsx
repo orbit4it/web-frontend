@@ -1,15 +1,24 @@
-import { MateriCardProps } from '@/helper/interfaces';
-import React from 'react';
-import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
-import { MdKeyboardArrowRight } from 'react-icons/md';
 import Image from 'next/image';
-
-const MateriCard: React.FC<MateriCardProps> = ({
-  judul,
-  publisher,
-  waktu,
-  img,
+import Link from 'next/link';
+import React from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
+import { twMerge } from 'tailwind-merge';
+interface MateriCardProps {
+  classname?: string;
+  title: string;
+  speaker: string;
+  createdAt: string;
+  cover: string;
+  desc: string;
+  textLink: string;
+  link: string;
+  alt: string;
+}
+const SubjectCard: React.FC<MateriCardProps> = ({
+  title,
+  speaker,
+  createdAt,
+  cover,
   desc,
   textLink,
   classname,
@@ -25,7 +34,7 @@ const MateriCard: React.FC<MateriCardProps> = ({
     >
       <div className=" block md:hidden p-5">
         <Image
-          src={img}
+          src={cover}
           width={500}
           height={270}
           alt={alt}
@@ -33,16 +42,16 @@ const MateriCard: React.FC<MateriCardProps> = ({
         />
       </div>
       <div className="pt-2 px-5 pb-5 md:p-5">
-        <h1 className=" text-sm md:text-xl font-semibold">{judul}</h1>
+        <h1 className=" text-sm md:text-xl font-semibold">{title}</h1>
         <div className=" flex items-center gap-2">
-          <p className=" text-xs md:text-[16px] font-semibold">{publisher} </p>
+          <p className=" text-xs md:text-[16px] font-semibold">{speaker} </p>
           <div className=" w-1 h-1 bg-[#F0C93F] rounded-full mt-1"></div>
-          <p className=" text-xs md:text-[16px] font-medium">{waktu}</p>
+          <p className=" text-xs md:text-[16px] font-medium">{createdAt}</p>
         </div>
         <p className=" py-3 md:py-5 text-xs md:text-[15px] font-medium text-[#DFDFDF]">
           {desc}
         </p>
-        <Link href={link + `?leason=${judul}`}>
+        <Link href={link + `?leason=${title}`}>
           <div className=" text-xs md:text-lg bg-darkBlue rounded-2xl py-2 px-3 w-full flex items-center justify-between border-white border-[1px] cursor-pointer">
             {textLink}
             <MdKeyboardArrowRight className=" text-lg" />
@@ -50,10 +59,16 @@ const MateriCard: React.FC<MateriCardProps> = ({
         </Link>
       </div>
       <div className=" hidden md:block">
-        <Image src={img} width={500} height={270} alt={alt} className=" ml-1" />
+        <Image
+          src={cover}
+          width={500}
+          height={270}
+          alt={alt}
+          className=" ml-1"
+        />
       </div>
     </div>
   );
 };
 
-export default MateriCard;
+export default SubjectCard;

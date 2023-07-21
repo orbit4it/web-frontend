@@ -1,6 +1,14 @@
-import { CardLandingProps } from '@/helper/interfaces';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+
+interface CardLandingProps {
+  judul: string;
+  desc: string;
+  cardRef: React.RefObject<HTMLDivElement>;
+  classname: string;
+  judulClassname: string;
+  descClassname: string;
+}
 
 const CardLanding: React.FC<CardLandingProps> = ({
   judul,

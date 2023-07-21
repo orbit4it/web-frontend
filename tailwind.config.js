@@ -38,6 +38,11 @@ module.exports = {
         cardDashboard: '#262B49',
         darkBlue: '#1A1944',
         cardMateri: 'rgba(109, 221, 214, 0.72)',
+        'web-dev': '#54FFC1',
+        'game-dev': '#F330FF',
+        'design-graphic': '#812DFF',
+        cinematography: '#643AFF',
+        'it-support': '#FF3131',
       },
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],

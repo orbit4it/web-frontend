@@ -1,7 +1,10 @@
 import React from 'react';
 import { RiStarSFill, RiStarSLine } from 'react-icons/ri';
-import { RatingStarsProps } from '@/helper/interfaces';
 
+interface RatingStarsProps {
+  rating: number;
+  onChangeRating: (rating: number) => void;
+}
 const RatingStars: React.FC<RatingStarsProps> = ({
   rating,
   onChangeRating,

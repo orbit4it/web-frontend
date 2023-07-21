@@ -84,6 +84,7 @@ export default function page() {
 
   const mapYearOptions = yearOptions.map((year) => (
     <Option
+      textSize={'text-sm'}
       key={year}
       value={year}
       handleHovered={setOptionHovered}
@@ -96,12 +97,8 @@ export default function page() {
   return (
     <>
       <header className="w-max md:flex items-center mx-auto pt-0 md:mx-0 md:gap-2 md:static">
-        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] md:static glassmorphism-designgraphic before:rounded-full">
-          <Image
-            src={Logo}
-            alt="Logo"
-            className="flex relative items-center mx-auto"
-          />
+        <div className="w-24 h-24 rounded-full relative -top-10 md:top-0 flex items-center mx-auto glassmorphism-designgraphic before:rounded-full ">
+          <Image src={Logo} alt="Logo" className="flex items-center mx-auto" />
         </div>
         <div>
           <div className="h-max overflow-hidden">
@@ -137,7 +134,11 @@ export default function page() {
 
       <section className="w-full md:mt-14 mt-10 md:flex gap-16 px-5">
         <p className="md:w-1/2 text-base text-center md:text-left text-white leading-relaxed">
-        Desain Graphic adalah divisi yang berhubungan dengan seni. Divisi ini menciptakan visual yang dapat menyampaikan pesan menggunakan elemen-elemen grafis seperti gambar, teks, warna, dan bentuk. Ini melibatkan penggunaan kreativitas, keahlian desain, dan teknologi untuk menghasilkan desain yang menarik, fungsional, dan efektif
+          Desain Graphic adalah divisi yang berhubungan dengan seni. Divisi ini
+          menciptakan visual yang dapat menyampaikan pesan menggunakan
+          elemen-elemen grafis seperti gambar, teks, warna, dan bentuk. Ini
+          melibatkan penggunaan kreativitas, keahlian desain, dan teknologi
+          untuk menghasilkan desain yang menarik, fungsional, dan efektif
         </p>
         <div className="md:w-1/2 md:h-72 mt-8 md:mt-4 md:pt-0 rounded-lg overflow-hidden">
           <Image

@@ -1,14 +1,17 @@
 'use client';
-import CredentialsInput from '@/components/loginRegister/CredentialsInput';
+import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
-import { showToast } from '@/helper/toaster';
+import { updateToast } from '@/helper/toaster';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
+import { toast } from 'react-toastify';
 import styles from '../../helper/page.module.css';
+
+axios.defaults.withCredentials = true;
 
 export default function page() {
   const [email, setEmail] = useState('');
@@ -21,11 +24,10 @@ export default function page() {
     setPassword(e);
   };
 
-  // console.log(email);
-  // console.log(password);
-
   const fetch = async () => {
-    const login = await Apicall(` 
+    const id = toast.loading('Please wait...');
+    const login = await Apicall(
+      ` 
     {
         userAuth(email: "${email}",
          password: "${password}"
@@ -33,16 +35,14 @@ export default function page() {
         ... on Token {accessToken}
         ... on Error {error}
       }   
-    }`);
+    }`,
+      false
+    );
 
-    console.log(login);
+    // console.log(login);
 
     if (login) {
-      if (login.data.userAuth.accessToken) {
-        axios.defaults.headers.common.Authorization = `Bearer ${login.data.userAuth.accessToken}`;
-        showToast('Login Berhasil', 'success');
-
-        const checkRole = await Apicall(`
+      const checkRole = await Apicall(`
         {
            me {
             role
@@ -50,15 +50,29 @@ export default function page() {
         }
         `);
 
-        if (checkRole.data.me.role == 'admin') {
-          router.push('/dashboard/admin');
+      const checkUser = () => {
+        if (
+          checkRole.data.me.role == 'admin' ||
+          checkRole.data.me.role == 'superadmin'
+        ) {
+          router.push('/admin/dashboard');
         } else {
           router.push('/dashboard');
         }
+      };
 
+      // console.log(checkRole);
+      if (login.errors) {
+        updateToast(id, login.errors[0].message, 'error', false, 5000);
+        checkUser();
+      } else if (login.data.userAuth.accessToken) {
+        updateToast(id, 'Login Berhasil', 'success', false, 5000);
+        checkUser();
         console.log(checkRole);
-      } else if (login.data.userAuth.error.error) {
-        showToast(login.data.userAuth.error.error, 'danger');
+      } else if (login.data.userAuth.error) {
+        updateToast(id, login.data.userAuth.error, 'error', false, 5000);
+      } else {
+        updateToast(id, login.errors[0].message, 'error', false, 5000);
       }
     }
   };
@@ -129,7 +143,7 @@ export default function page() {
             router.back();
           }}
         >
-          <IoChevronBackOutline className=" mt-[2px]" />
+          <IoChevronBackOutline size={20} color="white" />
           <h1 className=" text-sm">Kembali</h1>
         </div>
       </div>

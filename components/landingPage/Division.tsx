@@ -1,4 +1,3 @@
-import { DivisionProps } from '@/helper/interfaces';
 import Image from 'next/image';
 import React from 'react';
 import { EffectCoverflow, Navigation, Pagination } from 'swiper';
@@ -9,6 +8,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 // custom swiper css
 import '@/helper/swipers/divisions.css';
+
+interface DivisionProps {
+  image: string;
+  name: string;
+  link: string;
+}
 
 const imageLink = [
   '/assets/img/divisi/WebDev.png',
@@ -37,7 +42,7 @@ const DivisionData = [
   {
     image: '/assets/img/divisi/Cinema.png',
     name: 'Cinematography',
-    link: 'cinematography',
+    link: 'Cinematography',
   },
   {
     image: '/assets/img/divisi/ITSupp.png',
@@ -173,8 +178,8 @@ const Division = () => {
         </div>
         <div className="swiper-button-prev">
           <svg
-            width="70"
-            height="82"
+            width="100%"
+            height="100%"
             viewBox="0 0 70 82"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

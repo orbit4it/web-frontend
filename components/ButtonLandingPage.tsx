@@ -1,9 +1,15 @@
-import { ButtonLandingProps } from '@/helper/interfaces';
 import { motion as m } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
+interface ButtonLandingProps {
+  link: string;
+  title: string;
+  textSize: string;
+  animate: boolean;
+  viewportOnce: boolean;
+}
 const ButtonLandingPage: React.FC<ButtonLandingProps> = ({
   link,
   title,

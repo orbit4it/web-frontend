@@ -1,6 +1,16 @@
-import { CredentialsInputProps } from '@/helper/interfaces';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+
+interface CredentialsInputProps {
+  classname?: string;
+  type: string;
+  placeholder: string;
+  required: boolean;
+  inputClassname?: string;
+  labelText: string;
+  labelClassname?: string;
+  onchange: (value: string) => void;
+}
 
 const CredentialsInput: React.FC<CredentialsInputProps> = ({
   classname,

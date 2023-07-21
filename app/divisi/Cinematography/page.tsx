@@ -7,11 +7,8 @@ import FotoDummy from '@/public/assets/img/FotoDummy.png';
 import Logo from '@/public/assets/logo/Cinema.png';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { FaAngleDown, FaAngleRight, FaYoutube } from 'react-icons/fa';
-import { FreeMode } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useState } from 'react';
+import { FaAngleDown } from 'react-icons/fa';
 import 'swiper/swiper-bundle.css';
 import 'swiper/swiper-bundle.min.css';
 
@@ -87,6 +84,7 @@ export default function page() {
 
   const mapYearOptions = yearOptions.map((year) => (
     <Option
+      textSize={'text-sm'}
       key={year}
       value={year}
       handleHovered={setOptionHovered}
@@ -98,13 +96,9 @@ export default function page() {
   ));
   return (
     <>
-      <header className="w-max md:flex items-center mx-auto pt-0 md:mx-0 md:gap-2 md:static">
-        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] md:static glassmorphism-cinem before:rounded-full">
-          <Image
-            src={Logo}
-            alt="Logo"
-            className="flex relative items-center mx-auto"
-          />
+      <header className="w-max md:flex items-center mx-auto pt-0 md:mx-0 md:gap-2 md:static relative">
+        <div className="w-24 h-24 rounded-full -top-10 md:top-0 relative flex items-center mx-auto  glassmorphism-cinem before:rounded-full">
+          <Image src={Logo} alt="Logo" className="flex items-center mx-auto" />
         </div>
         <div>
           <div className="h-max overflow-hidden">
