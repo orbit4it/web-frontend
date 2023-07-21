@@ -303,3 +303,65 @@
 .radio input[type='radio']:checked ~ div:after {
   transform: translate(-50%, -50%) scale(1);
 }
+
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  border : 1px solid #fff;
+  background: transparent;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 15px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+  color: #262B49;
+  font-weight: 700;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #F330FF;
+  border-left: 1px solid #F330FF;
+  border-right: 1px solid #F330FF;
+  letter-spacing: 0.2em;
+  border-radius: 10px;
+}
+
+.inputBox textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border : 1px solid #fff;
+  background: transparent;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+}
+.inputBox textarea:valid ~ span,
+.inputBox textarea:focus ~ span
+{
+  color: #262B49;
+  font-weight: 700;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #F330FF;
+  border-left: 1px solid #F330FF;
+  border-right: 1px solid #F330FF;
+  letter-spacing: 0.2em;
+  border-radius: 10px;
+}
