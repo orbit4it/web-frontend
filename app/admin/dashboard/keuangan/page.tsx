@@ -33,7 +33,7 @@ export default async function page() {
         <ul className="flex gap-4 items-center route">
           <li>
             <h1 className="text-xs md:text-lg font-semibold md:font-bold">
-              Keuangan
+              Menejemen Keuangan
             </h1>
           </li>
         </ul>
