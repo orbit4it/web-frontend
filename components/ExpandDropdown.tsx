@@ -36,6 +36,7 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
   return (
     <motion.div
       layout="size"
+      transition={{ duration: 0.5, type: 'keyframes' }}
       style={{ borderRadius: '12px' }}
       className={twMerge(
         `absolute  rounded-full py-1 px-4  flex flex-col gap-2 items-start border-[1px]`,
@@ -65,6 +66,7 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
     >
       <motion.div
         layout="position"
+        transition={{ duration: 0.4, type: 'keyframes' }}
         className="w-full flex gap-2 items-center justify-between"
       >
         <p
