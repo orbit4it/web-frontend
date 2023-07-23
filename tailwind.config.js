@@ -21,6 +21,8 @@ module.exports = {
         division: "url('/assets/img/BgHome.png')",
         'bulan-castle': "url('/assets/img/BulanCastle.png')",
         cave: "url('/assets/img/BgCave.png')",
+        lombaBg: "url('/assets/img/AdminLomba.png')",
+        bgJadwal: "url('/assets/img/BgJadwal.png')",
       },
       colors: {
         primary: '#0A013D',
@@ -37,6 +39,7 @@ module.exports = {
         cardDashboard: '#262B49',
         darkBlue: '#1A1944',
         cardMateri: 'rgba(109, 221, 214, 0.72)',
+        darkTrans: 'rgba(0, 0, 0, 0.20)',
       },
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],
