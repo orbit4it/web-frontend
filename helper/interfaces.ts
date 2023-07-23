@@ -144,15 +144,22 @@ export interface GraphDataSet {
   count: number;
 }
 
+export interface FinanceRecaptRes {
+  data: {
+    financeRecapt: FinanceRecapt[];
+  } | null;
+  errors?: Errors[];
+}
+
 export interface FinanceRecapt {
   id: number;
-  type: TransactionType;
+  type: 'Pemasukan' | 'Pengeluaran';
   title: string;
-  desc: string;
-  transactioner: string[];
+  desc: string | null;
+  admin: string;
   count: number;
   createdAt: string;
-  level?: TransactionLevel;
+  level: 'Genting' | 'Penting' | 'Normal' | null;
 }
 
 export interface Leaderboard {
@@ -202,14 +209,14 @@ export enum SourceType {
 }
 
 export enum TransactionType {
-  income = 'income',
-  outcome = 'outcome',
+  pemasukan = 'Pemasukan',
+  pengeluaran = 'Pengeluaran',
 }
 
 export enum TransactionLevel {
-  normal = 'normal',
-  important = 'important',
-  precarious = 'precarious',
+  normal = 'Normal',
+  penting = 'Penting',
+  genting = 'Genting',
 }
 
 export interface Errors {
