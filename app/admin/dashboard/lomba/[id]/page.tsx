@@ -6,15 +6,14 @@ import Link from 'next/link';
 import { Fragment, useState } from 'react';
 import { AiOutlineClockCircle, AiOutlineRight } from 'react-icons/ai';
 import { BsCurrencyDollar, BsInstagram, BsTelephone, BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
-import EditLomba from '@/components/dashboard/TambahLomba'
 
-export default function page() {
-  const [showEdit, setShowEdit] = useState(false)
+export default function page({params}: {params : {id: number}}) {
+  const id = params.id;
 
   return (
     <>
       {/* Route Section */}
-      <Fragment>
+      
       <section>
         <ul className="flex gap-4 items-center route">
           <li>
@@ -41,7 +40,6 @@ export default function page() {
               <div className='flex space-x-2 right-5 left-5'>
               <BsPencilSquare 
                 size={17}
-                onClick={() => setShowEdit(true)}
               />
               <BsFillTrashFill fill="#F43838" size={17}/>
               </div>
@@ -99,8 +97,7 @@ export default function page() {
           />
         </div>
       </section>
-      {showEdit && <EditLomba closeEdit={setShowEdit}/>}
-      </Fragment>
+      
     </>
     
   );

@@ -351,8 +351,7 @@
   color: #fff;
   font-size: 1em;
 }
-.inputBox textarea:valid ~ span,
-.inputBox textarea:focus ~ span
+.inputBox textarea:valid ~ span,.inputBox textarea:focus ~ span
 {
   color: #262B49;
   font-weight: 700;
@@ -364,6 +363,7 @@
   border-right: 1px solid #F330FF;
   letter-spacing: 0.2em;
   border-radius: 10px;
+  }
 .loading {
   width: 200px;
   height: 60px;

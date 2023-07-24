@@ -49,10 +49,10 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
               </div>
               <div className="inputBox relative w-[40%]">
                 <input
-                  type='text'
-                  className=''
-                  required
-                  onChange={(e) => setLombaDate(e.target.value)}
+                  type="date"
+                  name="rangeFrom"
+                  id="rangeFrom"
+                  className="w-36 px-3 py-2 rounded-md bg-[#7585BF] text-white flex gap-2 items-center text-sm font-normal focus:outline-none"
                 />
                 <span>Tanggal Lomba</span>
               </div>
