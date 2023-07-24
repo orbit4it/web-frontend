@@ -1,13 +1,45 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BiSearch } from 'react-icons/bi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaSquareCheck } from 'react-icons/fa6';
 import UserPageLink from '@/components/admin/UserPageLink';
 import { data } from 'autoprefixer';
+import Apicall from '@/helper/apicall';
+import { toast } from 'react-toastify';
+import { updateToast } from '@/helper/toaster';
 
 export default function page() {
+  const [data, setData] = useState([{}]);
+  const id = toast.loading('Mengambil Data...');
+
+  const fetch = async () => {
+    const id = toast.loading('Mengambil Data...');
+    const fetchData = await Apicall(
+      `{
+        pendingUsers {
+        id
+        name
+        email
+        nis
+        gradeId
+        divisionId
+        }
+      },`,
+      true
+    );
+    console.log(fetchData);
+
+    if (fetchData.errors) {
+      updateToast(id, fetchData.errors[0].message, 'error', false, 5000);
+    }
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
   const [rows, setRows] = useState([
     {
       id: 1,

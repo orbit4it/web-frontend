@@ -39,7 +39,7 @@ export default function page() {
       false
     );
 
-    // console.log(login);
+    console.log(login);
 
     if (login) {
       const checkRole = await Apicall(`
@@ -61,7 +61,7 @@ export default function page() {
         }
       };
 
-      // console.log(checkRole);
+      console.log(checkRole);
       if (login.errors) {
         updateToast(id, login.errors[0].message, 'error', false, 5000);
         checkUser();
