@@ -29,8 +29,8 @@ export interface Schedule {
   id: number;
   type: string;
   title: string;
-  start: string | Date;
-  end: string | Date;
+  start: string;
+  end: string;
   location: string;
   subject?: string;
 }
@@ -46,7 +46,7 @@ export interface RecentSubject {
   id: number;
   title: string;
   speaker: string;
-  createdAt: string | Date;
+  createdAt: string;
   description: string;
   author: string;
 }
@@ -66,7 +66,7 @@ export interface Quiz {
   id: number;
   title: string;
   count: number;
-  createdAt: string | Date;
+  createdAt: string;
   questions: Question[];
 }
 
@@ -87,7 +87,7 @@ export interface Comment {
   userName: string;
   userImage: string;
   comment?: string;
-  createdAt: string | Date;
+  createdAt: string;
   rate: number;
 }
 
@@ -99,7 +99,7 @@ export interface Competition {
 
 export interface CompetitionDetail extends Competition {
   author: string;
-  startTime: string | Date;
+  startTime: string;
   paid: boolean;
   price?: number;
   description: string;
@@ -115,11 +115,23 @@ export interface CompetitionSource {
 }
 
 export interface Finance {
-  id: number;
-  graph: FinanceGraph;
   totalIncome: number;
   totalOutcome: number;
   totalBalance: number;
+}
+
+export interface FinanceRes {
+  data: {
+    finance: Finance;
+  } | null;
+  errors?: Errors[];
+}
+
+export interface FinanceGraphRes {
+  data: {
+    graph: FinanceGraph;
+  } | null;
+  errors?: Errors[];
 }
 
 export interface FinanceGraph {
@@ -128,19 +140,26 @@ export interface FinanceGraph {
 }
 
 export interface GraphDataSet {
-  time: string | Date;
+  time: string;
   count: number;
+}
+
+export interface FinanceRecaptRes {
+  data: {
+    financeRecapt: FinanceRecapt[];
+  } | null;
+  errors?: Errors[];
 }
 
 export interface FinanceRecapt {
   id: number;
-  type: TransactionType;
+  type: 'Pemasukan' | 'Pengeluaran';
   title: string;
-  desc: string;
-  transactioner: string[];
+  desc: string | null;
+  admin: string;
   count: number;
-  createdAt: string | Date;
-  level?: TransactionLevel;
+  createdAt: string;
+  level: 'Genting' | 'Penting' | 'Normal' | null;
 }
 
 export interface Leaderboard {
@@ -190,12 +209,18 @@ export enum SourceType {
 }
 
 export enum TransactionType {
-  income = 'income',
-  outcome = 'outcome',
+  pemasukan = 'Pemasukan',
+  pengeluaran = 'Pengeluaran',
 }
 
 export enum TransactionLevel {
-  normal = 'normal',
-  important = 'important',
-  precarious = 'precarious',
+  normal = 'Normal',
+  penting = 'Penting',
+  genting = 'Genting',
+}
+
+export interface Errors {
+  message: string;
+  locations?: any[];
+  path?: string[];
 }

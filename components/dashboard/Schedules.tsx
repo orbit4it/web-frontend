@@ -45,6 +45,7 @@ const Schedules: React.FC<ScheduleComponentProps> = ({
           colorShowed="bg-d-primary"
           position={Positions.topright}
           mapOptions={mapDivisionOptions}
+          size="xl"
           className={`${
             selectedDivision === 'Game Development'
               ? 'border-game-dev'

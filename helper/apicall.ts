@@ -78,7 +78,7 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
     const headers: { [key: string]: string } = {};
 
     if (token) {
-      headers['Authorization'] = 'Bearer ' + token;
+      headers.Authorization = 'Bearer ' + token;
     }
 
     const option = {

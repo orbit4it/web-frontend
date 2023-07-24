@@ -2,7 +2,7 @@
 import Apicall from '@/helper/apicall';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   BsBarChart,
@@ -18,8 +18,6 @@ import {
 import { IoMdClose } from 'react-icons/io';
 import { IoMedalOutline } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
 
 export default function Sidebar() {
   const router = useRouter();
@@ -49,8 +47,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <motion.div
-        layout="position"
+      <div
         className={`w-4/5 md:w-1/5 h-screen ${
           isActive ? 'translate-x-0' : ' -translate-x-[999px]'
         } fixed top-0 left-0 md:translate-x-0 flex flex-col items-center overflow-y-auto  bg-d-secondary pl-3 pr-4 z-50 transition-all duration-150`}
@@ -203,7 +200,7 @@ export default function Sidebar() {
             <p className="text-base font-semibold text-white">Log out</p>
           </button>
         </ul>
-      </motion.div>
+      </div>
       <div
         className={`absolute top-[60px] left-5 block md:hidden text-2xl text-white ${'block'}`}
         onClick={() => setIsActive(true)}

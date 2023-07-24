@@ -1,6 +1,6 @@
 interface Props {
   query: string;
-  variables?: string;
+  variables?: object;
 }
 
 const serverSideFetch = async ({ query, variables }: Props) => {
@@ -16,7 +16,7 @@ const serverSideFetch = async ({ query, variables }: Props) => {
         query: `
           ${query}
         `,
-        variants: variables ? variables : {},
+        variables: variables ? variables : {},
       }),
     }).then((data) => data.json());
 

@@ -10,7 +10,7 @@ interface OptionProps {
   handleHovered: (value: any) => void;
   handleSelected: (value: any) => void;
   handleShowed: (value: boolean) => void;
-  textSize: string | null;
+  textSize?: 'text-xs' | 'text-sm' | 'text-base' | 'text-lg' | 'text-xl';
 }
 
 const Option: React.FC<OptionProps> = ({
@@ -37,7 +37,14 @@ const Option: React.FC<OptionProps> = ({
     >
       <motion.p
         style={{ color: value == selectedValue ? '#EE2ED1' : 'white' }}
-        className={twMerge(textSize, 'text-white cursor-pointer')}
+        className={twMerge(
+          textSize == 'text-xs'
+            ? 'text-xs xl:text-sm'
+            : textSize == 'text-sm'
+            ? 'text-sm xl:text-base'
+            : textSize,
+          'text-white cursor-pointer'
+        )}
       >
         {value}
       </motion.p>
