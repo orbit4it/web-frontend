@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose = () => {} }) => {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            exit={{ scale: 1 }}
+            exit={{ scale: 0 }}
             transition={{
               duration: 0.5,
               type: 'spring',

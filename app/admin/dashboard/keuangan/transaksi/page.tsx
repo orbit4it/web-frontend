@@ -1,15 +1,18 @@
 'use client';
 
+import AddUpdate from '@/components/financePage/AddUpdate';
 import Pin from '@/components/financePage/Pin';
 import TableTransactions from '@/components/financePage/TableTransactions';
-import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaAngleRight } from 'react-icons/fa';
 
-export default async function page() {
-  const [showPin, setShowPin] = useState<boolean>(true);
+export default function page() {
+  const [showPin, setShowPin] = useState<boolean>(false);
+  const [showEdit, setShowEdit] = useState<boolean>(true);
+  const [showAdd, setShowAdd] = useState<boolean>(false);
+
   console.log(showPin);
   const handleEdit = (id: number) => {
     console.log('edit', id);
@@ -17,20 +20,20 @@ export default async function page() {
 
   const handleDelete = (id: number) => {
     console.log('delete', id);
+    setShowPin(true);
   };
   return (
     <>
       {showPin && (
-        <AnimatePresence>
-          <Pin
-            onClose={() => setShowPin(false)}
-            onConfirm={(pin: string) => {
-              console.log(pin);
-              // setShowPin(false);
-            }}
-          />
-        </AnimatePresence>
+        <Pin
+          setShow={setShowPin}
+          onConfirm={(pin: string) => {
+            console.log(pin);
+            setShowPin(false);
+          }}
+        />
       )}
+      {showEdit && <AddUpdate />}
       {/* Route Section */}
       <header className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">
