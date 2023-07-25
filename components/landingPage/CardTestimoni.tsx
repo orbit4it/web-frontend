@@ -1,15 +1,20 @@
-import { TestimoniProps } from '@/helper/interfaces';
 import Image from 'next/image';
 import React from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // custom swiper css
 import '@/helper/swipers/feedback.css';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+interface TestimoniProps {
+  image: string;
+  name: string;
+  honor: string;
+  message: string;
+}
 
 const TestimoniData = [
   {

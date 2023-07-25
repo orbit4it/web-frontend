@@ -12,7 +12,16 @@ export default function page() {
         </ul>
       </section>
       {/* Another Content */}
-      <section className="mt-4"></section>
+      <section className="mt-4 h-[70vh] max-h-[1800px] flex flex-col justify-center items-center">
+        <div className="loading ">
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="shadow"></div>
+          <div className="shadow"></div>
+          <div className="shadow"></div>
+        </div>
+      </section>
     </>
   );
 }

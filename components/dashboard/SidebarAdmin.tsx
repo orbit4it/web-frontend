@@ -1,4 +1,5 @@
 'use client';
+import Apicall from '@/helper/apicall';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,10 +18,35 @@ import {
 import { IoMdClose } from 'react-icons/io';
 import { IoMedalOutline } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export default function Sidebar() {
+  const router = useRouter();
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
+
+  const Logout = async () => {
+    const res = await Apicall(`
+    {
+      userLogout {
+        ... on Success {
+          message
+      }
+         ... on Error {
+          error
+       }
+      }
+    }
+    `);
+
+    // console.log(res);
+
+    if (res) {
+      router.push('/login');
+    }
+  };
+
   return (
     <>
       <motion.div
@@ -82,7 +108,11 @@ export default function Sidebar() {
                   ? '33.3333333333%'
                   : pathname.startsWith('/admin/dashboard/leaderboard')
                   ? '44.4444444444%'
-                  : pathname.startsWith('/admin/dashboard/user')
+                  : pathname.startsWith('/admin/dashboard/user/anggota')
+                  ? '55.5555555555%'
+                  : pathname.startsWith('/admin/dashboard/user/calon')
+                  ? '55.5555555555%'
+                  : pathname.startsWith('/admin/dashboard/user/tambah')
                   ? '55.5555555555%'
                   : pathname.startsWith('/admin/dashboard/lomba')
                   ? '66.6666666666%'
@@ -140,7 +170,7 @@ export default function Sidebar() {
             <BsPeople size={20} color="white" />
             <Link
               onClick={() => setIsActive(false)}
-              href={'/admin/dashboard/user'}
+              href={'/admin/dashboard/user/anggota'}
             >
               User
             </Link>
@@ -163,7 +193,12 @@ export default function Sidebar() {
               Proyek
             </Link>
           </li>
-          <button className="w-full h-[11.1111111111%]  flex gap-5 items-center pl-4 py-2 ">
+          <button
+            className="w-full h-[11.1111111111%]  flex gap-5 items-center pl-4 py-2 "
+            onClick={(e) => {
+              Logout();
+            }}
+          >
             <BsBoxArrowInLeft size={20} color="white" />
             <p className="text-base font-semibold text-white">Log out</p>
           </button>

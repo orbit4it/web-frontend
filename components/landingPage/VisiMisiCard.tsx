@@ -1,8 +1,19 @@
-import { VisiMisiProps } from '@/helper/interfaces';
 import { motion as m } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+
+interface VisiMisiProps {
+  classname?: string;
+  img: string;
+  alt: string;
+  imgWidth: number;
+  imgHeight: number;
+  imgClassname?: string;
+  judul: string;
+  desc: string;
+  misi: boolean;
+}
 
 const VisiMisiCard: React.FC<VisiMisiProps> = ({
   classname,

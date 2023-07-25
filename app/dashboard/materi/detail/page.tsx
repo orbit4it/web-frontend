@@ -1,12 +1,11 @@
 'use client';
-import React, { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { MdKeyboardArrowRight } from 'react-icons/md';
+import Comments from '@/components/subjectPage/Comments';
+import RatingStars from '@/components/subjectPage/RatingStars';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 import { HiDownload } from 'react-icons/hi';
-import { RiStarSLine } from 'react-icons/ri';
-import Comments from '@/components/dashboard/Comments';
-import RatingStars from '@/components/dashboard/RatingStars';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 export default function page() {
   const searchParams = useSearchParams();

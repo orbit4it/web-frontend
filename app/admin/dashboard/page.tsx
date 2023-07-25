@@ -3,16 +3,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, ChangeEvent } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
-import Anggota from '@/public/assets/img/anggota.png';
+import Anggota from '@/public/assets/icons/anggota.png';
 import RecentLomba from '@/public/assets/img/AdminLomba.png';
+import Schedules from '@/components/admin/DashboardSchedule';
+import getSchedules from '@/api/getSchedules';
 
-export default function page() {
+export default async function page() {
   const [currentItem, setCurrentItem] = useState(0);
   const [text, setText] = useState('');
   const [judulPertemuan, setJudulPertemuan] = useState('');
   const [deskripsi, setDeskripsi] = useState('');
   const [token, setToken] = useState('');
   const maxLength = 300;
+
+  const schedules = await getSchedules();
 
   const item = [
     {
@@ -184,7 +188,7 @@ export default function page() {
         </div>
         <div className="w-full">
           <div className="py-5 px-7 mt-3 md:mt-0 bg-profileCard rounded-[15px] shadow-md h-[404px]">
-            kalender
+            <Schedules schedules={schedules} divisionOptions={[]} />
           </div>
           <div className="mt-3 bg-profileCard rounded-[15px] shadow-md">
             <div className="pt-5 px-7 flex items-center justify-between mb-8">

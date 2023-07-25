@@ -1,7 +1,18 @@
 import { item } from '@/helper/animate';
-import { OptionProps } from '@/helper/interfaces';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
+
+interface OptionProps {
+  value: any;
+  selectedValue: any;
+  optionHovered: any;
+  handleHovered: (value: any) => void;
+  handleSelected: (value: any) => void;
+  handleShowed: (value: boolean) => void;
+  textSize?: 'text-xs' | 'text-sm' | 'text-base' | 'text-lg' | 'text-xl';
+}
+
 const Option: React.FC<OptionProps> = ({
   value,
   handleHovered,
@@ -9,13 +20,14 @@ const Option: React.FC<OptionProps> = ({
   handleShowed,
   selectedValue,
   optionHovered,
+  textSize = 'text-base',
 }) => {
   return (
     <motion.li
       variants={item}
       layout="position"
       onMouseEnter={() => handleHovered(value)}
-      onMouseLeave={() => handleHovered(0)}
+      onMouseLeave={() => handleHovered(null)}
       onClick={() => {
         handleSelected(value);
         handleShowed(false);
@@ -25,7 +37,14 @@ const Option: React.FC<OptionProps> = ({
     >
       <motion.p
         style={{ color: value == selectedValue ? '#EE2ED1' : 'white' }}
-        className=" text-base text-white cursor-pointer"
+        className={twMerge(
+          textSize == 'text-xs'
+            ? 'text-xs xl:text-sm'
+            : textSize == 'text-sm'
+            ? 'text-sm xl:text-base'
+            : textSize,
+          'text-white cursor-pointer'
+        )}
       >
         {value}
       </motion.p>
