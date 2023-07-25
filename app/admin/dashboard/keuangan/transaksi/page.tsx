@@ -1,13 +1,36 @@
 'use client';
 
+import Pin from '@/components/financePage/Pin';
 import TableTransactions from '@/components/financePage/TableTransactions';
+import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaAngleRight } from 'react-icons/fa';
 
 export default async function page() {
+  const [showPin, setShowPin] = useState<boolean>(true);
+  console.log(showPin);
+  const handleEdit = (id: number) => {
+    console.log('edit', id);
+  };
+
+  const handleDelete = (id: number) => {
+    console.log('delete', id);
+  };
   return (
     <>
+      {showPin && (
+        <AnimatePresence>
+          <Pin
+            onClose={() => setShowPin(false)}
+            onConfirm={(pin: string) => {
+              console.log(pin);
+              // setShowPin(false);
+            }}
+          />
+        </AnimatePresence>
+      )}
       {/* Route Section */}
       <header className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">
@@ -74,7 +97,7 @@ export default async function page() {
               Reset
             </button>
           </header>
-          <TableTransactions />
+          <TableTransactions onEdit={handleEdit} onDelete={handleDelete} />
         </section>
       </main>
     </>
