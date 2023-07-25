@@ -10,9 +10,15 @@ import Elipisis from '../Elipisis';
 import ErrorText from '../ErrorText';
 import OrderBy from '../OrderBy';
 
-type TableTransactionsProps = {};
+type TableTransactionsProps = {
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
+};
 
-const TableTransactions: React.FC<TableTransactionsProps> = () => {
+const TableTransactions: React.FC<TableTransactionsProps> = ({
+  onEdit,
+  onDelete,
+}) => {
   // state
   const [error, setError] = useState<Errors>();
   const [transaction, setTransaction] = useState<FinanceRecapt[]>([]);
@@ -131,10 +137,16 @@ const TableTransactions: React.FC<TableTransactionsProps> = () => {
                 </td>
                 <td className="px-3  py-5 text-start">
                   <span className="flex items-center justify-center ">
-                    <button className="bg-transparent px-2">
+                    <button
+                      className="bg-transparent px-2"
+                      onClick={() => onEdit(transc.id)}
+                    >
                       <BsPencilSquare size={20} color="white" />
                     </button>
-                    <button className="bg-transparent px-2">
+                    <button
+                      className="bg-transparent px-2"
+                      onClick={() => onDelete(transc.id)}
+                    >
                       <BsTrash3 size={20} className="text-red-600" />
                     </button>
                   </span>
