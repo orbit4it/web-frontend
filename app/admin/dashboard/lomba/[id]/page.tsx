@@ -1,19 +1,49 @@
-"use client"
-
+'use client';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Poster from '@/public/assets/img/Poster.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
 import { AiOutlineClockCircle, AiOutlineRight } from 'react-icons/ai';
-import { BsCurrencyDollar, BsInstagram, BsTelephone, BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
+import {
+  BsCurrencyDollar,
+  BsInstagram,
+  BsTelephone,
+  BsFillTrashFill,
+  BsPencilSquare,
+} from 'react-icons/bs';
 
-export default function page({params}: {params : {id: number}}) {
+export default function page({ params }: { params: { id: number } }) {
   const id = params.id;
+
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
 
   return (
     <>
       {/* Route Section */}
-      
+
       <section>
         <ul className="flex gap-4 items-center route">
           <li>
@@ -37,11 +67,9 @@ export default function page({params}: {params : {id: number}}) {
               <h1 className="text-xl font-bold">
                 Front-end Essentials & Learning Path
               </h1>
-              <div className='flex space-x-2 right-5 left-5'>
-              <BsPencilSquare 
-                size={17}
-              />
-              <BsFillTrashFill fill="#F43838" size={17}/>
+              <div className="flex space-x-2 right-5 left-5">
+                <BsPencilSquare size={17} />
+                <BsFillTrashFill fill="#F43838" size={17} />
               </div>
             </div>
             <p className="text-sm opacity-80 mt-2">Posted by ORBIT&apos;23</p>
@@ -97,8 +125,6 @@ export default function page({params}: {params : {id: number}}) {
           />
         </div>
       </section>
-      
     </>
-    
   );
 }

@@ -1,3 +1,7 @@
+'use client';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Poster from '@/public/assets/img/Poster.png';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -5,6 +9,27 @@ import { AiOutlineClockCircle, AiOutlineRight } from 'react-icons/ai';
 import { BsCurrencyDollar, BsInstagram, BsTelephone } from 'react-icons/bs';
 
 export default function page() {
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
   return (
     <>
       {/* Route Section */}

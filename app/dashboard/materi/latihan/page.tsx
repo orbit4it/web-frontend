@@ -1,4 +1,7 @@
 'use client';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { MdKeyboardArrowRight } from 'react-icons/md';
@@ -8,6 +11,28 @@ import Image from 'next/image';
 export default function page() {
   const searchParams = useSearchParams();
   const [selectedOption, setSelectedOption] = useState('');
+
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
 
   const handleOptionChange = (event: any) => {
     setSelectedOption(event.target.value);

@@ -19,7 +19,7 @@ export default function page({ params }: { params: { verify: string } }) {
       setHandlePass(true);
     }
 
-    console.log(handlePass);
+    // console.log(handlePass);
   };
 
   useEffect(() => {
@@ -44,6 +44,8 @@ export default function page({ params }: { params: { verify: string } }) {
   }`,
       false
     );
+
+    console.log(res);
 
     if (res) {
       if (res.data.createUser.error) {

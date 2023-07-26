@@ -1,4 +1,7 @@
 'use client';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Rating from '@/components/attendecePage/Rating';
 import { useState } from 'react';
 
@@ -15,6 +18,28 @@ export default function page() {
   const [notPresent, setNotPresent] = useState<string>();
   const [isValid, setIsValid] = useState<boolean>();
   const [isSuccess, setIsSuccess] = useState<boolean>();
+
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
 
   const Send = () => {
     const Message = {

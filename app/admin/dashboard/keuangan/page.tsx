@@ -1,11 +1,37 @@
+'use client';
 import getFinance from '@/api/getFinance';
 import ChartSection from '@/components/financePage/ChartSection';
 import { FinanceRes } from '@/helper/interfaces';
 import toIdr from '@/helper/toIdr';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default async function page() {
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
+
   const allTransc: FinanceRes = await getFinance();
 
   // handle error

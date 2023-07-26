@@ -1,10 +1,10 @@
 'use client';
+import Apicall from '@/helper/apicall';
 import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BiSearch } from 'react-icons/bi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import UserPageLink from '@/components/admin/UserPageLink';
-import Apicall from '@/helper/apicall';
 import { toast } from 'react-toastify';
 import { updateToast } from '@/helper/toaster';
 import { CalonUserProps, DetailCalonState } from '@/helper/interfaces';
@@ -13,6 +13,26 @@ import DetailCalon from '@/components/admin/DetailCalon';
 
 export default function page() {
   const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
   const [data, setData] = useState<CalonUserProps[]>([]);
   const [detailCalon, setDetailCalon] = useState<DetailCalonState>({
     division: '',

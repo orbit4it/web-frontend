@@ -1,3 +1,7 @@
+'use client';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BsTelephone, BsInstagram } from 'react-icons/bs';
 import { MdOutlineLocationOn } from 'react-icons/md';
@@ -8,6 +12,28 @@ import styles from '../../../../../helper/page.module.css';
 import Image from 'next/image';
 
 export default function page() {
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
+
   return (
     <>
       {/* Route Section */}

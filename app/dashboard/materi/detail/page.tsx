@@ -1,4 +1,7 @@
 'use client';
+import Apicall from '@/helper/apicall';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Comments from '@/components/subjectPage/Comments';
 import RatingStars from '@/components/subjectPage/RatingStars';
 import Link from 'next/link';
@@ -10,6 +13,28 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 export default function page() {
   const searchParams = useSearchParams();
   const [rating, setRating] = useState(0);
+
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
 
   const handleRatingChange = (newRating: number) => {
     setRating(newRating);
