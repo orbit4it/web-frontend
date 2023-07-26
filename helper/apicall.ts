@@ -63,10 +63,13 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
         }
         }
       `,
-        }
+        },
+        { withCredentials: true }
       );
 
       if (setCookie.data.data.refreshToken.accessToken) {
+        console.log('COKI BARU AJIG');
+        console.log(setCookie);
         token = setCookie.data.data.refreshToken.accessToken;
       } else {
         showToast('Terjadi Kesalahan', 'danger');
@@ -77,7 +80,9 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
 
     const headers: { [key: string]: string } = {};
 
-    if (token) {
+    console.log('TOKEN AJIG');
+    console.log(token);
+    if (refreshToken) {
       headers['Authorization'] = 'Bearer ' + token;
     }
 
@@ -90,7 +95,10 @@ const Apicall = async (query: string, refreshToken: boolean = true) => {
         `,
       },
       headers,
+      withCredentials: true,
     };
+
+    console.log(option);
 
     const response = await axios(option);
 

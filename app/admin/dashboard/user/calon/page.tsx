@@ -3,29 +3,46 @@ import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BiSearch } from 'react-icons/bi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import { FaSquareCheck } from 'react-icons/fa6';
 import UserPageLink from '@/components/admin/UserPageLink';
-import { data } from 'autoprefixer';
 import Apicall from '@/helper/apicall';
 import { toast } from 'react-toastify';
 import { updateToast } from '@/helper/toaster';
+import { CalonUserProps, DetailCalonState } from '@/helper/interfaces';
+import { useRouter } from 'next/navigation';
+import DetailCalon from '@/components/admin/DetailCalon';
 
 export default function page() {
-  const [data, setData] = useState([{}]);
-  const id = toast.loading('Mengambil Data...');
+  const router = useRouter();
+  const [data, setData] = useState<CalonUserProps[]>([]);
+  const [detailCalon, setDetailCalon] = useState<DetailCalonState>({
+    division: '',
+    email: '',
+    grade: '',
+    name: '',
+    nis: '',
+    motivasi: '',
+  });
+  const [showDetail, setShowDetail] = useState<boolean>(false);
 
   const fetch = async () => {
     const id = toast.loading('Mengambil Data...');
     const fetchData = await Apicall(
       `{
         pendingUsers {
-        id
-        name
-        email
-        nis
-        gradeId
-        divisionId
-        }
+    id
+    name
+    email
+    nis
+    grade {
+      id
+      name
+    }
+    division {
+      id
+      name
+    }
+    motivation
+  }
       },`,
       true
     );
@@ -33,64 +50,109 @@ export default function page() {
 
     if (fetchData.errors) {
       updateToast(id, fetchData.errors[0].message, 'error', false, 5000);
+    } else if (fetchData) {
+      setData(fetchData.data.pendingUsers);
+      updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
     }
+    // console.log(data);
   };
 
   useEffect(() => {
     fetch();
   }, []);
 
-  const [rows, setRows] = useState([
-    {
-      id: 1,
-      noPen: 2121212,
-      nama: 'Dimas Ukin',
-      email: 'Dimas@gmail.com',
-      nis: 2121212,
-      kelas: 'XI PPLG 2',
-      divisi: 'IT Support',
-      terima: false,
-      tolak: false,
-    },
-    {
-      id: 2,
-      noPen: 2121212,
-      nama: 'Dimas Ukin',
-      email: 'Dimas@gmail.com',
-      nis: 2121212,
-      kelas: 'XI PPLG 2',
-      divisi: 'IT Support',
-      terima: false,
-      tolak: false,
-    },
-    // Add more rows here if needed
-  ]);
-
-  const handleCheckboxChange = (id: number, type: any) => {
-    const updatedRows = rows.map((row) => {
-      if (row.id === id) {
-        if (type === 'terima') {
-          return {
-            ...row,
-            terima: !row.terima,
-            tolak: false,
-          };
-        } else if (type === 'tolak') {
-          return {
-            ...row,
-            terima: false,
-            tolak: !row.tolak,
-          };
-        }
+  const confirmUser = async (id: number) => {
+    const idToast = toast.loading('Mengambil Data...');
+    const post = await Apicall(
+      `
+    mutation {
+      confirmUser(id: ${id}) {
+      ... on Success {
+      message
       }
-      return row;
-    });
+     ... on Error {
+     error
+    }
+  }
+}
+`
+    );
+    fetch();
 
-    setRows(updatedRows);
+    console.log(post);
+    if (post.errors) {
+      updateToast(idToast, post.errors[0].message, 'error', false, 5000);
+    } else if (post.data) {
+      updateToast(
+        idToast,
+        post.data.confirmUser.message,
+        'success',
+        false,
+        5000
+      );
+    }
   };
 
+  const rejectUser = async (id: number) => {
+    const idToast = toast.loading('Please Wait...');
+    const post = await Apicall(
+      ` 
+        mutation {
+          deletePendingUser(id: ${id}) {
+          ... on Success {
+             message
+          }
+          ... on Error {
+          error
+          }
+        }
+      }`
+    );
+    fetch();
+
+    console.log(post);
+    if (post.errors) {
+      updateToast(idToast, post.errors[0].message, 'error', false, 5000);
+    } else if (post.data) {
+      updateToast(
+        idToast,
+        post.data.deletePendingUser.message,
+        'error',
+        false,
+        5000
+      );
+    }
+  };
+
+  const detailUser = (
+    division: string,
+    email: string,
+    grade: string,
+    name: string,
+    nis: any,
+    motivasi: string
+  ) => {
+    setDetailCalon({
+      division: division,
+      email: email,
+      grade: grade,
+      name: name,
+      nis: nis,
+      motivasi: motivasi,
+    });
+    console.log(detailCalon);
+  };
   return (
     <>
+      <DetailCalon
+        division={detailCalon.division}
+        email={detailCalon.email}
+        grade={detailCalon.grade}
+        name={detailCalon.name}
+        nis={detailCalon.nis}
+        motivasi={detailCalon.motivasi}
+        show={showDetail}
+      />
       {/* Route Section */}
       <section className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">
@@ -143,9 +205,6 @@ export default function page() {
               <thead>
                 <tr>
                   <td align="center" className=" pb-3  text-sm">
-                    No.
-                  </td>
-                  <td align="center" className=" pb-3  text-sm">
                     No Pendaftaran
                   </td>
                   <td align="center" className=" pb-3  text-sm">
@@ -175,38 +234,54 @@ export default function page() {
                 </tr>
               </thead>
               <tbody>
-                {rows.map((row) => (
-                  <tr key={row.id} className="odd:bg-[#3B405B]">
-                    <td align="center">{row.id}</td>
-                    <td align="center">{row.noPen}</td>
-                    <td align="center">{row.nama}</td>
-                    <td align="center">{row.email}</td>
-                    <td align="center">{row.nis}</td>
-                    <td align="center">{row.kelas}</td>
-                    <td align="center">{row.divisi}</td>
-                    <td align="center" className=" text-xs p-5">
-                      <input
-                        type="checkbox"
-                        className="w-[22px] h-[22px] bg-transparent rounded-md"
-                        onChange={() => handleCheckboxChange(row.id, 'terima')}
-                        checked={row.terima}
-                        disabled={row.tolak}
-                      />
-                    </td>
-                    <td align="center" className=" text-xs p-5">
-                      <input
-                        type="checkbox"
-                        className="w-[22px] h-[22px] bg-transparent rounded-md"
-                        onChange={() => handleCheckboxChange(row.id, 'tolak')}
-                        checked={row.tolak}
-                        disabled={row.terima}
-                      />
-                    </td>
-                    <td align="center">
-                      <AiOutlineInfoCircle className=" cursor-pointer text-white text-lg" />
-                    </td>
-                  </tr>
-                ))}
+                {data.map((data, key) => {
+                  return (
+                    <tr key={key} className="odd:bg-[#3B405B]">
+                      <td align="center">{data.id}</td>
+                      <td align="center">{data.name}</td>
+                      <td align="center">{data.email}</td>
+                      <td align="center">{data.nis ? data.nis : 'null'}</td>
+                      <td align="center">{data.grade.name}</td>
+                      <td align="center">{data.division.name}</td>
+                      <td align="center" className=" text-xs p-5">
+                        <button
+                          className=" py-2 px-3 bg-green-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
+                          onClick={(e) => {
+                            confirmUser(data.id);
+                          }}
+                        >
+                          Terima
+                        </button>
+                      </td>
+                      <td align="center" className=" text-xs p-5">
+                        <button
+                          className=" py-2 px-3 bg-red-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
+                          onClick={(e) => {
+                            rejectUser(data.id);
+                          }}
+                        >
+                          Tolak
+                        </button>
+                      </td>
+                      <td
+                        align="center"
+                        onClick={(e) => {
+                          detailUser(
+                            data.division.name,
+                            data.email,
+                            data.grade.name,
+                            data.name,
+                            data.nis,
+                            data.motivasi
+                          );
+                          setShowDetail(!showDetail);
+                        }}
+                      >
+                        <AiOutlineInfoCircle className=" cursor-pointer text-white text-lg" />
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

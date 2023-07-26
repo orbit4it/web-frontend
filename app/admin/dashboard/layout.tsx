@@ -2,6 +2,7 @@ import Sidebar from '@/components/dashboard/SidebarAdmin';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { BsBell } from 'react-icons/bs';
+import { ToastContainer } from 'react-toastify';
 
 interface UserType {
   name: string;
@@ -47,6 +48,18 @@ export default function layout({ children }: { children: React.ReactNode }) {
           </ul>
         </header>
         <main className="max-w-[1440px] 2xl:mx-auto min-h-screen bg-d-primary pt-16 pb-16 pl-5 md:pl-14 pr-5 md:pr-10 text-white">
+          <ToastContainer
+            position="top-left"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
           {children}
         </main>
       </section>

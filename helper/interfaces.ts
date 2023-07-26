@@ -165,3 +165,41 @@ export interface RatingStarsProps {
   rating: number;
   onChangeRating: (rating: number) => void;
 }
+
+export interface CalonUserProps {
+  division: {
+    id: number;
+    name: string;
+  };
+  email: string;
+  grade: {
+    id: number;
+    name: string;
+  };
+  id: number;
+  name: string;
+  nis?: string;
+  terima: false;
+  tolak: false;
+  motivasi: string;
+}
+
+export interface DetailCalon {
+  classname?: string;
+  division: string;
+  email: string;
+  grade: string;
+  name: string;
+  nis?: string;
+  motivasi: string;
+  show: boolean;
+}
+
+export interface DetailCalonState {
+  division: string;
+  email: string;
+  grade: string;
+  name: string;
+  nis: string;
+  motivasi: string;
+}
