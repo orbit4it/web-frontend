@@ -12,7 +12,12 @@ const DetailCalon: React.FC<DetailCalon> = ({
   motivasi,
   classname,
   show,
+  close,
 }) => {
+  const closeDetail = () => {
+    show = !show;
+  };
+
   return (
     <div
       className={twMerge(
@@ -33,7 +38,12 @@ const DetailCalon: React.FC<DetailCalon> = ({
           } glassmorphism backdrop-filter backdrop-blur-lg bg-opacity-10 w-auto h-auto mx-auto my-auto duration-200 text-white p-3 relative`}
         >
           <h1 className=" font-bold text-3xl text-center px-5">{name}</h1>
-          <RiCloseFill className=" text-white text-xl absolute right-10 top-[25px] cursor-pointer" />
+          <RiCloseFill
+            className=" text-white text-xl absolute right-10 top-[25px] cursor-pointer z-10"
+            onClick={(e) => {
+              close();
+            }}
+          />
           <div className=" mt-3 flex items-center gap-3 text-white/70">
             <p>{division}</p>
             <p>{grade}</p>
@@ -44,15 +54,7 @@ const DetailCalon: React.FC<DetailCalon> = ({
             <h1>Motivasi: </h1>
             <div className=" px-3">
               <h1 className="overflow-auto w-full h-full text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Veritatis repudiandae possimus facere alias blanditiis ipsam vel
-                odit molestiae nisi architecto tempore fugit, corporis commodi
-                assumenda quaerat ipsum doloremque aut dicta consequatur
-                consectetur sit voluptatem laborum? Maiores qui dignissimos
-                dolor assumenda consectetur. Eaque fugit odit vitae iure quo
-                illo reiciendis quibusdam nobis repellat, totam eum quisquam qui
-                quia aspernatur error. Amet inventore vero iste perspiciatis
-                sequi. Hic quas accusantium asperiores ab.
+                {motivasi ? motivasi : 'null'}
               </h1>
             </div>
           </div>

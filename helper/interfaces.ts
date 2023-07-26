@@ -193,6 +193,7 @@ export interface DetailCalon {
   nis?: string;
   motivasi: string;
   show: boolean;
+  close: () => void;
 }
 
 export interface DetailCalonState {

@@ -40,7 +40,7 @@ export default function page() {
       false
     );
 
-    console.log(login);
+    // console.log(login);
 
     if (login) {
       const checkUser = (token = '') => {

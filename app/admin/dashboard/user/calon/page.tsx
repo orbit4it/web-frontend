@@ -142,6 +142,10 @@ export default function page() {
     });
     console.log(detailCalon);
   };
+
+  const setClose = () => {
+    setShowDetail(!showDetail);
+  };
   return (
     <>
       <DetailCalon
@@ -152,6 +156,7 @@ export default function page() {
         nis={detailCalon.nis}
         motivasi={detailCalon.motivasi}
         show={showDetail}
+        close={setClose}
       />
       {/* Route Section */}
       <section className="pl-10 md:p-0">
@@ -174,7 +179,7 @@ export default function page() {
       <section className="mt-4 md:flex-col justify-between items-center gap-6 pb-10 w-full h-full">
         <UserPageLink />
         <div className=" bg-cardDashboard rounded-lg p-3 mt-5 text-sm ">
-          <form className=" flex items-center gap-3">
+          {/* <form className=" flex items-center gap-3">
             <h1>Search</h1>
             <div className=" relative text-white">
               <input
@@ -199,8 +204,8 @@ export default function page() {
             <button className=" py-1 px-3 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none">
               Reset
             </button>
-          </form>
-          <div className=" mt-5">
+          </form> */}
+          <div className=" mt-5 overflow-auto">
             <table className=" w-full h-full overflow-auto">
               <thead>
                 <tr>
