@@ -1,15 +1,16 @@
 'use client';
 import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
+import styles from '@/helper/page.module.css';
 import { updateToast } from '@/helper/toaster';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import { toast } from 'react-toastify';
-import styles from '../../helper/page.module.css';
 
 axios.defaults.withCredentials = true;
 
@@ -39,36 +40,25 @@ export default function page() {
       false
     );
 
-    // console.log(login);
+    console.log(login);
 
     if (login) {
-      const checkRole = await Apicall(`
-        {
-           me {
-            role
-          }
-        }
-        `);
-
-      const checkUser = () => {
-        if (
-          checkRole.data.me.role == 'admin' ||
-          checkRole.data.me.role == 'superadmin'
-        ) {
+      const checkUser = (token = '') => {
+        let decoded: any = jwt_decode(token);
+        if (decoded.role == 'admin' || decoded.role == 'superadmin') {
           router.push('/admin/dashboard');
         } else {
           router.push('/dashboard');
         }
       };
 
-      // console.log(checkRole);
       if (login.errors) {
         updateToast(id, login.errors[0].message, 'error', false, 5000);
         checkUser();
       } else if (login.data.userAuth.accessToken) {
+        let token = login.data.userAuth.accessToken;
         updateToast(id, 'Login Berhasil', 'success', false, 5000);
-        checkUser();
-        console.log(checkRole);
+        checkUser(token);
       } else if (login.data.userAuth.error) {
         updateToast(id, login.data.userAuth.error, 'error', false, 5000);
       } else {

@@ -25,7 +25,8 @@ export default function Sidebar() {
   const [isActive, setIsActive] = useState(false);
 
   const Logout = async () => {
-    const res = await Apicall(`
+    const res = await Apicall(
+      `
     {
       userLogout {
         ... on Success {
@@ -36,9 +37,10 @@ export default function Sidebar() {
        }
       }
     }
-    `);
+    `
+    );
 
-    // console.log(res);
+    console.log(res);
 
     if (res) {
       router.push('/login');
