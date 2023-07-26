@@ -1,15 +1,15 @@
 'use client';
 import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
+import { updateToast } from '@/helper/toaster';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
-import styles from '../../helper/page.module.css';
-import { showToast, updateToast } from '@/helper/toaster';
 import { toast } from 'react-toastify';
+import styles from '../../helper/page.module.css';
 import jwt_decode from 'jwt-decode';
 
 axios.defaults.withCredentials = true;
@@ -133,7 +133,7 @@ export default function page() {
             router.back();
           }}
         >
-          <IoChevronBackOutline className=" mt-[2px]" />
+          <IoChevronBackOutline size={20} color="white" />
           <h1 className=" text-sm">Kembali</h1>
         </div>
       </div>

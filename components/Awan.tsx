@@ -1,7 +1,8 @@
-import { AwanProps } from '@/helper/interfaces';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
-
+interface AwanProps {
+  classname?: string;
+}
 const Awan: React.FC<AwanProps> = ({ classname }) => {
   return (
     <div className={twMerge(`absolute z-10`, classname)}>

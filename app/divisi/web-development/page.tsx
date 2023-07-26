@@ -96,7 +96,7 @@ export default function page() {
   return (
     <>
       <header className="w-max md:flex items-center mx-auto pt-0 md:mx-0 md:gap-2 md:static">
-        <div className="w-24 h-24 rounded-full relative flex items-center mx-auto -top-[40px] md:static glassmorphism-webdev before:rounded-full">
+        <div className="w-24 h-24 rounded-full relative -top-10 md:top-0 flex items-center mx-auto  glassmorphism-webdev before:rounded-full">
           <Image
             src={Logo}
             alt="Logo"
