@@ -22,6 +22,8 @@ export default function page() {
           }
     `);
 
+
+
     if (!res) {
       router.push('/login');
     }

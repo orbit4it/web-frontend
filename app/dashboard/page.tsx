@@ -1,7 +1,3 @@
-'use client';
-import Apicall from '@/helper/apicall';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import getCompetitions from '@/api/getCompetitions';
 import getDivisions from '@/api/getDivisions';
 import getRecentSubjects from '@/api/getRecentSubjects';
@@ -16,28 +12,6 @@ import { AiFillStar, AiOutlineRight } from 'react-icons/ai';
 import { twMerge } from 'tailwind-merge';
 
 export default async function page() {
-  const router = useRouter();
-
-  const checkAuth = async () => {
-    const res = await Apicall(`
-   query {
-         me {
-    id
-    name
-    role
-  }
-          }
-    `);
-
-    if (!res) {
-      router.push('/login');
-    }
-  };
-
-  useEffect(() => {
-    checkAuth();
-  });
-
   // Get
   const divisions = await getDivisions();
   const user = await getUser();

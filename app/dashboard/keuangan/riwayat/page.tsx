@@ -1,7 +1,3 @@
-'use client';
-import Apicall from '@/helper/apicall';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import getFinance from '@/api/getFinance';
 import Transactions from '@/components/financePage/recapt/Transactions';
 import toIdr from '@/helper/toIdr';
@@ -10,27 +6,6 @@ import { FaAngleRight } from 'react-icons/fa';
 export default async function page() {
   const finance = await getFinance();
   const { totalBalance } = finance.data.finance;
-  const router = useRouter();
-
-  const checkAuth = async () => {
-    const res = await Apicall(`
-   query {
-         me {
-    id
-    name
-    role
-  }
-          }
-    `);
-
-    if (!res) {
-      router.push('/login');
-    }
-  };
-
-  useEffect(() => {
-    checkAuth();
-  });
   return (
     <>
       {/* Route Section */}
