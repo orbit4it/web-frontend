@@ -12,6 +12,17 @@ import { useRouter } from 'next/navigation';
 import DetailCalonUser from '@/components/admin/DetailCalon';
 
 export default function page() {
+  const [data, setData] = useState<CalonUserProps[]>([]);
+  const [detailCalon, setDetailCalon] = useState<DetailCalonState>({
+    division: '',
+    email: '',
+    grade: '',
+    name: '',
+    nis: '',
+    motivasi: '',
+  });
+  const [showDetail, setShowDetail] = useState<boolean>(false);
+
   const router = useRouter();
 
   const checkAuth = async () => {
@@ -33,16 +44,6 @@ export default function page() {
   useEffect(() => {
     checkAuth();
   });
-  const [data, setData] = useState<CalonUserProps[]>([]);
-  const [detailCalon, setDetailCalon] = useState<DetailCalonState>({
-    division: '',
-    email: '',
-    grade: '',
-    name: '',
-    nis: '',
-    motivasi: '',
-  });
-  const [showDetail, setShowDetail] = useState<boolean>(false);
 
   const fetch = async () => {
     const id = toast.loading('Mengambil Data...');
