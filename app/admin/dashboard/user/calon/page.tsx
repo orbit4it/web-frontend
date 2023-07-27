@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { updateToast } from '@/helper/toaster';
 import { CalonUserProps, DetailCalonState } from '@/helper/interfaces';
 import { useRouter } from 'next/navigation';
-import DetailCalon from '@/components/admin/DetailCalon';
+import DetailCalonUser from '@/components/admin/DetailCalon';
 
 export default function page() {
   const router = useRouter();
@@ -168,7 +168,7 @@ export default function page() {
   };
   return (
     <>
-      <DetailCalon
+      <DetailCalonUser
         division={detailCalon.division}
         email={detailCalon.email}
         grade={detailCalon.grade}

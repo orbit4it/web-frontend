@@ -3,7 +3,7 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { RiCloseFill } from 'react-icons/ri';
 
-const DetailCalon: React.FC<DetailCalon> = ({
+const DetailCalonUser: React.FC<DetailCalon> = ({
   division,
   email,
   grade,
@@ -64,4 +64,4 @@ const DetailCalon: React.FC<DetailCalon> = ({
   );
 };
 
-export default DetailCalon;
+export default DetailCalonUser;
