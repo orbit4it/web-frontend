@@ -1,5 +1,6 @@
 import Comments from '@/components/subjectPage/Comments';
 import RatingStars from '@/components/subjectPage/RatingStars';
+('use client');
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
