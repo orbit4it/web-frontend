@@ -1,5 +1,4 @@
-import MateriCard from '@/components/dashboard/MateriCard';
-
+import SubjectCard from '@/components/subjectPage/SubjectCard';
 export default function page() {
   return (
     <>
@@ -39,25 +38,25 @@ export default function page() {
             </option>
           </select>
           <div className=" mt-3">
-            <MateriCard
-              judul="HTML Development Basics"
-              publisher="Arief Muhammad"
-              waktu="13.00"
+            <SubjectCard
+              title="HTML Development Basics"
+              speaker="Arief Muhammad"
+              createdAt="13.00"
               desc="Pada materi kali ini, kita akan belajar basics dari HTML Development. Pelajari materi yang telah diberikan dan kerjakan latihan soal berikut!"
               link="/dashboard/materi/detail"
               textLink="Front-End Essentials & Learning Path"
-              img="/assets/img/learnHTML.png"
+              cover="/assets/img/learnHTML.png"
               alt="Learn HTML"
             />
-            <MateriCard
+            <SubjectCard
               classname=" mt-3"
-              judul="Front End Learning Path"
-              publisher="Arief Muhammad"
-              waktu="13.00"
+              title="Front End Learning Path"
+              speaker="Arief Muhammad"
+              createdAt="13.00"
               desc="Pada materi kali ini, kita akan belajar basics dari HTML Development. Pelajari materi yang telah diberikan dan kerjakan latihan soal berikut!"
               link="/dashboard/materi/detail"
               textLink="Front-End Essentials & Learning Path"
-              img="/assets/img/FeTraining.png"
+              cover="/assets/img/FeTraining.png"
               alt="FE Training"
             />
           </div>

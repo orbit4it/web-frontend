@@ -22,6 +22,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     division: 'Web Development',
     photo: '/assets/img/FotoDummy.png',
   };
+
   return (
     <>
       <Sidebar />

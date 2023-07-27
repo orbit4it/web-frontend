@@ -1,18 +1,37 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../../helper/page.module.css';
 import Apicall from '@/helper/apicall';
-import { showToast } from '@/helper/toaster';
+import { showToast, updateToast } from '@/helper/toaster';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export default function page({ params }: { params: { verify: string } }) {
   const [password, setPassword] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
+  const [handlePass, setHandlePass] = useState<boolean>(true);
   const router = useRouter();
+
+  const passHandle = () => {
+    if (password == confirmPass) {
+      setHandlePass(false);
+    } else {
+      setHandlePass(true);
+    }
+
+    // console.log(handlePass);
+  };
+
+  useEffect(() => {
+    passHandle();
+  });
+
   const createUser = async () => {
+    const id = toast.loading('Please Wait...');
     const res = await Apicall(
       `
     mutation {
-     createUser(password: "${password}", 
+     createUser(password: "", 
      registrationToken: "${params.verify}"
      ) {
         ... on Success {
@@ -29,8 +48,15 @@ export default function page({ params }: { params: { verify: string } }) {
     console.log(res);
 
     if (res) {
-      router.push('/login');
-      showToast('Berhasil ngabs', 'success');
+      if (res.data.createUser.error) {
+        updateToast(id, res.data.createUser.error, 'error', false, 5000);
+      } else if (res.data.createUser.message) {
+        updateToast(id, res.data.createUser.message, 'success', false, 5000);
+        router.push('/login');
+      } else {
+        updateToast(id, 'Berhasil Membuat User', 'success', false, 5000);
+        router.push('/login');
+      }
     }
   };
 
@@ -75,13 +101,19 @@ export default function page({ params }: { params: { verify: string } }) {
                 title="password"
                 placeholder="Re-Type Password"
                 className=" outline-none w-full md:w-[400px] bg-[#FDFDFD] bg-opacity-[0.35] rounded-3xl p-3 text-[#D7D7D7] text-sm md:text-lg"
+                onChange={(e) => setConfirmPass(e.target.value)}
               />
             </div>
             <div className=" mt-8 md:mt-14 w-full px-5">
               <button
                 type="submit"
                 title="button"
-                className=" block mx-auto border-[1px] border-white rounded-3xl w-full md:w-[300px] p-2 text-center text-white text-sm md:text-lg font-bold mb-16"
+                className={` ${
+                  password == confirmPass
+                    ? 'border-white text-white'
+                    : 'text-white/70 border-white/70'
+                } block mx-auto border-[1px]  rounded-3xl w-full md:w-[300px] p-2 text-center  text-sm md:text-lg font-bold mb-16`}
+                disabled={handlePass}
               >
                 Submit
               </button>

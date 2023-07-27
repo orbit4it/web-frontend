@@ -1,78 +1,3 @@
-export interface ButtonLandingProps {
-  link: string;
-  title: string;
-  textSize: string;
-  animate: boolean;
-  viewportOnce: boolean;
-}
-
-export interface CardLandingProps {
-  judul: string;
-  desc: string;
-  cardRef: React.RefObject<HTMLDivElement>;
-  classname: string;
-  judulClassname: string;
-  descClassname: string;
-}
-
-export interface AwanProps {
-  classname?: string;
-}
-
-export interface VisiMisiProps {
-  classname?: string;
-  img: string;
-  alt: string;
-  imgWidth: number;
-  imgHeight: number;
-  imgClassname?: string;
-  judul: string;
-  desc: string;
-  misi: boolean;
-}
-
-export interface CredentialsInputProps {
-  classname?: string;
-  type: string;
-  placeholder: string;
-  required: boolean;
-  inputClassname?: string;
-  labelText: string;
-  labelClassname?: string;
-  onchange: (value: string) => void;
-}
-
-export interface GaleryProjectProps {
-  index: number;
-  title: string;
-  pictures: string[];
-  youtube: string | null;
-  activeId: number;
-  handleActiveId: (id: number) => void;
-}
-
-export interface OptionProps {
-  value: any;
-  selectedValue: any;
-  optionHovered: any;
-  handleHovered: (value: any) => void;
-  handleSelected: (value: any) => void;
-  handleShowed: (value: boolean) => void;
-  textSize: string | null;
-}
-
-export interface ExpandDropdownProps {
-  options: any;
-  showOptions: boolean;
-  selectedOption: string;
-  handleShowOptions: (isShow: boolean) => void;
-  mapOptions: any;
-  colorShowed?: string;
-  colorNotShowed: string;
-  className?: string;
-  position: Positions;
-}
-
 export enum Positions {
   topleft = 'top-left',
   topright = 'top-right',
@@ -82,39 +7,25 @@ export enum Positions {
   centerbottom = 'center-bottom',
 }
 
-export interface TestimoniProps {
-  image: string;
+export interface User {
+  id: number;
   name: string;
-  honor: string;
-  message: string;
-}
-
-export interface DivisionProps {
+  grade: string;
+  division: string;
   image: string;
-  name: string;
-  link: string;
 }
 
-export interface SwiperStyles {
-  [key: string]: string;
+export interface UserDetail extends User {
+  motivation: string;
+  attdScore: number;
+  socialMedia?: Source[];
+  waNumber?: string;
+  bio?: string;
+  address?: string;
+  title?: string;
 }
 
-export interface GaleryStyles {
-  [key: string]: string;
-}
-
-export interface DivisionsProps {
-  id?: number;
-  name?: string;
-  waGroupLink?: string;
-}
-
-export interface CalendarProps {
-  filterBy: string;
-  schedules?: ScheduleProps[];
-}
-
-export interface ScheduleProps {
+export interface Schedule {
   id: number;
   type: string;
   title: string;
@@ -124,46 +35,194 @@ export interface ScheduleProps {
   subject?: string;
 }
 
-export interface KelasProps {
-  grade?: string;
-  id?: number;
-  name?: string;
-  vocational?: string;
-}
-
-export interface MateriCardProps {
-  classname?: string;
-  judul: string;
-  publisher: string;
-  waktu: string;
-  img: string;
-  desc: string;
-  textLink: string;
-  link: string;
-  alt: string;
-}
-
-export interface StrukturProps {
-  image: string;
+export interface Division {
+  id: number;
   name: string;
-  fullName: string;
-  jabatan: string;
-  imgWidth: string;
-  imgHeight: string;
+  waGroupLink?: string;
+  logo?: string;
 }
 
-export interface CommentsProps {
-  classname?: string;
-  imgProfil?: string;
-  nama: string;
-  stars: number;
-  comment: string;
-  waktu: string;
+export interface RecentSubject {
+  id: number;
+  title: string;
+  speaker: string;
+  createdAt: string;
+  description: string;
+  author: string;
 }
 
-export interface RatingStarsProps {
-  rating: number;
-  onChangeRating: (rating: number) => void;
+export interface TopSubject extends RecentSubject {
+  rate: number;
+  preview: string;
+}
+
+export interface SubjectDetail extends RecentSubject {
+  file?: Source;
+  quiz?: Quiz;
+  comments?: Comment[];
+}
+
+export interface Quiz {
+  id: number;
+  title: string;
+  count: number;
+  createdAt: string;
+  questions: Question[];
+}
+
+export interface Question {
+  id: number;
+  question: string;
+  img?: string;
+  answers: Answer[];
+}
+
+export interface Answer {
+  id: number;
+  answer: string;
+}
+
+export interface Comment {
+  id: number;
+  userName: string;
+  userImage: string;
+  comment?: string;
+  createdAt: string;
+  rate: number;
+}
+
+export interface Competition {
+  id: number;
+  title: string;
+  poster: string;
+}
+
+export interface CompetitionDetail extends Competition {
+  author: string;
+  startTime: string;
+  paid: boolean;
+  price?: number;
+  description: string;
+  req?: string;
+  contactAdmin: string;
+  source: CompetitionSource;
+}
+
+export interface CompetitionSource {
+  id: number;
+  name: string;
+  source: Source[];
+}
+
+export interface Finance {
+  totalIncome: number;
+  totalOutcome: number;
+  totalBalance: number;
+}
+
+export interface FinanceRes {
+  data: {
+    finance: Finance;
+  } | null;
+  errors?: Errors[];
+}
+
+export interface FinanceGraphRes {
+  data: {
+    graph: FinanceGraph;
+  } | null;
+  errors?: Errors[];
+}
+
+export interface FinanceGraph {
+  income: GraphDataSet[];
+  outcome: GraphDataSet[];
+}
+
+export interface GraphDataSet {
+  time: string;
+  count: number;
+}
+
+export interface FinanceRecaptRes {
+  data: {
+    financeRecapt: FinanceRecapt[];
+  } | null;
+  errors?: Errors[];
+}
+
+export interface FinanceRecapt {
+  id: number;
+  type: 'Pemasukan' | 'Pengeluaran';
+  title: string;
+  desc: string | null;
+  admin: string;
+  count: number;
+  createdAt: string;
+  level: 'Genting' | 'Penting' | 'Normal' | null;
+}
+
+export interface Leaderboard {
+  id: number;
+  type: DivisionType;
+  list: LeaderboardList[];
+}
+
+export interface LeaderboardList {
+  rank: number;
+  name: string;
+  score: number;
+  image: string;
+  division?: string;
+}
+
+export enum DivisionType {
+  webDev = 'Web Development',
+  gameDev = 'Game Development',
+  cinematography = 'Cinematography',
+  designGraphic = 'Design Graphic',
+  itSupport = 'IT Support',
+  globals = 'Globals',
+}
+
+export interface Source {
+  name: string;
+  link: string;
+  type: SourceType | SocialMediaType;
+}
+
+export enum SocialMediaType {
+  facebook = 'facebook',
+  instagram = 'instagram',
+  github = 'github',
+  email = 'email',
+  linkedin = 'linkedin',
+  twitter = 'twitter',
+}
+
+export enum SourceType {
+  website = 'website',
+  docs = 'docs',
+  ppt = 'ppt',
+  pdf = 'pdf',
+  other = 'other',
+}
+
+export enum TransactionType {
+  pemasukan = 'Pemasukan',
+  pengeluaran = 'Pengeluaran',
+}
+
+export enum TransactionLevel {
+  normal = 'Normal',
+  penting = 'Penting',
+  genting = 'Genting',
+}
+
+export interface Errors {
+  message: string;
+  locations?: any[];
+  path?: string[];
 }
 
 export interface CalonUserProps {
@@ -193,6 +252,7 @@ export interface DetailCalon {
   nis?: string;
   motivasi: string;
   show: boolean;
+  close: () => void;
 }
 
 export interface DetailCalonState {

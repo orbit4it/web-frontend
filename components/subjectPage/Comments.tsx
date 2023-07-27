@@ -1,7 +1,15 @@
-import { CommentsProps } from '@/helper/interfaces';
 import React from 'react';
 import { RiStarSFill } from 'react-icons/ri';
 import { twMerge } from 'tailwind-merge';
+
+interface CommentsProps {
+  classname?: string;
+  imgProfil?: string;
+  nama: string;
+  stars: number;
+  comment: string;
+  waktu: string;
+}
 
 const Comments: React.FC<CommentsProps> = ({
   nama,

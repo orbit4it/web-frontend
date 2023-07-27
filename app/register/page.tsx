@@ -1,20 +1,27 @@
 'use client';
 import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
-import { DivisionsProps, KelasProps } from '@/helper/interfaces';
-import { showToast, updateToast } from '@/helper/toaster';
+import { Division } from '@/helper/interfaces';
+import { updateToast } from '@/helper/toaster';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
-import styles from '../../helper/page.module.css';
 import { toast } from 'react-toastify';
+import styles from '../../helper/page.module.css';
+
+interface KelasProps {
+  grade?: string;
+  id?: number;
+  name?: string;
+  vocational?: string;
+}
 
 export default function page() {
   const [nama, setNama] = useState<string>('');
   const [divisi, setDivisi] = useState<number>(0);
-  const [listDivisions, setListDivisions] = useState<DivisionsProps[]>([]);
+  const [listDivisions, setListDivisions] = useState<Division[]>([]);
   const [kelas, setKelas] = useState<number>(0);
   const [listkelas, setListKelas] = useState<KelasProps[]>([]);
   const [nis, setNis] = useState<string>('');
@@ -357,7 +364,7 @@ export default function page() {
                   router.push('/');
                 }}
               >
-                <IoChevronBackOutline className="" />
+                <IoChevronBackOutline size={20} color="white" />
                 <h1 className=" text-sm">Kembali</h1>
               </div>
             </div>

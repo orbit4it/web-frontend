@@ -1,18 +1,17 @@
 'use client';
+import Apicall from '@/helper/apicall';
 import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BiSearch } from 'react-icons/bi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import UserPageLink from '@/components/admin/UserPageLink';
-import Apicall from '@/helper/apicall';
 import { toast } from 'react-toastify';
 import { updateToast } from '@/helper/toaster';
 import { CalonUserProps, DetailCalonState } from '@/helper/interfaces';
 import { useRouter } from 'next/navigation';
-import DetailCalon from '@/components/admin/DetailCalon';
+import DetailCalonUser from '@/components/admin/DetailCalon';
 
 export default function page() {
-  const router = useRouter();
   const [data, setData] = useState<CalonUserProps[]>([]);
   const [detailCalon, setDetailCalon] = useState<DetailCalonState>({
     division: '',
@@ -23,6 +22,28 @@ export default function page() {
     motivasi: '',
   });
   const [showDetail, setShowDetail] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const checkAuth = async () => {
+    const res = await Apicall(`
+   query {
+         me {
+    id
+    name
+    role
+  }
+          }
+    `);
+
+    if (!res) {
+      router.push('/login');
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  });
 
   const fetch = async () => {
     const id = toast.loading('Mengambil Data...');
@@ -142,9 +163,13 @@ export default function page() {
     });
     console.log(detailCalon);
   };
+
+  const setClose = () => {
+    setShowDetail(!showDetail);
+  };
   return (
     <>
-      <DetailCalon
+      <DetailCalonUser
         division={detailCalon.division}
         email={detailCalon.email}
         grade={detailCalon.grade}
@@ -152,6 +177,7 @@ export default function page() {
         nis={detailCalon.nis}
         motivasi={detailCalon.motivasi}
         show={showDetail}
+        close={setClose}
       />
       {/* Route Section */}
       <section className="pl-10 md:p-0">
@@ -174,7 +200,7 @@ export default function page() {
       <section className="mt-4 md:flex-col justify-between items-center gap-6 pb-10 w-full h-full">
         <UserPageLink />
         <div className=" bg-cardDashboard rounded-lg p-3 mt-5 text-sm ">
-          <form className=" flex items-center gap-3">
+          {/* <form className=" flex items-center gap-3">
             <h1>Search</h1>
             <div className=" relative text-white">
               <input
@@ -199,8 +225,8 @@ export default function page() {
             <button className=" py-1 px-3 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none">
               Reset
             </button>
-          </form>
-          <div className=" mt-5 overflow-auto">
+          </form> */}
+          <div className=" mt-5 overflow-auto ">
             <table className=" w-full h-full overflow-auto">
               <thead>
                 <tr>
@@ -234,20 +260,20 @@ export default function page() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((data, key) => {
+                {data.map((item, key) => {
                   return (
                     <tr key={key} className="odd:bg-[#3B405B]">
-                      <td align="center">{data.id}</td>
-                      <td align="center">{data.name}</td>
-                      <td align="center">{data.email}</td>
-                      <td align="center">{data.nis ? data.nis : 'null'}</td>
-                      <td align="center">{data.grade.name}</td>
-                      <td align="center">{data.division.name}</td>
+                      <td align="center">{item.id}</td>
+                      <td align="center">{item.name}</td>
+                      <td align="center">{item.email}</td>
+                      <td align="center">{item.nis ? item.nis : 'null'}</td>
+                      <td align="center">{item.grade.name}</td>
+                      <td align="center">{item.division.name}</td>
                       <td align="center" className=" text-xs p-5">
                         <button
                           className=" py-2 px-3 bg-green-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
                           onClick={(e) => {
-                            confirmUser(data.id);
+                            confirmUser(item.id);
                           }}
                         >
                           Terima
@@ -257,7 +283,7 @@ export default function page() {
                         <button
                           className=" py-2 px-3 bg-red-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
                           onClick={(e) => {
-                            rejectUser(data.id);
+                            rejectUser(item.id);
                           }}
                         >
                           Tolak
@@ -267,12 +293,12 @@ export default function page() {
                         align="center"
                         onClick={(e) => {
                           detailUser(
-                            data.division.name,
-                            data.email,
-                            data.grade.name,
-                            data.name,
-                            data.nis,
-                            data.motivasi
+                            item.division.name,
+                            item.email,
+                            item.grade.name,
+                            item.name,
+                            item.nis,
+                            item.motivasi
                           );
                           setShowDetail(!showDetail);
                         }}

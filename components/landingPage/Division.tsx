@@ -1,4 +1,3 @@
-import { DivisionProps } from '@/helper/interfaces';
 import Image from 'next/image';
 import React from 'react';
 import { EffectCoverflow, Navigation, Pagination } from 'swiper';
@@ -9,6 +8,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 // custom swiper css
 import '@/helper/swipers/divisions.css';
+
+interface DivisionProps {
+  image: string;
+  name: string;
+  link: string;
+}
 
 const imageLink = [
   '/assets/img/divisi/WebDev.png',
