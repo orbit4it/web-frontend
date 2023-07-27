@@ -260,20 +260,20 @@ export default function page() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((data, key) => {
+                {data.map((item, key) => {
                   return (
                     <tr key={key} className="odd:bg-[#3B405B]">
-                      <td align="center">{data.id}</td>
-                      <td align="center">{data.name}</td>
-                      <td align="center">{data.email}</td>
-                      <td align="center">{data.nis ? data.nis : 'null'}</td>
-                      <td align="center">{data.grade.name}</td>
-                      <td align="center">{data.division.name}</td>
+                      <td align="center">{item.id}</td>
+                      <td align="center">{item.name}</td>
+                      <td align="center">{item.email}</td>
+                      <td align="center">{item.nis ? item.nis : 'null'}</td>
+                      <td align="center">{item.grade.name}</td>
+                      <td align="center">{item.division.name}</td>
                       <td align="center" className=" text-xs p-5">
                         <button
                           className=" py-2 px-3 bg-green-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
                           onClick={(e) => {
-                            confirmUser(data.id);
+                            confirmUser(item.id);
                           }}
                         >
                           Terima
@@ -283,7 +283,7 @@ export default function page() {
                         <button
                           className=" py-2 px-3 bg-red-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
                           onClick={(e) => {
-                            rejectUser(data.id);
+                            rejectUser(item.id);
                           }}
                         >
                           Tolak
@@ -293,12 +293,12 @@ export default function page() {
                         align="center"
                         onClick={(e) => {
                           detailUser(
-                            data.division.name,
-                            data.email,
-                            data.grade.name,
-                            data.name,
-                            data.nis,
-                            data.motivasi
+                            item.division.name,
+                            item.email,
+                            item.grade.name,
+                            item.name,
+                            item.nis,
+                            item.motivasi
                           );
                           setShowDetail(!showDetail);
                         }}
