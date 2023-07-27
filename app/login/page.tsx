@@ -40,8 +40,6 @@ export default function page() {
       false
     );
 
-    // console.log(login);
-
     if (login) {
       const checkUser = (token = '') => {
         let decoded: any = jwt_decode(token);

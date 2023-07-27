@@ -4,8 +4,9 @@ deploy:
     - eschool
   script:
     - cd /home/ict/www/orbit-project/web-frontend
-    - git pull origin main
-    - docker-compose -f ../docker-compose.yml build frontend
+    - git fetch origin main
+    - git reset --hard origin/main
+    - docker-compose -f ../docker-compose.yml build --no-cache frontend
     - docker-compose -f ../docker-compose.yml up -d frontend
   only:
     - main

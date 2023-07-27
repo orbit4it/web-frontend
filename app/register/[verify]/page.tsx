@@ -45,8 +45,6 @@ export default function page({ params }: { params: { verify: string } }) {
       false
     );
 
-    console.log(res);
-
     if (res) {
       if (res.data.createUser.error) {
         updateToast(id, res.data.createUser.error, 'error', false, 5000);

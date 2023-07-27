@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -12,7 +13,6 @@ export default function Error({
   reset: () => void;
 }) {
   const route = useRouter();
-  console.log(error.stack?.startsWith('UnderConstructionError'));
   return (
     <main className="w-full h-screen py-10 flex flex-col items-center  bg-primary  bg-blend-screen bg-cover bg-center text-white overflow-x-hidden relative">
       <motion.div
