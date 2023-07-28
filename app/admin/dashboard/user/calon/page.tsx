@@ -227,7 +227,7 @@ export default function page() {
               Reset
             </button>
           </form> */}
-          <div className=" mt-5 overflow-auto md:overflow-hidden">
+          <div className=" mt-5 overflow-auto">
             <table className=" w-full h-full ">
               <thead>
                 <tr>
