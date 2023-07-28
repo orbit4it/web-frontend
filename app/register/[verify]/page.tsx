@@ -31,7 +31,7 @@ export default function page({ params }: { params: { verify: string } }) {
     const res = await Apicall(
       `
     mutation {
-     createUser(password: "", 
+     createUser(password: "${password}", 
      registrationToken: "${params.verify}"
      ) {
         ... on Success {
