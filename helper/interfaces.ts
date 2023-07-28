@@ -240,7 +240,7 @@ export interface CalonUserProps {
   nis?: string;
   terima: false;
   tolak: false;
-  motivasi: string;
+  motivation: string;
 }
 
 export interface DetailCalon {
@@ -261,5 +261,5 @@ export interface DetailCalonState {
   grade: string;
   name: string;
   nis: string;
-  motivasi: string;
+  motivation: string;
 }

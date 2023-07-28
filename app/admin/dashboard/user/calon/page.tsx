@@ -19,7 +19,7 @@ export default function page() {
     grade: '',
     name: '',
     nis: '',
-    motivasi: '',
+    motivation: '',
   });
   const [showDetail, setShowDetail] = useState<boolean>(false);
 
@@ -151,7 +151,7 @@ export default function page() {
     grade: string,
     name: string,
     nis: any,
-    motivasi: string
+    motivation: string
   ) => {
     setDetailCalon({
       division: division,
@@ -159,8 +159,9 @@ export default function page() {
       grade: grade,
       name: name,
       nis: nis,
-      motivasi: motivasi,
+      motivation: motivation,
     });
+
     console.log(detailCalon);
   };
 
@@ -175,7 +176,7 @@ export default function page() {
         grade={detailCalon.grade}
         name={detailCalon.name}
         nis={detailCalon.nis}
-        motivasi={detailCalon.motivasi}
+        motivasi={detailCalon.motivation}
         show={showDetail}
         close={setClose}
       />
@@ -226,8 +227,8 @@ export default function page() {
               Reset
             </button>
           </form> */}
-          <div className=" mt-5 overflow-auto ">
-            <table className=" w-full h-full overflow-auto">
+          <div className=" mt-5 overflow-auto md:overflow-hidden">
+            <table className=" w-full h-full ">
               <thead>
                 <tr>
                   <td align="center" className=" pb-3  text-sm">
@@ -298,7 +299,7 @@ export default function page() {
                             item.grade.name,
                             item.name,
                             item.nis,
-                            item.motivasi
+                            item.motivation
                           );
                           setShowDetail(!showDetail);
                         }}

@@ -54,7 +54,7 @@ const DetailCalonUser: React.FC<DetailCalon> = ({
             <h1>Motivasi: </h1>
             <div className=" px-3">
               <h1 className="overflow-auto w-full h-full text-justify">
-                {motivasi ? motivasi : 'null'}
+                {motivasi}
               </h1>
             </div>
           </div>
