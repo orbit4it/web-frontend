@@ -1,6 +1,9 @@
 'use client';
 import Apicall from '@/helper/apicall';
+import { store } from '@/store';
+import { logOut } from '@/store/authSlice';
 import { motion } from 'framer-motion';
+import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -40,9 +43,9 @@ export default function Sidebar() {
     `
     );
 
-    console.log(res);
-
     if (res) {
+      store.dispatch(logOut());
+      Cookies.remove('user_token');
       router.push('/login');
     }
   };

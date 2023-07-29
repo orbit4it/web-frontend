@@ -1,3 +1,5 @@
+import TestCSR from '@/components/TestCSR';
+
 export default function page() {
   return (
     <>
@@ -12,7 +14,9 @@ export default function page() {
         </ul>
       </section>
       {/* Another Content */}
-      <section className="mt-4 md:flex justify-between gap-6 pb-10"></section>
+      <section className="mt-4 md:flex justify-between gap-6 pb-10">
+        <TestCSR />
+      </section>
     </>
   );
 }

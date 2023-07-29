@@ -16,7 +16,6 @@ const getDivisions = async () => {
 
     return divisionDatas;
   } catch (error) {
-    console.log(error);
     throw new Error('Something went wrong');
   }
 };

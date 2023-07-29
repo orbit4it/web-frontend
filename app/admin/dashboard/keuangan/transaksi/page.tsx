@@ -1,6 +1,5 @@
 'use client';
 
-import AddUpdate from '@/components/financePage/AddUpdate';
 import Pin from '@/components/financePage/Pin';
 import TableTransactions from '@/components/financePage/TableTransactions';
 import Link from 'next/link';
@@ -13,7 +12,6 @@ export default function page() {
   const [showEdit, setShowEdit] = useState<boolean>(true);
   const [showAdd, setShowAdd] = useState<boolean>(false);
 
-  console.log(showPin);
   const handleEdit = (id: number) => {
     console.log('edit', id);
   };
@@ -33,7 +31,7 @@ export default function page() {
           }}
         />
       )}
-      {showEdit && <AddUpdate />}
+      {/* {showEdit && <AddUpdate />} */}
       {/* Route Section */}
       <header className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">

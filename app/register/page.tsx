@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
-import { Division } from '@/helper/interfaces';
+import { Division, Grade } from '@/helper/interfaces';
 import { updateToast } from '@/helper/toaster';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,19 +12,12 @@ import { IoChevronBackOutline } from 'react-icons/io5';
 import { toast } from 'react-toastify';
 import styles from '../../helper/page.module.css';
 
-interface KelasProps {
-  grade?: string;
-  id?: number;
-  name?: string;
-  vocational?: string;
-}
-
 export default function page() {
   const [nama, setNama] = useState<string>('');
   const [divisi, setDivisi] = useState<number>(0);
   const [listDivisions, setListDivisions] = useState<Division[]>([]);
   const [kelas, setKelas] = useState<number>(0);
-  const [listkelas, setListKelas] = useState<KelasProps[]>([]);
+  const [listkelas, setListKelas] = useState<Grade[]>([]);
   const [nis, setNis] = useState<string>('');
   const [motivasi, setMotivasi] = useState<string>('');
   const [motivasiColor, setMotivasiColor] = useState<string>('');
@@ -54,13 +48,10 @@ export default function page() {
       false
     );
 
-    console.log(divisions);
-
     if (divisions) {
       setListDivisions(divisions.data.divisions);
       updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
     }
-    console.log(listDivisions);
 
     const grades = await Apicall(
       `

@@ -10,9 +10,12 @@ export enum Positions {
 export interface User {
   id: number;
   name: string;
-  grade: string;
-  division: string;
-  image: string;
+  nis?: string | null;
+  role?: string;
+  grade?: Grade;
+  division?: Division;
+  image?: string;
+  sosialMedia?: Source[];
 }
 
 export interface UserDetail extends User {
@@ -40,6 +43,7 @@ export interface Division {
   name: string;
   waGroupLink?: string;
   logo?: string;
+  schedule?: Schedule[];
 }
 
 export interface RecentSubject {
@@ -225,33 +229,25 @@ export interface Errors {
   path?: string[];
 }
 
-export interface CalonUserProps {
+export interface PendingUser {
+  id: number;
+  name: string;
+  nis?: string | null;
+  motivation: string;
+  email: string;
   division: {
     id: number;
     name: string;
   };
-  email: string;
   grade: {
     id: number;
     name: string;
   };
-  id: number;
-  name: string;
-  nis?: string;
-  terima: false;
-  tolak: false;
-  motivasi: string;
 }
 
-export interface DetailCalon {
-  classname?: string;
-  division: string;
-  email: string;
-  grade: string;
-  name: string;
-  nis?: string;
-  motivasi: string;
-  show: boolean;
+export interface CalonUserProps extends PendingUser {
+  terima: false;
+  tolak: false;
 }
 
 export interface DetailCalonState {
@@ -261,4 +257,35 @@ export interface DetailCalonState {
   name: string;
   nis: string;
   motivasi: string;
+}
+
+export interface RefreshTokenRes {
+  data?: {
+    refreshToken: {
+      accessToken?: string;
+      error?: string;
+    };
+  } | null;
+  errors?: Errors[];
+}
+
+export interface PendingUserRes {
+  data?: {
+    pendingUsers: PendingUser[];
+  } | null;
+  errors?: Errors[];
+}
+
+export interface UsersRes {
+  data?: {
+    users: User[];
+  } | null;
+  errors?: Errors[];
+}
+
+export interface Grade {
+  grade?: string;
+  id?: number;
+  name?: string;
+  vocational?: string;
 }

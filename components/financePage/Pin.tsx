@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { showToast } from '@/helper/toaster';
 import React, { useEffect, useState } from 'react';
 import { BsBackspace } from 'react-icons/bs';

@@ -19,7 +19,6 @@ const serverSideFetch = async ({ query, variables }: Props) => {
         variables: variables ? variables : {},
       }),
     }).then((data) => data.json());
-
     return res;
   } catch (error) {
     throw new Error('Something went wrong');
