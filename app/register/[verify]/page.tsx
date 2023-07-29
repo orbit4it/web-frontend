@@ -131,6 +131,7 @@ export default function page({ params }: { params: { verify: string } }) {
                 options={grades ? grades : [{ value: 0, label: 'Loading...' }]}
                 width="w-full md:w-[400px]"
                 onChange={handleGradeChange}
+                searchAble={true}
               />
             </div>
             <div className=" w-full md:w-auto px-5 relative">
