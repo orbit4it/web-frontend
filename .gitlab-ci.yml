@@ -5,7 +5,7 @@ deploy:
   script:
     - cd /home/ict/www/orbit-project/web-frontend
     - git fetch origin main
-    - git git reset --hard origin/main
+    - git reset --hard origin/main
     - docker-compose -f ../docker-compose.yml build frontend
     - docker-compose -f ../docker-compose.yml up -d frontend
   only:
