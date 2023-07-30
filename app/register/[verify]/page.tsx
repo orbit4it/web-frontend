@@ -76,7 +76,9 @@ export default function page({ params }: { params: { verify: string } }) {
 
     if (res.data.createUser.message) {
       showToast(res.data.createUser.message, 'success');
-      router.push('/login');
+      setTimeout(() => {
+        router.push('/login');
+      }, 2000);
     }
 
     if (res.data.createUser.error) {
