@@ -37,56 +37,53 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
           {/*Content*/}
           <div className='box-border h-[35rem] w-[35rem] p-2 px-8 py-10 pr-10'>
             {/*Line Input 1*/}
-            <div className='w-[30rem] flex space-x-3'>
+            <div className='w-[30rem] h-[3rem] flex space-x-3'>
               <div className="inputBox relative w-[60%]">
-                <input
-                  type='text'
-                  className=""
-                  required
-                  onChange={(e) => setLombaTitle(e.target.value)}
+              <input 
+                className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                id="username" 
+                type="text" 
+                placeholder="Nama Lomba"
                 />
-                <span>Nama Lomba</span>
               </div>
               <div className="inputBox relative w-[40%]">
                 <input
                   type="date"
                   name="rangeFrom"
                   id="rangeFrom"
-                  className="w-36 px-3 py-2 rounded-md bg-[#7585BF] text-white flex gap-2 items-center text-sm font-normal focus:outline-none"
+                  className="w-full h-full px-3 py-2 rounded-[10px] border bg-transparent text-white flex gap-2 items-center text-sm  focus:outline-none"
                 />
-                <span>Tanggal Lomba</span>
               </div>
             </div>
             {/*End Line Input 1*/}
 
             {/*Line Input 2*/}
-              <div className='w-[30rem] flex space-x-3 relative top-5'>
-                <div className="inputBox relative w-[25%]">
+              <div className='w-[30rem] h-[3rem] flex space-x-3 relative top-5'>
+                <div className="inputBox relative w-[30%]">
                   <input
-                    type='text'
-                    className=''
-                    required
-                    onChange={(e) => setLombaFollow(e.target.value)}
+                    className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    type="text" 
+                    placeholder="Ikuti Lomba"
                   />
-                 <span>Ikuti Lomba</span>
                 </div>
-                <div className="inputBox relative w-[25%]">
+                <div className="inputBox relative w-[30%]">
                   <input
-                    type='text'
-                    className=''
-                    required
-                    onChange={(e) => setLombaRegist(e.target.value)}
+                    className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    type="text" 
+                    placeholder="Pendaftaran"
                   />
-                  <span>Pendaftaran</span>
+                  
                 </div>
-                <div className="inputBox relative w-[50%]">
+                <div className="inputBox relative w-[40%]">
                   <input
-                    type='text'
-                    className=''
-                    required
-                    onChange={(e) => setLombaCost(e.target.value)}
+                    className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    type="text" 
+                    placeholder="Biaya Pendaftaran"
                   />
-                   <span>Biaya Pendaftaran</span>
+                   
                 </div>
               </div>
             {/*End Line Input 2*/}
@@ -95,35 +92,55 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
               <div className='w-[30rem] h-[8rem] flex space-x-3 relative top-10'>
                 <div className="inputBox relative w-[45%]">
                   <input
-                    type='text'
-                    className=''
-                    required
-                    onChange={(e) => setLombaNumber(e.target.value)}
+                    className="shadow appearance-none border border-b-transparent rounded-b-none bg-transparent rounded-[10px] w-full h-[50%] pt-6 pl-16 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    type="text" 
+                    placeholder="Nomor Telp."
                   />
+                  <div className='flex absolute left-0 top-0 width-[40px] justify-center'>
+                    <span className='flex text-xl space-x-3 ml-5 relative top-9'>
+                      <BsTelephone 
+                        size={20}
+                        className='space-x-3'
+                      />
+                      <div className='relative -top-2'>
+                        |
+                      </div>
+                    </span>
+                  </div>
                   
-                  <span>
-                    Nomor Telp.
-                  </span>
-                  <div className="inputBox relative top-9 w-[100%]">
+                  <div className="inputBox relative w-[100%] h-[4rem]">
                   <input 
-                    type="text"
-                    className=''
-                    required
-                    onChange={(e) => setLombaIG(e.target.value)}
+                    className="shadow appearance-none border border-t-transparent rounded-t-none bg-transparent rounded-[10px] w-full h-full pb-6 pl-16 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    type="text" 
+                    placeholder="Akun IG"
                   />
-                  <span>Akun IG</span>
+                  <div className='flex absolute left-0 top-0 width-[40px] justify-center'>
+                     <span className='flex text-xl space-x-2 ml-5 relative top-2'>
+                      <AiOutlineInstagram 
+                        size={24}
+                        className='space-x-2'
+                      />
+                      <div className='relative -top-1'>
+                        |
+                      </div>
+                    </span>
+                  </div>
+                 
                   </div>
                 </div>
                 
                 <div className="inputBox relative w-[55%]">
                   <textarea
-                    typeof='text'
-                    className=''
-                    required
+                    className="shadow appearance-none border  bg-transparent rounded-[10px] w-full h-full py-3 px-4 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    typeof="text" 
+                    placeholder="Syarat Lomba (opsional)"
                     onChange={(e) => setLombaRequire(e.target.value)}
                     maxLength={100}
                   />
-                    <span>Syarat Lomba (opsional)</span>
+                    
                     <h1 className='block absolute bottom-0 right-0 mb-2 text-sm font-inter text-white mr-3'>
                       {lombaRequire? lombaRequire.length : 0}/100
                     </h1>
@@ -135,13 +152,14 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
               <div className='w-[30rem] h-[8rem] flex space-x-3 relative top-16'>
                 <div className="inputBox relative w-[100%]">
                   <textarea
-                    typeof='text'
-                    className=''
-                    required
+                    className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-3 px-4 text-white leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    typeof="text" 
+                    placeholder="Informasi Lomba"
                     maxLength={300}
                     onChange={(e) => setLombaInfo(e.target.value)}
                   />
-                    <span>Informasi Lomba</span>
+                    
                     <h1 className='block absolute bottom-0 right-0 mb-2 text-sm font-inter text-white mr-3'>
                       {lombaInfo? lombaInfo.length : 0}/300
                     </h1>
