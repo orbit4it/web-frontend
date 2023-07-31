@@ -18,27 +18,27 @@ import CompetitionCard from '@/components/competitionPage/CompetitionCard';
 export default function page() {
   const [showEdit, setShowEdit] = useState(false);
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const checkAuth = async () => {
-    const res = await Apicall(`
-   query {
-         me {
-    id
-    name
-    role
-  }
-          }
-    `);
+  // const checkAuth = async () => {
+  //   const res = await Apicall(`
+  //  query {
+  //        me {
+  //   id
+  //   name
+  //   role
+  // }
+  //         }
+  //   `);
 
-    if (!res) {
-      router.push('/login');
-    }
-  };
+  //   if (!res) {
+  //     router.push('/login');
+  //   }
+  // };
 
-  useEffect(() => {
-    checkAuth();
-  });
+  // useEffect(() => {
+  //   checkAuth();
+  // });
 
   return (
     <>
