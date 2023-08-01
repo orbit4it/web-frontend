@@ -1,17 +1,19 @@
 'use client';
 import CredentialsInput from '@/components/LogReg/CredentialsInput';
 import Apicall from '@/helper/apicall';
+import styles from '@/helper/page.module.css';
 import { updateToast } from '@/helper/toaster';
+import { store } from '@/store';
+import { setAccessToken } from '@/store/authSlice';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import { toast } from 'react-toastify';
-import styles from '../../helper/page.module.css';
-import jwt_decode from 'jwt-decode';
-
 axios.defaults.withCredentials = true;
 
 export default function page() {
@@ -44,6 +46,7 @@ export default function page() {
       const checkUser = (token = '') => {
         let decoded: any = jwt_decode(token);
         if (decoded.role == 'admin' || decoded.role == 'superadmin') {
+          Cookies.set('user_token', token);
           router.push('/admin/dashboard');
         } else {
           router.push('/dashboard');
@@ -52,9 +55,9 @@ export default function page() {
 
       if (login.errors) {
         updateToast(id, login.errors[0].message, 'error', false, 5000);
-        checkUser();
       } else if (login.data.userAuth.accessToken) {
         let token = login.data.userAuth.accessToken;
+        store.dispatch(setAccessToken(token));
         updateToast(id, 'Login Berhasil', 'success', false, 5000);
         checkUser(token);
       } else if (login.data.userAuth.error) {
@@ -128,7 +131,7 @@ export default function page() {
         <div
           className=" flex gap-1 items-center text-white absolute bottom-5 left-5  cursor-pointer"
           onClick={(e) => {
-            router.back();
+            router.push('/');
           }}
         >
           <IoChevronBackOutline size={20} color="white" />

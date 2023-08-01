@@ -1,9 +1,17 @@
-import { DetailCalon } from '@/helper/interfaces';
+'use client';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
-import { RiCloseFill } from 'react-icons/ri';
-
-const DetailCalonUser: React.FC<DetailCalon> = ({
+import Modal from '../Modal';
+export interface DetailCalonProps {
+  classname?: string;
+  division: string;
+  email: string;
+  grade: string;
+  name: string;
+  nis?: string;
+  motivasi: string;
+  setShow: (isShow: boolean) => void;
+}
+const DetailCalon: React.FC<DetailCalonProps> = ({
   division,
   email,
   grade,
@@ -11,57 +19,43 @@ const DetailCalonUser: React.FC<DetailCalon> = ({
   nis,
   motivasi,
   classname,
-  show,
-  close,
+  setShow,
 }) => {
-  const closeDetail = () => {
-    show = !show;
+  const onClose = () => {
+    setShow(false);
   };
-
   return (
-    <div
-      className={twMerge(
-        `fixed w-screen h-screen flex justify-center items-center inset-0 z-10 ${
-          show ? 'block' : 'hidden'
-        }`,
-        classname
-      )}
-    >
-      <div
-        className={` ${
-          show ? 'opacity-100' : 'opacity-0'
-        } w-screen h-screen flex justify-center items-center`}
-      >
-        <div
-          className={` ${
-            show ? 'opacity-100' : 'opacity-0'
-          } glassmorphism backdrop-filter backdrop-blur-lg bg-opacity-10 w-auto h-auto mx-auto my-auto duration-200 text-white p-3 relative`}
-        >
-          <h1 className=" font-bold text-3xl text-center px-5">{name}</h1>
-          <RiCloseFill
-            className=" text-white text-xl absolute right-10 top-[25px] cursor-pointer z-10"
-            onClick={(e) => {
-              close();
-            }}
-          />
-          <div className=" mt-3 flex items-center gap-3 text-white/70">
-            <p>{division}</p>
-            <p>{grade}</p>
-            <p>{nis ? nis : 'Tidak ada NIS'}</p>
-            <p>{email}</p>
+    <Modal onClose={onClose}>
+      <div className=" w-96 max-h-80 ">
+        <h1 className="w-full text-center text-2xl font-semibold">
+          Detail Calon Anggota
+        </h1>
+        <div className="grid grid-cols-12 justify-center justify-items-center mt-10 ">
+          <div className="flex flex-col gap-2 col-span-4">
+            <h1>Nama</h1>
+            <h1>Kelas</h1>
+            <h1>NIS</h1>
+            <h1>Ingin Masuk</h1>
+            <h1>Motivasi</h1>
           </div>
-          <div className=" flex gap-3 text-white/70 w-auto md:w-[450px] h-72 mt-4">
-            <h1>Motivasi: </h1>
-            <div className=" px-3">
-              <h1 className="overflow-auto w-full h-full text-justify">
-                {motivasi}
-              </h1>
-            </div>
+          <div className="flex flex-col gap-2 col-span-1">
+            <h1>:</h1>
+            <h1>:</h1>
+            <h1>:</h1>
+            <h1>:</h1>
+            <h1>:</h1>
+          </div>
+          <div className="flex flex-col gap-2 col-span-7 ">
+            <h1>{name}</h1>
+            <h1>{grade}</h1>
+            <h1>{nis ? nis : '-'}</h1>
+            <h1>{division}</h1>
+            <h1>{motivasi ? motivasi : 'tidak ada motivasi'}</h1>
           </div>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 };
 
-export default DetailCalonUser;
+export default DetailCalon;

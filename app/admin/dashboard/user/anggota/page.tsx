@@ -1,34 +1,77 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import Apicall from '@/helper/apicall';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BiSearch } from 'react-icons/bi';
 import { HiOutlineTrash } from 'react-icons/hi';
 import UserPageLink from '@/components/admin/UserPageLink';
+import { User, UsersRes } from '@/helper/interfaces';
+import { updateToast } from '@/helper/toaster';
+import useObserveToken from '@/hooks/useObserveToken';
+import { toast } from 'react-toastify';
+
+interface AxiosUsersRes {
+  data: UsersRes;
+}
 
 export default function page() {
+  const axiosInstance = useObserveToken();
+  const [data, setData] = useState<User[]>([]);
   const router = useRouter();
 
-  // const checkAuth = async () => {
-  //   const res = await Apicall(`
-  //  query {
-  //        me {
-  //   id
-  //   name
-  //   role
-  // }
-  //         }
-  //   `);
+  const fetch = async () => {
+    const id = toast.loading('Mengambil Data...');
+    try {
+      const getUsers: AxiosUsersRes = await axiosInstance({
+        method: 'POST',
+        url: '/graphql',
+        data: {
+          query: `query {
+            users{
+              id
+              name
+              role
+              division {
+                id
+                name
+              }
+              grade {
+                id
+                name
+              }
+            }
+          }`,
+        },
+      });
 
-  //   if (!res) {
-  //     router.push('/login');
-  //   }
-  // };
+      if (getUsers.data.errors) {
+        updateToast(
+          id,
+          'Terjadi Kesalahan Saat Mengambil Data',
+          'error',
+          false,
+          5000
+        );
+        throw new Error(getUsers.data.errors[0].message);
+      }
 
-  // useEffect(() => {
-  //   checkAuth();
-  // });
+      if (getUsers.data.data == null || getUsers.data == null) {
+        updateToast(id, 'Terjadi Kesalahan', 'error', false, 5000);
+        throw new Error('Something went wrong');
+      }
+
+      updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
+      setData(getUsers.data.data.users);
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
 
   return (
     <>
@@ -87,222 +130,71 @@ export default function page() {
             <table className=" w-full h-full overflow-auto">
               <thead>
                 <tr>
-                  <td align="center" className=" pb-3 text-sm">
-                    No.
+                  <td align="center" className=" pb-3  text-sm">
+                    No
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
-                    NIS
-                  </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     Nama
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
+                    Email
+                  </td>
+                  <td align="center" className=" pb-3  text-sm">
+                    NIS
+                  </td>
+                  <td align="center" className=" pb-3  text-sm">
                     Kelas
                   </td>
-                  <td align="center" className=" pb-3 text-sm">
+                  <td align="center" className=" pb-3  text-sm">
                     Divisi
-                  </td>
-                  <td align="center" className=" pb-3 text-sm">
-                    Email
                   </td>
                   <td align="center" className=" pb-3 text-sm">
                     Kehadiran
                   </td>
                   <td align="center" className=" pb-3 text-sm opacity-0">
-                    asasoksa
+                    Aksi
                   </td>
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  className="odd:bg-[#3B405B] cursor-pointer"
-                  onClick={() => {
-                    router.push(
-                      '/admin/dashboard/user/anggota/detail?nama=Ambafish'
-                    );
-                  }}
-                >
-                  <td align="center" className=" text-xs p-5">
-                    1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Ambafish
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Amba@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    2
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi Keomokata XII
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    3
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Imoet sasimo
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-2
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Web Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    4
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Fuad Sparta Leonidas
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    5
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Dimas ukin
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-3
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Cinematography
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    6
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Brandon curington
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
-                <tr className="odd:bg-[#3B405B]">
-                  <td align="center" className=" text-xs p-5">
-                    7
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    1212121212
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    rusdi komaladi
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    X-NGAWI-1
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Game Development
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    Rusdi@gmail.com
-                  </td>
-                  <td align="center" className=" text-xs p-5">
-                    /\
-                  </td>
-                  <td align="center">
-                    <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
-                  </td>
-                </tr>
+                {data?.map((person, index) => {
+                  return (
+                    <tr
+                      key={index}
+                      className="odd:bg-[#3B405B] cursor-pointer"
+                      onClick={(e) => {
+                        router.push(
+                          `/admin/dashboard/user/anggota/detail?id=${person.id}`
+                        );
+                      }}
+                    >
+                      <td align="center" className="text-xs py-3 px-2">
+                        {index}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.name}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        in-development
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.nis ? person.nis : '2122119131'}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.grade?.name}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.division?.name}
+                      </td>
+                      <td align="center" className=" text-xs p-5">
+                        /\
+                      </td>
+                      <td align="center">
+                        <HiOutlineTrash className=" cursor-pointer text-red-500 text-lg" />
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

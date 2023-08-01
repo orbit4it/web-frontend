@@ -1,6 +1,9 @@
 import { toast } from 'react-toastify';
 
-export const showToast = (message: string, type: string) => {
+export const showToast = (
+  message: string,
+  type: 'danger' | 'warning' | 'success' | 'info'
+) => {
   if (type == 'success') {
     toast.success(message);
   } else if (type == 'danger') {

@@ -172,7 +172,14 @@ export default async function page() {
           </div>
         </section>
         <section className="w-full h-max px-5 py-4 rounded-lg align-middle inline-block overflow-hidden shadow-md bg-d-secondary">
-          <TableTransactions />
+          <TableTransactions
+            onDelete={(id: number) => {
+              console.log(id);
+            }}
+            onEdit={(id: number) => {
+              console.log(id);
+            }}
+          />
           <Link
             className="w-full px-3 py-5 flex items-center justify-center bg-[#7421DD] text-base font-medium"
             href={'/admin/dashboard/keuangan/transaksi'}

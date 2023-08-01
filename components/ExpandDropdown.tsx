@@ -18,6 +18,7 @@ interface ExpandDropdownProps {
   position: Positions;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   textSize?: 'text-xs' | 'text-sm' | 'text-base' | 'text-lg' | 'text-xl';
+  rounded?: 'rounded-full' | 'rounded-md' | 'rounded-lg' | 'rounded-xl';
 }
 
 const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
@@ -32,6 +33,7 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
   position,
   size = 'md',
   textSize = 'text-xs',
+  rounded = 'rounded-full',
 }) => {
   return (
     <motion.div
@@ -39,7 +41,8 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
       transition={{ duration: 0.5, type: 'keyframes' }}
       style={{ borderRadius: '12px' }}
       className={twMerge(
-        `absolute  rounded-full py-1 px-4  flex flex-col gap-2 items-start border-[1px]`,
+        `absolute  py-1 px-4  flex flex-col gap-2 items-start border-[1px]`,
+        rounded,
         position == Positions.topleft
           ? 'left-0 top-0'
           : position == Positions.topright

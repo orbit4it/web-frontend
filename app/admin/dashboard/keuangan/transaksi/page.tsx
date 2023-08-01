@@ -1,13 +1,16 @@
 'use client';
 
+import Pin from '@/components/financePage/Pin';
 import TableTransactions from '@/components/financePage/TableTransactions';
 import Link from 'next/link';
+import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaAngleRight } from 'react-icons/fa';
 import Apicall from '@/helper/apicall';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
+<<<<<<< HEAD
 export default async function page() {
   // const router = useRouter();
 
@@ -30,8 +33,33 @@ export default async function page() {
   // useEffect(() => {
   //   checkAuth();
   // });
+=======
+export default function page() {
+  const [showPin, setShowPin] = useState<boolean>(false);
+  const [showEdit, setShowEdit] = useState<boolean>(true);
+  const [showAdd, setShowAdd] = useState<boolean>(false);
+
+  const handleEdit = (id: number) => {
+    console.log('edit', id);
+  };
+
+  const handleDelete = (id: number) => {
+    console.log('delete', id);
+    setShowPin(true);
+  };
+>>>>>>> 9f2e09dbaa3db49d2646b72c628a09ef215dad37
   return (
     <>
+      {showPin && (
+        <Pin
+          setShow={setShowPin}
+          onConfirm={(pin: string) => {
+            console.log(pin);
+            setShowPin(false);
+          }}
+        />
+      )}
+      {/* {showEdit && <AddUpdate />} */}
       {/* Route Section */}
       <header className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">
@@ -98,7 +126,7 @@ export default async function page() {
               Reset
             </button>
           </header>
-          <TableTransactions />
+          <TableTransactions onEdit={handleEdit} onDelete={handleDelete} />
         </section>
       </main>
     </>

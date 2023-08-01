@@ -1,6 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import Apicall from '@/helper/apicall';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { IoIosArrowForward } from 'react-icons/io';
 import { BsTelephone, BsInstagram } from 'react-icons/bs';
@@ -9,34 +9,72 @@ import { FaGithub } from 'react-icons/fa';
 import { LuMail } from 'react-icons/lu';
 import { useParams, useSearchParams } from 'next/navigation';
 import UserPageLink from '@/components/admin/UserPageLink';
-import styles from '../../../../../../helper/page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
+import useObserveToken, { axiosInstance } from '@/hooks/useObserveToken';
+import { updateToast } from '@/helper/toaster';
+import { User, UsersRes } from '@/helper/interfaces';
+
+interface AxiosUsersRes {
+  data: UsersRes;
+}
 
 export default function page() {
+  const axiosInstance = useObserveToken();
   const searchParams = useSearchParams();
+  const [data, setData] = useState<User[]>([]);
 
-  // const router = useRouter();
+  const fetch = async () => {
+    const id = toast.loading('Mengambil Data...');
+    try {
+      const getUsers: AxiosUsersRes = await axiosInstance({
+        method: 'POST',
+        url: '/graphql',
+        data: {
+          query: `query {
+                    userById(id: "${searchParams.get('id')}") {
+                    name
+                    grade {
+                      name
+                    }
+                    division {
+                      name
+                    }
+                  }
+                }`,
+        },
+      });
 
-  // const checkAuth = async () => {
-  //   const res = await Apicall(`
-  //  query {
-  //        me {
-  //   id
-  //   name
-  //   role
-  // }
-  //         }
-  //   `);
+      console.log(getUsers);
 
-  //   if (!res) {
-  //     router.push('/login');
-  //   }
-  // };
+      // if (getUsers.data.errors) {
+      //   updateToast(
+      //     id,
+      //     'Terjadi Kesalahan Saat Mengambil Data',
+      //     'error',
+      //     false,
+      //     5000
+      //   );
+      //   throw new Error(getUsers.data.errors[0].message);
+      // }
 
-  // useEffect(() => {
-  //   checkAuth();
-  // });
+      // if (getUsers.data.data == null || getUsers.data == null) {
+      //   updateToast(id, 'Terjadi Kesalahan', 'error', false, 5000);
+      //   throw new Error('Something went wrong');
+      // }
+
+      // updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
+      // setData(getUsers.data.data.users);
+    } catch (error: any) {
+      console.log(error);
+      throw new Error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
 
   return (
     <>

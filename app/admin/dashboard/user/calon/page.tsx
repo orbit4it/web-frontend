@@ -1,18 +1,28 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import Apicall from '@/helper/apicall';
-import { useEffect, useState } from 'react';
-import { IoIosArrowForward } from 'react-icons/io';
-import { BiSearch } from 'react-icons/bi';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
+import DetailCalon from '@/components/admin/DetailCalon';
 import UserPageLink from '@/components/admin/UserPageLink';
-import { toast } from 'react-toastify';
+import Apicall from '@/helper/apicall';
+import {
+  DetailCalonState,
+  PendingUser,
+  PendingUserRes,
+} from '@/helper/interfaces';
 import { updateToast } from '@/helper/toaster';
-import { CalonUserProps, DetailCalonState } from '@/helper/interfaces';
-import { useRouter } from 'next/navigation';
-import DetailCalonUser from '@/components/admin/DetailCalon';
+import useObserveToken from '@/hooks/useObserveToken';
+import { useEffect, useState } from 'react';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { BiSearch } from 'react-icons/bi';
+import { IoIosArrowForward } from 'react-icons/io';
+import { toast } from 'react-toastify';
+
+interface AxiosPendingUser {
+  data: PendingUserRes;
+}
 
 export default function page() {
-  const [data, setData] = useState<CalonUserProps[]>([]);
+  const axiosInstance = useObserveToken();
+  const [data, setData] = useState<PendingUser[]>([]);
   const [detailCalon, setDetailCalon] = useState<DetailCalonState>({
     division: '',
     email: '',
@@ -47,35 +57,52 @@ export default function page() {
 
   const fetch = async () => {
     const id = toast.loading('Mengambil Data...');
-    const fetchData = await Apicall(
-      `{
-        pendingUsers {
-    id
-    name
-    email
-    nis
-    grade {
-      id
-      name
-    }
-    division {
-      id
-      name
-    }
-    motivation
-  }
-      },`,
-      true
-    );
-    console.log(fetchData);
+    try {
+      const getPendingUser: AxiosPendingUser = await axiosInstance({
+        method: 'POST',
+        url: '/graphql',
+        data: {
+          query: `query {
+            pendingUsers {
+              id
+              name
+              email
+              nis
+              grade {
+                id
+                name
+              }
+              division {
+                id
+                name
+              }
+              motivation
+            }
+          }`,
+        },
+      });
 
-    if (fetchData.errors) {
-      updateToast(id, fetchData.errors[0].message, 'error', false, 5000);
-    } else if (fetchData) {
-      setData(fetchData.data.pendingUsers);
+      if (getPendingUser.data.errors) {
+        updateToast(
+          id,
+          'Terjadi Kesalahan Saat Mengambil Data',
+          'error',
+          false,
+          5000
+        );
+        throw new Error(getPendingUser.data.errors[0].message);
+      }
+
+      if (getPendingUser.data.data == null || getPendingUser.data == null) {
+        updateToast(id, 'Terjadi Kesalahan', 'error', false, 5000);
+        throw new Error('Something went wrong');
+      }
+
       updateToast(id, 'Data Berhasil Diambil', 'success', false, 5000);
+      setData(getPendingUser.data.data.pendingUsers);
+    } catch (error: any) {
+      throw new Error(error.message);
     }
-    // console.log(data);
   };
 
   useEffect(() => {
@@ -99,7 +126,6 @@ export default function page() {
 `
     );
     fetch();
-
     console.log(post);
     if (post.errors) {
       updateToast(idToast, post.errors[0].message, 'error', false, 5000);
@@ -131,7 +157,6 @@ export default function page() {
     );
     fetch();
 
-    console.log(post);
     if (post.errors) {
       updateToast(idToast, post.errors[0].message, 'error', false, 5000);
     } else if (post.data) {
@@ -161,8 +186,6 @@ export default function page() {
       nis: nis,
       motivation: motivation,
     });
-
-    console.log(detailCalon);
   };
 
   const setClose = () => {
@@ -170,16 +193,17 @@ export default function page() {
   };
   return (
     <>
-      <DetailCalonUser
-        division={detailCalon.division}
-        email={detailCalon.email}
-        grade={detailCalon.grade}
-        name={detailCalon.name}
-        nis={detailCalon.nis}
-        motivasi={detailCalon.motivation}
-        show={showDetail}
-        close={setClose}
-      />
+      {showDetail && (
+        <DetailCalon
+          division={detailCalon.division}
+          email={detailCalon.email}
+          grade={detailCalon.grade}
+          name={detailCalon.name}
+          nis={detailCalon.nis}
+          motivasi={detailCalon.motivation}
+          setShow={setShowDetail}
+        />
+      )}
       {/* Route Section */}
       <section className="pl-10 md:p-0">
         <ul className="flex gap-4 items-center route">
@@ -216,14 +240,14 @@ export default function page() {
             <h1>Range From:</h1>
             <input
               type="date"
-              className=" py-1 px-4 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none"
+              className=" py-3 px-4 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none"
             />
             <h1>Until: </h1>
             <input
               type="date"
-              className=" py-1 px-4 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none"
+              className=" py-3 px-4 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none"
             />
-            <button className=" py-1 px-3 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none">
+            <button className=" py-3 px-3 rounded-lg bg-[#7585BF] text-white text-xs font-semibold outline-none">
               Reset
             </button>
           </form> */}
@@ -232,7 +256,7 @@ export default function page() {
               <thead>
                 <tr>
                   <td align="center" className=" pb-3  text-sm">
-                    No Pendaftaran
+                    No
                   </td>
                   <td align="center" className=" pb-3  text-sm">
                     Nama
@@ -261,30 +285,42 @@ export default function page() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((item, key) => {
+                {data?.map((person, key) => {
                   return (
                     <tr key={key} className="odd:bg-[#3B405B]">
-                      <td align="center">{item.id}</td>
-                      <td align="center">{item.name}</td>
-                      <td align="center">{item.email}</td>
-                      <td align="center">{item.nis ? item.nis : 'null'}</td>
-                      <td align="center">{item.grade.name}</td>
-                      <td align="center">{item.division.name}</td>
-                      <td align="center" className=" text-xs p-5">
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.id}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.name}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.email}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.nis ? person.nis : '2122119131'}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.grade.name}
+                      </td>
+                      <td align="center" className="text-xs py-3 px-2">
+                        {person.division.name}
+                      </td>
+                      <td align="center" className=" text-xs py-3 px-2">
                         <button
-                          className=" py-2 px-3 bg-green-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
+                          className=" py-2  px-2 bg-green-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
                           onClick={(e) => {
-                            confirmUser(item.id);
+                            confirmUser(person.id);
                           }}
                         >
                           Terima
                         </button>
                       </td>
-                      <td align="center" className=" text-xs p-5">
+                      <td align="center" className=" text-xs py-3 px-2">
                         <button
-                          className=" py-2 px-3 bg-red-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
+                          className=" py-2 px-2 bg-red-600 rounded-md text-white text-sm cursor-pointer hover:scale-95 duration-200 font-semibold"
                           onClick={(e) => {
-                            rejectUser(item.id);
+                            rejectUser(person.id);
                           }}
                         >
                           Tolak
@@ -292,14 +328,15 @@ export default function page() {
                       </td>
                       <td
                         align="center"
+                        className="py-3 px-2"
                         onClick={(e) => {
                           detailUser(
-                            item.division.name,
-                            item.email,
-                            item.grade.name,
-                            item.name,
-                            item.nis,
-                            item.motivation
+                            person.division.name,
+                            person.email,
+                            person.grade.name,
+                            person.name,
+                            person.nis,
+                            person.motivation
                           );
                           setShowDetail(!showDetail);
                         }}
