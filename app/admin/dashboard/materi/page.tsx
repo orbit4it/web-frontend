@@ -1,8 +1,26 @@
+'use client';
+
 import Modal from '@/components/admin/Modal';
 import SubjectCard from '@/components/subjectPage/SubjectCard';
 import { IoAdd } from 'react-icons/io5';
 import { GrClose } from 'react-icons/gr';
+import { BsPlusLg, BsUnion } from 'react-icons/bs';
+import { useState } from 'react';
 export default function page() {
+  const [Deskripsi, setDeskripsi] = useState<string>('');
+  const [DeskripsiColor, setDeskripsiColor] = useState<string>('');
+
+  const handleDeskripsiColor = () => {
+    if (Deskripsi.length >= 150 && Deskripsi.length <= 240) {
+      setDeskripsiColor('warning');
+    } else if (Deskripsi.length > 240) {
+      setDeskripsiColor('danger');
+    } else {
+      setDeskripsiColor('white');
+    }
+  };
+
+
   return (
     <>
       <Modal>
@@ -13,7 +31,7 @@ export default function page() {
           <div>
             <input
               type="text"
-              className=" bg-transparent rounded-lg border-[1px] border-white py-1 px-3 text-white text-lg outline-none placeholder:text-white"
+              className=" bg-transparent rounded-lg border-[1px] border-white py-1 px-3 text-white text-lg outline-none placeholder:text-white w-full"
               placeholder="Judul Materi"
             />
           </div>
@@ -52,6 +70,84 @@ export default function page() {
                 </option>
               </select>
             </div>
+          </div>
+          <div className='flex items-center gap-3 justify-between mt-5'>
+            <div className='flex flex-col gap-3 items-center h-full'>
+              <div className='flex items-center bg-transparent rounded-lg border-[1px] border-white py-1 px-3  outline-none'>
+                  <input 
+                    type="file"
+                    accept="image/*"
+                    id='cover'
+										className="hidden"  
+                  />
+                  <label htmlFor="cover" className='flex items-center'>
+                  <BsPlusLg className='w-4 h-4 text-white mr-3'/>
+                  <p className='text-lg text-white'>Cover Materi</p>
+                  </label>
+              </div>
+              <div className='flex items-center bg-transparent rounded-lg border-[1px] border-white py-1 px-3  outline-none'>
+                  <input 
+                    type="file"
+                    accept=".doc, .docx, .pdf"
+                    id='attachment'
+										className="hidden"  
+                  />
+                  <label htmlFor="attachment" className='flex items-center'>
+                  <BsPlusLg className='w-4 h-4 text-white mr-3'/>
+                  <p className='text-lg text-white'>Attachment</p>
+                  </label>
+              </div>
+              <div className='flex items-center bg-transparent rounded-lg border-[1px] border-white py-1 px-3  outline-none'>
+                  <input 
+                    type="file"
+                    accept=".doc, .docx, .pdf"
+                    id='attachment'
+										className="hidden"  
+                  />
+                  <label htmlFor="attachment" className='flex items-center'>
+                  <BsPlusLg className='w-4 h-4 text-white mr-3'/>
+                  <p className='text-lg text-white'>Latihan Soal</p>
+                  </label>
+              </div>
+            </div>
+
+            <div className=" relative">
+                  <textarea
+                    title="Deskripsi"
+                    placeholder="Deskripsi Materi"
+                    value={Deskripsi}
+                    onChange={(e) => {
+                      if (e.target.value.length <= 300) {
+                        setDeskripsi(e.target.value);
+                      }
+                      handleDeskripsiColor();
+                    }}
+                    cols={29}
+                    rows={0}
+                    style={{overflow: 'hidden'}}
+                    className={` ${
+                      'border-' + DeskripsiColor
+                    } h-[136px] resize-none bg-transparent rounded-lg border-[1px] border-white py-1 px-3  outline-none`}
+                  />
+                  <p
+                    className={` ${
+                      DeskripsiColor == 'white'
+                        ? ` text-[#75629A]`
+                        : `text-${DeskripsiColor}`
+                    }  absolute  text-xs right-3 bottom-4`}
+                  >
+                    {Deskripsi.length}/300
+                  </p>
+                </div>
+
+              {/* <textarea name="" id="" cols={29} rows={0} className='h-[136px] resize-none bg-transparent rounded-lg border-[1px] border-white py-1 px-3  outline-none' style={{overflow: 'hidden'}} placeholder='Deskripsi Materi'></textarea> */}
+          </div>
+          
+          <div className='flex justify-center w-full mt-5'>
+
+          <button className='rounded-lg w-44 py-2 flex items-center justify-center bg-gradient-to-t from-blue-900 to-blue-400 text-white text-lg font-semibold'>
+            Upload
+          </button>
           </div>
         </form>
       </Modal>
