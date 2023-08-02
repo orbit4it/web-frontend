@@ -5,10 +5,10 @@ import { BsX } from 'react-icons/bs';
 import { ToastContainer } from 'react-toastify';
 type ModalProps = {
   children: React.ReactNode;
-  onClose?: () => void;
+  onClose?: (showTambah : boolean) => void;
 };
 
-const Modal: React.FC<ModalProps> = ({ children, onClose = () => {} }) => {
+const Modal: React.FC<ModalProps> = ({ children, onClose}) => {
   return (
     <>
       <ToastContainer
@@ -41,11 +41,11 @@ const Modal: React.FC<ModalProps> = ({ children, onClose = () => {} }) => {
               bounce: 0.25,
               delay: 0.5,
             }}
-            className="rounded-3xl glassmorphism backdrop-blur-md before:rounded-3xl flex flex-col items-center justify-center px-20 py-14 relative overflow-hidden "
+            className="rounded-3xl bg-space bg-cover before:rounded-3xl flex flex-col items-center justify-center px-20 py-14 relative overflow-hidden "
           >
             <BsX
               className="absolute top-2 right-5 cursor-pointer"
-              onClick={() => onClose()}
+              onClick={() => onClose(true)}
               size={24}
               color="white"
             />
