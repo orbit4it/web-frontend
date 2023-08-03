@@ -21,6 +21,7 @@ module.exports = {
         division: "url('/assets/img/BgHome.png')",
         'bulan-castle': "url('/assets/img/BulanCastle.png')",
         cave: "url('/assets/img/BgCave.png')",
+        space: "url('/assets/img/BgInfoLomba.jpg')",
         lombaBg: "url('/assets/img/AdminLomba.png')",
         bgJadwal: "url('/assets/img/BgJadwal.png')",
       },

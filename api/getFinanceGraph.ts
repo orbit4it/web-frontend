@@ -1,4 +1,7 @@
+import { today } from '@/helper/date';
 import { Errors, FinanceGraph, FinanceGraphRes } from '@/helper/interfaces';
+import { format } from 'date-fns';
+import id from 'date-fns/locale/id';
 
 export const queryFinanceGraph = `query { 
   graph($sortBy: String, $sortOrder: String, $page: number) {
@@ -14,7 +17,7 @@ export const queryFinanceGraph = `query {
 }`;
 
 const getFinanceGraph = async ({
-  sortBy = 'Weeks',
+  sortBy = format(today, 'MMMM', { locale: id }),
   sortOrder = 'DESC',
   page = 1,
 }: {

@@ -5,9 +5,11 @@ import ExpandDropdown from '../ExpandDropdown';
 import Option from '../Option';
 import Chart from './Chart';
 
-type ChartSectionProps = {};
+type ChartSectionProps = {
+  isAdmin?: boolean;
+};
 
-const ChartSection: React.FC<ChartSectionProps> = () => {
+const ChartSection: React.FC<ChartSectionProps> = ({ isAdmin = false }) => {
   const [selectedView, setSelectedView] = useState<string>('All');
   const [selectedTime, setSelectedTime] = useState<string>('Minggu');
   const [optionHovered, setOptionHovered] = useState<string>('null');
@@ -50,9 +52,13 @@ const ChartSection: React.FC<ChartSectionProps> = () => {
     />
   ));
   return (
-    <section className="w-full 2xl:h-[600px] md:h-4/5 flex justify-between gap-2 relative">
+    <section className="w-full 2xl:h-[600px] md:h-[448px] flex justify-between gap-2 relative">
       {/* Chart */}
-      <Chart selectedView={selectedView} selectedTime={selectedTime} />
+      <Chart
+        isAdmin={isAdmin}
+        selectedView={selectedView}
+        selectedTime={selectedTime}
+      />
       {/* Filter */}
       <div className="max-w-[14rem] w-1/2 h-max md:w-3/12 md:h-full rounded-lg pl-4 pr-2 md:px-4 py-4 absolute bottom-[-138px] left-0 md:static md:flex flex-col gap-4 md:shadow-md md:bg-d-secondary">
         <div className="text-sm text-white font-medium relative z-20">
@@ -65,7 +71,7 @@ const ChartSection: React.FC<ChartSectionProps> = () => {
             selectedOption={selectedView}
             showOptions={showViewOptions}
             size="xl"
-            className="border border-secondary mt-6 "
+            className="border border-white mt-6 "
             options={viewOptions}
             handleShowOptions={setShowViewOptions}
           />
@@ -80,7 +86,7 @@ const ChartSection: React.FC<ChartSectionProps> = () => {
             selectedOption={selectedTime}
             showOptions={showTimeOptions}
             size="xl"
-            className="border border-secondary mt-6"
+            className="border border-white mt-6"
             options={timeOptions}
             handleShowOptions={setShowTimeOptions}
           />

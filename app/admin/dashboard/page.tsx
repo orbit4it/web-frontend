@@ -1,22 +1,36 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
 import Anggota from '@/public/assets/icons/anggota.png';
 import RecentLomba from '@/public/assets/img/AdminLomba.png';
 import Schedules from '@/components/admin/DashboardSchedule';
-import getSchedules from '@/api/getSchedules';
+import SubjectCard from '@/components/admin/AdminSubjectCard';
+// import getSchedules from '@/api/getSchedules';
 
-export default async function page() {
+// interface ScheduleType {
+//   end: String;
+//   id: Number;
+//   location: String;
+//   start: String;
+//   subject: String;
+//   title: String;
+//   type: String;
+// }
+
+export default function page() {
   const [currentItem, setCurrentItem] = useState(0);
-  const [text, setText] = useState('');
-  const [judulPertemuan, setJudulPertemuan] = useState('');
-  const [deskripsi, setDeskripsi] = useState('');
-  const [token, setToken] = useState('');
-  const maxLength = 300;
 
-  const schedules = await getSchedules();
+  // const [schedules, setSchedules] = useState<ScheduleType>();
+
+  // useEffect(() => {
+  //   async function getSchedule() {
+  //     const sche = await getSchedules();
+  //     console.log(sche);
+  //   }
+  //   getSchedule();
+  // }, []);
 
   const item = [
     {
@@ -35,20 +49,6 @@ export default async function page() {
 
   const nextItem = () => {
     setCurrentItem((currentItem + 1) % item.length);
-  };
-
-  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setDeskripsi(event.target.value);
-    const { value } = event.target;
-    if (value.length <= maxLength) {
-      setText(value);
-    }
-  };
-
-  const handleSubmit = () => {
-    console.log(`Judul: ${judulPertemuan}`);
-    console.log(`Token: ${token}`);
-    console.log(`Deskripsi: ${deskripsi}`);
   };
 
   return (
@@ -89,6 +89,9 @@ export default async function page() {
           </div>
           <div className="mt-6 pt-5 pb-10 px-7 h-auto bg-profileCard rounded-[15px] shadow-md">
             <h1 className="font-bold">Lomba yang Akan Segera Dimulai</h1>
+            {/* test */}
+            {/* <SubjectCard /> */}
+            {/* ---------- */}
             <div className="rounded-[10px] bg-gradient-to-r from-cardMateri to-[#1F7FB6] mt-6">
               <div className="flex justify-between items-center p-3">
                 <h1 className="font-bold">{item[currentItem].title}</h1>
@@ -141,54 +144,10 @@ export default async function page() {
               </div>
             </div>
           </div>
-          {/* Tambah Jadwal */}
-          <div className="mt-6 py-7 px-12 rounded-[30px] bg-bgJadwal bg-cover">
-            <div className="flex items-center justify-between mb-8">
-              <h1 className="font-bold">Tambah Jadwal</h1>
-              <button>X</button>
-            </div>
-            <input
-              type="text"
-              placeholder="Judul Pertemuan"
-              className="border-[1px] rounded-[15px] p-3 w-full bg-transparent placeholder-opacity-60"
-              onChange={(e) => setJudulPertemuan(e.target.value)}
-            />
-            <div className="flex gap-4 mt-6">
-              <input
-                type="text"
-                placeholder="Tanggal"
-                className="border-[1px] rounded-[15px] p-3 w-full bg-transparent placeholder-opacity-60"
-              />
-              <input
-                type="text"
-                placeholder="Token"
-                className="border-[1px] rounded-[15px] p-3 w-full bg-transparent placeholder-opacity-60"
-                onChange={(e) => setToken(e.target.value)}
-              />
-            </div>
-            <div className="relative mt-8">
-              <textarea
-                className="w-full bg-transparent placeholder-opacity-60 p-3 h-40 border-[1px] rounded-[15px]"
-                value={text}
-                onChange={handleChange}
-                placeholder="Deskripsi Pertemuan"
-              ></textarea>
-              <div className="absolute bottom-2 right-2 text-white opacity-60 pb-2 pr-1">
-                {text.length}/{maxLength}
-              </div>
-            </div>
-            <button
-              className="mt-28 text-center mx-auto w-[180px] rounded-[15px] bg-gradient-to-b from-[#071590] to-[#4B58CF] py-2 block"
-              onClick={handleSubmit}
-            >
-              Tambah
-            </button>
-          </div>
-          {/* -------------------------- */}
         </div>
         <div className="w-full">
-          <div className="py-5 px-7 mt-3 md:mt-0 bg-profileCard rounded-[15px] shadow-md h-[404px]">
-            <Schedules schedules={schedules} divisionOptions={[]} />
+          <div className="py-5 px-7 mt-3 md:mt-0 bg-profileCard rounded-[15px] shadow-md h-auto">
+            <Schedules schedules={[]} divisionOptions={[]} />
           </div>
           <div className="mt-3 bg-profileCard rounded-[15px] shadow-md">
             <div className="pt-5 px-7 flex items-center justify-between mb-8">
@@ -197,7 +156,7 @@ export default async function page() {
                 <p className="text-sm">4 Anggota Baru</p>
               </div>
             </div>
-            <div className="flex justify-center space-x-8">
+            <div className="md:flex justify-center md:space-x-8">
               <div className="text-center">
                 <div className="w-16 h-16 rounded-full mb-2 bg-[#D9D9D9] mx-auto"></div>
                 <h1 className="font-bold">Nama</h1>
@@ -246,7 +205,7 @@ export default async function page() {
                 </div>
               </Link>
             </div>
-            <div className="flex justify-between mt-4">
+            <div className="flex flex-col md:flex-row md:justify-between mt-4">
               <div>
                 <div className="flex space-x-3">
                   <div className="w-12 h-12 bg-white rounded-full"></div>
@@ -265,7 +224,7 @@ export default async function page() {
                   </div>
                 </div>
               </div>
-              <hr className="w-[1px] h-[150px] bg-white opacity-70" />
+              <hr className="md:w-[1px] md:h-[150px] bg-white opacity-0 md:opacity-70" />
               <div>
                 <div className="flex space-x-3">
                   <div className="w-12 h-12 bg-white rounded-full"></div>

@@ -253,7 +253,7 @@ const Calendar: React.FC<CalendarProps> = ({ filterBy, schedules }) => {
           ))}
         </div>
       </section>
-      <section className="absolute bottom-4 left-1/2 -translate-x-1/2 w-3/5 mx-auto mt-2 flex justify-between items-center">
+      <section className="bottom-4 left-1/2 mx-auto mt-2 flex justify-between items-center">
         <FaAngleLeft
           size={20}
           color="white"

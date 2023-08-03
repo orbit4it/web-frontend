@@ -20,7 +20,7 @@ interface ExpandDropdownProps {
   textSize?: 'text-xs' | 'text-sm' | 'text-base' | 'text-lg' | 'text-xl';
 }
 
-const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
+const AdminDropDown: React.FC<ExpandDropdownProps> = ({
   options,
   showOptions,
   handleShowOptions,
@@ -39,7 +39,7 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
       transition={{ duration: 0.5, type: 'keyframes' }}
       style={{ borderRadius: '12px' }}
       className={twMerge(
-        `absolute  rounded-full py-1 px-4  flex flex-col gap-2 items-start border-[1px]`,
+        `absolute rounded-full py-1 px-4 flex flex-col gap-2 items-start`,
         position == Positions.topleft
           ? 'left-0 top-0'
           : position == Positions.topright
@@ -67,7 +67,7 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
       <motion.div
         layout="position"
         transition={{ duration: 0.4, type: 'keyframes' }}
-        className="w-full flex gap-2 items-center justify-between"
+        className="w-full flex items-center justify-between"
       >
         <p
           className={twMerge(
@@ -106,4 +106,4 @@ const ExpandDropdown: React.FC<ExpandDropdownProps> = ({
   );
 };
 
-export default ExpandDropdown;
+export default AdminDropDown;

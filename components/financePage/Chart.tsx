@@ -28,6 +28,7 @@ import Option from '../Option';
 interface ChartProps {
   selectedTime: string;
   selectedView: string;
+  isAdmin?: boolean;
 }
 
 interface GraphData {
@@ -53,7 +54,11 @@ ChartJS.register(
   Tooltip
 );
 
-const Chart: React.FC<ChartProps> = ({ selectedTime, selectedView }) => {
+const Chart: React.FC<ChartProps> = ({
+  selectedTime,
+  selectedView,
+  isAdmin = false,
+}) => {
   const [error, setError] = useState<Errors>();
 
   const [selectedMonth, setSelectedMonth] = useState<string>(
@@ -231,18 +236,20 @@ const Chart: React.FC<ChartProps> = ({ selectedTime, selectedView }) => {
     />
   ));
   return (
-    <div className="w-full md:w-9/12 2xl:w-11/12 h-56 md:h-full rounded-lg px-4 py-4 bg-d-secondary shadow-md">
+    <div className="w-full md:w-9/12 2xl:w-4/5 h-56 md:h-full rounded-lg px-4 py-4 bg-d-secondary shadow-md">
       <div className=" relative w-full flex items-center justify-between">
         <hgroup className="w-max md:w-1/2 md:flex md:gap-2 items-center">
           <h1 className="text-sm md:text-base font-medium tracking-tight">
             Grafik Keuangan
           </h1>
-          <Link
-            href="/dashboard/keuangan/riwayat"
-            className="text-[0.6rem] md:text-xs text-[#DFDFDF]"
-          >
-            See History
-          </Link>
+          {!isAdmin && (
+            <Link
+              href="/dashboard/keuangan/riwayat"
+              className="text-[0.6rem] md:text-xs text-[#DFDFDF]"
+            >
+              See History
+            </Link>
+          )}
         </hgroup>
 
         {selectedTime == 'Minggu' && (
