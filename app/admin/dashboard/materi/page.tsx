@@ -24,7 +24,7 @@ export default function page() {
 
   return (
     <>
-    {showTambah && <Modal onClose={() => setShowTambah}>
+    {showTambah && <Modal onClose={() => setShowTambah(false) } isOpen={showTambah}>
       <div className=" flex items-center justify-between">
         <h1 className=" font-semibold">Tambah Materi</h1>
       </div>

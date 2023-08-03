@@ -5,10 +5,11 @@ import { BsX } from 'react-icons/bs';
 import { ToastContainer } from 'react-toastify';
 type ModalProps = {
   children: React.ReactNode;
-  onClose?: (showTambah : boolean) => void;
+  onClose: () => void;
+  isOpen: boolean;
 };
 
-const Modal: React.FC<ModalProps> = ({ children, onClose}) => {
+const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen}) => {
   return (
     <>
       <ToastContainer
@@ -31,6 +32,8 @@ const Modal: React.FC<ModalProps> = ({ children, onClose}) => {
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="w-full h-screen fixed top-0 left-0 bg-black/50 flex flex-col items-center justify-center z-50"
         >
+                  {isOpen && (
+
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -45,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose}) => {
           >
             <BsX
               className="absolute top-2 right-5 cursor-pointer"
-              onClick={() => onClose(true)}
+              onClick={onClose}
               size={24}
               color="white"
             />
@@ -59,6 +62,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose}) => {
 
             {children}
           </motion.div>
+                  )}
         </motion.div>
       </AnimatePresence>
     </>
