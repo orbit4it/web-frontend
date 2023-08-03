@@ -51,6 +51,12 @@ export interface RecentSubject {
   author: string;
 }
 
+export interface CompetitionSubject {
+  id: number;
+  title: string;
+  img: string;
+}
+
 export interface TopSubject extends RecentSubject {
   rate: number;
   preview: string;

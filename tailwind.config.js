@@ -21,7 +21,9 @@ module.exports = {
         division: "url('/assets/img/BgHome.png')",
         'bulan-castle': "url('/assets/img/BulanCastle.png')",
         cave: "url('/assets/img/BgCave.png')",
-        space: "url('/assets/img/BgInfoLomba.jpg')"
+        space: "url('/assets/img/BgInfoLomba.jpg')",
+        lombaBg: "url('/assets/img/AdminLomba.png')",
+        bgJadwal: "url('/assets/img/BgJadwal.png')",
       },
       colors: {
         primary: '#0A013D',
@@ -43,6 +45,7 @@ module.exports = {
         'design-graphic': '#812DFF',
         cinematography: '#643AFF',
         'it-support': '#FF3131',
+        darkTrans: 'rgba(0, 0, 0, 0.20)',
       },
       fontFamily: {
         pStart: ['"Press Start 2P"', 'cursive'],
