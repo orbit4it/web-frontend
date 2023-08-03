@@ -23,7 +23,7 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
     <>
      <section className='sm:p-5'>
       <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-        <div className='box-border h-[40rem] w-[40rem] bg-space bg-cover bg-white md:flex-row p-14 md:mb-6 rounded-[30px] overflow-hidden shadow-md'>
+        <div className='box-border h-[40rem] md:w-[40rem] bg-space bg-cover bg-white md:flex-row p-14 md:mb-6 rounded-[30px] overflow-hidden shadow-md'>
           {/*Header*/}
           <div className='flex justify-between'>
             <h1 className='font-semibold'>Tambah Lomba</h1>
@@ -35,9 +35,9 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
           {/*End Header*/}
 
           {/*Content*/}
-          <div className='box-border h-[35rem] w-[35rem] p-2 px-8 py-10 pr-10'>
+          <div className='box-border h-[35rem] md:w-[35rem] p-2 px-8 py-10 pr-10'>
             {/*Line Input 1*/}
-            <div className='w-[30rem] h-[3rem] flex space-x-3'>
+            <div className='md:w-[30rem] h-[3rem] flex space-x-3'>
               <div className="inputBox relative w-[60%]">
               <input 
                 className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" 
@@ -58,7 +58,7 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
             {/*End Line Input 1*/}
 
             {/*Line Input 2*/}
-              <div className='w-[30rem] h-[3rem] flex space-x-3 relative top-5'>
+              <div className='md:w-[30rem] h-[3rem] flex space-x-3 relative top-5'>
                 <div className="inputBox relative w-[30%]">
                   <input
                     className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" 
@@ -89,7 +89,7 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
             {/*End Line Input 2*/}
 
             {/*Line Input 3*/}
-              <div className='w-[30rem] h-[8rem] flex space-x-3 relative top-10'>
+              <div className='md:w-[30rem] h-[8rem] flex space-x-3 relative top-10'>
                 <div className="inputBox relative w-[45%]">
                   <input
                     className="shadow appearance-none border border-b-transparent rounded-b-none bg-transparent rounded-[10px] w-full h-[50%] pt-6 pl-16 text-white leading-tight focus:outline-none focus:shadow-outline" 
@@ -149,7 +149,7 @@ const TambahLomba = ( { closeEdit }:{closeEdit:(showEdit : boolean) => void} ) =
             {/*End Line Input 3*/}
 
             {/*Line Input 4*/}
-              <div className='w-[30rem] h-[8rem] flex space-x-3 relative top-16'>
+              <div className='md:w-[30rem] h-[8rem] flex space-x-3 relative top-16'>
                 <div className="inputBox relative w-[100%]">
                   <textarea
                     className="shadow appearance-none border bg-transparent rounded-[10px] w-full h-full py-3 px-4 text-white leading-tight focus:outline-none focus:shadow-outline" 
