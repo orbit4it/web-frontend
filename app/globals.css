@@ -446,3 +446,14 @@
   right: 15%;
   animation-delay: 0.3s;
 }
+
+.leaderboardScroll::-webkit-scrollbar {
+  width: 16px;
+  background-color: #262b49cc;
+  opacity: 80%;
+}
+
+.leaderboardScroll::-webkit-scrollbar-thumb {
+  background-color: #ee2ed1c7;
+  border-radius: 10px;
+}
